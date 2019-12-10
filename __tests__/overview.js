@@ -3,6 +3,7 @@ import { mount, shallow } from 'enzyme'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import updateAverageRating from '../src/overview/actions/updateAverageRating.js'
+import averageRatingReducer from '../src/overview/reducers/averageRatingReducer.js'
 import fetchMock from 'fetch-mock'
 import StarRatingContainer from '../src/overview/containers/StarRatingContainer.jsx'
 
@@ -16,6 +17,12 @@ describe('async actions', () => {
     return store.dispatch(updateAverageRating(1)).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
     })
+  })
+})
+
+describe('averageRatingReducer', () => {
+  it ('should handle updateAverageRating', () => {
+    expect(averageRatingReducer([], { type: 'UPDATE_AVERAGE_RATING', payload: 4 })).toEqual({ averageRating: 4 })
   })
 })
 
