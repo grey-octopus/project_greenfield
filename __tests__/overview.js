@@ -19,10 +19,12 @@ describe('async actions', () => {
   })
 })
 
-describe('<StarRatingContainer />', () => {
-  it ('should have a prodId property', () => {
-    const store = mockStore({  prodId: 1})
-    const root = shallow(<StarRatingContainer store={store} />)
-    expect(root.find('StarRating').prop('prodId')).toEqual(1)
-  })
-})
+// describe('<StarRatingContainer />', () => {
+//   it ('should set averageRating property', () => {
+//     const store = mockStore({ prodId: 1 })
+//     const root = shallow(<StarRatingContainer store={store} />)
+//     return store.dispatch(updateAverageRating(1)).then(() => {
+//       expect(root.find('StarRating').prop)
+//     })
+//   })
+// })
