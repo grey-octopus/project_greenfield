@@ -13,8 +13,16 @@ const mockStore = configureMockStore(middlewares)
 describe('async actions', () => {
   it ('creates action with average rating', () => {
     const store = mockStore({ prodId: 1 })
-    const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', payload: 4 }]
+    const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', payload: 4.00 }]
     return store.dispatch(updateAverageRating(1)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions)
+    })
+  })
+
+  it ('should round payload to nearest quarter', () => {
+    const store = mockStore({ prodId: 1})
+    const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', paload: 3.50}]
+    return store.dispatch(updateAverageRating(2)).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
     })
   })
