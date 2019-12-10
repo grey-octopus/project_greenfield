@@ -10,7 +10,8 @@ const updateAverageRating = (prodId) => {
         }).reduce((acc, currentVal) => acc + currentVal)
         const numOfRatings = Object.values(ratings).reduce((acc, currentVal) => acc + currentVal)
         const roundedToNearestQuarter = (Math.round((weightedTotal / numOfRatings) * 4) / 4).toFixed(2)
-        return dispatch({ type: 'UPDATE_AVERAGE_RATING', payload: roundedToNearestQuarter })
+        console.log(roundedToNearestQuarter)
+        return dispatch({ type: 'UPDATE_AVERAGE_RATING', numOfRatings, payload: roundedToNearestQuarter })
       })
   }
 }
