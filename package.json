@@ -9,9 +9,12 @@
   "scripts": {
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -d --watch",
-    "build-prod": "webpack -p --mode production"
+    "build-prod": "webpack -p --mode production",
+    "server": "nodemon server.js"
   },
   "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
