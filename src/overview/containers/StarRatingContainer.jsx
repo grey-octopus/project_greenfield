@@ -4,8 +4,7 @@ import updateAverageRating from '../actions/updateAverageRating.js'
 
 const mapStateToProps = state => {
   return {
-    prodId: state.prodId,
-    averageRating: state.averageRating
+    prodId: state.prodId
   }
 }
 

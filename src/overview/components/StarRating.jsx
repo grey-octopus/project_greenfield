@@ -3,7 +3,9 @@ import React, { useEffect } from 'react'
 const StarRating = props => {
   useEffect(() => props.updateAverageRating(props.prodId)) // dispatch action
   return (
-    <div id="star-rating"></div>
+    <Suspense fallback={<p>Loading...</p>}>
+      <div id="star-rating"></div>
+    </Suspense>
   )
 }
 
