@@ -2,3 +2,28 @@ h1 {
   color: white;
   background-color: black;
 }
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+  font-style: normal;
+}
+
+.stars-outer::before {
+  content: '\f005 \f005 \f005 \f005 \f005';
+}
+
+.stars-inner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 50%;
+  font-style: solid;
+}
+
+.stars-inner::before {
+  content: '\f005 \f005 \f005 \f005 \f005';
+}
