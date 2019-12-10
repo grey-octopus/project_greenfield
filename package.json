@@ -32,12 +32,16 @@
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.7.2",
     "jest": "^24.9.0",
+    "jest-puppeteer": "^4.3.0",
     "react-test-renderer": "^16.12.0",
     "style-loader": "^1.0.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },
   "jest": {
-    "setupFilesAfterEnv": ["<rootDir>src/setupTests.js"]
+    "setupFilesAfterEnv": [
+      "<rootDir>src/setupTests.js"
+    ],
+    "preset": "jest-puppeteer"
   }
 }
