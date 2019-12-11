@@ -7,6 +7,6 @@ const rootReducer = combineReducers({
   averageRatingReducer
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, {prod: 1}, applyMiddleware(thunk));
 
 export default store;
