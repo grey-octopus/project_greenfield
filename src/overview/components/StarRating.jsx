@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 const StarRating = props => {
-  useEffect(() => props.updateAverageRating(props.prodId)) // dispatch action
+  useEffect(() => { props.updateAverageRating(props.prodId) }) // dispatch action
   if (props.averageRating) {
     const innerStyle = {
       width: `${(props.averageRating/5) * 100}%`
