@@ -1,40 +1,46 @@
-import React from 'react';
+//import React from 'react';
 import axios from 'axios';
 import { Component } from 'react';
+import React, { useEffect } from 'react';
 
-class ReviewBrowser extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { reviews: null };
-  }
+// const ReviewBrowser = ({ fetchReviewList, state }) => {
+//   useEffect(() => {
+//     const x = async () => {
+//       await fetchReviewList(1);
+//       console.log('testing state', state.fetchReviewReducer.reviews);
+//     };
+//   }); //props.prodId
 
-  componentDidMount() {
-    console.log('Review Browser did mount');
+//   return (
+//     <div className="review-browser">
+//       <h3>right column, list of reviews</h3>
+//     </div>
+//   );
+// };
 
-    axios({
-      method: 'get',
-      url: 'http://3.134.102.30/reviews/1/list',
-      responseType: 'stream'
-    })
-      .then(function(response) {
-        console.log(response);
-        this.setState({ reviews: response.data.results });
-      })
-      .then(() => {
-        this.render();
-      })
-      .catch(() => {
-        console.log('review request error');
-      });
-  }
+// const ReviewBrowser = ({fetchReviewList, state}) => {
+//   useEffect(() => props.fetchReviewList(1)); // dispatch action
+//   if (props.fetchReviewList) {
+//     const test = 'yes';
 
-  render() {
+//     return (
+//       <div>
+//         <h3>test</h3>
+//       </div>
+//     );
+//   } else return <div>Loading...</div>;
+// };
+
+const ReviewBrowser = (props) => {
+  useEffect(() => props.fetchReviewList(1)); // dispatch action
+
+  if (props.reviews) {
     return (
       <div>
         <h3>right column, list of reviews</h3>
       </div>
     );
-  }
-}
+  } else return <div>Loading...</div>;
+};
 
 export default ReviewBrowser;
