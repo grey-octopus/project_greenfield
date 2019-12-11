@@ -1,17 +1,20 @@
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
-import thunk from "redux-thunk";
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import thunk from 'redux-thunk';
 // import reducers to combine
-import averageRatingReducer from "./overview/reducers/averageRatingReducer.js";
-import fetchProductInfoReducer from "./overview/reducers/fetchProductInfoReducer.js";
+import averageRatingReducer from './overview/reducers/averageRatingReducer.js';
+import fetchProductInfoReducer from './overview/reducers/fetchProductInfoReducer.js';
+import fetchReviewReducer from './reviews/review_reducers/fetchReviewsReducer.js';
 
 const rootReducer = combineReducers({
   averageRatingReducer,
-  fetchProductInfoReducer
+  fetchProductInfoReducer,
+  fetchReviewReducer
 });
 
 const initialState = {
   averageRatingReducer,
-  fetchProductInfoReducer: { prodId: 1 }
+  fetchProductInfoReducer: { prodId: 1 },
+  fetchReviewReducer
 };
 
 const store = createStore(
