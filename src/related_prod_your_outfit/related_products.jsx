@@ -1,6 +1,27 @@
 import React from "react";
-const Related_Products = () => {
-  return <div>Related Products component</div>;
+import { connect } from "react-redux";
+// import {} from "./actions.js";
+import RelatedProductsCard from "./related_products_card.jsx";
+
+const RelatedProducts = ({ relatedProducts }) => {
+  return (
+    <div className="relatedProductsContainer">
+      {relatedProducts.map(product => {
+        return (
+          <RelatedProductsCard
+            id={product.id}
+            category={product.category}
+            name={product.name}
+            price={product.price}
+          />
+        );
+      })}
+    </div>
+  );
 };
 
-export default Related_Products;
+const mapStateToProps = state => {
+  return { relatedProducts: state.relatedProducts };
+};
+
+export default connect(mapStateToProps, null)(RelatedProducts);

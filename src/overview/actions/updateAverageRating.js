@@ -1,8 +1,9 @@
-import axios from 'axios'
+import axios from "axios";
 
-const updateAverageRating = (prodId) => {
+const updateAverageRating = prodId => {
   return dispatch => {
-    return axios.get(`http://3.134.102.30/reviews/${prodId}/meta`)
+    return axios
+      .get(`http://3.134.102.30/reviews/${prodId}/meta`)
       .then(meta => {
         const ratings = meta.data.ratings
         try {
@@ -22,4 +23,4 @@ const updateAverageRating = (prodId) => {
   }
 }
 
-export default updateAverageRating
+export default updateAverageRating;
