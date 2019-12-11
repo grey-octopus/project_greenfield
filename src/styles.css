@@ -26,3 +26,7 @@ h1 {
 .stars-inner::before {
   content: '\f005 \f005 \f005 \f005 \f005';
 }
+
+#star-rating {
+  visibility: hidden;
+}
