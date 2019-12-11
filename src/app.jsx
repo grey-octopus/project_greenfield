@@ -1,7 +1,12 @@
-import React from 'react';
+import React from 'react'
+import OverviewContainer from './overview/containers/OverviewContainer.jsx'
 
 const App = () => {
-  return <div>Hello Worldy world!</div>;
+  return (
+    <div>
+      <OverviewContainer />
+    </div>
+  )
 };
 
 export default App;
