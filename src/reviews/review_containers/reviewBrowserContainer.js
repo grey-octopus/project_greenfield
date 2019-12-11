@@ -4,8 +4,8 @@ import fetchReviewList from '../review_actions/fetchReviews.js';
 
 const mapStateToProps = (state) => {
   return {
-    averageRating: state.averageRating,
-    prodId: state.prodId,
+    averageRating: state.averageRatingReducer.averageRating,
+    prodId: state.prodId, // deprecate this
     reviewsCount: state.fetchReviewReducer.reviewsCount,
     currentReviewPage: state.fetchReviewReducer.currentReviewPage,
     reviews: state.fetchReviewReducer.reviews,
