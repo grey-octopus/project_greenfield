@@ -6,6 +6,7 @@ const fetchReviewList = (prodId) => {
     return axios
       .get(`http://3.134.102.30/reviews/${prodId}/list`)
       .then((response) => {
+        console.log(response.data);
         return dispatch({
           type: 'FETCH_REVIEW_LIST',
           reviewsCount: response.data.count,

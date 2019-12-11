@@ -32,7 +32,9 @@ import React, { useEffect } from 'react';
 // };
 
 const ReviewBrowser = (props) => {
-  useEffect(() => props.fetchReviewList(1)); // dispatch action
+  useEffect(() => {
+    props.fetchReviewList(1); // dispatch action
+  }, []);
 
   if (props.reviews) {
     return (
@@ -40,7 +42,7 @@ const ReviewBrowser = (props) => {
         <h3>right column, list of reviews</h3>
       </div>
     );
-  } else return <div>Loading...</div>;
+  } else return <div>Loading... ...</div>;
 };
 
 export default ReviewBrowser;

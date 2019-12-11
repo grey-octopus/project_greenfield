@@ -6,11 +6,10 @@ const mapStateToProps = (state) => {
   return {
     averageRating: state.averageRating,
     prodId: state.prodId,
-    reviewsCount: state.reviewsCount,
-    currentReviewPage: state.currentReviewPage,
-    reviews: state.reviews,
-    reviewProduct: state.reviewProduct,
-    state: state
+    reviewsCount: state.fetchReviewReducer.reviewsCount,
+    currentReviewPage: state.fetchReviewReducer.currentReviewPage,
+    reviews: state.fetchReviewReducer.reviews,
+    reviewProduct: state.fetchReviewReducer.reviewProduct
   };
 };
 
