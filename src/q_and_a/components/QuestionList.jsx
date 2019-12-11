@@ -2,7 +2,8 @@ import React from "react";
 import { connect} from "react-redux";
 import Question from "./Question";
 
-const QuestionList = () => {
+const QuestionList = (props) => {
+    
     return (
         <div>
             
