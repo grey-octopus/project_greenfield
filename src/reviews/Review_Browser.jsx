@@ -2,34 +2,7 @@
 import axios from 'axios';
 import { Component } from 'react';
 import React, { useEffect } from 'react';
-
-// const ReviewBrowser = ({ fetchReviewList, state }) => {
-//   useEffect(() => {
-//     const x = async () => {
-//       await fetchReviewList(1);
-//       console.log('testing state', state.fetchReviewReducer.reviews);
-//     };
-//   }); //props.prodId
-
-//   return (
-//     <div className="review-browser">
-//       <h3>right column, list of reviews</h3>
-//     </div>
-//   );
-// };
-
-// const ReviewBrowser = ({fetchReviewList, state}) => {
-//   useEffect(() => props.fetchReviewList(1)); // dispatch action
-//   if (props.fetchReviewList) {
-//     const test = 'yes';
-
-//     return (
-//       <div>
-//         <h3>test</h3>
-//       </div>
-//     );
-//   } else return <div>Loading...</div>;
-// };
+import ReviewItem from './ReviewItem.jsx';
 
 const ReviewBrowser = (props) => {
   useEffect(() => {
@@ -39,10 +12,13 @@ const ReviewBrowser = (props) => {
   if (props.reviews) {
     return (
       <div>
-        <h3>right column, list of reviews</h3>
+        {props.reviews.map((item) => {
+          return <ReviewItem stats={item} key={item.review_id} />;
+        })}
+        <button type="button">more reviews</button>
       </div>
     );
-  } else return <div>Loading... ...</div>;
+  } else return <div>Loading...</div>;
 };
 
 export default ReviewBrowser;
