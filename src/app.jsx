@@ -3,7 +3,8 @@ import RelatedProducts from "./related_prod_your_outfit/related_products.jsx";
 import { Link, Route, Switch } from "react-router-dom";
 
 const App = () => {
-  return <div>add componenents here to test!</div>;
+  const { prodId } = useParams();
+  return <div>Product ID: {prodId}</div>;
 };
 
 export default App;

@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProductInfo: prodId => dispatch(fetchProductInfo(prodId))
+    fetchProductInfo: (prodId) => dispatch(fetchProductInfo(prodId))
   }
 }
 
