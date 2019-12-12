@@ -31,3 +31,13 @@ h1 {
   border: 2px solid black;
   border-radius: 2px;
 }
+
+.review-browser {
+  display: inline-block;
+  width: 50%;
+}
+
+.review-breakdown {
+  display: inline-block;
+  width: 50%;
+}

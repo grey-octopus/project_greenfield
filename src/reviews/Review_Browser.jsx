@@ -1,35 +1,25 @@
-//import React from 'react';
 import axios from 'axios';
-import { Component } from 'react';
 import React, { useEffect } from 'react';
 import ReviewItem from './ReviewItem.jsx';
 import ReviewModal from './modal.jsx';
+import { useParams, Link, Route, Switch } from 'react-router-dom';
+import publishReview from './apiHelpers.js';
 
-var counter = 4;
+let counter = 4;
 
 const ReviewBrowser = (props) => {
+  const { prodId } = useParams();
   useEffect(() => {
-    props.fetchReviewList({ prodId: 20, page: 1, count: 2 }); // dispatch action
+    props.fetchReviewList({ prodId: prodId, page: 1, count: 2 });
+    props.fetchReviewMetadata({ prodId: prodId });
   }, []);
 
   function handleSubmitReview() {
     console.log('submit review');
-    axios({
-      method: 'post',
-      url: `http://3.134.102.30/reviews/20`,
-      data: {
-        body:
-          "Now is the winter of our discontent Made glorious summer by this sun of York; And all the clouds that lour'd upon our house In the deep bosom of the ocean buried. Now are our brows bound with victorious wreaths; Our bruised arms hung up for monuments;",
-        rating: 4,
-        name: 'jh',
-        summary: 'Now is the winter of our discontent',
-        recommend: true,
-        email: 'jhaddock385@gmail.com',
-        characteristics: { '62': 2, '63': 2, '64': 2, '65': 2 }
-      }
-    })
-      .then(() => {
-        console.log('then');
+    publishReview()
+      .then((response) => {
+        console.log('API response:');
+        console.log(response);
       })
       .catch((err) => {
         console.log('POST ERROR', err);
@@ -38,13 +28,13 @@ const ReviewBrowser = (props) => {
 
   function handlePaginateReviewList() {
     console.log('paginate reviews');
-    props.fetchReviewList({ prodId: 20, page: 1, count: counter });
+    props.fetchReviewList({ prodId: prodId, page: 1, count: counter });
     counter = counter + 2;
   }
 
   if (props.reviews) {
     return (
-      <div>
+      <div className="review-browser">
         <ReviewModal />
         <div>
           {props.reviews.map((item) => {
@@ -77,25 +67,3 @@ const ReviewBrowser = (props) => {
 };
 
 export default ReviewBrowser;
-
-// axios
-//       .get(`http://3.134.102.30/reviews/${prodId}/list`, {
-//         params: {
-//           page: page,
-//           count: 3
-//         }
-//       })
-//       .then(function(response) {
-//         console.log(response.data);
-//         return dispatch({
-//           type: 'FETCH_REVIEW_LIST',
-//           reviewsCount: response.data.count,
-//           currentReviewPage: response.data.page,
-//           reviews: response.data.results,
-//           //this is almost certainly redudent but may be useful for testing prior to next merge
-//           reviewProduct: response.data.product
-//         });
-//       })
-//       .catch(function(error) {
-//         console.log('api error');
-//       });
