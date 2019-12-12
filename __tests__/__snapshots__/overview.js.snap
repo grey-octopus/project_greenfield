@@ -1,6 +1,161 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProdOverview /> renders with required props 1`] = `
+exports[` 1`] = `
+<ContextProvider
+  value={null}
+>
+  <Description
+    description="testDescription"
+    dispatch={[Function]}
+    slogan="testSlogan"
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  />
+</ContextProvider>
+`;
+
+exports[` 2`] = `
+<ContextProvider
+  value={null}
+>
+  <Features
+    dispatch={[Function]}
+    features="testFeature"
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  />
+</ContextProvider>
+`;
+
+exports[` 3`] = `
+<ContextProvider
+  value={null}
+>
+  <Overview
+    fetchProductInfo={[Function]}
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    title="testTitle"
+  />
+</ContextProvider>
+`;
+
+exports[` 4`] = `
+<ContextProvider
+  value={null}
+>
+  <ProdInfo
+    category="testCategory"
+    dispatch={[Function]}
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    title="testTitle"
+  />
+</ContextProvider>
+`;
+
+exports[` 5`] = `
+<ContextProvider
+  value={null}
+>
+  <ProdOverview
+    description="testDescription"
+    features="testFeature"
+    fetchProductOverview={[Function]}
+    slogan="testSlogan"
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  />
+</ContextProvider>
+`;
+
+exports[` 6`] = `
+<ContextProvider
+  value={null}
+>
+  <StarRating
+    averageRating="4.00"
+    numOfRatings={3}
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    updateAverageRating={[Function]}
+  />
+</ContextProvider>
+`;
+
+exports[`components <Description /> renders with required props 1`] = `
+<div>
+  <Description
+    description="Just a cool guy"
+    slogan="That's fair"
+  />
+</div>
+`;
+
+exports[`components <Features /> renders with required props 1`] = `
+<div>
+  <Features
+    features={
+      Array [
+        Object {
+          "feature": "feature",
+          "value": "val",
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`components <ProdOverview /> renders with required props 1`] = `
 <ProdOverview
   description="Just a cool guy"
   features={
