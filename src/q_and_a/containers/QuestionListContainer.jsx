@@ -1,11 +1,21 @@
 import { connect } from "react-redux";
-//import fetchQuestionList from "../actions/fetchQuestionList.js";
+import fetchQuestionList from "../actions/fetchQuestionList.js";
 import QuestionList from "../components/QuestionList.js";
+
 
 const mapStateToProps = (state) => {
     return {
+        prodId: state.fetchProductInfoReducer.prodId,
         questionList: state.fetchQuestionListReducer.questionList
     }
 }
 
-export default connect(mapStateToProps,null)(QuestionList);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchQuestionList: (prodId) => {
+            dispatch(fetchQuestionList(prodId))
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(QuestionList);

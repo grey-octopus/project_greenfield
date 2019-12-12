@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const fetchQuetionList = (prodId) => {
-    return dispatch => {
+const fetchQuestionList = (prodId) => {
+    return (dispatch) => {
         return axios.get(`http://3.134.102.30/qa/${prodId}`).then(
             (data) => {
                 return dispatch({
@@ -13,4 +13,4 @@ const fetchQuetionList = (prodId) => {
     }
 }
 
-export default fetchQuetionList;
+export default fetchQuestionList;

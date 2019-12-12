@@ -1,15 +1,12 @@
-import React from "react";
-import { connect} from "react-redux";
+import React, {useEffect} from "react";
 import Question from "./Question";
 
 const QuestionList = (props) => {
-    if(props.questionList.length === 0) {
-        return (
-            <div>
-                <AddAQuestion />
-            </div>
-        )
-    } else {
+    console.log("props:",props)
+    useEffect(()=>{
+        props.fetchQuestionList(props.prodId)
+    })
+    if(props.questionList && props.questionList.length === 0) {
         return (
             <div>
                 {
@@ -21,6 +18,12 @@ const QuestionList = (props) => {
                 }
                 <MoreAnsweredQuestions />
                 <AddAQuestion />
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                AddAQuestion
             </div>
         )
     }
