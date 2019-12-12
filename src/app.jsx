@@ -8,11 +8,8 @@ import ReviewBrowser from './reviews/review_containers/reviewBrowserContainer.js
 Modal.setAppElement('#app');
 
 const App = () => {
-  return (
-    <div>
-      <ReviewBrowser />
-    </div>
-  );
+  const { prodId } = useParams();
+  return <div>Product ID: {prodId}</div>;
 };
 
 export default App;
