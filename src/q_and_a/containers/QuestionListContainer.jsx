@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 import fetchQuestionList from "../actions/fetchQuestionList.js";
-import QuestionList from "../components/QuestionList.js";
+import QuestionList from "../components/QuestionList.jsx";
 
 
 const mapStateToProps = (state) => {
     return {
         prodId: state.fetchProductInfoReducer.prodId,
-        questionList: state.fetchQuestionListReducer.questionList
+        questionList: state.questionList.questionList
     }
 }
 
