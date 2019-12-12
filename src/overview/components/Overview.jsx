@@ -7,7 +7,7 @@ const Overview = props => {
   const { prodId } = useParams();
   useEffect(() => {
     props.fetchProductInfo(prodId);
-  });
+  }, []);
   if (props.title) {
     return (
       <div id='overview'>
