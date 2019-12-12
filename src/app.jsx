@@ -1,12 +1,15 @@
 import React from 'react';
-import QuestionListContainer from './q_and_a/containers/QuestionListContainer.jsx';
+import { 
+  useParams, 
+  Link,
+  Route,
+  Switch 
+} from 'react-router-dom';
 
 const App = () => {
-  return (
-    <div>
-      Hello Worldy world!
-      <QuestionListContainer />
-    </div>);
+  const { prodId } = useParams();
+  return <div>Product ID: {prodId}</div>;
+
 };
 
 export default App;

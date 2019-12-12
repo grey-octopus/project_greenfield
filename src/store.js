@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import averageRatingReducer from './overview/reducers/averageRatingReducer.js';
 import fetchProductInfoReducer from './overview/reducers/fetchProductInfoReducer.js';
 import fetchQuestionListReducer from './q_and_a/reducers/fetchQuestionListReducer.js';
+import fetchReviewReducer from './reviews/review_reducers/fetchReviewsReducer.js';
 
 
 const rootReducer = combineReducers({
@@ -14,7 +15,15 @@ const rootReducer = combineReducers({
 
 const initialState = {averageRatingReducer, fetchProductInfoReducer: { prodId: 1 },fetchQuestionListReducer}
 
-const store = createStore(rootReducer, initialState, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+
+const store = createStore(
+  rootReducer,
+  initialState,
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
 
 
 export default store;

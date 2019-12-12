@@ -4,7 +4,6 @@ import Overview from '../components/Overview.jsx'
 
 const mapStateToProps = state => {
   return {
-    prodId: state.fetchProductInfoReducer.prodId,
     title: state.fetchProductInfoReducer.title
   }
 }
