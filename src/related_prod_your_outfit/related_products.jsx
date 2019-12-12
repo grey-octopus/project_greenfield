@@ -1,21 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-// import {} from "./actions.js";
+import { getRelatedProducts } from "./actions/related_products.js";
 import RelatedProductsCard from "./related_products_card.jsx";
 
-const RelatedProducts = ({ relatedProducts }) => {
+const RelatedProducts = ({ relatedProducts, dispatch }) => {
+  useEffect(() => {
+    dispatch(getRelatedProducts(3));
+  }, [getRelatedProducts]);
   return (
     <div className="relatedProductsContainer">
-      {relatedProducts.map(product => {
-        return (
-          <RelatedProductsCard
-            id={product.id}
-            category={product.category}
-            name={product.name}
-            price={product.price}
-          />
-        );
-      })}
+      here
+      {relatedProducts.length > 1 ? (
+        relatedProducts.map(product => {
+          return (
+            <RelatedProductsCard
+              id={product.id}
+              category={product.category}
+              name={product.name}
+              price={product.price}
+              photoUrl={product.photoUrl}
+              key={product.id}
+            />
+          );
+        })
+      ) : (
+        <div>nothing to show, yet!</div>
+      )}
     </div>
   );
 };

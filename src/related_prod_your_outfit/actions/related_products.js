@@ -1,5 +1,4 @@
 import axios from "axios";
-// TODO import alec's priceAvg function
 export const GET_RELATED_PRODUCTS = "GET_RELATED_PRODUCTS";
 
 export const getRelatedProducts = prodId => {
@@ -39,8 +38,9 @@ export const getRelatedProducts = prodId => {
             });
             // iterate over productStyleRequests
             requests[1].forEach(({ data }, i) => {
-              let price = getProductPrice(data);
+              let [price, photoUrl] = getProductPrice(data);
               relatedProducts[i].price = price;
+              relatedProducts[i].photoUrl = photoUrl;
             });
             // iterate over productReviewRequests
             requests[2].forEach(({ data }, i) => {
@@ -62,16 +62,19 @@ export const getRelatedProducts = prodId => {
 
 const getProductPrice = ({ results }) => {
   let lowestPrice = 0;
+  let photoUrl = null;
   results.forEach(product => {
     if (product["default?"] === 1) {
       if (product["sale_price"] !== "0") {
         lowestPrice = product["sale_price"];
+        photoUrl = product.photos[0].thumbnail_url;
       } else {
         lowestPrice = product["original_price"];
+        photoUrl = product.photos[0].thumbnail_url;
       }
     }
   });
-  return lowestPrice;
+  return [lowestPrice, photoUrl];
 };
 
 const calculateAverageRating = ratings => {
@@ -85,7 +88,6 @@ const calculateAverageRating = ratings => {
 };
 
 // getRelatedProducts(5)(value => {
-//   console.log(value);
 // });
 
 /* 
