@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 const fetchProductOvervew = prodId => {
+  console.log('DISPATCHED')
   return dispatch => {
-    axios.get(`http://3.134.102.30/products/${prodId}`).then(data => {
+    return axios.get(`http://3.134.102.30/products/${prodId}`).then(data => {
       return dispatch({
         type: 'FETCH_PROD_OVERVIEW',
         slogan: data.data.slogan,
