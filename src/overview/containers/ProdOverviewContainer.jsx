@@ -5,7 +5,7 @@ import fetchProductOverview from '../actions/fetchProductOverview.js'
 const mapStateToProps = state => {
   return {
     slogan: state.fetchProductInfoReducer.slogan,
-    description: state.fetchProductInfoReducer.slogan,
+    description: state.fetchProductInfoReducer.description,
     features: state.fetchProductInfoReducer.features
   }
 }
