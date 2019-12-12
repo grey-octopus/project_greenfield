@@ -7,12 +7,12 @@ import RelatedProductsCard from "./related_products_card.jsx";
 const RelatedProducts = ({ relatedProducts, dispatch }) => {
   let { prodId } = useParams();
   useEffect(() => {
-    getRelatedProducts(prodId);
-  }, [getRelatedProducts]);
+    dispatch(getRelatedProducts(prodId));
+  }, []);
   return (
     <div className="relatedProductsContainer">
       here
-      {relatedProducts.length > 1 ? (
+      {relatedProducts.length >= 1 ? (
         relatedProducts.map(product => {
           return (
             <RelatedProductsCard
@@ -26,7 +26,7 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
           );
         })
       ) : (
-        <div>nothing to show, yet!</div>
+        <div>nothing to show... yet!</div>
       )}
     </div>
   );
@@ -34,13 +34,6 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
 
 const mapStateToProps = state => {
   return { relatedProducts: state.relatedProducts };
-};
-const mapDispatchToProps = dispatch => {
-  {
-    getRelatedProducts: () => {
-      dispatch(getRelatedProducts);
-    };
-  }
 };
 
 export default connect(mapStateToProps, null)(RelatedProducts);
