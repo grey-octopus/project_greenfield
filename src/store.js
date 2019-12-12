@@ -1,21 +1,24 @@
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
-import thunk from "redux-thunk";
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import thunk from 'redux-thunk';
 // import reducers to combine
-import { getRelatedProducts } from "./related_prod_your_outfit/actions/related_products";
+
 import { relatedProductsReducer } from "./related_prod_your_outfit/reducers/related_products.js";
-import averageRatingReducer from "./overview/reducers/averageRatingReducer.js";
-import fetchProductInfoReducer from "./overview/reducers/fetchProductInfoReducer.js";
+import averageRatingReducer from './overview/reducers/averageRatingReducer.js';
+import fetchProductInfoReducer from './overview/reducers/fetchProductInfoReducer.js';
+import fetchReviewReducer from './reviews/review_reducers/fetchReviewsReducer.js';
 
 const rootReducer = combineReducers({
   averageRatingReducer,
   fetchProductInfoReducer,
-  relatedProducts: relatedProductsReducer
+  relatedProducts: relatedProductsReducer,
+  fetchReviewReducer
 });
 
 const initialState = {
   averageRatingReducer,
   fetchProductInfoReducer: { prodId: 1 },
-  relatedProducts: []
+  relatedProducts: [],
+  fetchReviewReducer
 };
 
 const store = createStore(

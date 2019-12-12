@@ -1,11 +1,14 @@
-import React from "react";
-import RelatedProducts from "./related_prod_your_outfit/related_products.jsx";
+import React from 'react';
+import { 
+  useParams, 
+  Link,
+  Route,
+  Switch 
+} from 'react-router-dom';
+
 const App = () => {
-  return (
-    <div>
-      <RelatedProducts />
-    </div>
-  );
+  const { prodId } = useParams();
+  return <div>Product ID: {prodId}</div>;
 };
 
 export default App;
