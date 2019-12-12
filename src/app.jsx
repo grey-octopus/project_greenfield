@@ -1,12 +1,14 @@
 import React from 'react';
-import ReviewBrowser from './reviews/review_containers/reviewBrowserContainer.js';
+import { 
+  useParams, 
+  Link,
+  Route,
+  Switch 
+} from 'react-router-dom';
 
 const App = () => {
-  return (
-    <div>
-      <ReviewBrowser />
-    </div>
-  );
+  const { prodId } = useParams();
+  return <div>Product ID: {prodId}</div>;
 };
 
 export default App;
