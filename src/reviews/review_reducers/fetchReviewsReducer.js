@@ -1,5 +1,4 @@
 const fetchReviewReducer = (state = [], action) => {
-  console.log('fetchReviewReducer');
   switch (action.type) {
     case 'FETCH_REVIEW_LIST':
       return {
