@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { getRelatedProducts } from "./actions/related_products.js";
 import RelatedProductsCard from "./related_products_card.jsx";
-import ReactCardCarousel from "react-card-carousel";
 
 const RelatedProducts = ({ relatedProducts, dispatch }) => {
   let { prodId } = useParams();
