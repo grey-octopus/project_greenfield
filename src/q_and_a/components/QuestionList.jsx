@@ -1,10 +1,12 @@
 import React, {useEffect} from "react";
 import Question from "./Question";
+import { useParams } from "react-router-dom";
 
 const QuestionList = (props) => {
     console.log("props:",props)
+    const { prodId } = useParams();
     useEffect(()=>{
-        props.fetchQuestionList(props.prodId)
+        props.fetchQuestionList(prodId)
     },[]);
     if(props.questionList && props.questionList.length === 0) {
         return (
