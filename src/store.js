@@ -6,13 +6,23 @@ import fetchProductInfoReducer from './overview/reducers/fetchProductInfoReducer
 import fetchQuestionListReducer from './q_and_a/reducers/fetchQuestionListReducer.js';
 import fetchReviewReducer from './reviews/review_reducers/fetchReviewsReducer.js';
 import fetchReviewMetadataReducer from './reviews/review_reducers/fetchReviewMetadataReducer.js';
+import { relatedProductsReducer } from './related_prod_your_outfit/reducers/related_products.js';
+import averageRatingReducer from './overview/reducers/averageRatingReducer.js';
+import fetchProductInfoReducer from './overview/reducers/fetchProductInfoReducer.js';
+import fetchQuestionListReducer from './q_and_a/reducers/fetchQuestionListReducer.js';
+import fetchReviewReducer from './reviews/review_reducers/fetchReviewsReducer.js';
 
 const rootReducer = combineReducers({
   averageRatingReducer,
   fetchProductInfoReducer,
   fetchQuestionListReducer,
   fetchReviewReducer,
-  fetchReviewMetadataReducer
+  fetchReviewMetadataReducer,
+
+  relatedProducts: relatedProductsReducer,
+
+  fetchReviewReducer,
+  fetchQuestionListReducer
 });
 
 const initialState = {
@@ -20,7 +30,8 @@ const initialState = {
   fetchProductInfoReducer: { prodId: 1 },
   fetchQuestionListReducer,
   fetchReviewReducer,
-  fetchReviewMetadataReducer
+  fetchReviewMetadataReducer,
+  fetchQuestionListReducer
 };
 
 const store = createStore(

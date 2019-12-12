@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { useParams, Link, Route, Switch } from 'react-router-dom';
-
 import ReviewBrowser from './reviews/review_containers/reviewBrowserContainer.js';
 import ReviewBreakdown from './reviews/review_containers/reviewBreakdownContainer.js';
 
