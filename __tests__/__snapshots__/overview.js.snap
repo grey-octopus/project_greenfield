@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProdOverview /> renders with required props 1`] = `
+<ProdOverview
+  description="Just a cool guy"
+  features={
+    Array [
+      "test",
+    ]
+  }
+  slogan="That's fair"
+/>
+`;

@@ -1,5 +1,5 @@
 import React from "react";
-import { mount, shallow } from "enzyme";
+import { mount, shallow, render } from "enzyme";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import updateAverageRating from "../src/overview/actions/updateAverageRating.js";
@@ -7,28 +7,33 @@ import averageRatingReducer from "../src/overview/reducers/averageRatingReducer.
 import fetchMock from "fetch-mock";
 import StarRatingContainer from "../src/overview/containers/StarRatingContainer.jsx";
 import ProdOverviewContainer from "../src/overview/containers/ProdOverviewContainer.jsx";
+import ProdOverview from '../src/overview/components/ProdOverview.jsx'
 import fetchProductInfo from "../src/overview/actions/fetchProductInfo.js";
 import fetchProductInfoReducer from "../src/overview/reducers/fetchProductInfoReducer.js";
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history'
+import { Provider } from 'react-redux'
+import toJson from 'enzyme-to-json'
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe("async actions", () => {
-  // it ('creates action with average rating', () => {
-  //   const store = mockStore({ prodId: 1 })
-  //   const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', numOfRatings: 7, payload: 4.00, numOfRatings: 7 }]
-  //   return store.dispatch(updateAverageRating(1)).then(() => {
-  //     expect(store.getActions()).toEqual(expectedActions)
-  //   })
-  // })
+  it ('creates action with average rating', () => {
+    const store = mockStore({ prodId: 1 })
+    const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', numOfRatings: 7, payload: '4.00' }]
+    return store.dispatch(updateAverageRating(1)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions)
+    })
+  })
 
-  // it ('should round payload to nearest quarter', () => {
-  //   const store = mockStore({ prodId: 2})
-  //   const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', numOfRatings: 5, payload: 3.50}]
-  //   return store.dispatch(updateAverageRating(2)).then(() => {
-  //     expect(store.getActions()).toEqual(expectedActions)
-  //   })
-  // })
+  it ('should round payload to nearest quarter', () => {
+    const store = mockStore({ prodId: 2})
+    const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', numOfRatings: 5, payload: '3.50'}]
+    return store.dispatch(updateAverageRating(2)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions)
+    })
+  })
 
   it("should fetch product info", () => {
     const store = mockStore({ prodId: 1 });
@@ -54,43 +59,54 @@ describe("async actions", () => {
   });
 });
 
-// describe('averageRatingReducer', () => {
-//   it ('should handle updateAverageRating', () => {
-//     expect(averageRatingReducer([], { type: 'UPDATE_AVERAGE_RATING', payload: 4, numOfRatings: 5 })).toEqual({ numOfRatings: 5, averageRating: 4.00 })
-//   })
-// })
+describe('averageRatingReducer', () => {
+  it ('should handle updateAverageRating', () => {
+    expect(averageRatingReducer([], { type: 'UPDATE_AVERAGE_RATING', payload: '4.00', numOfRatings: 5 })).toEqual({ numOfRatings: 5, averageRating: '4.00' })
+  })
+})
 
 describe("fetchProductInfoReducer", () => {
-  it("should handle fetchProductInfo action", () => {
+  it("FETCH_PROD_INFO", () => {
     expect(
       fetchProductInfoReducer([], {
         type: "FETCH_PROD_INFO",
         title: "Fancy Jeans",
-        category: "Jeans",
-        description: "These jeans are fancy",
-        slogan: "no",
-        features: []
+        category: "Jeans"
       })
     ).toEqual({
       title: "Fancy Jeans",
+      category: "Jeans"
+    });
+  });
+
+  it('FETCH_PROD_OVERVIEW', () => {
+    expect(fetchProductInfoReducer([], {
+      type: 'FETCH_PROD_OVERVIEW',
       category: "Jeans",
       description: "These jeans are fancy",
       slogan: "no",
       features: []
-    });
-  });
+    })).toEqual({
+      description: "These jeans are fancy",
+      slogan: "no",
+      features: []
+    })
+  })
 });
 
-describe("<ProdOverviewContainer />", () => {
-  it("should have props", () => {
-    const store = mockStore({
-      prodId: 1,
-      title: "Some product",
-      category: "Coats"
-    });
-    const root = shallow(<ProdOverviewContainer store={store} />);
-    expect(root.find("ProdOverview").prop("title")).toEqual("Some product");
-    expect(root.find("ProdOverview").prop("category")).toEqual("Coats");
+describe("<ProdOverview />", () => {
+  it("renders with required props", () => {
+    const props = {
+      slogan: 'That\'s fair',
+      description: 'Just a cool guy',
+      features: ['test']
+    }
+    const history = createMemoryHistory()
+    const wrapper = shallow(<Router history={history} path='/:prodId'><ProdOverview {...props} /></Router>)
+    expect(toJson(wrapper.find('ProdOverview'))).toMatchSnapshot()
+    expect(wrapper.find('ProdOverview').prop('slogan')).toEqual('That\'s fair')
+    expect(wrapper.find('ProdOverview').prop('description')).toEqual('Just a cool guy')
+    expect(wrapper.find('ProdOverview').prop('features')).toBeTruthy()
   });
 });
 
