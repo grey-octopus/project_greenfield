@@ -27,6 +27,7 @@ h1 {
   content: '\f005 \f005 \f005 \f005 \f005';
 }
 
+<<<<<<< HEAD
 #star-rating {
   visibility: hidden;
 }
@@ -42,3 +43,9 @@ h1 {
 .feature::before {
   content: '\f00c \00a0\00a0';
 }
+=======
+.review-item {
+  border: 2px solid black;
+  border-radius: 2px;
+}
+>>>>>>> 85ca64bc0999c79eda164c7e7c299924f47b8750
