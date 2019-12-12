@@ -10,6 +10,7 @@ Modal.setAppElement('#app');
 const App = () => {
   const { prodId } = useParams();
   return <div>Product ID: {prodId}</div>;
+
 };
 
 export default App;
