@@ -1,7 +1,19 @@
-import ProdOverview from '../components/ProdOverview.jsx';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+import ProdOverview from '../components/ProdOverview.jsx'
+import fetchProductOverview from '../actions/fetchProductOverview.js'
 
-export default connect((state) => ({
-  title: state.fetchProductInfoReducer.title,
-  category: state.fetchProductInfoReducer.category
-}))(ProdOverview);
+const mapStateToProps = state => {
+  return {
+    slogan: state.fetchProductInfoReducer.slogan,
+    description: state.fetchProductInfoReducer.description,
+    features: state.fetchProductInfoReducer.features
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchProductOverview: prodId => dispatch(fetchProductOverview(prodId))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProdOverview)

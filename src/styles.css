@@ -27,6 +27,22 @@ h1 {
   content: '\f005 \f005 \f005 \f005 \f005';
 }
 
+#star-rating {
+  visibility: hidden;
+}
+
+#description-hidden {
+  display: none;
+}
+
+.feature {
+  font-family: FontAwesome;
+}
+
+.feature::before {
+  content: '\f00c \00a0\00a0';
+}
+
 .review-item {
   border: 2px solid black;
   border-radius: 2px;
