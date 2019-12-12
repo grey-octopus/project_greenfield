@@ -26,3 +26,8 @@ h1 {
 .stars-inner::before {
   content: '\f005 \f005 \f005 \f005 \f005';
 }
+
+.review-item {
+  border: 2px solid black;
+  border-radius: 2px;
+}
