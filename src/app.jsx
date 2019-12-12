@@ -1,12 +1,14 @@
-import React from 'react'
-import OverviewContainer from './overview/containers/OverviewContainer.jsx'
+import React from 'react';
+import { 
+  useParams, 
+  Link,
+  Route,
+  Switch 
+} from 'react-router-dom';
 
 const App = () => {
-  return (
-    <div>
-      <OverviewContainer />
-    </div>
-  )
+  const { prodId } = useParams();
+  return <div>Product ID: {prodId}</div>;
 };
 
 export default App;
