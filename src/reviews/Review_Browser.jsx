@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Component } from 'react';
 import React, { useEffect } from 'react';
 import ReviewItem from './ReviewItem.jsx';
+import ReviewModal from './modal.jsx';
 
 var counter = 4;
 
@@ -44,6 +45,7 @@ const ReviewBrowser = (props) => {
   if (props.reviews) {
     return (
       <div>
+        <ReviewModal />
         <div>
           {props.reviews.map((item) => {
             return (
