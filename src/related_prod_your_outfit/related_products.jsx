@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { getRelatedProducts } from "./actions/related_products.js";
 import RelatedProductsCard from "./related_products_card.jsx";
+import ReactCardCarousel from "react-card-carousel";
 
 const RelatedProducts = ({ relatedProducts, dispatch }) => {
   let { prodId } = useParams();
@@ -11,7 +12,7 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
   }, []);
   return (
     <div className="relatedProductsContainer">
-      here
+      RELATED PRODUCTS
       {relatedProducts.length >= 1 ? (
         relatedProducts.map(product => {
           return (
