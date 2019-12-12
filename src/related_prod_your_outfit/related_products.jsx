@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { getRelatedProducts } from "./actions/related_products.js";
 import RelatedProductsCard from "./related_products_card.jsx";
 
 const RelatedProducts = ({ relatedProducts, dispatch }) => {
+  let { prodId } = useParams();
   useEffect(() => {
-    dispatch(getRelatedProducts(3));
+    getRelatedProducts(prodId);
   }, [getRelatedProducts]);
   return (
     <div className="relatedProductsContainer">
@@ -32,6 +34,13 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
 
 const mapStateToProps = state => {
   return { relatedProducts: state.relatedProducts };
+};
+const mapDispatchToProps = dispatch => {
+  {
+    getRelatedProducts: () => {
+      dispatch(getRelatedProducts);
+    };
+  }
 };
 
 export default connect(mapStateToProps, null)(RelatedProducts);
