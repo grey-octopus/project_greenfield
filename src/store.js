@@ -9,7 +9,7 @@ import fetchQuestionListReducer from './q_and_a/reducers/fetchQuestionListReduce
 const rootReducer = combineReducers({
   averageRatingReducer,
   fetchProductInfoReducer,
-  questionList: fetchQuestionListReducer
+  fetchQuestionListReducer
 });
 
 const initialState = {averageRatingReducer, fetchProductInfoReducer: { prodId: 1 },fetchQuestionListReducer}

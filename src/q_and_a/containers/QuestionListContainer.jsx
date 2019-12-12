@@ -6,7 +6,7 @@ import QuestionList from "../components/QuestionList.jsx";
 const mapStateToProps = (state) => {
     return {
         prodId: state.fetchProductInfoReducer.prodId,
-        questionList: state.questionList.questionList
+        questionList: state.fetchQuestionListReducer.questionList
     }
 }
 

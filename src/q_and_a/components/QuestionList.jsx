@@ -1,16 +1,16 @@
 import React, {useEffect} from "react";
 import Question from "./Question";
 
-const QuestionList = ({fetchQuestionList, questionList, prodId}) => {
-    console.log("props:",prodId)
+const QuestionList = (props) => {
+    console.log("props:",props)
     useEffect(()=>{
-        fetchQuestionList(prodId)
+        props.fetchQuestionList(props.prodId)
     },[]);
-    if(questionList && questionList.length === 0) {
+    if(props.questionList && props.questionList.length === 0) {
         return (
             <div>
                 {
-                    questionList.map(
+                    props.questionList.map(
                         (q) => {
                             return <Question key={q.question_id}/>
                         }
