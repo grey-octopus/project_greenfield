@@ -1,7 +1,7 @@
-import ProdOverview from '../components/ProdOverview.jsx';
+import ProdInfo from '../components/ProdInfo.jsx';
 import { connect } from 'react-redux';
 
 export default connect((state) => ({
   title: state.fetchProductInfoReducer.title,
   category: state.fetchProductInfoReducer.category
-}))(ProdOverview);
+}))(ProdInfo);

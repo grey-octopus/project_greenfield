@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProdOverview = props => {
+const ProdInfo = props => {
   return (
     <div id="prod-overview">
       <h3>{props.category}</h3>
@@ -10,4 +10,4 @@ const ProdOverview = props => {
   )
 }
 
-export default ProdOverview
+export default ProdInfo
