@@ -34,3 +34,8 @@ h1 {
 .card {
   display: inline-block;
 }
+
+.review-item {
+  border: 2px solid black;
+  border-radius: 2px;
+}
