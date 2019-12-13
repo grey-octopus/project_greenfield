@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 
 const AnswerList = (props) => {
   //console.log("answer props:",props)
+  //const {count} = useParams();
   useEffect(()=>{
       props.fetchAnswerList(props.questionId)
   },[]);

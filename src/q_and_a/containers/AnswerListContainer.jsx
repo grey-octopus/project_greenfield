@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import fetchAnswerList from "../actions/fetchAnswerList.js";
+import handleCountChange from "../actions/handleCountChange.js"
 import AnswerList from "../components/AnswerList.jsx";
 
 const mapStateToProps = (state) => {
@@ -13,6 +14,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchAnswerList: (questionId) => {
             dispatch(fetchAnswerList(questionId))
+        },
+        handleCountChange: (count) => {
+            dispatch(handleCountChange(count))
         }
     }
 }

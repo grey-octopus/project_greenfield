@@ -3,8 +3,7 @@ const fetchAnswerListReducer = (state=[],action) => {
       case "FETCH_ANSWER_LIST":
           return {
               ...state,
-              answerList: action.answerList,
-              //questionId: action.questionId
+              answerList: action.answerList
           }
       default:
           return state;
