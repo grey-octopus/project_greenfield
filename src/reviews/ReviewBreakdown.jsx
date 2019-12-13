@@ -19,7 +19,24 @@ const ReviewBreakdown = (props) => {
           <p>average review and stars</p>
         </div>
         <div>
-          <p>% of recommendations</p>
+          <h3>% of recommendations</h3>
+          <p>5 stars</p>
+          <div id="review-progress">
+            <div id="review-bar"></div>
+          </div>
+          <p>4 stars</p>
+          <div id="review-progress">
+            <div id="review-bar"></div>
+          </div>
+          <p>3 stars</p>
+          <div id="review-progress">
+            <div id="review-bar"></div>
+          </div>
+          <p>2 stars</p>
+          <div id="review-progress">
+            <div id="review-bar"></div>
+          </div>
+          <p>1 stars</p>
           <div id="review-progress">
             <div id="review-bar"></div>
           </div>
