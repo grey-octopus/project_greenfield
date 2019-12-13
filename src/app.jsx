@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import OverviewContainer from "./overview/containers/OverviewContainer.jsx";
-import ProdOverviewContainer from "./overview/containers/ProdOverviewContainer.jsx";
-import RelatedProducts from "./related_prod_your_outfit/related_products.jsx";
-import Modal from "react-modal";
-import { useParams, Link, Route, Switch } from "react-router-dom";
-import ReviewBrowser from "./reviews/review_containers/reviewBrowserContainer.js";
-import ReviewBreakdown from "./reviews/review_containers/ReviewBreakdownContainer.js";
+import React, { useEffect, useState } from 'react';
+import OverviewContainer from './overview/containers/OverviewContainer.jsx';
+import ProdOverviewContainer from './overview/containers/ProdOverviewContainer.jsx';
+import RelatedProducts from './related_prod_your_outfit/related_products.jsx';
+import Modal from 'react-modal';
+import { useParams, Link, Route, Switch } from 'react-router-dom';
+import ReviewBrowser from './reviews/review_containers/reviewBrowserContainer.js';
+import ReviewBreakdown from './reviews/review_containers/ReviewBreakdownContainer.js';
 import axios from 'axios';
-import polyfill from 'babel-polyfill'
+import polyfill from 'babel-polyfill';
 import QuestionListContainer from './q_and_a/containers/QuestionListContainer.jsx';
 
 // React modal has to be bound to the app element:
@@ -22,8 +22,8 @@ const App = () => {
         <div>
           <OverviewContainer />
           <ProdOverviewContainer />
-          <QuestionListContainer />
           <RelatedProducts />
+          <QuestionListContainer />
           <div id='ratings-reviews'>
             <ReviewBreakdown className="review-breakdown" />
             <ReviewBrowser className="review-browser" />

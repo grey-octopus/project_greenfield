@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useParams, Link, Route, Switch } from 'react-router-dom';
+import StarRatingContainer from '../overview/containers/StarRatingContainer.jsx';
 
 const ReviewBreakdown = (props) => {
   const { prodId } = useParams();
@@ -13,13 +14,36 @@ const ReviewBreakdown = (props) => {
   if (props.reviews) {
     return (
       <div className="review-breakdown">
-        <h3>Ratings and Reviews</h3>
+        <h2>{props.averageRating}</h2>
+        <div>
+          <StarRatingContainer className="breakdown-star-render" />
+        </div>
 
         <div>
           <p>average review and stars</p>
         </div>
         <div>
-          <p>% of recommendations</p>
+          <h3>% of recommendations</h3>
+          <p>5 stars</p>
+          <div id="review-progress">
+            <div id="review-bar"></div>
+          </div>
+          <p>4 stars</p>
+          <div id="review-progress">
+            <div id="review-bar"></div>
+          </div>
+          <p>3 stars</p>
+          <div id="review-progress">
+            <div id="review-bar"></div>
+          </div>
+          <p>2 stars</p>
+          <div id="review-progress">
+            <div id="review-bar"></div>
+          </div>
+          <p>1 stars</p>
+          <div id="review-progress">
+            <div id="review-bar"></div>
+          </div>
         </div>
         <div>
           <p>star breakdown</p>

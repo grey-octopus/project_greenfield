@@ -5,7 +5,7 @@ import ReviewModal from './modal.jsx';
 import { useParams, Link, Route, Switch } from 'react-router-dom';
 import publishReview from './apiHelpers.js';
 
-let counter = 4;
+var counter = 4;
 
 const ReviewBrowser = (props) => {
   const { prodId } = useParams();
@@ -18,11 +18,10 @@ const ReviewBrowser = (props) => {
     console.log('submit review');
     publishReview()
       .then((response) => {
-        console.log('API response:');
-        console.log(response);
+
       })
       .catch((err) => {
-        console.log('POST ERROR', err);
+      
       });
   }
 
