@@ -124,11 +124,12 @@ p {
 .review-item {
   border: 2px solid black;
   border-radius: 2px;
+  width: -webkit-fill-available;
 }
 
 .review-browser {
   display: inline-block;
-  width: 50%;
+  width: 60%;
 }
 
 .review-browser div {
