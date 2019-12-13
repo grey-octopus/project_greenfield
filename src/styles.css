@@ -1,17 +1,54 @@
-h1 {
-  color: white;
-  background-color: black;
+:root {
+  --primary-font: 'Poppins', 'sans-serif';
+  --font-color: #525252;
 }
+
+body {
+  font-family: var(--primary-font);
+  margin: 0;
+}
+
+a {
+  font-weight: 200;
+  font-size: 0.8em;
+  text-decoration: underline;
+  color: var(--font-color);
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 3em;
+  margin: 0;
+  padding: 0;
+  color: var(--font-color);
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.5em;
+  color: var(--font-color);
+}
+
+h3 {
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+  color: var(--font-color);
+}
+
+p {
+   color: var(--font-color);
+ }
 
 .stars-outer {
   display: inline-block;
   position: relative;
   font-family: FontAwesome;
-  font-style: normal;
 }
 
 .stars-outer::before {
-  content: "\f005 \f005 \f005 \f005 \f005";
+  content: "\f005 \f005 \f005 \f005 \f005 \00a0\00a0";
+  color: var(--font-color);
 }
 
 .stars-inner {
@@ -21,10 +58,11 @@ h1 {
   white-space: nowrap;
   overflow: hidden;
   font-style: solid;
+  color: var(--font-color);
 }
 
 .stars-inner::before {
-  content: "\f005 \f005 \f005 \f005 \f005";
+  content: "\f005 \f005 \f005 \f005 \f005 \00a0\00a0";
 }
 
 .relatedProductsContainer {
@@ -51,6 +89,28 @@ h1 {
   content: '\f00c \00a0\00a0';
 }
 
+#ratings-reviews {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#navbar {
+  height: 4.5em;
+  background-color: var(--font-color);
+  margin-bottom: 1em;
+  box-shadow: 0px 1px #dededf;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+#navbar img {
+  bottom: 0;
+  margin: 1em;
+}
+
 .review-item {
   border: 2px solid black;
   border-radius: 2px;
@@ -58,10 +118,11 @@ h1 {
 
 .review-browser {
   display: inline-block;
-  width: 50%;
+  width: 80%;
 }
 
 .review-breakdown {
   display: inline-block;
-  width: 50%;
+  width: 20%;
+  text-align: center;
 }

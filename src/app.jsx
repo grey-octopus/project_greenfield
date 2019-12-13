@@ -22,7 +22,7 @@ const App = () => {
       <div>
         <RelatedProducts />
       </div>
-      <div>
+      <div id='ratings-reviews'>
         <ReviewBreakdown className="review-breakdown" />
         <ReviewBrowser className="review-browser" />
       </div>
