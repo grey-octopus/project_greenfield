@@ -1,25 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { getMyOutfit } from "./actions/your_outfit_actions.js";
+import MyOutfitsCard from "./my_outfits_card.jsx";
 
-const MyOutfits = ({ relatedProducts, dispatch }) => {
-  let { prodId } = useParams();
+const MyOutfits = ({ myOutfit, dispatch }) => {
   useEffect(() => {
-    dispatch(getRelatedProducts(prodId));
+    dispatch(getMyOutfit());
   }, []);
-
   return (
-    <div className="relatedProductsContainer">
-      RELATED PRODUCTS
-      {relatedProducts.length >= 1 ? (
-        relatedProducts.map(product => {
+    <div className="MyOutfitsContainer">
+      My Outfits
+      {myOutfit.length >= 1 ? (
+        myOutfit.map(product => {
           return (
-            <RelatedProductsCard
+            <MyOutfitsCard
               id={product.id}
               category={product.category}
               name={product.name}
               price={product.price}
               photoUrl={product.photoUrl}
               key={product.id}
+              dispatch={dispatch}
             />
           );
         })
@@ -31,6 +32,6 @@ const MyOutfits = ({ relatedProducts, dispatch }) => {
 };
 
 const mapStateToProps = state => {
-  return { myOutfits: state.myOutfits };
+  return { myOutfit: state.myOutfit };
 };
 export default connect(mapStateToProps, null)(MyOutfits);
