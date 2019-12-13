@@ -19,6 +19,7 @@ const ReviewBrowser = (props) => {
     publishReview()
       .then((response) => {
         console.log('API response:');
+
         console.log(response);
       })
       .catch((err) => {

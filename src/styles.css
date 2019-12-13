@@ -37,8 +37,8 @@ h3 {
 }
 
 p {
-   color: var(--font-color);
- }
+  color: var(--font-color);
+}
 
 .stars-outer {
   display: inline-block;
@@ -47,7 +47,7 @@ p {
 }
 
 .stars-outer::before {
-  content: "\f005 \f005 \f005 \f005 \f005 \00a0\00a0";
+  content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
   color: var(--font-color);
 }
 
@@ -62,7 +62,7 @@ p {
 }
 
 .stars-inner::before {
-  content: "\f005 \f005 \f005 \f005 \f005 \00a0\00a0";
+  content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
 }
 
 .relatedProductsContainer {
@@ -118,13 +118,15 @@ p {
 
 .review-browser {
   display: inline-block;
-  width: 80%;
+  width: 50%;
 }
 
 .review-breakdown {
   display: inline-block;
-  width: 20%;
-  text-align: center;
+  width: 50%;
+  text-align: left;
+  vertical-align: top;
+  padding: 20px;
 }
 
 #garf {
@@ -136,7 +138,6 @@ p {
   size: 25vh;
 }
 
-<<<<<<< HEAD
 #review-progress {
   width: 50%;
   background-color: grey;
@@ -147,7 +148,7 @@ p {
   height: 10px;
   background-color: black;
 }
-=======
+
 #garf-text {
   margin: auto;
   position: absolute;
@@ -156,4 +157,3 @@ p {
   top: 26vh;
   width: 10em;
 }
->>>>>>> 5b87623752ae1f94bd0a215fd1e2c71922545409
