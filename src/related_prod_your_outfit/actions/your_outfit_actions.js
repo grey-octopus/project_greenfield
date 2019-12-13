@@ -1,4 +1,3 @@
-// TODO: make action creators...
 import axios from "axios";
 import { getProductPrice, calculateAverageRating } from "./related_products.js";
 
@@ -18,12 +17,11 @@ export const removeItemFromOutfit = id => {
 };
 
 // completely self contained
-export const getMyOutfits = () => {
+export const getMyOutfit = () => {
   return dispatch => {
     return new Promise((resolve, reject) => {
       // 1) get outfits from localStorage
       let myOutfit = JSON.parse(window.localStorage.getItem("myOutfit"));
-
       // get assorted info for each outfit
       let myOutfitInfoRequests = myOutfit.map(id => {
         return axios.get(`http://3.134.102.30/products/${id}`);
@@ -41,9 +39,9 @@ export const getMyOutfits = () => {
         Promise.all(myOutfitReviewRequests)
       ]).then(requests => {
         // iterate over productInfoRequests
-        let myOutfits = [];
+        let myOutfitItems = [];
         requests[0].forEach(({ data }) => {
-          myOutfits.push({
+          myOutfitItems.push({
             id: data.id,
             category: data.category,
             name: data.name
@@ -52,23 +50,26 @@ export const getMyOutfits = () => {
         // iterate over productStyleRequests
         requests[1].forEach(({ data }, i) => {
           let [price, photoUrl] = getProductPrice(data);
-          myOutfits[i].price = price;
-          myOutfits[i].photoUrl = photoUrl;
+          myOutfitItems[i].price = price;
+          myOutfitItems[i].photoUrl = photoUrl;
         });
         // iterate over productReviewRequests
         requests[2].forEach(({ data }, i) => {
           let averageRating = calculateAverageRating(data.ratings);
-          myOutfits[i].rating = averageRating;
+          myOutfitItems[i].rating = averageRating;
         });
-        // return myOutfits
-        resolve(myOutfits);
+        // return myOutfitItems
+        resolve(myOutfitItems);
       });
-    }).then(outfits => {
-      console.log(outfits);
+    }).then(outfit => {
       dispatch({
         type: GET_OUTFIT,
-        outfits: outfits
+        outfit: outfit
       });
     });
   };
 };
+
+// getMyOutfit()(output => {
+//   console.log(output);
+// });

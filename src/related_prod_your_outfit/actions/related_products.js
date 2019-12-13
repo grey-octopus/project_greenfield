@@ -2,7 +2,6 @@ import axios from "axios";
 export const GET_RELATED_PRODUCTS = "GET_RELATED_PRODUCTS";
 
 export const getRelatedProducts = prodId => {
-  console.log("ACTION ID", prodId);
   return dispatch => {
     return new Promise((resolve, reject) => {
       // get related products
