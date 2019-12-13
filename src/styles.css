@@ -126,3 +126,21 @@ p {
   width: 20%;
   text-align: center;
 }
+
+#garf {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  size: 25vh;
+}
+
+#garf-text {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 26vh;
+  width: 10em;
+}
