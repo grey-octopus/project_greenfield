@@ -3,7 +3,7 @@ import axios from "axios";
 const fetchAnswerList = (questionId) => {
   //console.log("quesId",questionId)
   return (dispatch) => {
-      return axios.get(`http://3.134.102.30/qa/${questionId}/answers`).then(
+      return axios.get(`http://3.134.102.30/qa/${questionId}/answers?count=2`).then(
           (data) => {
               return dispatch({
                   type: "FETCH_ANSWER_LIST",
