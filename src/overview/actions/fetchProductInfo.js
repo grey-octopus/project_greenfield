@@ -6,10 +6,7 @@ const fetchProductInfo = prodId => {
       return dispatch({ 
         type: 'FETCH_PROD_INFO', 
         title: data.data.name,
-        category: data.data.category, 
-        description: data.data.description, 
-        slogan: data.data.slogan,
-        features: data.data.features
+        category: data.data.category
       })
     })
   }

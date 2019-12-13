@@ -11,7 +11,7 @@ h1 {
 }
 
 .stars-outer::before {
-  content: '\f005 \f005 \f005 \f005 \f005';
+  content: "\f005 \f005 \f005 \f005 \f005";
 }
 
 .stars-inner {
@@ -24,7 +24,31 @@ h1 {
 }
 
 .stars-inner::before {
-  content: '\f005 \f005 \f005 \f005 \f005';
+  content: "\f005 \f005 \f005 \f005 \f005";
+}
+
+.relatedProductsContainer {
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+.card {
+  display: inline-block;
+}
+
+#star-rating {
+  visibility: hidden;
+}
+
+#description-hidden {
+  display: none;
+}
+
+.feature {
+  font-family: FontAwesome;
+}
+
+.feature::before {
+  content: '\f00c \00a0\00a0';
 }
 
 .review-item {

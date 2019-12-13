@@ -4,11 +4,15 @@ const fetchProductInfoReducer = (state = [], action) => {
       return {
         ...state,
         title: action.title,
-        description: action.description,
         category: action.category,
+      };
+    case 'FETCH_PROD_OVERVIEW':
+      return {
+        ...state,
+        description: action.description,
         slogan: action.slogan,
         features: action.features
-      };
+      }
     default:
       return state;
   }

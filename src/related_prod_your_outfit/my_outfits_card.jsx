@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   }
 });
 
-const RelatedProductsCard = ({ id, category, name, price, photoUrl }) => {
+const MyOutfitsCard = ({ id, category, name, price, photoUrl }) => {
   const classes = useStyles();
   return (
     <Card className={(classes.card, "card")}>
@@ -58,4 +58,4 @@ const RelatedProductsCard = ({ id, category, name, price, photoUrl }) => {
   );
 };
 
-export default RelatedProductsCard;
+export default MyOutfitsCard;

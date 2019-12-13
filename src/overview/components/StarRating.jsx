@@ -20,7 +20,7 @@ const StarRating = props => {
         </span>
       </div>
     );
-  } else return <div>Loading...</div>;
+  } else return <div id="star-rating"></div>;
 };
 
 export default StarRating;
