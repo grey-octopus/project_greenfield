@@ -10,8 +10,8 @@ Modal.setAppElement('#app');
 const App = () => {
   return (
     <div>
-      <ReviewBreakdown className="review-breakdown" />
-      <ReviewBrowser className="review-browser" />
+      <ReviewBreakdown className="review-breakdown-parent" />
+      <ReviewBrowser className="review-browser-parent" />
     </div>
   );
 };

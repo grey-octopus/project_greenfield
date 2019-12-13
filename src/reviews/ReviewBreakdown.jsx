@@ -20,6 +20,9 @@ const ReviewBreakdown = (props) => {
         </div>
         <div>
           <p>% of recommendations</p>
+          <div id="review-progress">
+            <div id="review-bar"></div>
+          </div>
         </div>
         <div>
           <p>star breakdown</p>

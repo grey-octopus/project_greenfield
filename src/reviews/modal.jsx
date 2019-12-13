@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Modal from 'react-modal';
+import publishReview from './apiHelpers.js';
 
 const customStyles = {
   content: {
@@ -28,6 +29,10 @@ const ReviewModal = (props) => {
     setIsOpen(false);
   }
 
+  function handlePublish() {
+    publishReview();
+  }
+
   return (
     <div>
       <button onClick={openModal}>Open Modal</button>
@@ -38,8 +43,8 @@ const ReviewModal = (props) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Submit a new review</h2>
+
         <div>I am a modal</div>
         <form>
           <input />
@@ -47,6 +52,7 @@ const ReviewModal = (props) => {
           <button>stays</button>
           <button>inside</button>
           <button>the modal</button>
+          <button onClick={closeModal}>close</button>
         </form>
       </Modal>
     </div>

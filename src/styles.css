@@ -41,3 +41,14 @@ h1 {
   display: inline-block;
   width: 50%;
 }
+
+#review-progress {
+  width: 50%;
+  background-color: grey;
+}
+
+#review-bar {
+  width: 34%;
+  height: 10px;
+  background-color: black;
+}
