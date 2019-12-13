@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom'
+import DescriptionContainer from '../containers/DescriptionContainer.jsx';
+import FeaturesContainer from '../containers/FeaturesContainer.jsx'
 
 const ProdOverview = props => {
-  return (
-    <div id="prod-overview">
-      <h3>{props.category}</h3>
-      <h1>{props.title}</h1>
-      {/* PRICE */}
-    </div>
-  )
-}
+  const { prodId } = useParams()
+  useEffect(() => { props.fetchProductOverview(prodId) }, []);
+  if (props.description && props.slogan && props.features) {
+    return (
+      <div>
+        <DescriptionContainer />
+        <FeaturesContainer />
+      </div>
+    )
+  } else {
+    return <div id="description-hidden"></div>;
+  }
+};
 
-export default ProdOverview
+export default ProdOverview;

@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 
 const ReviewItem = (props) => {
-  console.log('REVIEW ITEM');
-  console.log(props);
   return (
     <div className="review-item">
       <h3>{props.stats.reviewer_name}</h3>

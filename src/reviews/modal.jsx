@@ -27,8 +27,7 @@ const ReviewModal = (props) => {
   function closeModal() {
     setIsOpen(false);
   }
-  console.log('REVIEW ITEM');
-  console.log(props);
+
   return (
     <div>
       <button onClick={openModal}>Open Modal</button>
