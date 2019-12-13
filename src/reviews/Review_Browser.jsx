@@ -17,12 +17,8 @@ const ReviewBrowser = (props) => {
   function handleSubmitReview() {
     console.log('submit review');
     publishReview()
-      .then((response) => {
-
-      })
-      .catch((err) => {
-      
-      });
+      .then((response) => {})
+      .catch((err) => {});
   }
 
   function handlePaginateReviewList() {
@@ -34,7 +30,6 @@ const ReviewBrowser = (props) => {
   if (props.reviews) {
     return (
       <div className="review-browser">
-        <ReviewModal />
         <div>
           {props.reviews.map((item) => {
             return (
@@ -46,13 +41,9 @@ const ReviewBrowser = (props) => {
             );
           })}
         </div>
-        <button
-          id="add-review-button"
-          type="button"
-          onClick={handleSubmitReview}
-        >
-          submit review
-        </button>
+
+        <ReviewModal />
+
         <button
           id="review-paginate-button"
           type="button"

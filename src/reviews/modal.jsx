@@ -35,7 +35,7 @@ const ReviewModal = (props) => {
 
   return (
     <div>
-      <button onClick={openModal}>Open Modal</button>
+      <button onClick={openModal}>Post Review</button>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -43,15 +43,35 @@ const ReviewModal = (props) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Submit a new review</h2>
-
-        <div>I am a modal</div>
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+          Write your review about this product
+        </h2>
+        <div>Rating *****</div>
+        <div>Do you recommend this product?</div>
+        <div>Characteristics:</div>
         <form>
+          <div>Summary:</div>
           <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
+        </form>
+
+        <form>
+          <div>Review Body:</div>
+          <input />
+        </form>
+
+        <button>Submit image</button>
+
+        <form>
+          <div>Nickname:</div>
+          <input />
+        </form>
+
+        <form>
+          <div>Email:</div>
+          <input />
+
+          <button>Submit!</button>
+
           <button onClick={closeModal}>close</button>
         </form>
       </Modal>
