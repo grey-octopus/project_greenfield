@@ -18,6 +18,17 @@ ReactDOM.render(
   <Router>
     <Switch>
       <Route path="/product_details/:prodId">
+        <div id='navbar'>
+          <img id='logo' src='/logo.png' />
+        </div>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </Route>
+      <Route>
+        <div id='navbar'>
+          <img id='logo' src='/logo.png' />
+        </div>
         <Provider store={store}>
           <App />
         </Provider>
