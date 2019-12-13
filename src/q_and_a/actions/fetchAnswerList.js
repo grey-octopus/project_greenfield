@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const fetchAnswerList = (questionId) => {
-  console.log("quesId",questionId)
+  //console.log("quesId",questionId)
   return (dispatch) => {
       return axios.get(`http://3.134.102.30/qa/${questionId}/answers`).then(
           (data) => {
