@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect,useState} from "react";
 import Answer from "./Answer";
 import { useParams } from "react-router-dom";
 
@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 const AnswerList = (props) => {
   //console.log("answer props:",props)
   //const {count} = useParams();
+  const [count,setCount] = useState(2);
   useEffect(()=>{
       props.fetchAnswerList(props.questionId)
   },[]);
@@ -19,7 +20,7 @@ const AnswerList = (props) => {
             (a,i) => {
               return <Answer key={a.answer_id} answer={props.answerList[i]}/>
             }
-          )
+          ).slice(0,count)
         } 
         </div>
       )
