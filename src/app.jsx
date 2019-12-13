@@ -6,9 +6,11 @@ import Modal from "react-modal";
 import { useParams, Link, Route, Switch } from "react-router-dom";
 import ReviewBrowser from "./reviews/review_containers/reviewBrowserContainer.js";
 import ReviewBreakdown from "./reviews/review_containers/ReviewBreakdownContainer.js";
+import QuestionListContainer from './q_and_a/containers/QuestionListContainer.jsx';
 
 // React modal has to be bound to the app element:
 Modal.setAppElement("#app");
+
 
 const App = () => {
   return (
@@ -21,6 +23,9 @@ const App = () => {
       </div>
       <div>
         <RelatedProducts />
+      </div>
+      <div>
+        <QuestionListContainer />
       </div>
       <div>
         <ReviewBreakdown className="review-breakdown" />
