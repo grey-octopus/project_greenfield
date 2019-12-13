@@ -26,7 +26,7 @@ const QuestionList = (props) => {
                         }
                     ).slice(0,count)
                 }
-        {(total >= count) ? (<button onClick={() => setCount(count + 2)}>MoreAnsweredQuestions</button>):null}
+        {(total > count) ? (<button onClick={() => setCount(count + 2)}>MoreAnsweredQuestions</button>):null}
                 <AddAQuestion />
                 
             </div>
