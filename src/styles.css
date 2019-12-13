@@ -37,8 +37,8 @@ h3 {
 }
 
 p {
-   color: var(--font-color);
- }
+  color: var(--font-color);
+}
 
 .stars-outer {
   display: inline-block;
@@ -47,7 +47,7 @@ p {
 }
 
 .stars-outer::before {
-  content: "\f005 \f005 \f005 \f005 \f005 \00a0\00a0";
+  content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
   color: var(--font-color);
 }
 
@@ -62,7 +62,7 @@ p {
 }
 
 .stars-inner::before {
-  content: "\f005 \f005 \f005 \f005 \f005 \00a0\00a0";
+  content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
 }
 
 .relatedProductsContainer {
@@ -71,6 +71,16 @@ p {
 }
 .card {
   display: inline-block;
+  margin: 10px;
+}
+.cardImage {
+  margin: 0px;
+  word-break: break-all;
+}
+
+.cardText {
+  margin: 0px;
+  text-align: left;
 }
 
 #star-rating {
@@ -118,13 +128,27 @@ p {
 
 .review-browser {
   display: inline-block;
-  width: 80%;
+  width: 50%;
 }
 
+.review-browser div {
+  display: inline-block;
+}
+
+#add-review-button {
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  display: inline-block;
+}
 .review-breakdown {
   display: inline-block;
-  width: 20%;
-  text-align: center;
+  width: 50%;
+  text-align: left;
+  vertical-align: top;
+  padding: 20px;
 }
 
 #garf {
@@ -134,6 +158,17 @@ p {
   right: 0;
   z-index: 1;
   size: 25vh;
+}
+
+#review-progress {
+  width: 50%;
+  background-color: grey;
+}
+
+#review-bar {
+  width: 34%;
+  height: 10px;
+  background-color: black;
 }
 
 #garf-text {

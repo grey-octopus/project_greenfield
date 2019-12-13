@@ -1,60 +1,38 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import {
+  addItemToOutfit,
+  removeItemFromOutfit
+} from "./actions/your_outfit_actions.js";
 
-const useStyles = makeStyles({
-  card: {
-    maxWidth: 160
-  },
-  media: {
-    height: 140
-  }
-});
+const placeHolderImage = "./img/image-placeholder.png";
+// will implement later
+const addItem = (item, dispatch) => {
+  dispatch(addItemToOutfit(item));
+};
+// will implement later
+const removeItem = (id, dispatch) => {
+  dispatch(removeItemFromOutfit(id));
+};
 
-const MyOutfitsCard = ({ id, category, name, price, photoUrl }) => {
-  const classes = useStyles();
+const MyOutfitsCard = ({ id, category, name, price, photoUrl, dispatch }) => {
+  const item = { id, category, name, price, photoUrl };
+  console.log("ITEM", item);
   return (
-    <Card className={(classes.card, "card")}>
-      <CardActionArea>
-        <CardMedia className={classes.media} image={photoUrl} title={id} />
-        <CardContent>
-          <Typography
-            gutterBottom
-            color="textSecondary"
-            component="p"
-            style={{ fontSize: "10px" }}
-          >
-            {category}
-          </Typography>
-          <Typography
-            variant="body2"
-            component="p"
-            style={{ fontSize: "11px", fontWeight: "700" }}
-          >
-            {name}
-          </Typography>
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            component="p"
-            style={{ fontSize: "11px" }}
-          >
-            ${price}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          stars
-        </Button>
-      </CardActions>
-    </Card>
+    <div
+      className="relatedProducts card"
+      style={{ width: "150px", height: "250px", border: "1px solid black" }}
+    >
+      <div className="cardImage">
+        <img src={photoUrl || placeHolderImage} height="100px"></img>
+      </div>
+      <p className="cardText">
+        {category}
+        <br />
+        {name}
+        <br />
+        {price}
+      </p>
+    </div>
   );
 };
 
