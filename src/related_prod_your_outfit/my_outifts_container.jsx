@@ -7,7 +7,6 @@ const MyOutfits = ({ myOutfit, dispatch }) => {
   useEffect(() => {
     dispatch(getMyOutfit());
   }, []);
-  console.log("my outfits from container", myOutfit);
   return (
     <div className="MyOutfitsContainer">
       My Outfits

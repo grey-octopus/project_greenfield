@@ -4,10 +4,12 @@ import {
   removeItemFromOutfit
 } from "./actions/your_outfit_actions.js";
 
+const placeHolderImage = "./img/image-placeholder.png";
+// will implement later
 const addItem = (item, dispatch) => {
   dispatch(addItemToOutfit(item));
 };
-
+// will implement later
 const removeItem = (id, dispatch) => {
   dispatch(removeItemFromOutfit(id));
 };
@@ -21,7 +23,7 @@ const MyOutfitsCard = ({ id, category, name, price, photoUrl, dispatch }) => {
       style={{ width: "150px", height: "250px", border: "1px solid black" }}
     >
       <div className="cardImage">
-        <img src={photoUrl} height="100px"></img>
+        <img src={photoUrl || placeHolderImage} height="100px"></img>
       </div>
       <p className="cardText">
         {category}
