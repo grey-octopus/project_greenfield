@@ -47,7 +47,7 @@ p {
 }
 
 .stars-outer::before {
-  content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
+  content: "\f005 \f005 \f005 \f005 \f005 \00a0\00a0";
   color: var(--font-color);
 }
 
@@ -62,12 +62,18 @@ p {
 }
 
 .stars-inner::before {
-  content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
+  content: "\f005 \f005 \f005 \f005 \f005 \00a0\00a0";
 }
 
 .relatedProductsContainer {
   overflow-x: hidden;
   white-space: nowrap;
+  margin: 40px;
+}
+.myOutfitsContainer {
+  overflow-x: hidden;
+  white-space: nowrap;
+  margin: 40px;
 }
 .card {
   display: inline-block;

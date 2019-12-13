@@ -4,7 +4,8 @@ import {
   removeItemFromOutfit
 } from "./actions/your_outfit_actions.js";
 
-const placeHolderImage = "./img/image-placeholder.png";
+const placeHolderImage = "/img/image-placeholder.png";
+
 // will implement later
 const addItem = (item, dispatch) => {
   dispatch(addItemToOutfit(item));
@@ -16,7 +17,6 @@ const removeItem = (id, dispatch) => {
 
 const MyOutfitsCard = ({ id, category, name, price, photoUrl, dispatch }) => {
   const item = { id, category, name, price, photoUrl };
-  console.log("ITEM", item);
   return (
     <div
       className="relatedProducts card"

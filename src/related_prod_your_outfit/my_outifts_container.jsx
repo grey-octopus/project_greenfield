@@ -8,7 +8,7 @@ const MyOutfits = ({ myOutfit, dispatch }) => {
     dispatch(getMyOutfit());
   }, []);
   return (
-    <div className="MyOutfitsContainer">
+    <div className="myOutfitsContainer">
       My Outfits
       {myOutfit.length >= 1 ? (
         myOutfit.map(product => {
