@@ -21,16 +21,6 @@ const rootReducer = combineReducers({
   fetchReviewMetadataReducer
 });
 
-const initialState = {
-  averageRatingReducer,
-  fetchProductInfoReducer: { prodId: 1 },
-  fetchQuestionListReducer,
-
-  //reducers for review widget
-  fetchReviewReducer,
-  fetchReviewMetadataReducer
-};
-
 const store = createStore(
   rootReducer,
   compose(

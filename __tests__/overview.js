@@ -36,7 +36,7 @@ describe("actions", () => {
         expect(store.getActions()).toEqual(expectedActions)
       })
     })
-  
+      
     it ('should round payload to nearest quarter', () => {
       const store = mockStore({ prodId: 2})
       const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', numOfRatings: 5, payload: '3.50'}]
