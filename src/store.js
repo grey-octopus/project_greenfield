@@ -4,31 +4,22 @@ import thunk from 'redux-thunk';
 import averageRatingReducer from './overview/reducers/averageRatingReducer.js';
 import fetchProductInfoReducer from './overview/reducers/fetchProductInfoReducer.js';
 import fetchQuestionListReducer from './q_and_a/reducers/fetchQuestionListReducer.js';
+import { relatedProductsReducer } from './related_prod_your_outfit/reducers/related_products.js';
+
+//reducers for review widget
 import fetchReviewReducer from './reviews/review_reducers/fetchReviewsReducer.js';
 import fetchReviewMetadataReducer from './reviews/review_reducers/fetchReviewMetadataReducer.js';
-import { relatedProductsReducer } from './related_prod_your_outfit/reducers/related_products.js';
 
 const rootReducer = combineReducers({
   averageRatingReducer,
   fetchProductInfoReducer,
   fetchQuestionListReducer,
-  fetchReviewReducer,
-  fetchReviewMetadataReducer,
-
   relatedProducts: relatedProductsReducer,
 
+  //reducers for review widget
   fetchReviewReducer,
-  fetchQuestionListReducer
+  fetchReviewMetadataReducer
 });
-
-const initialState = {
-  averageRatingReducer,
-  fetchProductInfoReducer: { prodId: 1 },
-  fetchQuestionListReducer,
-  fetchReviewReducer,
-  fetchReviewMetadataReducer,
-  fetchQuestionListReducer
-};
 
 const store = createStore(
   rootReducer,
