@@ -61,7 +61,7 @@ export const getRelatedProducts = prodId => {
   };
 };
 
-const getProductPrice = ({ results }) => {
+export const getProductPrice = ({ results }) => {
   let lowestPrice = 0;
   let photoUrl = null;
   results.forEach(product => {
@@ -78,7 +78,7 @@ const getProductPrice = ({ results }) => {
   return [lowestPrice, photoUrl];
 };
 
-const calculateAverageRating = ratings => {
+export const calculateAverageRating = ratings => {
   let total = 0;
   let numberOfRatings = 0;
   for (let starRating in ratings) {

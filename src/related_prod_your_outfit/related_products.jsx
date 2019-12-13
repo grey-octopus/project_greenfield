@@ -26,7 +26,7 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
           );
         })
       ) : (
-        <div>nothing to show... yet!</div>
+        <div>Loading</div>
       )}
     </div>
   );
