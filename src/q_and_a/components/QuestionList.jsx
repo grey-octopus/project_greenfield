@@ -6,7 +6,7 @@ import AddAQuestion from "./AddAQuestion";
 
 
 const QuestionList = (props) => {
-    console.log("props:",props)
+    //console.log("props:",props)
     const { prodId } = useParams();
     const [count,setCount] = useState(2);
     useEffect(()=>{
