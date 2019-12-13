@@ -1,5 +1,5 @@
 :root {
-  --primary-font: "Poppins", "sans-serif";
+  --primary-font: 'Poppins', 'sans-serif';
   --font-color: #525252;
 }
 
@@ -96,7 +96,7 @@ p {
 }
 
 .feature::before {
-  content: "\f00c \00a0\00a0";
+  content: '\f00c \00a0\00a0';
 }
 
 #ratings-reviews {
@@ -131,6 +131,18 @@ p {
   width: 50%;
 }
 
+.review-browser div {
+  display: inline-block;
+}
+
+#add-review-button {
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  display: inline-block;
+}
 .review-breakdown {
   display: inline-block;
   width: 50%;
