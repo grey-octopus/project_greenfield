@@ -1,8 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getMyOutfits } from "./actions/your_outfit.js";
 
-const MyOutfits = ({ relatedProducts, dispatch }) => {
+const MyOutfits = ({ myOutfits, dispatch }) => {
   let { prodId } = useParams();
+
   useEffect(() => {
     dispatch(getRelatedProducts(prodId));
   }, []);
