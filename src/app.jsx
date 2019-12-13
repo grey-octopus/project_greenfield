@@ -8,9 +8,11 @@ import ReviewBrowser from "./reviews/review_containers/reviewBrowserContainer.js
 import ReviewBreakdown from "./reviews/review_containers/ReviewBreakdownContainer.js";
 import axios from 'axios';
 import polyfill from 'babel-polyfill'
+import QuestionListContainer from './q_and_a/containers/QuestionListContainer.jsx';
 
 // React modal has to be bound to the app element:
 Modal.setAppElement("#app");
+
 
 const App = () => {
   const { prodId } = useParams()
@@ -24,15 +26,10 @@ const App = () => {
   if (prod) {
     return (
       <div>
-        <div>
-          <OverviewContainer />
-        </div>
-        <div>
-          <ProdOverviewContainer />
-        </div>
-        <div>
-          <RelatedProducts />
-        </div>
+        <OverviewContainer />
+        <ProdOverviewContainer />
+        <QuestionListContainer />
+        <RelatedProducts />
         <div id='ratings-reviews'>
           <ReviewBreakdown className="review-breakdown" />
           <ReviewBrowser className="review-browser" />
@@ -47,7 +44,6 @@ const App = () => {
       </div>
     )
   }
-  
 };
 
 export default App;

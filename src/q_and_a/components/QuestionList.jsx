@@ -1,23 +1,30 @@
 import React, {useEffect} from "react";
 import Question from "./Question";
+import { useParams } from "react-router-dom";
+//import MoreAnsweredQuestions from "./MoreAnsweredQuestions"
+import AddAQuestion from "./AddAQuestion";
 
 const QuestionList = (props) => {
-    console.log("props:",props)
+    //console.log("props:",props)
+    const { prodId } = useParams();
     useEffect(()=>{
-        props.fetchQuestionList(props.prodId)
+        props.fetchQuestionList(prodId)
     },[]);
-    if(props.questionList && props.questionList.length === 0) {
+    if(props.questionList && props.questionList.length !== 0) {
+        //console.log("hi")
+        const total = props.questionList.length;
         return (
             <div>
                 {
                     props.questionList.map(
-                        (q) => {
-                            return <Question key={q.question_id}/>
+                        (q,i) => {
+                            return <Question key={q.question_id} question={props.questionList[i]}/>
                         }
                     )
                 }
-                <MoreAnsweredQuestions />
+        {(total>2) ? (<button>MoreAnsweredQuestions</button>):null}
                 <AddAQuestion />
+                
             </div>
         )
     } else {
