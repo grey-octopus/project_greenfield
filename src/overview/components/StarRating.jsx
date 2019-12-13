@@ -16,7 +16,7 @@ const StarRating = props => {
           <div className="stars-inner fas fa-star" style={innerStyle}></div>
         </div>
         <span>
-          <a link="#ratings-reviews">Read all {props.numOfRatings} reviews</a>
+          <a href="#ratings-reviews">Read all {props.numOfRatings} reviews</a>
         </span>
       </div>
     );
