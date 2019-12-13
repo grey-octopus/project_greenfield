@@ -8,7 +8,6 @@ const AnswerList = (props) => {
   useEffect(()=>{
       props.fetchAnswerList(props.questionId)
   },[]);
-  
   if(props.answerList && props.answerList.length !== 0) {
     //console.log("hi")
     const total = props.answerList.length;

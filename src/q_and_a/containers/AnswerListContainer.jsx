@@ -4,7 +4,8 @@ import AnswerList from "../components/AnswerList.jsx";
 
 const mapStateToProps = (state) => {
     return {
-        answerList: state.fetchAnswerListReducer.answerList
+        answerList: state.fetchAnswerListReducer.answerList,
+        //questionId: state.fetchAnswerListReducer.questionId
     }
 }
 

@@ -8,6 +8,7 @@ const fetchAnswerList = (questionId) => {
               return dispatch({
                   type: "FETCH_ANSWER_LIST",
                   answerList: data.data.results
+                  
               })
           }
       )

@@ -10,20 +10,19 @@ const QuestionList = (props) => {
     useEffect(()=>{
         props.fetchQuestionList(prodId)
     },[]);
-    let limit = 2;
     if(props.questionList && props.questionList.length !== 0) {
         //console.log("hi")
         const total = props.questionList.length;
         return (
             <div>
                 {
-                    props.questionList.slice(0,limit).map(
+                    props.questionList.map(
                         (q,i) => {
                             return <Question key={q.question_id} question={props.questionList[i]}/>
                         }
                     )
                 }
-        {(total > limit) ? (<button>MoreAnsweredQuestions</button>):null}
+        {(total>2) ? (<button>MoreAnsweredQuestions</button>):null}
                 <AddAQuestion />
                 
             </div>
