@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-const StarRating = props => {
+const StarRating = (props) => {
+  //console.log('ave rating', typeof props.averageRating);
   const { prodId } = useParams();
   useEffect(() => {
     props.updateAverageRating(prodId);
