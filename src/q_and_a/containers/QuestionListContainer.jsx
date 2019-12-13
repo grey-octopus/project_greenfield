@@ -5,8 +5,7 @@ import QuestionList from "../components/QuestionList.jsx";
 
 const mapStateToProps = (state) => {
     return {
-        questionList: state.fetchQuestionListReducer.questionList,
-        limit: state.fetchQuestionListReducer.limit
+        questionList: state.fetchQuestionListReducer.questionList
     }
 }
 

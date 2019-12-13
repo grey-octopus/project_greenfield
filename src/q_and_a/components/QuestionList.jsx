@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import AddAQuestion from "./AddAQuestion";
 
 const QuestionList = (props) => {
-    console.log("props:",props)
+    //console.log("props:",props)
     const { prodId } = useParams();
     useEffect(()=>{
         props.fetchQuestionList(prodId)
