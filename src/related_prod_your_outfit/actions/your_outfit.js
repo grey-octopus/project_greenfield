@@ -18,7 +18,7 @@ export const removeItemFromOutfit = id => {
 };
 
 // completely self contained
-export const getOutfit = () => {
+export const getMyOutfits = () => {
   return dispatch => {
     return new Promise((resolve, reject) => {
       // 1) get outfits from localStorage
