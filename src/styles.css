@@ -78,15 +78,19 @@ p {
 .card {
   display: inline-block;
   margin: 10px;
+  border: 1px solid grey;
+  width: 150px;
+  height: 250px;
 }
 .cardImage {
   margin: 0px;
-  word-break: break-all;
+  text-align: center;
 }
 
 .cardText {
   margin: 0px;
   text-align: left;
+  white-space: normal;
 }
 
 #star-rating {
