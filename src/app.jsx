@@ -26,11 +26,12 @@ const App = () => {
           <div>
             <OverviewContainer />
             <ProdOverviewContainer />
-            <div>
-              <RelatedProducts />
-              <MyOutfits />
-            </div>
+            <hr />
+            <RelatedProducts />
+            <MyOutfits />
+            <hr />
             <QuestionListContainer />
+            <hr />
             <div id="ratings-reviews">
               <ReviewBreakdown className="review-breakdown" />
               <ReviewBrowser className="review-browser" />
@@ -46,7 +47,7 @@ const App = () => {
           </div>
         );
       });
-  });
+  }, []);
 
   return dataToRender;
 };

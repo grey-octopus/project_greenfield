@@ -8,25 +8,27 @@ const MyOutfits = ({ myOutfit, dispatch }) => {
     dispatch(getMyOutfit());
   }, []);
   return (
-    <div className="MyOutfitsContainer">
+    <div className="myOutfitsContainer">
       My Outfits
-      {myOutfit.length >= 1 ? (
-        myOutfit.map(product => {
-          return (
-            <MyOutfitsCard
-              id={product.id}
-              category={product.category}
-              name={product.name}
-              price={product.price}
-              photoUrl={product.photoUrl}
-              key={product.id}
-              dispatch={dispatch}
-            />
-          );
-        })
-      ) : (
-        <div>Loading</div>
-      )}
+      <div>
+        {myOutfit.length >= 1 ? (
+          myOutfit.map(product => {
+            return (
+              <MyOutfitsCard
+                id={product.id}
+                category={product.category}
+                name={product.name}
+                price={product.price}
+                photoUrl={product.photoUrl}
+                key={product.id}
+                dispatch={dispatch}
+              />
+            );
+          })
+        ) : (
+          <div></div>
+        )}
+      </div>
     </div>
   );
 };

@@ -4,7 +4,6 @@ export const relatedProductsReducer = (state = [], action) => {
   switch (action.type) {
     case GET_RELATED_PRODUCTS:
       let newState = Object.assign([], action.relatedProducts);
-      console.log(newState);
       return newState;
     default:
       return state;
