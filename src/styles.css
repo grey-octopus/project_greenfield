@@ -1,5 +1,5 @@
 :root {
-  --primary-font: 'Poppins', 'sans-serif';
+  --primary-font: "Poppins", "sans-serif";
   --font-color: #525252;
 }
 
@@ -37,8 +37,8 @@ h3 {
 }
 
 p {
-   color: var(--font-color);
- }
+  color: var(--font-color);
+}
 
 .stars-outer {
   display: inline-block;
@@ -75,10 +75,12 @@ p {
 }
 .cardImage {
   margin: 0px;
+  word-break: break-all;
 }
 
 .cardText {
   margin: 0px;
+  text-align: left;
 }
 
 #star-rating {

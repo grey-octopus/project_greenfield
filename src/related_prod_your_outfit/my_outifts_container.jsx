@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
 import { getMyOutfit } from "./actions/your_outfit_actions.js";
 import MyOutfitsCard from "./my_outfits_card.jsx";
 
