@@ -8,53 +8,68 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles({
-  card: {
-    maxWidth: 160
-  },
-  media: {
-    height: 140
-  }
-});
+// const useStyles = makeStyles({
+//   card: {
+//     maxWidth: 160
+//   },
+//   media: {
+//     height: 140
+//   }
+// });
 
 const RelatedProductsCard = ({ id, category, name, price, photoUrl }) => {
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
-    <Card className={(classes.card, "card")}>
-      <CardActionArea>
-        <CardMedia className={classes.media} image={photoUrl} title={id} />
-        <CardContent>
-          <Typography
-            gutterBottom
-            color="textSecondary"
-            component="p"
-            style={{ fontSize: "10px" }}
-          >
-            {category}
-          </Typography>
-          <Typography
-            variant="body2"
-            component="p"
-            style={{ fontSize: "11px", fontWeight: "700" }}
-          >
-            {name}
-          </Typography>
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            component="p"
-            style={{ fontSize: "11px" }}
-          >
-            ${price}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          stars
-        </Button>
-      </CardActions>
-    </Card>
+    <div
+      className="relatedProducts card"
+      style={{ width: "150px", height: "200px", border: "1px solid black" }}
+    >
+      <div className="cardImage">
+        <img src={photoUrl} height="100px"></img>
+      </div>
+      <p className="cardText">
+        {category}
+        <br />
+        {name}
+        <br />
+        {price}
+      </p>
+    </div>
+    // <Card className={(classes.card, "card")}>
+    //   <CardActionArea>
+    //     <CardMedia className={classes.media} image={photoUrl} title={id} />
+    //     <CardContent>
+    //       <Typography
+    //         gutterBottom
+    //         color="textSecondary"
+    //         component="p"
+    //         style={{ fontSize: "10px" }}
+    //       >
+    //         {category}
+    //       </Typography>
+    //       <Typography
+    //         variant="body2"
+    //         component="p"
+    //         style={{ fontSize: "11px", fontWeight: "700" }}
+    //       >
+    //         {name}
+    //       </Typography>
+    //       <Typography
+    //         variant="body2"
+    //         color="textSecondary"
+    //         component="p"
+    //         style={{ fontSize: "11px" }}
+    //       >
+    //         ${price}
+    //       </Typography>
+    //     </CardContent>
+    //   </CardActionArea>
+    //   <CardActions>
+    //     <Button size="small" color="primary">
+    //       stars
+    //     </Button>
+    //   </CardActions>
+    // </Card>
   );
 };
 

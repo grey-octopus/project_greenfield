@@ -22,6 +22,7 @@ const MyOutfits = ({ myOutfit, dispatch }) => {
               price={product.price}
               photoUrl={product.photoUrl}
               key={product.id}
+              dispatch={dispatch}
             />
           );
         })

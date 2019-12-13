@@ -33,6 +33,14 @@ h1 {
 }
 .card {
   display: inline-block;
+  margin: 10px;
+}
+.cardImage {
+  margin: 0px;
+}
+
+.cardText {
+  margin: 0px;
 }
 
 #star-rating {
@@ -48,7 +56,7 @@ h1 {
 }
 
 .feature::before {
-  content: '\f00c \00a0\00a0';
+  content: "\f00c \00a0\00a0";
 }
 
 .review-item {
