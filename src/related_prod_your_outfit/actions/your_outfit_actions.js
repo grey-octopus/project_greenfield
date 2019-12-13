@@ -20,8 +20,9 @@ export const removeItemFromOutfit = id => {
 export const getMyOutfit = () => {
   return dispatch => {
     return new Promise((resolve, reject) => {
-      // 1) get outfits from localStorage
+      // get outfit id's from localStorage
       let myOutfit = JSON.parse(window.localStorage.getItem("myOutfit"));
+
       // get assorted info for each outfit
       let myOutfitInfoRequests = myOutfit.map(id => {
         return axios.get(`http://3.134.102.30/products/${id}`);
@@ -32,44 +33,52 @@ export const getMyOutfit = () => {
       let myOutfitReviewRequests = myOutfit.map(id => {
         return axios.get(`http://3.134.102.30/reviews/${id}/meta`);
       });
+
       // resolve requests
       Promise.all([
         Promise.all(myOutfitInfoRequests),
         Promise.all(myOutfitStyleRequests),
         Promise.all(myOutfitReviewRequests)
-      ]).then(requests => {
-        // iterate over productInfoRequests
-        let myOutfitItems = [];
-        requests[0].forEach(({ data }) => {
-          myOutfitItems.push({
-            id: data.id,
-            category: data.category,
-            name: data.name
+      ])
+        .catch(err => {
+          console.log(err);
+        })
+        .then(requests => {
+          // iterate over productInfoRequests
+          let myOutfitItems = [];
+          requests[0].forEach(({ data }) => {
+            myOutfitItems.push({
+              id: data.id,
+              category: data.category,
+              name: data.name
+            });
           });
+
+          // iterate over productStyleRequests
+          requests[1].forEach(({ data }, i) => {
+            let [price, photoUrl] = getProductPrice(data);
+            myOutfitItems[i].price = price;
+            myOutfitItems[i].photoUrl = photoUrl;
+          });
+
+          // iterate over productReviewRequests
+          requests[2].forEach(({ data }, i) => {
+            let averageRating = calculateAverageRating(data.ratings);
+            myOutfitItems[i].rating = averageRating;
+          });
+
+          // return myOutfitItems
+          resolve(myOutfitItems);
         });
-        // iterate over productStyleRequests
-        requests[1].forEach(({ data }, i) => {
-          let [price, photoUrl] = getProductPrice(data);
-          myOutfitItems[i].price = price;
-          myOutfitItems[i].photoUrl = photoUrl;
+    })
+      .catch(err => {
+        console.log(err);
+      })
+      .then(outfit => {
+        dispatch({
+          type: GET_OUTFIT,
+          outfit: outfit
         });
-        // iterate over productReviewRequests
-        requests[2].forEach(({ data }, i) => {
-          let averageRating = calculateAverageRating(data.ratings);
-          myOutfitItems[i].rating = averageRating;
-        });
-        // return myOutfitItems
-        resolve(myOutfitItems);
       });
-    }).then(outfit => {
-      dispatch({
-        type: GET_OUTFIT,
-        outfit: outfit
-      });
-    });
   };
 };
-
-// getMyOutfit()(output => {
-//   console.log(output);
-// });

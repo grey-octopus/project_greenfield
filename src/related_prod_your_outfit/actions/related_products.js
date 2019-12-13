@@ -26,37 +26,45 @@ export const getRelatedProducts = prodId => {
             Promise.all(productInfoRequests),
             Promise.all(productStyleRequests),
             Promise.all(productReviewRequests)
-          ]).then(requests => {
-            // iterate over productInfoRequests
-            let relatedProducts = [];
-            requests[0].forEach(({ data }) => {
-              relatedProducts.push({
-                id: data.id,
-                category: data.category,
-                name: data.name
+          ])
+            .catch(err => {
+              console.log(err);
+            })
+            .then(requests => {
+              // iterate over productInfoRequests
+              let relatedProducts = [];
+              requests[0].forEach(({ data }) => {
+                relatedProducts.push({
+                  id: data.id,
+                  category: data.category,
+                  name: data.name
+                });
               });
+              // iterate over productStyleRequests
+              requests[1].forEach(({ data }, i) => {
+                let [price, photoUrl] = getProductPrice(data);
+                relatedProducts[i].price = price;
+                relatedProducts[i].photoUrl = photoUrl;
+              });
+              // iterate over productReviewRequests
+              requests[2].forEach(({ data }, i) => {
+                let averageRating = calculateAverageRating(data.ratings);
+                relatedProducts[i].rating = averageRating;
+              });
+              // return relatedProducts
+              resolve(relatedProducts);
             });
-            // iterate over productStyleRequests
-            requests[1].forEach(({ data }, i) => {
-              let [price, photoUrl] = getProductPrice(data);
-              relatedProducts[i].price = price;
-              relatedProducts[i].photoUrl = photoUrl;
-            });
-            // iterate over productReviewRequests
-            requests[2].forEach(({ data }, i) => {
-              let averageRating = calculateAverageRating(data.ratings);
-              relatedProducts[i].rating = averageRating;
-            });
-            // return relatedProducts
-            resolve(relatedProducts);
-          });
         });
-    }).then(relatedProducts => {
-      dispatch({
-        type: GET_RELATED_PRODUCTS,
-        relatedProducts: relatedProducts
+    })
+      .catch(err => {
+        console.log(err);
+      })
+      .then(relatedProducts => {
+        dispatch({
+          type: GET_RELATED_PRODUCTS,
+          relatedProducts: relatedProducts
+        });
       });
-    });
   };
 };
 
