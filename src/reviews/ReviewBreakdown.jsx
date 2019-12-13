@@ -12,7 +12,6 @@ const ReviewBreakdown = (props) => {
   function handler() {}
 
   if (props.reviews) {
-    console.log('average rating: ', props.averageRating);
     return (
       <div className="review-breakdown">
         <h2>{props.averageRating}</h2>
