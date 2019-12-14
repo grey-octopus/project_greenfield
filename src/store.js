@@ -9,6 +9,7 @@ import handleCountChangeReducer from "./q_and_a/reducers/handleCountChangeReduce
 import { relatedProductsReducer } from "./related_prod_your_outfit/reducers/related_products.js";
 import { myOutfitReducer } from "./related_prod_your_outfit/reducers/my_outfit.js";
 import fetchReviewMetadataReducer from "./reviews/review_reducers/fetchReviewMetadataReducer.js";
+import stylesReducer from './overview/reducers/stylesReducer.js'
 
 const rootReducer = combineReducers({
   averageRatingReducer,
@@ -17,15 +18,18 @@ const rootReducer = combineReducers({
   // reducers for relatedProducts and myOutfits
   relatedProducts: relatedProductsReducer,
   myOutfit: myOutfitReducer,
-  relatedProducts: relatedProductsReducer,
   //reducers for review widget
   fetchReviewReducer,
   fetchReviewMetadataReducer,
-  handleCountChangeReducer
+  handleCountChangeReducer,
+  styles: stylesReducer
 });
+
+const initialState = { styles: { selected: 0 } }
 
 const store = createStore(
   rootReducer,
+  initialState,
   compose(
     applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

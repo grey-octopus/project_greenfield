@@ -10,7 +10,6 @@ const Rating = props => {
   useEffect(() => {
     props.updateAverageRating(prodId)
     axios.get(`http://3.134.102.30/reviews/${prodId}/list?count=10000`).then(data => {
-      console.log(data)
       setNumOfReviews(data.data.results.length)
     }, [])
   })

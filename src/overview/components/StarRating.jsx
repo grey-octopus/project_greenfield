@@ -2,8 +2,10 @@ import React from 'react'
 
 const StarRating = props => {
   if (props.averageRating) {
+    console.log('RATING: ', props.averageRating)
+    console.log('CONVERTED: ', Number(props.averageRating) / 5 * 100)
     const innerStyle = {
-      width: `${(props.averageRating / 5) * 100}%`
+      width: `${(Number(props.averageRating) / 5) * 100}%`
     }
     return (
       <div className="stars-outer far fa-star">
