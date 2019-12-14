@@ -8,6 +8,10 @@ body {
   margin: 0;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 a {
   font-weight: 200;
   font-size: 0.8em;
@@ -203,7 +207,8 @@ button {
   border: none;
   width: 9vh;
   height: 9vh;
-  background-repeat: no-repeat center;
+  background-repeat: no-repeat;
+  background-position: center;
   border: 1px solid var(--font-color);
   position: relative;
   outline: none;
@@ -239,4 +244,12 @@ button {
 
 .disabled {
   display: none;
+}
+
+#selected-outer {
+  font-weight: 800;
+}
+
+#selected-label {
+  font-weight: 300;
 }
