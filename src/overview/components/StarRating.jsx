@@ -1,24 +1,13 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 
 const StarRating = (props) => {
-  //console.log('ave rating', typeof props.averageRating);
-  const { prodId } = useParams();
-  useEffect(() => {
-    props.updateAverageRating(prodId);
-  });
   if (props.averageRating) {
     const innerStyle = {
       width: `${(props.averageRating / 5) * 100}%`
     };
     return (
-      <div className="star-rating">
-        <div className="stars-outer far fa-star">
-          <div className="stars-inner fas fa-star" style={innerStyle}></div>
-        </div>
-        <span>
-          <a href="#ratings-reviews">Read all {props.numOfRatings} reviews</a>
-        </span>
+      <div className="stars-outer far fa-star">
+        <div className="stars-inner fas fa-star" style={innerStyle}></div>
       </div>
     );
   } else return <div id="star-rating"></div>;

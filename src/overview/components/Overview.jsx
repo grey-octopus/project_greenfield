@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import StarRatingContainer from '../containers/StarRatingContainer.jsx';
 import ProdInfoContainer from '../containers/ProdInfoContainer.jsx';
 import { useParams } from 'react-router-dom';
+import RatingContainer from '../containers/RatingContainer.jsx'
 
 const Overview = props => {
   const { prodId } = useParams();
@@ -11,7 +12,7 @@ const Overview = props => {
   if (props.title) {
     return (
       <div id='overview'>
-        <StarRatingContainer />
+        <RatingContainer />
         <ProdInfoContainer />
       </div>
     );

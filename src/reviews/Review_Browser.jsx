@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import ReviewItem from './ReviewItem.jsx';
-import ReviewModal from './modal.jsx';
+//import ReviewModal from './modal.jsx';
+import ReviewModalContainer from './review_containers/ReviewModalContainer';
 import { useParams, Link, Route, Switch } from 'react-router-dom';
 import publishReview from './apiHelpers.js';
 
@@ -17,7 +18,9 @@ const ReviewBrowser = (props) => {
   function handleSubmitReview() {
     console.log('submit review');
     publishReview()
-      .then((response) => {})
+      .then((response) => {
+        console.log('char', props.characteristics);
+      })
       .catch((err) => {});
   }
 
@@ -42,12 +45,12 @@ const ReviewBrowser = (props) => {
           })}
         </div>
 
-        <ReviewModal />
+        <ReviewModalContainer />
 
         <button
           id="review-paginate-button"
           type="button"
-          onClick={handlePaginateReviewList}
+          onClick={handleSubmitReview}
         >
           more reviews
         </button>
