@@ -5,7 +5,6 @@ import averageRatingReducer from "./overview/reducers/averageRatingReducer.js";
 import fetchProductInfoReducer from "./overview/reducers/fetchProductInfoReducer.js";
 import fetchQuestionListReducer from "./q_and_a/reducers/fetchQuestionListReducer.js";
 import fetchReviewReducer from "./reviews/review_reducers/fetchReviewsReducer.js";
-import fetchAnswerListReducer from "./q_and_a/reducers/fetchAnswerListReducer";
 import handleCountChangeReducer from "./q_and_a/reducers/handleCountChangeReducer.js";
 import { relatedProductsReducer } from "./related_prod_your_outfit/reducers/related_products.js";
 import { myOutfitReducer } from "./related_prod_your_outfit/reducers/my_outfit.js";
@@ -19,7 +18,6 @@ const rootReducer = combineReducers({
   // reducers for relatedProducts and myOutfits
   relatedProducts: relatedProductsReducer,
   myOutfit: myOutfitReducer,
-  fetchAnswerListReducer,
   //reducers for review widget
   fetchReviewReducer,
   fetchReviewMetadataReducer,

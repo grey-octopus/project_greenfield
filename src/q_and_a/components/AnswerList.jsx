@@ -7,27 +7,36 @@ const AnswerList = (props) => {
   //console.log("answer props:",props)
   //const {count} = useParams();
   const [count,setCount] = useState(2);
-  useEffect(()=>{
-      props.fetchAnswerList(props.questionId)
-  },[]);
-  if(props.answerList && props.answerList.length !== 0) {
-    //console.log("hi")
-    const total = props.answerList.length;
+  // useEffect(()=>{
+  //     props.fetchAnswerList(props.questionId)
+  // },[]);
+  const answers = props.answerList;
+  let answerList = [];
+  for(var key in answers) {
+    answerList.push(answers[key]);
+  }
+  if(props.answerList && answerList.length !== 0) {
+    
+    const total = answerList.length;
+    console.log("hi",total)
     return (
       <div>
         {
-          props.answerList.map(
-            (a,i) => {
-              return <Answer key={a.answer_id} answer={props.answerList[i]}/>
-            }
-          ).slice(0,count)
-        } 
+          answerList.map((a,i) => {
+            return <Answer key={a.id} answer={a}/>
+          }).slice(0,count)
+        }
+        {total > count ? (
+          <button onClick={() => setCount(count + 2)}>
+            LOAD MORE ANSWERS
+          </button>
+        ) : null} 
         </div>
       )
   } else {
       return (
         <div>
-
+          
         </div>
       )
   }
