@@ -11,6 +11,8 @@ import axios from 'axios';
 import polyfill from 'babel-polyfill';
 import QuestionListContainer from './q_and_a/containers/QuestionListContainer.jsx';
 
+import StyleSelectorContainer from '../src/overview/containers/StyleSelectorContainer.jsx'
+
 // React modal has to be bound to the app element:
 Modal.setAppElement('#app');
 
@@ -25,6 +27,7 @@ const App = () => {
         setDataToRender(
           <div>
             <OverviewContainer />
+            <StyleSelectorContainer />
             <ProdOverviewContainer />
             <hr />
             <RelatedProducts />

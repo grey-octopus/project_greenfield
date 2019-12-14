@@ -11,18 +11,25 @@ export const myOutfitReducer = (state = [], action) => {
 
     // takes in current myOutfit from` state, adds the item from action
     case ADD_ITEM_TO_OUTFIT:
-      let addItemState = Object.assign([], state.myOutfit, action.item);
+      console.log("action.item", action.item);
+      console.log("STATE PRE ITEM ADD REDUCER", state);
+      let addItemState = JSON.parse(JSON.stringify(state));
+      addItemState.push(action.item);
+      console.log("STATE POST ITEM ADD REDUCER", addItemState);
+
       return addItemState;
 
     // takes in current myOutfit from state, removes the item with given id
     case REMOVE_ITEM_FROM_OUTFIT:
-      let removeItemState = Object.assign([], state.myOutfit);
-      for (let item in removeItemState) {
-        if (item.id === action.id) {
-          removeItemState.splice(item, 1);
+      let removeItemState = JSON.parse(JSON.stringify(state));
+      for (let index in removeItemState) {
+        // console.log("ITEM IN STATE, ITERATING", item);
+        if (removeItemState[index].id === action.id) {
+          removeItemState.splice(index, 1);
         }
       }
       return removeItemState;
+
     default:
       return state;
   }

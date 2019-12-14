@@ -8,6 +8,10 @@ body {
   margin: 0;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 a {
   font-weight: 200;
   font-size: 0.8em;
@@ -41,13 +45,16 @@ p {
 }
 
 .stars-outer {
-  display: inline-block;
   position: relative;
   font-family: FontAwesome;
 }
 
 .stars-outer::before {
+<<<<<<< HEAD
   content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
+=======
+  content: "\f005\f005\f005\f005\f005";
+>>>>>>> ace6221acbc5cdf3b18b26944c982718f394e9ec
   color: var(--font-color);
 }
 
@@ -57,12 +64,15 @@ p {
   left: 0;
   white-space: nowrap;
   overflow: hidden;
-  font-style: solid;
   color: var(--font-color);
 }
 
 .stars-inner::before {
+<<<<<<< HEAD
   content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
+=======
+  content: "\f005\f005\f005\f005\f005";
+>>>>>>> ace6221acbc5cdf3b18b26944c982718f394e9ec
 }
 
 .relatedProductsContainer {
@@ -191,6 +201,7 @@ button {
   width: 10em;
 }
 
+<<<<<<< HEAD
 .single-stars-outer {
   display: inline-block;
   position: relative;
@@ -219,3 +230,79 @@ button {
 .inline-div {
   display: inline-block;
 }
+=======
+#style-btns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 44vh;
+}
+
+.style-btn {
+  border-radius: 50%;
+  white-space: nowrap;
+  font-size: 5em;
+  border: none;
+  width: 9vh;
+  height: 9vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid var(--font-color);
+  position: relative;
+  outline: none;
+  margin: 1vh;
+}
+
+.style-btn:hover {
+  cursor: pointer;
+}
+
+.checkmark {
+  font-family: FontAwesome;
+  vertical-align: center;
+  text-align: center;
+  top: 0;
+  right: 0;
+  width: 2vh;
+  height: 2vh;
+  border: 1px solid var(--font-color);
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.checkmark i {
+  position: relative;
+  color: var(--font-color);
+  font-size: 2vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.disabled {
+  display: none;
+}
+
+#selected-outer {
+  font-weight: 800;
+}
+
+#selected-label {
+  font-weight: 300;
+}
+
+.original-price, .normal-price {
+  color: var(--font-color);
+  font-weight: 300;
+}
+
+.original-price {
+  text-decoration: line-through;
+}
+
+.discounted-price {
+  color: red;
+  font-weight: 300;
+}
+>>>>>>> ace6221acbc5cdf3b18b26944c982718f394e9ec
