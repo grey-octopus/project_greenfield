@@ -2,19 +2,29 @@ import React from "react";
 import { mount, shallow, render } from "enzyme";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import updateAverageRating from "../src/overview/actions/updateAverageRating.js";
-import averageRatingReducer from "../src/overview/reducers/averageRatingReducer.js";
+import { Provider } from 'react-redux'
 import fetchMock from "fetch-mock";
-import ProdOverview from '../src/overview/components/ProdOverview.jsx'
-import fetchProductInfo from "../src/overview/actions/fetchProductInfo.js";
-import fetchProductInfoReducer from "../src/overview/reducers/fetchProductInfoReducer.js";
+import toJson from 'enzyme-to-json'
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history'
-import { Provider } from 'react-redux'
-import toJson from 'enzyme-to-json'
-import fetchProductOverview from '../src/overview/actions/fetchProductOverview.js'
+import jest from 'jest-mock'
+
+// reducers
+import updateAverageRating from "../src/overview/actions/updateAverageRating.js";
+import averageRatingReducer from "../src/overview/reducers/averageRatingReducer.js";
+import fetchProductInfoReducer from "../src/overview/reducers/fetchProductInfoReducer.js";
+
+// components
+import ProdOverview from '../src/overview/components/ProdOverview.jsx'
 import Description from '../src/overview/components/Description.jsx'
 import Features from '../src/overview/components/Features.jsx'
+import Rating from '../src/overview/components/Rating.jsx'
+import StarRating from '../src/overview/components/StarRating.jsx'
+import ReadReviews from '../src/overview/components/ReadReviews.jsx'
+
+// actions
+import fetchProductOverview from '../src/overview/actions/fetchProductOverview.js'
+import fetchProductInfo from "../src/overview/actions/fetchProductInfo.js";
 
 // containers
 import DescriptionContainer from '../src/overview/containers/DescriptionContainer.jsx'
@@ -22,7 +32,7 @@ import FeaturesContainer from '../src/overview/containers/FeaturesContainer.jsx'
 import OverviewContainer from '../src/overview/containers/OverviewContainer.jsx'
 import ProdInfoContainer from '../src/overview/containers/ProdInfoContainer.jsx'
 import ProdOverviewContainer from '../src/overview/containers/ProdOverviewContainer.jsx'
-import StarRatingContainer from "../src/overview/containers/StarRatingContainer.jsx";
+import RatingContainer from '../src/overview/containers/RatingContainer.jsx'
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -31,7 +41,7 @@ describe("actions", () => {
   describe('updateAverageRating', () => {
     it ('creates action with average rating', () => {
       const store = mockStore({ prodId: 1 })
-      const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', numOfRatings: 7, payload: '4.00' }]
+      const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', payload: '4.00' }]
       return store.dispatch(updateAverageRating(1)).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
       })
@@ -39,7 +49,7 @@ describe("actions", () => {
       
     it ('should round payload to nearest quarter', () => {
       const store = mockStore({ prodId: 2})
-      const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', numOfRatings: 5, payload: '3.50'}]
+      const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', payload: '3.50'}]
       return store.dispatch(updateAverageRating(2)).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
       })
@@ -127,10 +137,10 @@ describe('components', () => {
       }
       const history = createMemoryHistory()
       const wrapper = shallow(<Router history={history} path='/:prodId'><ProdOverview {...props} /></Router>)
-      expect(toJson(wrapper.find('ProdOverview'))).toMatchSnapshot()
       expect(wrapper.find('ProdOverview').prop('slogan')).toEqual('That\'s fair')
       expect(wrapper.find('ProdOverview').prop('description')).toEqual('Just a cool guy')
       expect(wrapper.find('ProdOverview').prop('features')).toBeTruthy()
+      expect(toJson(wrapper.find('ProdOverview'))).toMatchSnapshot()
     });
   });
   describe('<Description />', () => {
@@ -140,9 +150,9 @@ describe('components', () => {
         description: 'Just a cool guy'
       }
       const wrapper = shallow(<div><Description {...props} /></div>)
-      expect(toJson(wrapper)).toMatchSnapshot()
       expect(wrapper.find('Description').prop('slogan')).toEqual('That\'s fair')
       expect(wrapper.find('Description').prop('description')).toEqual('Just a cool guy')
+      expect(toJson(wrapper.find('Description'))).toMatchSnapshot()
     })
   })
   describe('<Features />', () => {
@@ -151,8 +161,42 @@ describe('components', () => {
         features: [{ value: 'val', feature: 'feature' }]
       }
       const wrapper = shallow(<div><Features {...props} /></div>)
-      expect(toJson(wrapper)).toMatchSnapshot()
       expect(wrapper.find('Features').prop('features')).toEqual([{ value: 'val', feature: 'feature' }])
+      expect(toJson(wrapper.find('Features'))).toMatchSnapshot()
+    })
+  })
+  describe('<Rating />', () => {
+    it('renders with required props', () => {
+      const props = {
+        prodId: 1
+      }
+      const history = createMemoryHistory()
+      const wrapper = shallow(
+        <Router history={history} path='/:prodId'>
+          <Rating {...props} />
+        </Router>
+      )
+      expect(wrapper.find('Rating').prop('prodId')).toEqual(1)
+      expect(toJson(wrapper.find('Rating'))).toMatchSnapshot()
+    })
+    it('renders with required props', () => {
+      const props = { numOfReviews: 4 }
+      const wrapper = shallow(
+        <div>
+          <ReadReviews {...props} />
+        </div>
+      )
+      expect(wrapper.find('ReadReviews').prop('numOfReviews')).toEqual(4)
+    })
+  })
+  describe('<StarRating />', () => {
+    it ('renders with required pros', () => {
+      const props = {
+        averageRating: '4.00'
+      }
+      const wrapper = shallow(<div><StarRating {...props} /></div>)
+      expect(wrapper.find('StarRating').prop('averageRating')).toEqual('4.00')
+      expect(toJson(wrapper.find('StarRating'))).toMatchSnapshot()
     })
   })
 })
@@ -204,20 +248,9 @@ describe('containers', () => {
     expect(wrapper.find('ProdOverview').prop('features')).toEqual('testFeature')
     expect(toJson(wrapper)).toMatchSnapshot()
   })
-  describe('<StarRatingContainer />', () => {
-    const wrapper = shallow(<StarRatingContainer store={store} />)
-    expect(wrapper.find('StarRating').prop('averageRating')).toEqual('4.00')
-    expect(wrapper.find('StarRating').prop('numOfRatings')).toEqual(3)
+  describe('<RatingContainer />', () => {
+    const wrapper = shallow(<RatingContainer store={store} />)
+    expect(wrapper.find('Rating').prop('averageRating')).toEqual('4.00')
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })
-
-// describe('<StarRatingContainer />', () => {
-//   it ('should set averageRating property', () => {
-//     const store = mockStore({ prodId: 1 })
-//     const root = shallow(<StarRatingContainer store={store} />)
-//     return store.dispatch(updateAverageRating(1)).then(() => {
-//       expect(root.find('StarRating').prop)
-//     })
-//   })
-// })
