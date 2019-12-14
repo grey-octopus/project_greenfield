@@ -253,3 +253,17 @@ button {
 #selected-label {
   font-weight: 300;
 }
+
+.original-price, .normal-price {
+  color: var(--font-color);
+  font-weight: 300;
+}
+
+.original-price {
+  text-decoration: line-through;
+}
+
+.discounted-price {
+  color: red;
+  font-weight: 300;
+}
