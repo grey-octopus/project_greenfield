@@ -15,14 +15,14 @@ const ReviewBrowser = (props) => {
     props.fetchReviewMetadata({ prodId: prodId });
   }, []);
 
-  function handleSubmitReview() {
-    console.log('submit review');
-    publishReview()
-      .then((response) => {
-        console.log('char', props.characteristics);
-      })
-      .catch((err) => {});
-  }
+  // function handleSubmitReview() {
+  //   console.log('submit review');
+  //   publishReview()
+  //     .then((response) => {
+  //       console.log('char', props.characteristics);
+  //     })
+  //     .catch((err) => {});
+  // }
 
   function handlePaginateReviewList() {
     console.log('paginate reviews');
@@ -50,7 +50,7 @@ const ReviewBrowser = (props) => {
         <button
           id="review-paginate-button"
           type="button"
-          onClick={handleSubmitReview}
+          onClick={handlePaginateReviewList}
         >
           more reviews
         </button>

@@ -1,5 +1,4 @@
-import ReviewModal from '../modal.jsx';
-
+import ReviewModal from '../review_modal/modal.jsx';
 import { connect } from 'react-redux';
 import ReviewBrowser from '../Review_Browser.jsx';
 import fetchReviewList from '../review_actions/fetchReviews.js';

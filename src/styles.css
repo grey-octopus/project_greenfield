@@ -1,5 +1,5 @@
 :root {
-  --primary-font: "Poppins", "sans-serif";
+  --primary-font: 'Poppins', 'sans-serif';
   --font-color: #525252;
 }
 
@@ -47,7 +47,7 @@ p {
 }
 
 .stars-outer::before {
-  content: "\f005 \f005 \f005 \f005 \f005 \00a0\00a0";
+  content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
   color: var(--font-color);
 }
 
@@ -62,7 +62,7 @@ p {
 }
 
 .stars-inner::before {
-  content: "\f005 \f005 \f005 \f005 \f005 \00a0\00a0";
+  content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
 }
 
 .relatedProductsContainer {
@@ -106,7 +106,7 @@ p {
 }
 
 .feature::before {
-  content: "\f00c \00a0\00a0";
+  content: '\f00c \00a0\00a0';
 }
 
 #ratings-reviews {
@@ -189,4 +189,29 @@ button {
   right: 0;
   top: 26vh;
   width: 10em;
+}
+
+.single-stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.single-stars-outer::before {
+  content: '\f005  ';
+  color: var(--font-color);
+}
+
+.single-stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  font-style: solid;
+  color: var(--font-color);
+}
+
+.single-stars-inner::before {
+  content: '\f005  ';
 }
