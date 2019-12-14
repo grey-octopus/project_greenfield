@@ -1,26 +1,19 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react'
 
 const StarRating = props => {
-  const { prodId } = useParams();
-  useEffect(() => {
-    props.updateAverageRating(prodId);
-  });
   if (props.averageRating) {
+    console.log('RATING: ', props.averageRating)
+    console.log('CONVERTED: ', Number(props.averageRating) / 5 * 100)
     const innerStyle = {
-      width: `${(props.averageRating / 5) * 100}%`
-    };
+      width: `${(Number(props.averageRating) / 5) * 100}%`
+    }
     return (
-      <div className="star-rating">
-        <div className="stars-outer far fa-star">
-          <div className="stars-inner fas fa-star" style={innerStyle}></div>
-        </div>
-        <span>
-          <a href="#ratings-reviews">Read all {props.numOfRatings} reviews</a>
-        </span>
+      <div className="stars-outer far fa-star">
+        <div className="stars-inner fas fa-star" style={innerStyle}></div>
       </div>
-    );
+    )
   } else return <div id="star-rating"></div>;
-};
 
-export default StarRating;
+}
+
+export default StarRating

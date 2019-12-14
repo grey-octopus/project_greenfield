@@ -6,7 +6,7 @@ import handleCountChange from "../actions/handleCountChange.js";
 const mapStateToProps = (state) => {
     return {
         questionList: state.fetchQuestionListReducer.questionList,
-        count: state.fetchQuestionListReducer.count
+        //count: state.fetchQuestionListReducer.count
     }
 }
 
@@ -14,10 +14,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchQuestionList: (prodId) => {
             dispatch(fetchQuestionList(prodId))
-        },
-        handleCountChange: (count) => {
-            dispatch(handleCountChange(count))
         }
+        // handleCountChange: (count) => {
+        //     dispatch(handleCountChange(count))
+        // }
     }
 }
 

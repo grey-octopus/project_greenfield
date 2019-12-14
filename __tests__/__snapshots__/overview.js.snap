@@ -113,9 +113,8 @@ exports[` 6`] = `
 <ContextProvider
   value={null}
 >
-  <StarRating
+  <Rating
     averageRating="4.00"
-    numOfRatings={3}
     store={
       Object {
         "clearActions": [Function],
@@ -132,27 +131,23 @@ exports[` 6`] = `
 `;
 
 exports[`components <Description /> renders with required props 1`] = `
-<div>
-  <Description
-    description="Just a cool guy"
-    slogan="That's fair"
-  />
-</div>
+<Description
+  description="Just a cool guy"
+  slogan="That's fair"
+/>
 `;
 
 exports[`components <Features /> renders with required props 1`] = `
-<div>
-  <Features
-    features={
-      Array [
-        Object {
-          "feature": "feature",
-          "value": "val",
-        },
-      ]
-    }
-  />
-</div>
+<Features
+  features={
+    Array [
+      Object {
+        "feature": "feature",
+        "value": "val",
+      },
+    ]
+  }
+/>
 `;
 
 exports[`components <ProdOverview /> renders with required props 1`] = `
@@ -164,5 +159,17 @@ exports[`components <ProdOverview /> renders with required props 1`] = `
     ]
   }
   slogan="That's fair"
+/>
+`;
+
+exports[`components <Rating /> renders with required props 1`] = `
+<Rating
+  prodId={1}
+/>
+`;
+
+exports[`components <StarRating /> renders with required pros 1`] = `
+<StarRating
+  averageRating="4.00"
 />
 `;
