@@ -1,5 +1,5 @@
 import React from 'react'
-import AnswerListContainer from '../containers/AnswerListContainer'
+import AnswerList from './AnswerList'
 import AddAnAnswer from './AddAnAnswer'
 
 const Question = (props) => {
@@ -11,7 +11,10 @@ const Question = (props) => {
             | <AddAnAnswer />
             
             
-            <AnswerListContainer questionId={props.question.question_id}/>
+            <AnswerList
+                questionId={props.question.question_id}
+                answerList={props.question.answers}
+            />
             <br/>
         </div>
     )
