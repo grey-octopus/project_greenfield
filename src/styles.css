@@ -50,11 +50,7 @@ p {
 }
 
 .stars-outer::before {
-<<<<<<< HEAD
-  content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
-=======
-  content: "\f005\f005\f005\f005\f005";
->>>>>>> ace6221acbc5cdf3b18b26944c982718f394e9ec
+  content: '\f005\f005\f005\f005\f005';
   color: var(--font-color);
 }
 
@@ -68,11 +64,7 @@ p {
 }
 
 .stars-inner::before {
-<<<<<<< HEAD
-  content: '\f005 \f005 \f005 \f005 \f005 \00a0\00a0';
-=======
-  content: "\f005\f005\f005\f005\f005";
->>>>>>> ace6221acbc5cdf3b18b26944c982718f394e9ec
+  content: '\f005\f005\f005\f005\f005';
 }
 
 .relatedProductsContainer {
@@ -201,7 +193,6 @@ button {
   width: 10em;
 }
 
-<<<<<<< HEAD
 .single-stars-outer {
   display: inline-block;
   position: relative;
@@ -230,7 +221,6 @@ button {
 .inline-div {
   display: inline-block;
 }
-=======
 #style-btns {
   display: flex;
   flex-direction: row;
@@ -292,7 +282,8 @@ button {
   font-weight: 300;
 }
 
-.original-price, .normal-price {
+.original-price,
+.normal-price {
   color: var(--font-color);
   font-weight: 300;
 }
@@ -305,4 +296,3 @@ button {
   color: red;
   font-weight: 300;
 }
->>>>>>> ace6221acbc5cdf3b18b26944c982718f394e9ec
