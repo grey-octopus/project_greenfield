@@ -267,3 +267,7 @@ button {
   color: red;
   font-weight: 300;
 }
+
+#app-inner {
+  padding: 3vh;
+}
