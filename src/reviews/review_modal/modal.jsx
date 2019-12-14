@@ -16,6 +16,8 @@ const customStyles = {
 };
 
 const ReviewModal = (props) => {
+  const [numOfStarsFilled, setNumOfStarsFilled] = useState(0);
+  const [bodyForm, setBodyForm] = useState({ body: '' });
   //this is happening before props are provided
   // let obj = props.characteristics;
   // // let chars = Object.keys(obj).map(function(key) {
@@ -53,11 +55,25 @@ const ReviewModal = (props) => {
   //   characteristics: { '62': 2, '63': 2, '64': 2, '65': 2 }
   // }
 
-  function handlePublish() {
-    publishReview();
+  function handleBodyFormChange(event) {
+    event.persist();
+    setBodyForm(event.target.value);
   }
 
-  const [numOfStarsFilled, setNumOfStarsFilled] = useState(0);
+  function handlePublish(e) {
+    event.preventDefault();
+    console.log('handle publish');
+    console.log(e);
+    //publishReview();
+  }
+
+  // const handleInputChange = (event) => {
+  //   event.persist();
+  //   setInputs((inputs) => ({
+  //     ...inputs,
+  //     [event.target.name]: event.target.value
+  //   }));
+  // };
 
   //0 star = 0
   //1 star = 20
@@ -100,7 +116,14 @@ const ReviewModal = (props) => {
 
           <div>Review Body:</div>
 
-          <textarea rows="4" cols="50"></textarea>
+          <textarea
+            rows="4"
+            cols="50"
+            value={bodyForm.body}
+            onChange={(e) => {
+              handleBodyFormChange(e);
+            }}
+          ></textarea>
 
           {/* <button>Submit image</button> */}
 
@@ -110,7 +133,13 @@ const ReviewModal = (props) => {
           <div>Email:</div>
           <input />
 
-          <button>Submit!</button>
+          <button
+            onClick={(e) => {
+              handlePublish(e);
+            }}
+          >
+            Submit!
+          </button>
 
           <button onClick={closeModal}>close</button>
         </form>
@@ -120,60 +149,3 @@ const ReviewModal = (props) => {
 };
 
 export default ReviewModal;
-
-// return (
-//   <div>
-//     <div className="single-stars-outer far fa-star">
-//       <div
-//         className="single-stars-inner fas fa-star"
-//         style={determineFill(1)}
-//         onClick={starClickHandler(1)}
-//       ></div>
-//     </div>
-//     <div className="single-stars-outer far fa-star">
-//       <div
-//         className="single-stars-inner fas fa-star"
-//         style={determineFill(2)}
-//         onClick={starClickHandler(2)}
-//       ></div>
-//     </div>
-//     <div className="single-stars-outer far fa-star">
-//       <div
-//         className="single-stars-inner fas fa-star"
-//         style={starClickHandler(3)}
-//       ></div>
-//     </div>
-//     <div className="single-stars-outer far fa-star">
-//       <div
-//         className="single-stars-inner fas fa-star"
-//         style={starClickHandler(4)}
-//       ></div>
-//     </div>
-//     <div className="single-stars-outer far fa-star">
-//       <div
-//         className="single-stars-inner fas fa-star"
-//         style={starClickHandler(5)}
-//       ></div>
-//     </div>
-//   </div>
-// );
-
-// let allStars = [];
-
-//     for (let s = 0; s < 5; s++) {
-//       allStars.push(
-//         <div>
-//           <div className="single-stars-outer far fa-star">
-//             <div
-//               className="single-stars-inner fas fa-star"
-//               style={determineFill(s)}
-//               onClick={() => {
-//                 starClickHandler(s);
-//               }}
-//             ></div>
-//           </div>
-//         </div>
-//       );
-//     }
-//     console.log(allStars);
-//     return allStars;
