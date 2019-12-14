@@ -21,7 +21,7 @@ const Rating = props => {
         <ReadReviews numOfReviews={numOfReviews} />
       </div>
     )
-  } else return <div id='rating'></div>
+  } else return <div id='star-rating'></div>
 }
 
 export default Rating
