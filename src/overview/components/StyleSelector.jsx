@@ -7,10 +7,13 @@ const StyleSelector = props => {
   useEffect(() => { props.fetchStyles(prodId) }, [])
   if (props.styles) {
     return (
-      <div id='style-btns'>
-        {props.styles.map((style, index) => {
-          return <StyleContainer index={index} />
-        })}
+      <div id="style-selector">
+        <h3 id='selected-outer'>SELECTED > <span id='selected-label'>{props.styles[props.selected].name.toUpperCase()}</span></h3>
+        <div id='style-btns'>
+          {props.styles.map((style, index) => {
+            return <StyleContainer index={index} />
+          })}
+        </div>
       </div>
     )
   } else return (<div id='style-btns'></div>)

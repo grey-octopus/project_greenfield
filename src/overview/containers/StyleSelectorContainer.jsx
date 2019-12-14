@@ -4,7 +4,8 @@ import fetchStyles from '../actions/fetchStyles.js'
 
 const mapStateToProps = state => {
   return {
-    styles: state.styles.styles
+    styles: state.styles.styles,
+    selected: state.styles.selected
   }
 }
 
