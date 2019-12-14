@@ -1,6 +1,8 @@
 import Modal from 'react-modal';
 import publishReview from '../apiHelpers.js';
 import React, { useEffect, useState } from 'react';
+import StarSelector from './StarSelector.jsx';
+import Characteristics from './Characteristics.jsx';
 
 const customStyles = {
   content: {
@@ -34,51 +36,10 @@ const ReviewModal = (props) => {
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
     subtitle.style.color = '#f00';
-    mapChars();
   }
 
   function closeModal() {
     setIsOpen(false);
-  }
-
-  function mapChars() {
-    if (props.characteristics) {
-      // console.log('characteristics', props.characteristics);
-      // let obj = props.characteristics;
-      // let chars = Object.keys(obj).map(function(key) {
-      //   return [Number(key), obj[key]];
-      // });
-
-      let temp = Object.keys(props.characteristics);
-      // console.log('temp', temp);
-      let chars = [];
-
-      for (let i = 0; i < temp.length; i++) {
-        chars.push({
-          name: temp[i],
-          id: props.characteristics[temp[i]].id,
-          value: props.characteristics[temp[i]].value
-        });
-      }
-
-      // console.log('mapped characteristics', chars);
-
-      return chars.map((c) => {
-        // console.log(c);
-        return (
-          <div>
-            <h3>{c.name}</h3>
-            <input type="radio" name="gender" value="male"></input>
-            <input type="radio" name="gender" value="male"></input>
-            <input type="radio" name="gender" value="male"></input>
-            <input type="radio" name="gender" value="male"></input>
-            <input type="radio" name="gender" value="male"></input>
-          </div>
-        );
-      });
-    } else {
-      return <div>loading characteristics</div>;
-    }
   }
 
   // data: {
@@ -96,110 +57,7 @@ const ReviewModal = (props) => {
     publishReview();
   }
 
-  function starClickHandler(num) {
-    console.log('starClickHandler');
-
-    //toggle the number of stars filled
-
-    setNumOfStarsFilled(num);
-  }
-
-  //react hook allowing the storage of number of stars filled
   const [numOfStarsFilled, setNumOfStarsFilled] = useState(0);
-
-  function stars() {
-    const innerStyle = {
-      width: `${0}%`
-    };
-
-    function determineFill(star) {
-      if (star <= numOfStarsFilled) {
-        return { width: `${100}%` };
-      } else {
-        return { width: `${0}%` };
-      }
-    }
-
-    return (
-      <div>
-        <div
-          className="single-stars-outer far fa-star"
-          onClick={() => {
-            console.log('star1');
-            starClickHandler(1);
-          }}
-        >
-          <div
-            className="single-stars-inner fas fa-star"
-            style={determineFill(1)}
-            onClick={() => {
-              console.log('star1');
-            }}
-          ></div>
-        </div>
-        <div
-          className="single-stars-outer far fa-star"
-          onClick={() => {
-            console.log('star2');
-            starClickHandler(2);
-          }}
-        >
-          <div
-            className="single-stars-inner fas fa-star"
-            style={determineFill(2)}
-            onClick={() => {
-              console.log('star2');
-            }}
-          ></div>
-        </div>
-        <div
-          className="single-stars-outer far fa-star"
-          onClick={() => {
-            console.log('star3');
-            starClickHandler(3);
-          }}
-        >
-          <div
-            className="single-stars-inner fas fa-star"
-            style={determineFill(3)}
-            onClick={() => {
-              console.log('star3');
-            }}
-          ></div>
-        </div>
-        <div
-          className="single-stars-outer far fa-star"
-          onClick={() => {
-            console.log('star4');
-            starClickHandler(4);
-          }}
-        >
-          <div
-            className="single-stars-inner fas fa-star"
-            style={determineFill(4)}
-            onClick={() => {
-              console.log('star4');
-            }}
-          ></div>
-        </div>
-        <div
-          className="single-stars-outer far fa-star"
-          onClick={() => {
-            console.log('star5');
-            starClickHandler(5);
-          }}
-        >
-          <div
-            className="single-stars-inner fas fa-star"
-            style={determineFill(5)}
-            onClick={() => {
-              console.log('star5');
-            }}
-          ></div>
-        </div>
-      </div>
-    );
-  }
 
   //0 star = 0
   //1 star = 20
@@ -223,12 +81,19 @@ const ReviewModal = (props) => {
         </h2>
         <form>
           <div>
-            <div>{stars()}</div>
-            <div></div>
+            <div>
+              <StarSelector
+                setNumOfStarsFilled={setNumOfStarsFilled}
+                numOfStarsFilled={numOfStarsFilled}
+              />
+            </div>
           </div>
           <div>Do you recommend this product?</div>
-          <div>Characteristics:</div>
-          <div>{mapChars()}</div>
+          <input type="radio" name="recommend" value="yes"></input>
+          <input type="radio" name="recommend" value="false"></input>
+          <div>
+            <Characteristics characteristics={props.characteristics} />:
+          </div>
 
           <div>Summary:</div>
           <input />

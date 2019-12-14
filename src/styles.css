@@ -215,3 +215,7 @@ button {
 .single-stars-inner::before {
   content: '\f005  ';
 }
+
+.inline-div {
+  display: inline-block;
+}
