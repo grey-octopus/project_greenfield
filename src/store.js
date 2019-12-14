@@ -27,8 +27,11 @@ const rootReducer = combineReducers({
   styles: stylesReducer
 });
 
+const initialState = { styles: { selected: 0 } }
+
 const store = createStore(
   rootReducer,
+  initialState,
   compose(
     applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
