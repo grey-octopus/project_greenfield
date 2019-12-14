@@ -3,19 +3,20 @@ import {
   addItemToOutfit,
   removeItemFromOutfit
 } from "./actions/your_outfit_actions.js";
+import { connect } from "react-redux";
 
 const placeHolderImage = "/img/image-placeholder.png";
 
-// will implement later
-const addItem = (item, dispatch) => {
-  dispatch(addItemToOutfit(item));
-};
-// will implement later
-const removeItem = (id, dispatch) => {
-  dispatch(removeItemFromOutfit(id));
-};
-
-const MyOutfitsCard = ({ id, category, name, price, photoUrl, dispatch }) => {
+const MyOutfitsCard = ({
+  id,
+  category,
+  name,
+  price,
+  photoUrl,
+  rating,
+  addItem,
+  removeItem
+}) => {
   const item = { id, category, name, price, photoUrl };
   return (
     <div className="relatedProducts card">
@@ -28,9 +29,28 @@ const MyOutfitsCard = ({ id, category, name, price, photoUrl, dispatch }) => {
           <strong>{name}</strong>
         </p>
         {price}
+        ITEM ID:{id}
       </p>
+      <button
+        onClick={() => {
+          removeItem(id);
+        }}
+      >
+        Remove item from favorites
+      </button>
     </div>
   );
 };
 
-export default MyOutfitsCard;
+const mapDispatchToProps = dispatch => {
+  return {
+    addItem: item => {
+      dispatch(addItemToOutfit(item));
+    },
+    removeItem: id => {
+      dispatch(removeItemFromOutfit(id));
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(MyOutfitsCard);
