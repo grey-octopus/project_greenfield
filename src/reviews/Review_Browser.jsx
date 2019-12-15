@@ -15,15 +15,6 @@ const ReviewBrowser = (props) => {
     props.fetchReviewMetadata({ prodId: prodId });
   }, []);
 
-  // function handleSubmitReview() {
-  //   console.log('submit review');
-  //   publishReview()
-  //     .then((response) => {
-  //       console.log('char', props.characteristics);
-  //     })
-  //     .catch((err) => {});
-  // }
-
   function handlePaginateReviewList() {
     console.log('paginate reviews');
     props.fetchReviewList({ prodId: prodId, page: 1, count: counter });

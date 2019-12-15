@@ -24,16 +24,16 @@ function Characteristics(props) {
 
     // console.log('mapped characteristics', chars);
 
-    return chars.map((c) => {
+    return chars.map((c, index) => {
       // console.log(c);
       return (
         <div>
           <h3>{c.name}</h3>
-          <input type="radio" name="gender" value="male"></input>
-          <input type="radio" name="gender" value="male"></input>
-          <input type="radio" name="gender" value="male"></input>
-          <input type="radio" name="gender" value="male"></input>
-          <input type="radio" name="gender" value="male"></input>
+          <input type="radio" name={c.name} value="male"></input>
+          <input type="radio" name={c.name} value="male"></input>
+          <input type="radio" name={c.name} value="male"></input>
+          <input type="radio" name={c.name} value="male"></input>
+          <input type="radio" name={c.name} value="male"></input>
         </div>
       );
     });

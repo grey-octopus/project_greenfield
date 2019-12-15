@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import publishReview from '../apiHelpers.js';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useParams } from 'react';
 import StarSelector from './StarSelector.jsx';
 import Characteristics from './Characteristics.jsx';
 
@@ -17,7 +17,9 @@ const customStyles = {
 
 const ReviewModal = (props) => {
   const [numOfStarsFilled, setNumOfStarsFilled] = useState(0);
-  const [bodyForm, setBodyForm] = useState({ body: '' });
+  //const [bodyForm, setBodyForm] = useState({ body: '' });
+  const [inputForms, setInputForms] = useState({ body: '' });
+  const [characteristics, setcharacteristics] = useState({});
   //this is happening before props are provided
   // let obj = props.characteristics;
   // // let chars = Object.keys(obj).map(function(key) {
@@ -55,25 +57,31 @@ const ReviewModal = (props) => {
   //   characteristics: { '62': 2, '63': 2, '64': 2, '65': 2 }
   // }
 
-  function handleBodyFormChange(event) {
-    event.persist();
-    setBodyForm(event.target.value);
-  }
-
-  function handlePublish(e) {
-    event.preventDefault();
-    console.log('handle publish');
-    console.log(e);
-    //publishReview();
-  }
-
-  // const handleInputChange = (event) => {
+  // function handleBodyFormChange(event) {
   //   event.persist();
-  //   setInputs((inputs) => ({
-  //     ...inputs,
-  //     [event.target.name]: event.target.value
-  //   }));
-  // };
+  //   // setUserInformation(event.target.value);
+  //   setBodyForm({ body: event.target.value });
+  //   console.log(bodyForm);
+  // }
+
+  function handleInputChange(event) {
+    event.persist();
+    // setUserInformation(event.target.value);
+    setInputForms({ ...inputForms, [event.target.name]: event.target.value });
+    console.log(inputForms);
+  }
+
+  function handlePublish(info) {
+    event.preventDefault();
+    // console.log('handle publish');
+    // console.log(info);
+
+    publishReview({
+      forms: info,
+      stars: numOfStarsFilled,
+      chars: props.characteristics
+    });
+  }
 
   //0 star = 0
   //1 star = 20
@@ -112,30 +120,51 @@ const ReviewModal = (props) => {
           </div>
 
           <div>Summary:</div>
-          <input />
+          <textarea
+            name="summary"
+            rows="4"
+            cols="50"
+            value={inputForms.summary}
+            onChange={(e) => {
+              handleInputChange(e);
+            }}
+          ></textarea>
 
           <div>Review Body:</div>
 
           <textarea
+            name="body"
             rows="4"
             cols="50"
-            value={bodyForm.body}
+            value={inputForms.body}
             onChange={(e) => {
-              handleBodyFormChange(e);
+              handleInputChange(e);
             }}
           ></textarea>
 
           {/* <button>Submit image</button> */}
 
           <div>Nickname:</div>
-          <input />
+          <input
+            name="nickname"
+            value={inputForms.nickname}
+            onChange={(e) => {
+              handleInputChange(e);
+            }}
+          />
 
           <div>Email:</div>
-          <input />
+          <input
+            name="email"
+            value={inputForms.email}
+            onChange={(e) => {
+              handleInputChange(e);
+            }}
+          />
 
           <button
             onClick={(e) => {
-              handlePublish(e);
+              handlePublish(inputForms);
             }}
           >
             Submit!
