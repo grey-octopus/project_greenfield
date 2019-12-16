@@ -150,6 +150,18 @@ exports[`components <Features /> renders with required props 1`] = `
 />
 `;
 
+exports[`components <ImageGallery /> renders with required props 1`] = `
+<ImageGallery
+  selected={1}
+  selectedStyle="testSelected"
+  styles={
+    Array [
+      "testStyle",
+    ]
+  }
+/>
+`;
+
 exports[`components <ProdOverview /> renders with required props 1`] = `
 <ProdOverview
   description="Just a cool guy"
@@ -168,7 +180,7 @@ exports[`components <Rating /> renders with required props 1`] = `
 />
 `;
 
-exports[`components <StarRating /> renders with required pros 1`] = `
+exports[`components <StarRating /> renders with required props 1`] = `
 <StarRating
   averageRating="4.00"
 />
