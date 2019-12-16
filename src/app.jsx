@@ -10,7 +10,7 @@ import ReviewBreakdown from "./reviews/review_containers/ReviewBreakdownContaine
 import axios from "axios";
 import polyfill from "babel-polyfill";
 import QuestionListContainer from "./q_and_a/containers/QuestionListContainer.jsx";
-
+import QuestionList from "./q_and_a/components/QuestionList"
 // React modal has to be bound to the app element:
 Modal.setAppElement("#app");
 
@@ -30,7 +30,8 @@ const App = () => {
             <RelatedProducts />
             <MyOutfits />
             <hr />
-            <QuestionListContainer />
+            {/* <QuestionListContainer /> */}
+            <QuestionList />
             <hr />
             <div id="ratings-reviews">
               <ReviewBreakdown className="review-breakdown" />
