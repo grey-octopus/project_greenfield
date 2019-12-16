@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 
 const AnswerList = (props) => {
-  //console.log("answer props:",props)
+  console.log("answer props:",props)
   //const {count} = useParams();
   const [count,setCount] = useState(2);
   // useEffect(()=>{
@@ -23,7 +23,7 @@ const AnswerList = (props) => {
       <div>
         {
           answerList.map((a,i) => {
-            return <Answer key={a.id} answer={a}/>
+            return <Answer key={a.id} answer={a} questionId={props.questionId}/>
           }).slice(0,count)
         }
         {total > count ? (
