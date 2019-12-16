@@ -28,6 +28,7 @@ const MyOutfitsFirstCard = ({
   myOutfit
 }) => {
   let { prodId } = useParams();
+  const productLink = `http://3.134.102.30/products/${prodId}`;
   prodId = Number(prodId);
 
   let [isInOutfit, setIsInOutfit] = useState(false);
@@ -48,9 +49,11 @@ const MyOutfitsFirstCard = ({
       </div>
       <p className="cardText" style={{ fontSize: "10px" }}>
         {category}
-        <p style={{ fontSize: "12px", wordBreak: "all" }}>
-          <strong>{name}</strong>
-        </p>
+      </p>
+      <p style={{ fontSize: "12px", wordBreak: "all" }}>
+        <strong>{name}</strong>
+      </p>
+      <p>
         {/* {price} */}
         ITEM ID:{prodId}
       </p>
@@ -60,7 +63,7 @@ const MyOutfitsFirstCard = ({
             removeItem(prodId);
           }}
         >
-          Remove item from favorites
+          Remove from FAV
         </button>
       ) : (
         <button
@@ -68,7 +71,7 @@ const MyOutfitsFirstCard = ({
             addItem(item);
           }}
         >
-          Add Item to Favorites
+          Add to FAV
         </button>
       )}
     </div>
