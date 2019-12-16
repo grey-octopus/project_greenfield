@@ -21,6 +21,7 @@ import Features from '../src/overview/components/Features.jsx'
 import Rating from '../src/overview/components/Rating.jsx'
 import StarRating from '../src/overview/components/StarRating.jsx'
 import ReadReviews from '../src/overview/components/ReadReviews.jsx'
+import ImageGallery from '../src/overview/components/ImageGallery.jsx'
 
 // actions
 import fetchProductOverview from '../src/overview/actions/fetchProductOverview.js'
@@ -37,11 +38,11 @@ import RatingContainer from '../src/overview/containers/RatingContainer.jsx'
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe("actions", () => {
+describe('actions', () => {
   describe('updateAverageRating', () => {
     it ('creates action with average rating', () => {
       const store = mockStore({ prodId: 1 })
-      const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', payload: '4.00' }]
+      const expectedActions = [{ type: 'UPDATE_AVERAGE_RATING', payload: '4.25' }]
       return store.dispatch(updateAverageRating(1)).then(() => {
         expect(store.getActions()).toEqual(expectedActions)
       })
@@ -190,13 +191,27 @@ describe('components', () => {
     })
   })
   describe('<StarRating />', () => {
-    it ('renders with required pros', () => {
+    it ('renders with required props', () => {
       const props = {
         averageRating: '4.00'
       }
       const wrapper = shallow(<div><StarRating {...props} /></div>)
       expect(wrapper.find('StarRating').prop('averageRating')).toEqual('4.00')
       expect(toJson(wrapper.find('StarRating'))).toMatchSnapshot()
+    })
+  })
+  describe('<ImageGallery />', () => {
+    it('renders with required props', () => {
+      const props = {
+        styles: ['testStyle'],
+        selected: 1,
+        selectedStyle: 'testSelected'
+      }
+      const wrapper = shallow(<div><ImageGallery {...props} /></div>)
+      expect(wrapper.find('ImageGallery').prop('styles')).toEqual(['testStyle'])
+      expect(wrapper.find('ImageGallery').prop('selected')).toEqual(1)
+      expect(wrapper.find('ImageGallery').prop('selectedStyle')).toEqual('testSelected')
+      expect(toJson(wrapper.find('ImageGallery'))).toMatchSnapshot()
     })
   })
 })

@@ -296,3 +296,16 @@ button {
   color: red;
   font-weight: 300;
 }
+
+#app-inner {
+  padding: 3vh;
+}
+
+#image-gallery {
+  width: 80vh;
+  height: 60vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: gray;
+  background-size: auto 100%;
+}
