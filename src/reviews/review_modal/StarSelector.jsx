@@ -5,14 +5,8 @@ import React, { useEffect, useState } from 'react';
 const StarSelector = (props) => {
   function starClickHandler(num) {
     console.log('starClickHandler');
-
-    //toggle the number of stars filled
-
     props.setNumOfStarsFilled(num);
   }
-
-  //react hook allowing the storage of number of stars filled
-  //   const [numOfStarsFilled, setNumOfStarsFilled] = useState(0);
 
   function parseStar() {
     let stars = props.numOfStarsFilled;
