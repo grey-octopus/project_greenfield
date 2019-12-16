@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useParams, Link, Route, Switch } from 'react-router-dom';
 import StarRatingContainer from '../overview/containers/StarRatingContainer.jsx';
+import CharacteristicSliders from './review_breakdown/ReviewBreakdownChars.jsx';
 
 const ReviewBreakdown = (props) => {
   const { prodId } = useParams();
@@ -48,6 +49,10 @@ const ReviewBreakdown = (props) => {
         </div>
         <div>
           <p>characteristics</p>
+          <div>
+            <CharacteristicSliders />
+          </div>
+          <div></div>
         </div>
       </div>
     );

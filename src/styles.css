@@ -193,6 +193,29 @@ button {
   width: 10em;
 }
 
+.char-slider {
+  display: inline-block;
+}
+
+.char-empty-slider-segment {
+  display: inline-block;
+  padding: 4px;
+}
+
+.char-slider-segment {
+  position: relative;
+  background-color: lightslategray;
+  min-width: 40px;
+  height: 5px;
+  display: inline-block;
+  top: 10px;
+}
+
+.fas.fa-caret-down {
+  position: absolute;
+  z-index: 10;
+}
+
 .single-stars-outer {
   display: inline-block;
   position: relative;
