@@ -12,7 +12,7 @@ import QuestionListContainer from "./q_and_a/containers/QuestionListContainer.js
 
 
 // React modal has to be bound to the app element:
-Modal.setAppElement("#app");
+Modal.setAppElement('#app');
 
 const App = () => {
   const { prodId } = useParams();
@@ -21,7 +21,7 @@ const App = () => {
   useEffect(() => {
     axios
       .get(`http://3.134.102.30/products/${prodId}`)
-      .then(data => {
+      .then((data) => {
         setDataToRender(
           <div id='app-inner'>
             <OverviewContainer />
@@ -38,7 +38,7 @@ const App = () => {
           </div>
         );
       })
-      .catch(err => {
+      .catch((err) => {
         setDataToRender(
           <div>
             <img id="garf" src="/garf.png" width="30%" height="30%" />
