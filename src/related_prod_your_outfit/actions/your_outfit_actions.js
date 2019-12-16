@@ -5,9 +5,11 @@ export const ADD_ITEM_TO_OUTFIT = "ADD_ITEM_TO_OUTFIT";
 export const REMOVE_ITEM_FROM_OUTFIT = "REMOVE_ITEM_FROM_OUTFIT";
 export const GET_OUTFIT = "GET_OUTFIT";
 
-// addItemToOutFit/removeItemFromOutfit might need to be thunks? localstorage is synchronous, though, so idk?
 export const addItemToOutfit = item => {
   let currentOutfitIds = JSON.parse(window.localStorage.getItem("myOutfit"));
+  if (!Array.isArray(currentOutfitIds)) {
+    currentOutfitIds = [];
+  }
   currentOutfitIds.push(item.id);
   window.localStorage.setItem("myOutfit", JSON.stringify(currentOutfitIds));
   // reducer will generate new store using entire item object

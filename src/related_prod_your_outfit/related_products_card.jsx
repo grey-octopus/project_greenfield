@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const placeHolderImage = "/img/image-placeholder.png";
 const RelatedProductsCard = ({
   id,
@@ -16,11 +16,16 @@ const RelatedProductsCard = ({
       </div>
       <p className="cardText" style={{ fontSize: "10px" }}>
         {category}
-        <p style={{ fontSize: "12px", wordBreak: "all" }}>
+      </p>
+      <p style={{ fontSize: "12px", wordBreak: "all" }}>
+        <Link to={`/product_details/${id}`}>
           <strong>{name}</strong>
-        </p>
-        {price}
-        <p>rating:{rating || "no rating"}</p>
+        </Link>
+      </p>
+      <p>
+        ${price}
+        <br></br>
+        rating:{rating || "no rating"}
       </p>
     </div>
   );

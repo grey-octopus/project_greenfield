@@ -18,7 +18,7 @@ const AnswerList = (props) => {
   if(props.answerList && answerList.length !== 0) {
     
     const total = answerList.length;
-    console.log("hi",total)
+    //console.log("hi",total)
     return (
       <div>
         {
