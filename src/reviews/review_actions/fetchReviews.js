@@ -1,12 +1,14 @@
 import axios from 'axios';
 
 const fetchReviewList = (options) => {
+  console.log('options: ', options);
   return (dispatch) => {
     return axios
       .get(`http://3.134.102.30/reviews/${options.prodId}/list`, {
         params: {
           page: options.page,
-          count: options.count
+          count: 100,
+          sort: options.sort
         }
       })
       .then(function(response) {

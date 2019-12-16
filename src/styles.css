@@ -244,6 +244,11 @@ button {
 .inline-div {
   display: inline-block;
 }
+
+.click-text {
+  text-decoration: underline;
+}
+
 #style-btns {
   display: flex;
   flex-direction: row;
