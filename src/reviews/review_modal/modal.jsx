@@ -1,6 +1,7 @@
 import Modal from 'react-modal';
 import publishReview from '../apiHelpers.js';
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import StarSelector from './StarSelector.jsx';
 import Characteristics from './Characteristics.jsx';
 
@@ -17,18 +18,10 @@ const customStyles = {
 
 const ReviewModal = (props) => {
   const [numOfStarsFilled, setNumOfStarsFilled] = useState(0);
-  const [bodyForm, setBodyForm] = useState({ body: '' });
-  //this is happening before props are provided
-  // let obj = props.characteristics;
-  // // let chars = Object.keys(obj).map(function(key) {
-  // //   return [Number(key), obj[key]];
-  // // });
+  const [inputForms, setInputForms] = useState({ body: '' });
+  const [userCharRatings, setCharRatings] = useState({});
+  const { prodId } = useParams();
 
-  // let chars = Object.keys(obj);
-
-  // console.log(chars);
-
-  // console.log('modal props', props.characteristics);
   var subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
@@ -36,7 +29,6 @@ const ReviewModal = (props) => {
   }
 
   function afterOpenModal() {
-    // references are now sync'd and can be accessed.
     subtitle.style.color = '#f00';
   }
 
@@ -44,36 +36,21 @@ const ReviewModal = (props) => {
     setIsOpen(false);
   }
 
-  // data: {
-  //   body:
-  //     "Now is the winter of our discontent Made glorious summer by this sun of York; And all the clouds that lour'd upon our house In the deep bosom of the ocean buried. Now are our brows bound with victorious wreaths; Our bruised arms hung up for monuments;",
-  //   rating: 4,
-  //   name: 'jh',
-  //   summary: 'Now is the winter of our discontent',
-  //   recommend: true,
-  //   email: 'jhaddock385@gmail.com',
-  //   characteristics: { '62': 2, '63': 2, '64': 2, '65': 2 }
-  // }
-
-  function handleBodyFormChange(event) {
+  function handleInputChange(event) {
     event.persist();
-    setBodyForm(event.target.value);
+    setInputForms({ ...inputForms, [event.target.name]: event.target.value });
+    console.log(inputForms);
   }
 
-  function handlePublish(e) {
+  function handlePublish(info) {
     event.preventDefault();
-    console.log('handle publish');
-    console.log(e);
-    //publishReview();
+    publishReview({
+      prodId: prodId,
+      forms: info,
+      stars: numOfStarsFilled,
+      chars: userCharRatings
+    });
   }
-
-  // const handleInputChange = (event) => {
-  //   event.persist();
-  //   setInputs((inputs) => ({
-  //     ...inputs,
-  //     [event.target.name]: event.target.value
-  //   }));
-  // };
 
   //0 star = 0
   //1 star = 20
@@ -105,37 +82,72 @@ const ReviewModal = (props) => {
             </div>
           </div>
           <div>Do you recommend this product?</div>
-          <input type="radio" name="recommend" value="yes"></input>
-          <input type="radio" name="recommend" value="false"></input>
+          <input
+            type="radio"
+            name="recommend"
+            value="true"
+            onChange={handleInputChange}
+          ></input>
+          <input
+            type="radio"
+            name="recommend"
+            value="false"
+            onChange={handleInputChange}
+          ></input>
           <div>
-            <Characteristics characteristics={props.characteristics} />:
+            <Characteristics
+              characteristics={props.characteristics}
+              setCharRatings={setCharRatings}
+              userCharRatings={userCharRatings}
+            />
           </div>
 
           <div>Summary:</div>
-          <input />
+          <textarea
+            name="summary"
+            rows="4"
+            cols="50"
+            value={inputForms.summary}
+            onChange={(e) => {
+              handleInputChange(e);
+            }}
+          ></textarea>
 
           <div>Review Body:</div>
 
           <textarea
+            name="body"
             rows="4"
             cols="50"
-            value={bodyForm.body}
+            value={inputForms.body}
             onChange={(e) => {
-              handleBodyFormChange(e);
+              handleInputChange(e);
             }}
           ></textarea>
 
           {/* <button>Submit image</button> */}
 
           <div>Nickname:</div>
-          <input />
+          <input
+            name="nickname"
+            value={inputForms.nickname}
+            onChange={(e) => {
+              handleInputChange(e);
+            }}
+          />
 
           <div>Email:</div>
-          <input />
+          <input
+            name="email"
+            value={inputForms.email}
+            onChange={(e) => {
+              handleInputChange(e);
+            }}
+          />
 
           <button
             onClick={(e) => {
-              handlePublish(e);
+              handlePublish(inputForms);
             }}
           >
             Submit!
