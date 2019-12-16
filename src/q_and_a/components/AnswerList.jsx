@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 
 
 const AnswerList = (props) => {
-  console.log("answer props:",props)
   //const {count} = useParams();
   const [count,setCount] = useState(2);
   // useEffect(()=>{

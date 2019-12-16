@@ -1,13 +1,24 @@
-import React from 'react'
+import React,{useState} from 'react'
 import AnswerList from './AnswerList'
 import AddAnAnswer from './AddAnAnswer'
+import axios from 'axios'
 
 const Question = (props) => {
     //console.log('hello',props)
+    const [helpfulness,setHelpfulness] = useState(props.question.question_helpfulness);
+    const handleClick = (e)=>{
+        const target = e.target
+        if(helpfulness === "#") {
+          setHelpfulness(1);
+        } else {
+          setHelpfulness(helpfulness + 1);
+        }
+        return axios.put(`http://3.134.102.30/qa/question/${props.question.question_id}/helpful`,{"helpfulness":helpfulness})
+      }
     return (
         <div id={props.question.question_id}>
             Q: {props.question.question_body}
-            ---- Helpful?<span>Yes</span>({props.question.question_helpfulness||"#"})
+            ---- Helpful?<span onClick={(e)=>handleClick(e)}>Yes</span>({helpfulness||"#"})
             | <AddAnAnswer />
             
             
