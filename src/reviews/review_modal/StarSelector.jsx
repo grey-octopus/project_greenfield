@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 
 const StarSelector = (props) => {
   function starClickHandler(num) {
-    console.log('starClickHandler');
     props.setNumOfStarsFilled(num);
   }
 
