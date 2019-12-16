@@ -22,6 +22,7 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
                 name={product.name}
                 price={product.price}
                 photoUrl={product.photoUrl}
+                rating={product.rating}
                 key={product.id}
               />
             );

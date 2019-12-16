@@ -2,7 +2,7 @@ import React from 'react'
 
 const AddAnAnswer = (props) => {
   return (
-    <button>ADD A ANSWER</button>
+    <button>ADD AN ANSWER</button>
   )
 }
 

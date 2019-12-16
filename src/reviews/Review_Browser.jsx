@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import ReviewItem from './ReviewItem.jsx';
-import ReviewModal from './modal.jsx';
+//import ReviewModal from './modal.jsx';
+import ReviewModalContainer from './review_containers/ReviewModalContainer';
 import { useParams, Link, Route, Switch } from 'react-router-dom';
 import publishReview from './apiHelpers.js';
 
@@ -13,13 +14,6 @@ const ReviewBrowser = (props) => {
     props.fetchReviewList({ prodId: prodId, page: 1, count: 2 });
     props.fetchReviewMetadata({ prodId: prodId });
   }, []);
-
-  function handleSubmitReview() {
-    console.log('submit review');
-    publishReview()
-      .then((response) => {})
-      .catch((err) => {});
-  }
 
   function handlePaginateReviewList() {
     console.log('paginate reviews');
@@ -42,7 +36,7 @@ const ReviewBrowser = (props) => {
           })}
         </div>
 
-        <ReviewModal />
+        <ReviewModalContainer />
 
         <button
           id="review-paginate-button"

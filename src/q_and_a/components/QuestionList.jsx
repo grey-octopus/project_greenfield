@@ -7,7 +7,7 @@ import AddAQuestion from "./AddAQuestion";
 import axios from "axios";
 
 const QuestionList = props => {
-  console.log("props:",props)
+  //console.log("props:",props)
   //const initialList = props.fetchQuestionList(prodId);
   const { prodId } = useParams();
   const [count, setCount] = useState(4);
@@ -24,7 +24,7 @@ const QuestionList = props => {
   
   if (questionList && questionList.length !== 0) {
     const total = questionList.length;
-    console.log(total)
+    //console.log(total)
     return (
       <div>
         <div id="searchBar">

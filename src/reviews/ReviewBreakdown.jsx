@@ -15,9 +15,7 @@ const ReviewBreakdown = (props) => {
     return (
       <div className="review-breakdown">
         <h2>{props.averageRating}</h2>
-        <div>
-          <StarRatingContainer className="breakdown-star-render" />
-        </div>
+        <div></div>
 
         <div>
           <p>average review and stars</p>
@@ -57,3 +55,5 @@ const ReviewBreakdown = (props) => {
 };
 
 export default ReviewBreakdown;
+
+//StarRatingContainer className="breakdown-star-render"

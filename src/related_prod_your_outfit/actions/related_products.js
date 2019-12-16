@@ -28,7 +28,7 @@ export const getRelatedProducts = prodId => {
             Promise.all(productReviewRequests)
           ])
             .catch(err => {
-              //console.log(err);
+              console.log(err);
             })
             .then(requests => {
               // iterate over productInfoRequests
