@@ -36,7 +36,7 @@ const QuestionList = props => {
             if(term.length >= 3){
               filtered = questionList.filter(
                 (q) => {
-                  console.log("term",term)
+                  //console.log("term",term)
                   return q.question_body.toLowerCase().includes(term)
                 })
               setQuestionList(filtered);

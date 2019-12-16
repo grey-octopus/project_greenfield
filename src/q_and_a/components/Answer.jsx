@@ -7,14 +7,12 @@ const Answer = (props) => {
   const date = moment(props.answer.date).format("MMM Do YY");
   const handleClick = (e)=>{
     const target = e.target
-    console.log({target})
-    return axios.put(`http://3.134.102.30/qa/answer/${props.answer.id}/helpful`,{"helpfulness":props.helpfulness+1})
-         .then(
-           ()=> {
-             console.log('qid',props.questionId)
-             setHelpfulness(helpfulness + 1);
-             return axios.get(`http://3.134.102.30/qa/${props.questionId}/answers`)
-           })
+    if(helpfulness === "#") {
+      setHelpfulness(1);
+    } else {
+      setHelpfulness(helpfulness + 1);
+    }
+    return axios.put(`http://3.134.102.30/qa/answer/${props.answer.id}/helpful`,{"helpfulness":helpfulness})
   }
   return (
     <div>
