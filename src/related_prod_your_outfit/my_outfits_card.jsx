@@ -25,9 +25,11 @@ const MyOutfitsCard = ({
       </div>
       <p className="cardText" style={{ fontSize: "10px" }}>
         {category}
-        <p style={{ fontSize: "12px", wordBreak: "all" }}>
-          <strong>{name}</strong>
-        </p>
+      </p>
+      <p style={{ fontSize: "12px", wordBreak: "all" }}>
+        <strong>{name}</strong>
+      </p>
+      <p>
         {price}
         ITEM ID:{id}
       </p>
