@@ -71,7 +71,7 @@ p {
 .relatedProductsContainer {
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 40px;
+  margin: 100px;
 }
 
 .myOutfitsContainer {
@@ -83,21 +83,45 @@ p {
   display: inline-block;
   margin: 10px;
   overflow: hidden;
-  justify-content: center;
+  text-align: center;
   border: 2px solid #9b9b9b;
   color: #525252;
   position: relative;
-  width: 150px;
-  height: 250px;
+  width: 275px;
+  height: 400px;
+}
+.card .productTitle {
+  font-size: 15px;
+  font-weight: 900;
+}
+.card .category {
+  font-size: 12px;
+  font-weight: normal;
+}
+.card .price {
+  font-size: 12px;
+  font-weight: normal;
 }
 .cardImage img {
+  /* display: flex; */
+  object-fit: cover;
+  /* width: 100%; */
+  max-height: 250px;
+  padding-bottom: 125px;
+  bottom: 125px;
+  max-height: 300px;
+  /* position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 100%; */
+  /* just: center;
   margin: 0px;
-  height: 175px;
-  background-color: #525252;
+  height: 300px;
+  /* width: 100%; */
+  /* background-color: #525252; */
 }
 .cardText {
   padding: 3px;
-  font-size: 11px;
   margin: 0px;
   text-align: left;
   white-space: normal;
@@ -131,6 +155,10 @@ p {
 #addToMyOutfitButton {
   font-size: 100px;
   font-weight: 900;
+}
+#addToMyOutfitText {
+  font-size: 28px;
+  font-weight: 700;
 }
 
 /* forward button on My Outfit carousel */
@@ -444,7 +472,8 @@ button {
   height: auto;
 }
 
-.fa-chevron-down, .fa-chevron-up {
+.fa-chevron-down,
+.fa-chevron-up {
   position: absolute;
   font-size: 3vh;
   color: white;

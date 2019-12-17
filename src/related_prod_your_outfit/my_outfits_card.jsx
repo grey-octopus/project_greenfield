@@ -29,16 +29,16 @@ const MyOutfitsCard = ({
         X
       </button>
       <div className="cardImage">
-        <img src={photoUrl || placeHolderImage} height="100px"></img>
+        <img src={photoUrl || placeHolderImage}></img>
       </div>
       <br></br>
       <div className="cardTextContainer">
         <div className="cardText" style={{ wordBreak: "all" }}>
-          {category}
-          <br></br>
-          <strong>{name}</strong>
-          <br></br>${price}
-          <br></br>
+          <div className="category">{category}</div>
+
+          <strong className="productTitle">{name}</strong>
+          <div className="price">${price}</div>
+
           {Number.isNaN(Number(rating)) || rating == 0 ? "No Reviews" : rating}
         </div>
       </div>

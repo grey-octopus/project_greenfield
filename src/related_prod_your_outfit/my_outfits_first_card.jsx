@@ -40,7 +40,8 @@ const MyOutfitsFirstCard = ({
 
   // refactor to add above comented params into item obj
   const item = { id: prodId, category, name };
-
+  console.log("CAT", category);
+  console.log("NAME", name);
   if (isInOutfit && myOutfit.length >= 1) {
     return (
       <div className="card">
@@ -58,10 +59,10 @@ const MyOutfitsFirstCard = ({
         <br></br>
         <div className="cardTextContainer">
           <div className="cardText" style={{ wordBreak: "all" }}>
-            {category}
-            <br></br>
-            <strong>{name}</strong>
-            <br></br>
+            <div className="category">{category}</div>
+
+            <strong className="productTitle">{name}</strong>
+
             {Number.isNaN(Number(rating)) || rating == 0
               ? "No Reviews"
               : rating}
