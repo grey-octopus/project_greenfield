@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { markReviewAsHelpful, reportReview } from './apiHelpers';
 
 const ReviewItem = (props) => {
   function handleClick(stats) {

@@ -23,8 +23,42 @@ const publishReview = (content) => {
     });
 };
 
-//now I need one for report review
+const markReviewAsHelpful = (content) => {
+  console.log('make review helpful: ' + content.reviewId);
+  return axios({
+    method: 'PUT',
+    url: `http://3.134.102.30/reviews/helpful/${content.reviewId}`,
+    data: {
+      review_id: content.reviewId
+    }
+  })
+    .then((res) => {
+      console.log('response from api:');
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log('api error');
+    });
+};
 
-//and one for mark helpful
+const reportReview = (content) => {
+  console.log('report review: ' + content.reviewId);
+  return axios({
+    method: 'PUT',
+    url: `http://3.134.102.30/reviews/report/${content.reviewId}`,
+    data: {
+      review_id: content.reviewId
+    }
+  })
+    .then((res) => {
+      console.log('response from api:');
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log('api error');
+    });
+};
 
-export default publishReview;
+export { publishReview, markReviewAsHelpful, reportReview };
+
+//module.exports.trackViews = trackViews;

@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import publishReview from '../apiHelpers.js';
+import { publishReview } from '../apiHelpers.js';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import StarSelector from './StarSelector.jsx';

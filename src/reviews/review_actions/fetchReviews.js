@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const fetchReviewList = (options) => {
-  console.log('options: ', options);
   return (dispatch) => {
     return axios
       .get(`http://3.134.102.30/reviews/${options.prodId}/list`, {
