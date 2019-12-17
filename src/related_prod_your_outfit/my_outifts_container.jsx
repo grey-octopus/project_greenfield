@@ -6,7 +6,13 @@ import ItemsCarousel from "react-items-carousel";
 import MyOutfitsCard from "./my_outfits_card.jsx";
 import MyOutfitsFirstCard from "./my_outfits_first_card.jsx";
 
-const MyOutfits = ({ myOutfit, currentItem, dispatch, currentItemRating }) => {
+const MyOutfits = ({
+  myOutfit,
+  currentItem,
+  dispatch,
+  currentItemRating,
+  photoUrl
+}) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const chevronWidth = 40;
   let { prodId } = useParams();
@@ -37,7 +43,7 @@ const MyOutfits = ({ myOutfit, currentItem, dispatch, currentItemRating }) => {
               category={currentItem.category}
               name={currentItem.name}
               // price={currentItem.price}
-              // photoUrl={currentItem.photoUrl}
+              photoUrl={photoUrl}
               // key={currentItem.id}
               myOutfit={myOutfit}
               rating={currentItemRating}
@@ -68,8 +74,8 @@ const MyOutfits = ({ myOutfit, currentItem, dispatch, currentItemRating }) => {
           category={currentItem.category}
           name={currentItem.name}
           // price={currentItem.price}
-          // photoUrl={currentItem.photoUrl}
-          // key={currentItem.id}
+          photoUrl={photoUrl}
+          key={currentItem.id + "firstCard"}
           myOutfit={myOutfit}
           rating={currentItemRating}
           // dispatch={dispatch}
@@ -83,7 +89,12 @@ const mapStateToProps = state => {
   return {
     myOutfit: state.myOutfit,
     currentItem: state.fetchProductInfoReducer,
-    currentItemRating: state.averageRatingReducer.averageRating
+    currentItemRating: state.averageRatingReducer.averageRating,
+    photoUrl: state.styles.styles
+      ? state.styles.styles[state.styles.selected].photos[
+          state.styles.selectedImage
+        ].thumbnail_url
+      : null
   };
 };
 export default connect(mapStateToProps, null)(MyOutfits);

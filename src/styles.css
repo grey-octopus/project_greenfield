@@ -96,7 +96,7 @@ p {
 }
 .cardText {
   padding: 3px;
-  font-size: 10px;
+  font-size: 11px;
   margin: 0px;
   text-align: left;
   white-space: normal;
@@ -109,7 +109,7 @@ p {
   border: 2px solid black;
   border-radius: 15px;
   box-sizing: content-box;
-  height: 7%;
+  height: 2vh;
   position: absolute;
   right: 4px;
   top: 4px;
@@ -127,6 +127,10 @@ p {
   cursor: copy;
 }
 
+#addToMyOutfitButton {
+  font-size: 100px;
+  font-weight: 900;
+}
 #star-rating {
   visibility: hidden;
 }
@@ -140,7 +144,7 @@ p {
 }
 
 .feature-check::before {
-  content: '\f00c \00a0\00a0';
+  content: "\f00c \00a0\00a0";
 }
 
 #ratings-reviews {
@@ -314,7 +318,8 @@ button {
   font-weight: 300;
 }
 
-.normal-price, .discounted-price {
+.normal-price,
+.discounted-price {
   margin-top: 0;
   font-size: 1.8vh;
 }
