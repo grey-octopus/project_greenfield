@@ -17,9 +17,8 @@ const MyOutfits = ({ myOutfit, currentItem, dispatch, currentItemRating }) => {
 
   return (
     <div className="myOutfitsContainer">
-      My Outfits
+      <h2>MY OUTFITS</h2>
       <br></br>
-      <hr></hr>
       {/* there is an error coming from when the outfit contains the current item. ItemsCarousel always expects a node, and 
      because it must be using this.children... Need to make a parser so that the myOutfit array doesn't contain the current prod */}
       {myOutfit.length > 0 ? (
