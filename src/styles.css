@@ -358,6 +358,9 @@ button {
 }
 
 .gallery-img {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   margin-top: 2vh;
   margin-left: 2vh;
   min-height: 8vh;
@@ -370,7 +373,7 @@ button {
 }
 
 .gallery-img img {
-  width: 100%;
+  width: 200%;
   height: auto;
 }
 
