@@ -6,11 +6,11 @@ const Price = props => {
   if (salePrice && props.styles) {
     const discounted = originalPrice - salePrice
     return (
-        <span className="discounted-price">${discounted} <span className="original-price">${originalPrice}</span></span>
+        <p className="discounted-price">${discounted} <span className="original-price">${originalPrice}</span></p>
     )
   } else if (props.styles) {
     return (
-      <span className="normal-price">${originalPrice}</span>
+      <p className="normal-price">${originalPrice}</p>
     )
   } else {
     return <div></div>

@@ -9,25 +9,26 @@ const RelatedProductsCard = ({
   photoUrl,
   rating
 }) => {
+  console.log("RATING RELATED PROD COMP", rating);
   return (
-    <div className="relatedProducts card">
-      <div className="cardImage">
-        <img src={photoUrl || placeHolderImage} height="100px"></img>
-      </div>
-      <p className="cardText" style={{ fontSize: "10px" }}>
-        {category}
-      </p>
-      <p style={{ fontSize: "12px", wordBreak: "all" }}>
-        <Link to={`/product_details/${id}`}>
-          <strong>{name}</strong>
-        </Link>
-      </p>
-      <p>
-        ${price}
+    <Link to={`/product_details/${id}`}>
+      <div className="relatedProducts card">
+        <div className="cardImage">
+          <img src={photoUrl || placeHolderImage} height="100px"></img>
+        </div>
         <br></br>
-        rating:{rating || "no rating"}
-      </p>
-    </div>
+        <div className="cardTextContainer">
+          <div className="cardText" style={{ wordBreak: "all" }}>
+            {category}
+            <br></br>
+            <strong>{name}</strong>
+            <br></br>${price}
+            <br></br>
+            {rating ? "No Reviews" : rating}
+          </div>
+        </div>
+      </div>
+    </Link>
   );
 };
 

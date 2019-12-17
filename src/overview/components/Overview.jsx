@@ -15,10 +15,14 @@ const Overview = props => {
   if (props.title) {
     return (
       <div id='overview'>
-        <ImageGalleryContainer />
-        <RatingContainer />
-        <ProdInfoContainer />
-        <StyleSelectorContainer />
+        <div id='overview-top'>
+          <ImageGalleryContainer />
+          <div id='prod-info-wrapper'>
+            <RatingContainer />
+            <ProdInfoContainer />
+            <StyleSelectorContainer />
+          </div>
+        </div>
         <ProdOverviewContainer />
       </div>
     );
