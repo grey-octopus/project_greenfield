@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import StarRating from "../overview/components/StarRating";
 const placeHolderImage = "/img/image-placeholder.png";
 const RelatedProductsCard = ({
   id,
@@ -23,9 +24,11 @@ const RelatedProductsCard = ({
             <strong className="productTitle">{name}</strong>
             <div className="price">${price}</div>
 
-            {Number.isNaN(Number(rating)) || rating == 0
-              ? "No Reviews"
-              : rating}
+            {Number.isNaN(Number(rating)) || rating == 0 ? (
+              "No Reviews"
+            ) : (
+              <StarRating averageRating={rating} />
+            )}
           </div>
         </div>
       </div>

@@ -71,13 +71,13 @@ p {
 .relatedProductsContainer {
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 100px;
+  margin: 50px;
 }
 
 .myOutfitsContainer {
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 40px;
+  margin: 50px;
 }
 .card {
   display: inline-block;
@@ -103,22 +103,11 @@ p {
   font-weight: normal;
 }
 .cardImage img {
-  /* display: flex; */
   object-fit: cover;
-  /* width: 100%; */
   max-height: 250px;
   padding-bottom: 125px;
   bottom: 125px;
   max-height: 300px;
-  /* position: absolute;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  max-width: 100%; */
-  /* just: center;
-  margin: 0px;
-  height: 300px;
-  /* width: 100%; */
-  /* background-color: #525252; */
 }
 .cardText {
   padding: 3px;
@@ -314,7 +303,6 @@ button {
   position: absolute;
   z-index: 10;
 }
-
 .single-stars-outer {
   display: inline-block;
   position: relative;
@@ -339,8 +327,7 @@ button {
 .single-stars-inner::before {
   content: "\f005  ";
 }
-
-.inline-div {
+*/ .inline-div {
   display: inline-block;
 }
 

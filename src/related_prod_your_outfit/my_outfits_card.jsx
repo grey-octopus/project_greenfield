@@ -3,6 +3,7 @@ import {
   addItemToOutfit,
   removeItemFromOutfit
 } from "./actions/your_outfit_actions.js";
+import StarRating from "../overview/components/StarRating";
 import { connect } from "react-redux";
 
 const placeHolderImage = "/img/image-placeholder.png";
@@ -39,7 +40,11 @@ const MyOutfitsCard = ({
           <strong className="productTitle">{name}</strong>
           <div className="price">${price}</div>
 
-          {Number.isNaN(Number(rating)) || rating == 0 ? "No Reviews" : rating}
+          {Number.isNaN(Number(rating)) || rating == 0 ? (
+            <div>No Reviews</div>
+          ) : (
+            <StarRating averageRating={rating} />
+          )}
         </div>
       </div>
     </div>

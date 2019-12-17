@@ -3,6 +3,7 @@ import {
   addItemToOutfit,
   removeItemFromOutfit
 } from "./actions/your_outfit_actions.js";
+import StarRating from "../overview/components/StarRating";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -63,9 +64,13 @@ const MyOutfitsFirstCard = ({
 
             <strong className="productTitle">{name}</strong>
 
-            {Number.isNaN(Number(rating)) || rating == 0
-              ? "No Reviews"
-              : rating}
+            {Number.isNaN(Number(rating)) || rating == 0 ? (
+              <div>No Reviews</div>
+            ) : (
+              <div>
+                <StarRating averageRating={rating} />
+              </div>
+            )}
           </div>
         </div>
       </div>
