@@ -7,7 +7,7 @@ const fetchQuestionList = (prodId) => {
                 return dispatch({
                     type: "FETCH_QUESTION_LIST",
                     questionList: data.data.results,
-                    count: 2
+                    // count: 2
                 })
             }
         )
