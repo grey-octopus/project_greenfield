@@ -7,6 +7,7 @@
 body {
   font-family: var(--primary-font);
   margin: 0;
+  overflow-x: hidden;
 }
 
 button:hover {
@@ -384,6 +385,7 @@ button {
   height: 90%;
   overflow: hidden;
   margin-top: 3.5vh;
+  user-select: none;
 }
 
 .gallery-img {
@@ -399,6 +401,7 @@ button {
   height: 8vh;
   background-color: var(--font-color);
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .gallery-img img {
@@ -412,6 +415,7 @@ button {
   color: white;
   left: 4vh;
   cursor: pointer;
+  user-select: none;
 }
 
 .fa-chevron-down {
