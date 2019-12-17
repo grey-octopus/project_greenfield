@@ -1,7 +1,7 @@
 const stylesReducer = (state = {}, action) => {
   switch(action.type) {
     case 'UPDATE_SELECTED':
-      return {...state, selected: action.index}
+      return {...state, selected: action.index, position: 0}
     case 'FETCH_STYLES':
       return {...state, styles: action.styles}
     case 'UPDATE_SELECTED_IMG':
