@@ -39,7 +39,7 @@ const ReviewModal = (props) => {
   function handleInputChange(event) {
     event.persist();
     setInputForms({ ...inputForms, [event.target.name]: event.target.value });
-    console.log(inputForms);
+    //console.log(inputForms);
   }
 
   function handlePublish(info) {
