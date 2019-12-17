@@ -3,16 +3,16 @@ import { markReviewAsHelpful, reportReview } from './apiHelpers';
 
 const ReviewItem = (props) => {
   function handleClick(stats) {
-    console.log('handle card click', stats);
+    //console.log('handle card click', stats);
   }
 
   function markHelpful(stats) {
-    console.log(stats.review_id);
+    //console.log(stats.review_id);
     markReviewAsHelpful(stats.review_id);
   }
 
   function report(stats) {
-    console.log(stats.review_id);
+    //console.log(stats.review_id);
     reportReview(stats.review_id);
   }
 
