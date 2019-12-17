@@ -411,19 +411,20 @@ button {
 
 .fa-chevron-down, .fa-chevron-up {
   position: absolute;
-  font-size: 3vh;
+  font-size: 2vh;
   color: white;
-  left: 4vh;
+  left: 5vh;
   cursor: pointer;
   user-select: none;
+  color: var(--font-color);
 }
 
 .fa-chevron-down {
-  bottom: 1vh;
+  bottom: 2.5vh;
 }
 
 .fa-chevron-up {
-  top: 2vh;
+  top: 3vh;
 }
 
 #overview-top {
