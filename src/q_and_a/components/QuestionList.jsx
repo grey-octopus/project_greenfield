@@ -6,60 +6,97 @@ import { useParams } from "react-router-dom";
 import AddAQuestion from "./AddAQuestion";
 import axios from "axios";
 
+const inputStyle ={
+  width: '100%',
+  padding: '12px 20px',
+  margin: '8px 0',
+  display: 'inline-block',
+  border: '1px solid #ccc',
+  borderRadius: '4px',
+  boxSizing: 'border-box',
+  fontSize: '14px',
+  fontWeight: 'bold'
+//   backgroundImage: `url('../../../dist/img/searchicon.png')`,
+//   backgroundPosition: '10px 10px', 
+//   backgroundRepeat: 'no-repeat'
+      
+}
+const buttonStyle = {
+  backgroundColor: 'white',
+  color: 'black',
+  border: '1px solid',
+  padding: '11px 24px',
+  textAlign: 'center',
+  textDecoration: 'none',
+  display: 'inline-block',
+  fontSize: '14px',
+  margin: '3px 2px',
+  cursor: 'pointer',
+  fontWeight: 'bold'
+}
+
+
+
 const QuestionList = props => {
   //console.log("props:",props)
   //const initialList = props.fetchQuestionList(prodId);
   const { prodId } = useParams();
   const [count, setCount] = useState(4);
+  const [searchTerm,setSearchTerm] = useState("")
   const [questionList, setQuestionList] = useState([]);
+  const [filteredList, setFilter] = useState([]);
   let filtered;
+
   useEffect(() => {
     axios.get(`http://3.134.102.30/qa/${prodId}`).then(
             (data) => {
-                return setQuestionList(data.data.results)
+                setFilter(data.data.results);
+                setQuestionList(data.data.results);
             }
         )
   }, []);
 
   
   if (questionList && questionList.length !== 0) {
-    const total = questionList.length;
+    const total = filteredList.length;
     //console.log(total)
     return (
       <div>
         <div id="searchBar">
           <input 
+          style={inputStyle}
           type="text"
           placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
           onChange={(e)=>{
             let term = e.target.value.toLowerCase();
+            setSearchTerm(term);
             if(term.length >= 3){
               filtered = questionList.filter(
                 (q) => {
-                  console.log("term",term)
                   return q.question_body.toLowerCase().includes(term)
                 })
-              setQuestionList(filtered);
+              setFilter(filtered);
+              
             } else {
-                axios.get(`http://3.134.102.30/qa/${prodId}`).then(
-                    (data) => {
-                    return setQuestionList(data.data.results)
-                })
-                
+              setFilter(questionList);
             }
           }}
           />
         </div>
         <div>
-          {questionList
+          {filteredList.length !==0 ? 
+            filteredList
             .map((q, i) => {
               return (
-                <Question key={q.question_id} question={questionList[i]} />
+                <Question key={q.question_id} question={filteredList[i]} />
               );
             })
-            .slice(0, count)}
+            .slice(0, count):
+            <div>Sorry, we couldn't find any results matching "{searchTerm}"</div>}
           {total > count ? (
-            <button onClick={() => setCount(count + 2)}>
+            <button
+              style={buttonStyle} 
+              onClick={() => setCount(count + 2)}>
               MORE ANSWERED QUESTIONS
             </button>
           ) : null}
