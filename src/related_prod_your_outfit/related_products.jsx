@@ -22,7 +22,7 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
             <ItemsCarousel
               requestToChangeActive={setActiveItemIndex}
               activeItemIndex={activeItemIndex}
-              numberOfCards={3.5}
+              numberOfCards={4}
               gutter={20}
               leftChevron={<button>{"<"}</button>}
               rightChevron={<button>{">"}</button>}

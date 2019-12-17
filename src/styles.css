@@ -73,6 +73,7 @@ p {
   white-space: nowrap;
   margin: 40px;
 }
+
 .myOutfitsContainer {
   overflow-x: hidden;
   white-space: nowrap;
@@ -131,6 +132,40 @@ p {
   font-size: 100px;
   font-weight: 900;
 }
+
+/* forward button on My Outfit carousel */
+.sc-ifAKCX.geRExE.sc-EHOje.aoTUt button {
+  background-color: transparent;
+  color: black;
+  border: transparent;
+  font-size: 34px;
+  font-weight: 700;
+}
+/* back button on my outfit carousel */
+.sc-ifAKCX.geRExE.sc-bZQynM.dHQcjo button {
+  background-color: transparent;
+  color: black;
+  border: transparent;
+  font-size: 34px;
+  font-weight: 700;
+}
+/* forward button on Related Products carousel */
+.sc-ifAKCX.geRExE.sc-EHOje.dFFQiB button {
+  background-color: transparent;
+  color: black;
+  border: transparent;
+  font-size: 34px;
+  font-weight: 700;
+}
+/* back button on related products carousel */
+.geRExE.kaHnvc.sc-bZQynM.sc-ifAKCX button {
+  background-color: transparent;
+  color: black;
+  border: transparent;
+  font-size: 34px;
+  font-weight: 700;
+}
+
 #star-rating {
   visibility: hidden;
 }
