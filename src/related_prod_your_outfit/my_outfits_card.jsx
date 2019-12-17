@@ -20,26 +20,28 @@ const MyOutfitsCard = ({
   const item = { id, category, name, price, photoUrl };
   return (
     <div className="relatedProducts card">
-      <div className="cardImage">
-        <img src={photoUrl || placeHolderImage} height="100px"></img>
-      </div>
-      <p className="cardText" style={{ fontSize: "10px" }}>
-        {category}
-      </p>
-      <p style={{ fontSize: "12px", wordBreak: "all" }}>
-        <strong>{name}</strong>
-      </p>
-      <p>
-        {price}
-        ITEM ID:{id}
-      </p>
       <button
+        className="removeCardButton"
         onClick={() => {
           removeItem(id);
         }}
       >
-        Remove item from favorites
+        X
       </button>
+      <div className="cardImage">
+        <img src={photoUrl || placeHolderImage} height="100px"></img>
+      </div>
+      <br></br>
+      <div className="cardTextContainer">
+        <div className="cardText" style={{ wordBreak: "all" }}>
+          {category}
+          <br></br>
+          <strong>{name}</strong>
+          <br></br>${price}
+          <br></br>
+          {rating ? "No Reviews" : rating}
+        </div>
+      </div>
     </div>
   );
 };
