@@ -39,7 +39,7 @@ const MyOutfitsCard = ({
           <strong>{name}</strong>
           <br></br>${price}
           <br></br>
-          {rating ? "No Reviews" : rating}
+          {Number.isNaN(Number(rating)) || rating == 0 ? "No Reviews" : rating}
         </div>
       </div>
     </div>

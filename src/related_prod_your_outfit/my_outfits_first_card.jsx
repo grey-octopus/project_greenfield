@@ -19,7 +19,7 @@ const isOutfitInArray = (myOutfit, prodId) => {
 
 const MyOutfitsFirstCard = ({
   // price,
-  // photoUrl,
+  photoUrl,
   rating,
   category,
   name,
@@ -30,7 +30,7 @@ const MyOutfitsFirstCard = ({
   let { prodId } = useParams();
   // const productLink = `http://3.134.102.30/products/${prodId}`;
   prodId = Number(prodId);
-
+  // console.log("photoUrl");
   let [isInOutfit, setIsInOutfit] = useState(false);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const MyOutfitsFirstCard = ({
 
   if (isInOutfit && myOutfit.length >= 1) {
     return (
-      <div className="card relatedProducts">
+      <div className="card">
         <button
           className="removeCardButton"
           onClick={() => {
@@ -53,7 +53,7 @@ const MyOutfitsFirstCard = ({
           X
         </button>
         <div className="cardImage">
-          <img src={placeHolderImage}></img>
+          <img src={photoUrl || placeHolderImage}></img>
         </div>
         <br></br>
         <div className="cardTextContainer">
@@ -61,24 +61,27 @@ const MyOutfitsFirstCard = ({
             {category}
             <br></br>
             <strong>{name}</strong>
-
             <br></br>
-            {rating ? "none" : rating}
+            {Number.isNaN(Number(rating)) || rating == 0
+              ? "No Reviews"
+              : rating}
           </div>
         </div>
       </div>
     );
   } else {
+    console.log(photoUrl);
     return (
-      <div className="card addProductButton placeHolder">
-        <div className="cardImage">
-          <img
-            src="/img/plus-icon.png"
-            onClick={() => {
-              addItem(item);
-            }}
-          ></img>
+      <div className="card placeHolder">
+        <div
+          className="addProductButton"
+          onClick={() => {
+            addItem(item);
+          }}
+        >
+          <h1 id="addToMyOutfitButton">+</h1>
           <br></br>
+          <div className="cardText"></div>
           Add to My Outfit
         </div>
       </div>

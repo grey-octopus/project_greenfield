@@ -6,7 +6,13 @@ import ItemsCarousel from "react-items-carousel";
 import MyOutfitsCard from "./my_outfits_card.jsx";
 import MyOutfitsFirstCard from "./my_outfits_first_card.jsx";
 
-const MyOutfits = ({ myOutfit, currentItem, dispatch, currentItemRating }) => {
+const MyOutfits = ({
+  myOutfit,
+  currentItem,
+  dispatch,
+  currentItemRating,
+  photoUrl
+}) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const chevronWidth = 40;
   let { prodId } = useParams();
@@ -17,9 +23,8 @@ const MyOutfits = ({ myOutfit, currentItem, dispatch, currentItemRating }) => {
 
   return (
     <div className="myOutfitsContainer">
-      My Outfits
+      <h2>MY OUTFITS</h2>
       <br></br>
-      <hr></hr>
       {/* there is an error coming from when the outfit contains the current item. ItemsCarousel always expects a node, and 
      because it must be using this.children... Need to make a parser so that the myOutfit array doesn't contain the current prod */}
       {myOutfit.length > 0 ? (
@@ -27,18 +32,17 @@ const MyOutfits = ({ myOutfit, currentItem, dispatch, currentItemRating }) => {
           <ItemsCarousel
             requestToChangeActive={setActiveItemIndex}
             activeItemIndex={activeItemIndex}
-            numberOfCards={3.5}
+            numberOfCards={3}
             gutter={20}
             leftChevron={<button>{"<"}</button>}
             rightChevron={<button>{">"}</button>}
-            outsideChevron
             chevronWidth={chevronWidth}
           >
             <MyOutfitsFirstCard
               category={currentItem.category}
               name={currentItem.name}
               // price={currentItem.price}
-              // photoUrl={currentItem.photoUrl}
+              photoUrl={photoUrl}
               // key={currentItem.id}
               myOutfit={myOutfit}
               rating={currentItemRating}
@@ -69,8 +73,8 @@ const MyOutfits = ({ myOutfit, currentItem, dispatch, currentItemRating }) => {
           category={currentItem.category}
           name={currentItem.name}
           // price={currentItem.price}
-          // photoUrl={currentItem.photoUrl}
-          // key={currentItem.id}
+          photoUrl={photoUrl}
+          key={currentItem.id + "firstCard"}
           myOutfit={myOutfit}
           rating={currentItemRating}
           // dispatch={dispatch}
@@ -84,7 +88,12 @@ const mapStateToProps = state => {
   return {
     myOutfit: state.myOutfit,
     currentItem: state.fetchProductInfoReducer,
-    currentItemRating: state.averageRatingReducer.averageRating
+    currentItemRating: state.averageRatingReducer.averageRating,
+    photoUrl: state.styles.styles
+      ? state.styles.styles[state.styles.selected].photos[
+          state.styles.selectedImage
+        ].thumbnail_url
+      : null
   };
 };
 export default connect(mapStateToProps, null)(MyOutfits);

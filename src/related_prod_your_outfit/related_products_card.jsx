@@ -9,7 +9,6 @@ const RelatedProductsCard = ({
   photoUrl,
   rating
 }) => {
-  console.log("RATING RELATED PROD COMP", rating);
   return (
     <Link to={`/product_details/${id}`}>
       <div className="relatedProducts card">
@@ -24,7 +23,9 @@ const RelatedProductsCard = ({
             <strong>{name}</strong>
             <br></br>${price}
             <br></br>
-            {rating ? "No Reviews" : rating}
+            {Number.isNaN(Number(rating)) || rating == 0
+              ? "No Reviews"
+              : rating}
           </div>
         </div>
       </div>
