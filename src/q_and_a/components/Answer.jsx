@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import axios from 'axios';
 var moment = require('moment');
 
+
 const Answer = (props) => {
   const [helpfulness,setHelpfulness] = useState(props.answer.helpfulness);
   const [clicked,setClicked] = useState(false);

@@ -3,6 +3,15 @@ import AnswerList from './AnswerList'
 import AddAnAnswer from './AddAnAnswer'
 import axios from 'axios'
 
+const questionStyle={
+    fontWeight: 'bold',
+    fontSize: '16px'
+}
+const helpfulnessStyle={
+    fontSize: '12px',
+    textAlign: 'right'
+}
+
 const Question = (props) => {
     //console.log('hello',props)
     const [helpfulness,setHelpfulness] = useState(props.question.question_helpfulness);
@@ -20,13 +29,15 @@ const Question = (props) => {
 
       }
     return (
-        <div id={props.question.question_id}>
-            Q: {props.question.question_body}
-            ---- Helpful?<span onClick={(e)=>{
+        <div 
+            id={props.question.question_id}
+        >
+            <span style={questionStyle}>Q: {props.question.question_body}</span>
+            <span style={helpfulnessStyle}>Helpful?<span onClick={(e)=>{
                                 handleClick(e);
                                 setClicked(true);
                                 }}>Yes</span>({helpfulness||"#"})
-            | <AddAnAnswer />
+            | <AddAnAnswer /></span>
             
             
             <AnswerList
