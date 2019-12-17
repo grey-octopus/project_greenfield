@@ -15,7 +15,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchStyles: prodId => dispatch(fetchStyles(prodId)),
-    updatePosition: (position, numOfItems) => dispatch(updatePosition(position, numOfItems))
+    updatePosition: (position, numOfItems, doIncrement) => dispatch(updatePosition(position, numOfItems, doIncrement))
   }
 }
 

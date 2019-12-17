@@ -1,6 +1,12 @@
-const updatePosition = (position, numOfItems) => {
-  console.log('TEST: ', position, numOfItems)
-  const newPosition = position === numOfItems - 1 ? 0 : position + 1
+const updatePosition = (position, numOfItems, doIncrement) => {
+  let newPosition
+  console.log(doIncrement)
+  if (doIncrement) {
+    console.log('increment')
+    newPosition = position === numOfItems - 1 ? position : position + 1
+  } else {
+    newPosition = position === 0 ? position: position - 1
+  }
   return {
     type: 'UPDATE_POS',
     newPosition

@@ -383,9 +383,13 @@ button {
   flex-direction: column;
   height: 90%;
   overflow: hidden;
+  margin-top: 3.5vh;
 }
 
 .gallery-img {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   margin-top: 2vh;
   margin-left: 2vh;
   min-height: 8vh;
@@ -398,16 +402,24 @@ button {
 }
 
 .gallery-img img {
-  width: 100%;
+  width: 200%;
   height: auto;
 }
 
-.fa-chevron-down {
+.fa-chevron-down, .fa-chevron-up {
   position: absolute;
-  bottom: 4vh;
-  left: 4vh;
-  font-size: 4vh;
+  font-size: 3vh;
   color: white;
+  left: 4vh;
+  cursor: pointer;
+}
+
+.fa-chevron-down {
+  bottom: 1vh;
+}
+
+.fa-chevron-up {
+  top: 2vh;
 }
 
 #overview-top {
