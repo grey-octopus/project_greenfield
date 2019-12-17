@@ -9,7 +9,6 @@ const RelatedProductsCard = ({
   photoUrl,
   rating
 }) => {
-  console.log("RATING RELATED PROD COMP", rating);
   return (
     <Link to={`/product_details/${id}`}>
       <div className="relatedProducts card">

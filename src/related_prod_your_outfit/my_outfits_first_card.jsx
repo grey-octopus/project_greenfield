@@ -70,15 +70,15 @@ const MyOutfitsFirstCard = ({
     );
   } else {
     return (
-      <div className="card addProductButton placeHolder">
-        <div className="cardImage">
-          <img
-            src="/img/plus-icon.png"
-            onClick={() => {
-              addItem(item);
-            }}
-          ></img>
-          <br></br>
+      <div className="card placeHolder">
+        <div
+          className="addProductButton"
+          onClick={() => {
+            addItem(item);
+          }}
+        >
+          +<br></br>
+          <div className="cardText"></div>
           Add to My Outfit
         </div>
       </div>

@@ -91,8 +91,6 @@ p {
 .cardImage img {
   margin: 0px;
   height: 175px;
-  object-fit: cover;
-  text-align: center;
   background-color: #525252;
 }
 .cardText {
