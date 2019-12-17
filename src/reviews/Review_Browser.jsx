@@ -10,6 +10,7 @@ var counter = 4;
 
 const ReviewBrowser = (props) => {
   const { prodId } = useParams();
+  console.log('browser: review filter', props.reviewFilter);
   useEffect(() => {
     props.fetchReviewList({
       prodId: prodId,
@@ -33,6 +34,7 @@ const ReviewBrowser = (props) => {
 
   function handleSelectChange(e) {
     e.persist();
+    console.log('filter', props.reviewFilter);
     const selection = e.target[e.target.options.selectedIndex].value;
     // console.log(e.target[e.target.options.selectedIndex].value);
     // console.log(e.target.options.selectedIndex);
@@ -66,14 +68,31 @@ const ReviewBrowser = (props) => {
           </select>
         </div>
         <div>
-          {props.reviews.map((item) => {
-            return (
-              <ReviewItem
-                className="review-item"
-                stats={item}
-                key={item.review_id}
-              />
-            );
+          {props.reviews.map((item, index) => {
+            // console.log(item);
+            // console.log(props.reviewFilter);
+            // if (item.rating === props.reviewFilter) {
+
+            console.log('item rating: ', item.rating);
+            console.log('props review filter: ', props.reviewFilter);
+
+            if (props.reviewFilter === undefined) {
+              return (
+                <ReviewItem
+                  className="review-item"
+                  stats={item}
+                  key={item.review_id}
+                />
+              );
+            } else if (props.reviewFilter.stars === item.rating) {
+              return (
+                <ReviewItem
+                  className="review-item"
+                  stats={item}
+                  key={item.review_id}
+                />
+              );
+            }
           })}
         </div>
 

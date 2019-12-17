@@ -6,11 +6,14 @@ import CharacteristicSliders from './review_breakdown/ReviewBreakdownChars.jsx';
 
 const ReviewBreakdown = (props) => {
   const { prodId } = useParams();
+
   useEffect(() => {
     props.fetchReviewList({ prodId: prodId, page: 1, count: 2 }); // dispatch action
   }, []);
 
-  function handler() {}
+  function clickHandler(filterNumber) {
+    props.applyFilter({ stars: filterNumber });
+  }
 
   if (props.reviews) {
     return (
@@ -23,23 +26,53 @@ const ReviewBreakdown = (props) => {
         </div>
         <div>
           <h3>% of recommendations</h3>
-          <p>5 stars</p>
+          <h3
+            onClick={(e) => {
+              clickHandler(5);
+            }}
+          >
+            5 stars
+          </h3>
           <div id="review-progress">
             <div id="review-bar"></div>
           </div>
-          <p>4 stars</p>
+          <h3
+            onClick={(e) => {
+              clickHandler(4);
+            }}
+          >
+            4 stars
+          </h3>
           <div id="review-progress">
             <div id="review-bar"></div>
           </div>
-          <p>3 stars</p>
+          <h3
+            onClick={(e) => {
+              clickHandler(3);
+            }}
+          >
+            3 stars
+          </h3>
           <div id="review-progress">
             <div id="review-bar"></div>
           </div>
-          <p>2 stars</p>
+          <h3
+            onClick={(e) => {
+              clickHandler(2);
+            }}
+          >
+            2 stars
+          </h3>
           <div id="review-progress">
             <div id="review-bar"></div>
           </div>
-          <p>1 stars</p>
+          <h3
+            onClick={(e) => {
+              clickHandler(1);
+            }}
+          >
+            1 stars
+          </h3>
           <div id="review-progress">
             <div id="review-bar"></div>
           </div>

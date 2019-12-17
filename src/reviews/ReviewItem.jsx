@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
 const ReviewItem = (props) => {
-  function handleClick(event) {
-    console.log('handle card click', event);
+  function handleClick(stats) {
+    console.log('handle card click', stats);
   }
 
   return (
