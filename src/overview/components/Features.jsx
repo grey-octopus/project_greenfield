@@ -16,7 +16,7 @@ const Features = props => {
         const displayData = fixFeatureData(feature);
         return (
           <p key={i} className="feature">
-            {displayData}
+            <span className='feature-check'></span>{displayData}
           </p>
         );
       })}
