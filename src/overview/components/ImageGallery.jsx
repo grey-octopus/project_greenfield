@@ -16,13 +16,17 @@ const ImageGallery = props => {
     const inlineStyle = {
       backgroundImage: `url(${props.styles[props.selected].photos[props.selectedImage].url})`
     }
-    console.log(props.position)
+    const arrow = props.styles[props.selected].photos.length > 7 ? 
+    <i 
+      className="fas fa-chevron-down" 
+      onClick={(e) => handleClick(e, props)}>
+    </i>
+    :
+    <div></div>
     return (
       <div id='image-gallery' style={inlineStyle}>
         <ImageCarouselContainer />
-        <i 
-          className="fas fa-chevron-down" 
-          onClick={(e) => handleClick(e, props)}></i>
+        {arrow}
       </div>
     )
   } else return <div id='image-gallery'></div>
