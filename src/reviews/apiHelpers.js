@@ -23,13 +23,13 @@ const publishReview = (content) => {
     });
 };
 
-const markReviewAsHelpful = (content) => {
-  console.log('make review helpful: ' + content.reviewId);
+const markReviewAsHelpful = (id) => {
+  console.log('make review helpful: ' + id);
   return axios({
     method: 'PUT',
-    url: `http://3.134.102.30/reviews/helpful/${content.reviewId}`,
+    url: `http://3.134.102.30/reviews/helpful/${id}`,
     data: {
-      review_id: content.reviewId
+      review_id: id
     }
   })
     .then((res) => {
@@ -41,13 +41,13 @@ const markReviewAsHelpful = (content) => {
     });
 };
 
-const reportReview = (content) => {
-  console.log('report review: ' + content.reviewId);
+const reportReview = (id) => {
+  console.log('report review: ' + id);
   return axios({
     method: 'PUT',
-    url: `http://3.134.102.30/reviews/report/${content.reviewId}`,
+    url: `http://3.134.102.30/reviews/report/${id}`,
     data: {
-      review_id: content.reviewId
+      review_id: id
     }
   })
     .then((res) => {
