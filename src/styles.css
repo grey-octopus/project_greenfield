@@ -1,6 +1,7 @@
 :root {
   --primary-font: 'Poppins', 'sans-serif';
   --font-color: #525252;
+  --font-light: #707070;
 }
 
 body {
@@ -103,11 +104,11 @@ p {
   display: none;
 }
 
-.feature {
+.feature-check {
   font-family: FontAwesome;
 }
 
-.feature::before {
+.feature-check::before {
   content: '\f00c \00a0\00a0';
 }
 
@@ -282,6 +283,11 @@ button {
   font-weight: 300;
 }
 
+.normal-price, .discounted-price {
+  margin-top: 0;
+  font-size: 1.8vh;
+}
+
 .original-price,
 .normal-price {
   color: var(--font-color);
@@ -302,10 +308,79 @@ button {
 }
 
 #image-gallery {
-  width: 80vh;
-  height: 60vh;
+  width: 100vh;
+  height: 80vh;
   background-repeat: no-repeat;
   background-position: center;
   background-color: gray;
   background-size: auto 100%;
+  position: relative;
+}
+
+#image-carousel {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  overflow: hidden;
+}
+
+.gallery-img {
+  margin-top: 2vh;
+  margin-left: 2vh;
+  min-height: 8vh;
+  overflow: auto;
+  overflow: hidden;
+  width: 8vh;
+  height: 8vh;
+  background-color: var(--font-color);
+  border: 1px solid black;
+}
+
+.gallery-img img {
+  width: 100%;
+  height: auto;
+}
+
+.fa-chevron-down {
+  position: absolute;
+  bottom: 4vh;
+  left: 4vh;
+  font-size: 4vh;
+  color: white;
+}
+
+#overview-top {
+  display: flex;
+  justify-content: center;
+}
+
+#prod-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 3vh;
+  margin-top: 3vh;
+}
+
+#prod-overview {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin: 4vh auto;
+}
+
+#features {
+  width: 20%;
+  display: inline-block;
+}
+
+#description {
+  width: 80%;
+  border-right: 2px solid var(--font-light);
+  padding-right: 3vh;
+  display: inline-block;
+}
+
+.feature {
+  font-weight: 300;
 }
