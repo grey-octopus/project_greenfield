@@ -20,7 +20,7 @@ const isOutfitInArray = (myOutfit, prodId) => {
 const MyOutfitsFirstCard = ({
   // price,
   // photoUrl,
-  // rating,
+  rating,
   category,
   name,
   addItem,
@@ -28,7 +28,7 @@ const MyOutfitsFirstCard = ({
   myOutfit
 }) => {
   let { prodId } = useParams();
-  const productLink = `http://3.134.102.30/products/${prodId}`;
+  // const productLink = `http://3.134.102.30/products/${prodId}`;
   prodId = Number(prodId);
 
   let [isInOutfit, setIsInOutfit] = useState(false);
@@ -41,41 +41,49 @@ const MyOutfitsFirstCard = ({
   // refactor to add above comented params into item obj
   const item = { id: prodId, category, name };
 
-  return (
-    <div className="relatedProducts card">
-      <div className="cardImage">
-        {/* refactor img src to have photoUrl */}
-        <img src={placeHolderImage} height="100px"></img>
-      </div>
-      <p className="cardText" style={{ fontSize: "10px" }}>
-        {category}
-      </p>
-      <p style={{ fontSize: "12px", wordBreak: "all" }}>
-        <strong>{name}</strong>
-      </p>
-      <p>
-        {/* {price} */}
-        ITEM ID:{prodId}
-      </p>
-      {isInOutfit ? (
+  if (isInOutfit && myOutfit.length >= 1) {
+    return (
+      <div className="card relatedProducts">
         <button
+          className="removeCardButton"
           onClick={() => {
             removeItem(prodId);
           }}
         >
-          Remove from FAV
+          X
         </button>
-      ) : (
-        <button
-          onClick={() => {
-            addItem(item);
-          }}
-        >
-          Add to FAV
-        </button>
-      )}
-    </div>
-  );
+        <div className="cardImage">
+          <img src={placeHolderImage}></img>
+        </div>
+        <br></br>
+        <div className="cardTextContainer">
+          <div className="cardText" style={{ wordBreak: "all" }}>
+            {category}
+            <br></br>
+            <strong>{name}</strong>
+
+            <br></br>
+            {rating ? "none" : rating}
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="card addProductButton placeHolder">
+        <div className="cardImage">
+          <img
+            src="/img/plus-icon.png"
+            onClick={() => {
+              addItem(item);
+            }}
+          ></img>
+          <br></br>
+          Add to My Outfit
+        </div>
+      </div>
+    );
+  }
 };
 
 const mapDispatchToProps = dispatch => {

@@ -51,7 +51,26 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
             </ItemsCarousel>
           </div>
         ) : (
-          <div>loading</div>
+          <div>
+            {relatedProducts.map(product => {
+              if (productIdsObj[product.id] === true) {
+                return;
+              } else {
+                productIdsObj[product.id] = true;
+                return (
+                  <RelatedProductsCard
+                    id={product.id}
+                    category={product.category}
+                    name={product.name}
+                    price={product.price}
+                    photoUrl={product.photoUrl}
+                    rating={product.rating}
+                    key={product.id}
+                  />
+                );
+              }
+            })}
+          </div>
         )}
       </div>
     </div>

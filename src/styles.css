@@ -1,5 +1,5 @@
 :root {
-  --primary-font: 'Poppins', 'sans-serif';
+  --primary-font: "Poppins", "sans-serif";
   --font-color: #525252;
   --font-light: #707070;
 }
@@ -51,7 +51,7 @@ p {
 }
 
 .stars-outer::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
   color: var(--font-color);
 }
 
@@ -65,7 +65,7 @@ p {
 }
 
 .stars-inner::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
 }
 
 .relatedProductsContainer {
@@ -81,19 +81,52 @@ p {
 .card {
   display: inline-block;
   margin: 10px;
-  border: 1px solid grey;
+  overflow: hidden;
+  justify-content: center;
+  border: 2px solid #9b9b9b;
+  color: #525252;
+  position: relative;
   width: 150px;
   height: 250px;
 }
-.cardImage {
+.cardImage img {
   margin: 0px;
+  height: 175px;
+  object-fit: cover;
   text-align: center;
+  background-color: #525252;
 }
-
 .cardText {
+  padding: 3px;
+  font-size: 10px;
   margin: 0px;
   text-align: left;
   white-space: normal;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.removeCardButton {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-sizing: content-box;
+  height: 7%;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  font-size: 10px;
+  font-weight: 900;
+}
+.removeCardButton:hover {
+  color: red;
+  border: 2px solid red;
+}
+.addProductButton {
+  text-align: center;
+}
+.addProductButton:hover {
+  cursor: copy;
 }
 
 #star-rating {
@@ -201,7 +234,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: '\f005  ';
+  content: "\f005  ";
   color: var(--font-color);
 }
 
@@ -216,7 +249,7 @@ button {
 }
 
 .single-stars-inner::before {
-  content: '\f005  ';
+  content: "\f005  ";
 }
 
 .inline-div {
