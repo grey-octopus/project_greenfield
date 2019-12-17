@@ -25,7 +25,7 @@ const rootReducer = combineReducers({
   styles: stylesReducer
 });
 
-const initialState = { styles: { selected: 0, selectedImage: 0 } }
+const initialState = { styles: { selected: 0, selectedImage: 0, position: 0 } }
 
 const store = createStore(
   rootReducer,
