@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import ReviewBreakdown from '../ReviewBreakdown.jsx';
 import fetchReviewList from '../review_actions/fetchReviews.js';
+import reviewFilter from '../review_actions/filterReviews.js';
+import applyFilter from '../review_actions/filterReviews.js';
 
 const mapStateToProps = (state) => {
   return {
@@ -9,13 +11,17 @@ const mapStateToProps = (state) => {
     reviewsCount: state.fetchReviewReducer.reviewsCount,
     currentReviewPage: state.fetchReviewReducer.currentReviewPage,
     reviews: state.fetchReviewReducer.reviews,
-    reviewProduct: state.fetchReviewReducer.reviewProduct
+    reviewProduct: state.fetchReviewReducer.reviewProduct,
+    //filter reducer
+    reviewFilter: state.filterReviewsReducer.reviewFilter
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchReviewList: (prodId) => dispatch(fetchReviewList(prodId))
+    fetchReviewList: (prodId) => dispatch(fetchReviewList(prodId)),
+    reviewFilter: () => dispatch(reviewFilter()),
+    applyFilter: (prodId) => dispatch(applyFilter(prodId))
   };
 };
 

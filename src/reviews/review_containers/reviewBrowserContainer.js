@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import ReviewBrowser from '../Review_Browser.jsx';
 import fetchReviewList from '../review_actions/fetchReviews.js';
 import fetchReviewMetadata from '../review_actions/fetchReviewMetadata.js';
+import reviewFilter from '../review_actions/filterReviews.js';
 
 const mapStateToProps = (state) => {
   return {
@@ -15,7 +16,9 @@ const mapStateToProps = (state) => {
     //metadata reducer:
     ratings: state.fetchReviewMetadataReducer.ratings,
     recommended: state.fetchReviewMetadataReducer.recommended,
-    characteristics: state.fetchReviewMetadataReducer.characteristics
+    characteristics: state.fetchReviewMetadataReducer.characteristics,
+    //filter reducer
+    reviewFilter: state.filterReviewsReducer.reviewFilter
   };
 };
 
