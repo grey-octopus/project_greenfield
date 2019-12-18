@@ -3,6 +3,7 @@ import {
   addItemToOutfit,
   removeItemFromOutfit
 } from "./actions/your_outfit_actions.js";
+import StarRating from "../overview/components/StarRating";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -40,7 +41,8 @@ const MyOutfitsFirstCard = ({
 
   // refactor to add above comented params into item obj
   const item = { id: prodId, category, name };
-
+  console.log("CAT", category);
+  console.log("NAME", name);
   if (isInOutfit && myOutfit.length >= 1) {
     return (
       <div className="card">
@@ -53,18 +55,22 @@ const MyOutfitsFirstCard = ({
           X
         </button>
         <div className="cardImage">
-          <img src={photoUrl || placeHolderImage}></img>
+          <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
         </div>
         <br></br>
         <div className="cardTextContainer">
           <div className="cardText" style={{ wordBreak: "all" }}>
-            {category}
-            <br></br>
-            <strong>{name}</strong>
-            <br></br>
-            {Number.isNaN(Number(rating)) || rating == 0
-              ? "No Reviews"
-              : rating}
+            <div className="category">{category}</div>
+
+            <strong className="productTitle">{name}</strong>
+
+            {Number.isNaN(Number(rating)) || rating == 0 ? (
+              <div>No Reviews</div>
+            ) : (
+              <div>
+                <StarRating averageRating={rating} />
+              </div>
+            )}
           </div>
         </div>
       </div>
