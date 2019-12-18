@@ -24,7 +24,7 @@ const Question = (props) => {
               } else {
                 setHelpfulness(helpfulness + 1);
               }
-              return axios.put(`http://3.134.102.30/qa/question/${props.question.question_id}/helpful`,{"helpfulness":helpfulness})
+              return axios.put(`http://3.134.102.30/qa/question/${props.question.question_id}/helpful`)
         }
 
       }

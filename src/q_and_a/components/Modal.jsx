@@ -13,6 +13,29 @@ const customStyles = {
     transform: 'translate(-50%, -50%)'
   }
 };
+const buttonStyle = {
+  width: '30%',
+  backgroundColor: 'white',
+  color: 'black',
+  border: '1px solid',
+  padding: '6px 16px',
+  textAlign: 'center',
+  textDecoration: 'none',
+  display: 'inline-block',
+  fontSize: '14px',
+  margin: '12px 0px',
+  cursor: 'pointer',
+  fontWeight: 'bold'
+}
+const inputStyle = {
+  width: '70%',
+  backgroundColor: 'white',
+  color: 'black',
+  border: '1px solid',
+  padding: '6px 16px',
+  margin: '12px 0px',
+  borderColor: 'grey'
+}
 
 const QAModal = (props) =>{
   const { prodId } = useParams();
@@ -43,6 +66,7 @@ const QAModal = (props) =>{
   }
   const handleSubmit = (e) => {
     e.preventDefault();
+    closeModal(e);
     axios.post(`http://3.134.102.30/qa/${prodId}`,{
             body: addQA.content,
             name: addQA.nickname,
@@ -50,13 +74,16 @@ const QAModal = (props) =>{
           })
          .then(
            ()=>{
-             axios.get(`http://3.134.102.30/qa/${prodId}`)
+            console.log('sent')
+            //toggleModal(true)
+            return axios.get(`http://3.134.102.30/qa/${prodId}?count=20`)
            }
          )
          .then(
            (data)=> {
-             //setFilter(data.data.results);
-             setQuestionList(data.data.results);
+             console.log(data)
+             props.setFilter(data.data.results);
+             props.setQuestionList(data.data.results);
           
            }
          )
@@ -92,6 +119,7 @@ const QAModal = (props) =>{
             type="text"
             size="60"
             placeholder="Example: jackson11!"
+            style={inputStyle}
             required
             onChange={(e) => {
               handleInputChange(e);
@@ -103,6 +131,7 @@ const QAModal = (props) =>{
             type="email"
             size="60"
             placeholder="Example: jackson11@gmail.com"
+            style={inputStyle}
             required
             onChange={(e) => {
               handleInputChange(e);
@@ -113,6 +142,7 @@ const QAModal = (props) =>{
             name="submit"
             type="submit"
             value="Submit"
+            style={buttonStyle}
           />
         </form>
     </Modal>

@@ -9,7 +9,7 @@ import axios from "axios";
 const inputStyle ={
   width: '80%',
   padding: '12px 20px',
-  margin: '8px 10px',
+  margin: '12px 10px',
   display: 'inline-block',
   border: '1px solid #ccc',
   //borderRadius: '4px',
@@ -22,7 +22,7 @@ const inputStyle ={
       
 }
 const buttonStyle = {
-  width: '80%',
+  width: '30%',
   backgroundColor: 'white',
   color: 'black',
   border: '1px solid',
@@ -49,7 +49,7 @@ const QuestionList = props => {
   let filtered;
 
   useEffect(() => {
-    axios.get(`http://3.134.102.30/qa/${prodId}`).then(
+    axios.get(`http://3.134.102.30/qa/${prodId}?count=20`).then(
             (data) => {
                 setFilter(data.data.results);
                 setQuestionList(data.data.results);
@@ -101,7 +101,9 @@ const QuestionList = props => {
               MORE ANSWERED QUESTIONS
             </button>
           ) : null}
-          <AddAQuestion setQuestionList={setQuestionList}/>
+          <AddAQuestion 
+            setQuestionList={setQuestionList}
+            setFilter={setFilter}/>
         </div>
       </div>
     );
