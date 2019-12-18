@@ -1,24 +1,24 @@
-import Modal from 'react-modal';
-import { publishReview } from '../apiHelpers.js';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import StarSelector from './StarSelector.jsx';
-import Characteristics from './Characteristics.jsx';
+import Modal from "react-modal";
+import { publishReview } from "../apiHelpers.js";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import StarSelector from "./StarSelector.jsx";
+import Characteristics from "./Characteristics.jsx";
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
   }
 };
 
-const ReviewModal = (props) => {
+const ReviewModal = props => {
   const [numOfStarsFilled, setNumOfStarsFilled] = useState(0);
-  const [inputForms, setInputForms] = useState({ body: '' });
+  const [inputForms, setInputForms] = useState({ body: "" });
   const [userCharRatings, setCharRatings] = useState({});
   const { prodId } = useParams();
 
@@ -29,7 +29,7 @@ const ReviewModal = (props) => {
   }
 
   function afterOpenModal() {
-    subtitle.style.color = '#f00';
+    subtitle.style.color = "#f00";
   }
 
   function closeModal() {
@@ -69,7 +69,7 @@ const ReviewModal = (props) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+        <h2 ref={_subtitle => (subtitle = _subtitle)}>
           Write your review about this product
         </h2>
         <form>
@@ -108,7 +108,7 @@ const ReviewModal = (props) => {
             rows="4"
             cols="50"
             value={inputForms.summary}
-            onChange={(e) => {
+            onChange={e => {
               handleInputChange(e);
             }}
           ></textarea>
@@ -120,7 +120,7 @@ const ReviewModal = (props) => {
             rows="4"
             cols="50"
             value={inputForms.body}
-            onChange={(e) => {
+            onChange={e => {
               handleInputChange(e);
             }}
           ></textarea>
@@ -131,7 +131,7 @@ const ReviewModal = (props) => {
           <input
             name="nickname"
             value={inputForms.nickname}
-            onChange={(e) => {
+            onChange={e => {
               handleInputChange(e);
             }}
           />
@@ -140,13 +140,13 @@ const ReviewModal = (props) => {
           <input
             name="email"
             value={inputForms.email}
-            onChange={(e) => {
+            onChange={e => {
               handleInputChange(e);
             }}
           />
 
           <button
-            onClick={(e) => {
+            onClick={e => {
               handlePublish(inputForms);
             }}
           >

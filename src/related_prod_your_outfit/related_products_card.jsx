@@ -9,17 +9,18 @@ const RelatedProductsCard = ({
   name,
   price,
   photoUrl,
-  rating
+  rating,
+  relatedProdIndex
 }) => {
   return (
-    <Link to={`/product_details/${id}`}>
-      <div className="relatedProducts card">
-        <ActionButton />
-        <div className="cardImage">
-          <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
-        </div>
-        <br></br>
-        <div className="cardTextContainer">
+    <div className="relatedProducts card">
+      <ActionButton id={id} key={id + "actionbutton"} />
+      <div className="cardImage">
+        <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
+      </div>
+      <br></br>
+      <div className="cardTextContainer">
+        <Link to={`/product_details/${id}`}>
           <div className="cardText" style={{ wordBreak: "all" }}>
             <div className="category">{category}</div>
 
@@ -32,9 +33,9 @@ const RelatedProductsCard = ({
               <StarRating averageRating={rating} />
             )}
           </div>
-        </div>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 };
 

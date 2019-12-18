@@ -73,8 +73,29 @@ p {
   white-space: nowrap;
   margin: 50px;
 }
+.Modal.comparison {
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  /* transform: translateX(-50%, -50%); */
+}
+.Modal .comparison-header {
+  text-align: center;
+}
 .actionButton-inner .actionButton::before {
+  position: absolute;
+  top: 8px;
+  right: 8px;
   content: "\f005";
+  border: 2px solid black;
+  color: black;
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  border-radius: 15px;
 }
 
 .myOutfitsContainer {
@@ -122,14 +143,16 @@ p {
   left: 0px;
 }
 .removeCardButton {
+  position: absolute;
   background-color: transparent;
+  padding: 2px;
   border: 2px solid black;
   border-radius: 15px;
   box-sizing: content-box;
-  height: 2vh;
-  position: absolute;
-  right: 4px;
-  top: 4px;
+  width: 16px;
+  height: 16px;
+  top: 8px;
+  right: 8px;
   font-size: 10px;
   font-weight: 900;
 }

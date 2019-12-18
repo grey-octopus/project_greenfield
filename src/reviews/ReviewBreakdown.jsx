@@ -1,15 +1,15 @@
-import axios from 'axios';
-import React, { useEffect } from 'react';
-import { useParams, Link, Route, Switch } from 'react-router-dom';
-import StarRatingContainer from '../overview/containers/StarRatingContainer.jsx';
-import CharacteristicSliders from './review_breakdown/ReviewBreakdownChars.jsx';
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useParams, Link, Route, Switch } from "react-router-dom";
+import StarRatingContainer from "../overview/containers/StarRatingContainer.jsx";
+import CharacteristicSliders from "./review_breakdown/ReviewBreakdownChars.jsx";
 
-const ReviewBreakdown = (props) => {
+const ReviewBreakdown = props => {
   const { prodId } = useParams();
 
   useEffect(() => {
     props.fetchReviewList({ prodId: prodId, page: 1, count: 2 }); // dispatch action
-  }, []);
+  }, [prodId]);
 
   function clickHandler(filterNumber) {
     props.applyFilter({ stars: filterNumber });
@@ -27,7 +27,7 @@ const ReviewBreakdown = (props) => {
         <div>
           <h3>% of recommendations</h3>
           <h3
-            onClick={(e) => {
+            onClick={e => {
               clickHandler(5);
             }}
           >
@@ -37,7 +37,7 @@ const ReviewBreakdown = (props) => {
             <div id="review-bar"></div>
           </div>
           <h3
-            onClick={(e) => {
+            onClick={e => {
               clickHandler(4);
             }}
           >
@@ -47,7 +47,7 @@ const ReviewBreakdown = (props) => {
             <div id="review-bar"></div>
           </div>
           <h3
-            onClick={(e) => {
+            onClick={e => {
               clickHandler(3);
             }}
           >
@@ -57,7 +57,7 @@ const ReviewBreakdown = (props) => {
             <div id="review-bar"></div>
           </div>
           <h3
-            onClick={(e) => {
+            onClick={e => {
               clickHandler(2);
             }}
           >
@@ -67,7 +67,7 @@ const ReviewBreakdown = (props) => {
             <div id="review-bar"></div>
           </div>
           <h3
-            onClick={(e) => {
+            onClick={e => {
               clickHandler(1);
             }}
           >
