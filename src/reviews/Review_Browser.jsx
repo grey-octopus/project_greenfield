@@ -68,18 +68,20 @@ const ReviewBrowser = (props) => {
     return (
       <div className="review-browser">
         <div>
-          <h3 className="inline-div">sort number of reviews by: &nbsp; </h3>
+          <div className="select-div">
+            <h3 className="inline-div">sort number of reviews by: &nbsp; </h3>
 
-          <select
-            className="inline-div"
-            onChange={(event) => {
-              handleSelectChange(event);
-            }}
-          >
-            <option value="helpful">Helpful</option>
-            <option value="newest">Newest</option>
-            <option value="relevant">Relevant</option>
-          </select>
+            <select
+              className="sort-select"
+              onChange={(event) => {
+                handleSelectChange(event);
+              }}
+            >
+              <option value="helpful">Helpful</option>
+              <option value="newest">Newest</option>
+              <option value="relevant">Relevant</option>
+            </select>
+          </div>
         </div>
         <div className="review-list">{generateReviews()}</div>
 

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { markReviewAsHelpful, reportReview } from './apiHelpers';
+import StarRatingContainer from '../overview/containers/StarRatingContainer.jsx';
 var moment = require('moment');
 
 const ReviewItem = (props) => {
@@ -22,16 +23,16 @@ const ReviewItem = (props) => {
     <div className="review-item">
       <div className="container">
         <div className="container-full">
+          <div className="review-card-stars">
+            <StarRatingContainer />
+          </div>
           <div className="review-card-name-date">{`${props.stats.reviewer_name}, ${date}`}</div>
         </div>
         <h3 className="review-card-summary">{props.stats.summary}</h3>
-        <p>{`date: ${date}`}</p>
-        <p>{`rating: ${props.stats.rating}`}</p>
 
-        <p>{props.stats.body}</p>
-        <p>{`helpful?: ${props.stats.helpfulness}`}</p>
+        <p className="review-body-text ">{props.stats.body}</p>
       </div>
-      <div>
+      <div className="helpful-report">
         <h3>Was this helpful?&nbsp;</h3>
         <h3
           className="click-text"
@@ -56,3 +57,5 @@ const ReviewItem = (props) => {
 };
 
 export default ReviewItem;
+
+// <p>{`date: ${date}`}</p>
