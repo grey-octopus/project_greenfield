@@ -434,11 +434,42 @@ p {
 start of review component styles
  */
 
+/*
+ start review card styles
+ */
+
+.container {
+  display: flex;
+}
+
+.container-full {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.review-card-name-date {
+  display: flex;
+  font-size: 0.8em;
+
+  width: 100%;
+}
+
+.review-card-summary {
+  font-weight: 600;
+  font-size: 1.2em;
+  color: var(--font-color);
+}
+
 .review-item {
   border: 2px solid black;
   border-radius: 2px;
   width: -webkit-fill-available;
 }
+
+/*
+ end review card styles
+ */
 
 .review-browser {
   display: inline-block;
