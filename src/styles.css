@@ -462,3 +462,7 @@ button {
 .feature {
   font-weight: 300;
 }
+
+.fa-arrow-right {
+  position: absolute;
+}
