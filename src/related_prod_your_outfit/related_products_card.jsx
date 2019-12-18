@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import StarRating from "../overview/components/StarRating";
+import ActionButton from "./comparison_button.jsx";
 const placeHolderImage = "/img/image-placeholder.png";
 const RelatedProductsCard = ({
   id,
@@ -9,22 +11,26 @@ const RelatedProductsCard = ({
   photoUrl,
   rating
 }) => {
-  console.log("RATING RELATED PROD COMP", rating);
   return (
     <Link to={`/product_details/${id}`}>
       <div className="relatedProducts card">
+        <ActionButton />
         <div className="cardImage">
-          <img src={photoUrl || placeHolderImage} height="100px"></img>
+          <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
         </div>
         <br></br>
         <div className="cardTextContainer">
           <div className="cardText" style={{ wordBreak: "all" }}>
-            {category}
-            <br></br>
-            <strong>{name}</strong>
-            <br></br>${price}
-            <br></br>
-            {rating ? "No Reviews" : rating}
+            <div className="category">{category}</div>
+
+            <strong className="productTitle">{name}</strong>
+            <div className="price">${price}</div>
+
+            {Number.isNaN(Number(rating)) || rating == 0 ? (
+              "No Reviews"
+            ) : (
+              <StarRating averageRating={rating} />
+            )}
           </div>
         </div>
       </div>

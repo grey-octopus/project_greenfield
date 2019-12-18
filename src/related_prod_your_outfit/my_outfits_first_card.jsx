@@ -3,6 +3,7 @@ import {
   addItemToOutfit,
   removeItemFromOutfit
 } from "./actions/your_outfit_actions.js";
+import StarRating from "../overview/components/StarRating";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -19,7 +20,7 @@ const isOutfitInArray = (myOutfit, prodId) => {
 
 const MyOutfitsFirstCard = ({
   // price,
-  // photoUrl,
+  photoUrl,
   rating,
   category,
   name,
@@ -30,7 +31,7 @@ const MyOutfitsFirstCard = ({
   let { prodId } = useParams();
   // const productLink = `http://3.134.102.30/products/${prodId}`;
   prodId = Number(prodId);
-
+  // console.log("photoUrl");
   let [isInOutfit, setIsInOutfit] = useState(false);
 
   useEffect(() => {
@@ -40,10 +41,11 @@ const MyOutfitsFirstCard = ({
 
   // refactor to add above comented params into item obj
   const item = { id: prodId, category, name };
-
+  console.log("CAT", category);
+  console.log("NAME", name);
   if (isInOutfit && myOutfit.length >= 1) {
     return (
-      <div className="card relatedProducts">
+      <div className="card">
         <button
           className="removeCardButton"
           onClick={() => {
@@ -53,32 +55,39 @@ const MyOutfitsFirstCard = ({
           X
         </button>
         <div className="cardImage">
-          <img src={placeHolderImage}></img>
+          <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
         </div>
         <br></br>
         <div className="cardTextContainer">
           <div className="cardText" style={{ wordBreak: "all" }}>
-            {category}
-            <br></br>
-            <strong>{name}</strong>
+            <div className="category">{category}</div>
 
-            <br></br>
-            {rating ? "none" : rating}
+            <strong className="productTitle">{name}</strong>
+
+            {Number.isNaN(Number(rating)) || rating == 0 ? (
+              <div>No Reviews</div>
+            ) : (
+              <div>
+                <StarRating averageRating={rating} />
+              </div>
+            )}
           </div>
         </div>
       </div>
     );
   } else {
+    console.log(photoUrl);
     return (
-      <div className="card addProductButton placeHolder">
-        <div className="cardImage">
-          <img
-            src="/img/plus-icon.png"
-            onClick={() => {
-              addItem(item);
-            }}
-          ></img>
+      <div className="card placeHolder">
+        <div
+          className="addProductButton"
+          onClick={() => {
+            addItem(item);
+          }}
+        >
+          <h1 id="addToMyOutfitButton">+</h1>
           <br></br>
+          <div className="cardText"></div>
           Add to My Outfit
         </div>
       </div>

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 function Characteristics(props) {
   if (props.characteristics) {
+    console.log(props.characteristics);
     let temp = Object.keys(props.characteristics);
     let chars = [];
     for (let i = 0; i < temp.length; i++) {
