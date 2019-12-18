@@ -88,7 +88,7 @@ const ReviewBrowser = (props) => {
             <option value="relevant">Relevant</option>
           </select>
         </div>
-        <div>{generateReviews()}</div>
+        <div className="review-list">{generateReviews()}</div>
 
         <ReviewModalContainer />
 
