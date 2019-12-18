@@ -18,7 +18,7 @@ const ReviewBrowser = (props) => {
       sort: 'newest'
     });
     props.fetchReviewMetadata({ prodId: prodId });
-  }, []);
+  }, [prodId]);
 
   function handlePaginateReviewList() {
     //console.log('paginate reviews');
@@ -42,13 +42,6 @@ const ReviewBrowser = (props) => {
 
   function generateReviews() {
     let filteredReviews = props.reviews.map((item, index) => {
-      // console.log(item);
-      // console.log(props.reviewFilter);
-      // if (item.rating === props.reviewFilter) {
-
-      // console.log('item rating: ', item.rating);
-      // console.log('props review filter: ', props.reviewFilter);
-
       if (props.reviewFilter === undefined) {
         return (
           <ReviewItem
@@ -75,18 +68,20 @@ const ReviewBrowser = (props) => {
     return (
       <div className="review-browser">
         <div>
-          <h3 className="inline-div">sort number of reviews by: &nbsp; </h3>
+          <div className="select-div">
+            <h3 className="inline-div">sort number of reviews by: &nbsp; </h3>
 
-          <select
-            className="inline-div"
-            onChange={(event) => {
-              handleSelectChange(event);
-            }}
-          >
-            <option value="helpful">Helpful</option>
-            <option value="newest">Newest</option>
-            <option value="relevant">Relevant</option>
-          </select>
+            <select
+              className="sort-select"
+              onChange={(event) => {
+                handleSelectChange(event);
+              }}
+            >
+              <option value="helpful">Helpful</option>
+              <option value="newest">Newest</option>
+              <option value="relevant">Relevant</option>
+            </select>
+          </div>
         </div>
         <div className="review-list">{generateReviews()}</div>
 

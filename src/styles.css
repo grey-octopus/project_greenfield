@@ -74,7 +74,7 @@ p {
   margin: 50px;
 }
 .actionButton-inner .actionButton::before {
-  content: "\f005";
+  content: '\f005';
 }
 
 .myOutfitsContainer {
@@ -199,7 +199,7 @@ p {
 }
 
 .feature-check::before {
-  content: "\f00c \00a0\00a0";
+  content: '\f00c \00a0\00a0';
 }
 
 #ratings-reviews {
@@ -224,43 +224,6 @@ p {
   margin: 1em;
 }
 
-.review-item {
-  border: 2px solid black;
-  border-radius: 2px;
-  width: -webkit-fill-available;
-}
-
-.review-browser {
-  display: inline-block;
-  width: 60%;
-  max-height: 1000px;
-  overflow-y: scroll;
-}
-
-.review-browser div {
-  display: inline-block;
-}
-
-.review-list {
-  overflow-y: scroll;
-}
-
-#add-review-button {
-  display: flex;
-  flex-direction: row;
-}
-
-button {
-  display: inline-block;
-}
-.review-breakdown {
-  display: inline-block;
-  width: 50%;
-  text-align: left;
-  vertical-align: top;
-  padding: 20px;
-}
-
 #garf {
   margin: auto;
   position: absolute;
@@ -281,6 +244,17 @@ button {
   background-color: black;
 }
 
+.review-progress {
+  width: 50%;
+  background-color: grey;
+}
+
+.review-bar {
+  width: 0%;
+  height: 10px;
+  background-color: black;
+}
+
 #garf-text {
   margin: auto;
   position: absolute;
@@ -288,60 +262,6 @@ button {
   right: 0;
   top: 26vh;
   width: 10em;
-}
-
-.char-slider {
-  display: inline-block;
-}
-
-.char-empty-slider-segment {
-  display: inline-block;
-  padding: 4px;
-}
-
-.char-slider-segment {
-  position: relative;
-  background-color: lightslategray;
-  min-width: 40px;
-  height: 5px;
-  display: inline-block;
-  top: 10px;
-}
-
-.fas.fa-caret-down {
-  position: absolute;
-  z-index: 10;
-}
-.single-stars-outer {
-  display: inline-block;
-  position: relative;
-  font-family: FontAwesome;
-}
-
-.single-stars-outer::before {
-  content: '\f005  ';
-  color: var(--font-color);
-}
-
-.single-stars-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  font-style: solid;
-  color: var(--font-color);
-}
-
-.single-stars-inner::before {
-  content: '\f005  ';
-}
-*/ .inline-div {
-  display: inline-block;
-}
-
-.click-text {
-  text-decoration: underline;
 }
 
 #style-btns {
@@ -520,3 +440,158 @@ button {
 .feature {
   font-weight: 300;
 }
+
+/* 
+start of review component styles
+ */
+
+/*
+ start review card styles
+ */
+
+.review-browser {
+  /* display: inline-block; */
+  width: 50%;
+  max-height: 1000px;
+  overflow-y: scroll;
+  margin-right: 15%;
+  margin-top: 6%;
+}
+
+.review-list {
+  overflow-y: scroll;
+}
+
+.select-div {
+  display: flex;
+}
+
+.sort-select {
+  display: inline-block;
+}
+
+.helpful-report {
+  font-size: 0.6em;
+  display: flex;
+  margin-bottom: 2%;
+}
+
+.container-full {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.review-card-stars {
+  margin-right: auto;
+}
+
+.review-card-name-date {
+  /* display: flex; */
+  font-size: 0.8em;
+  justify-content: end;
+}
+
+.review-card-summary {
+  font-weight: 600;
+  font-size: 1.2em;
+  color: var(--font-color);
+}
+
+.review-body-text {
+  font-weight: 100;
+  font-size: 1em;
+  color: var(--font-color);
+}
+
+.review-item {
+  margin-top: 30px;
+  border-bottom: 1px solid black;
+  /* border: 2px solid black; */
+  /* border-radius: 2px; */
+  width: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+ end review card styles
+ */
+
+#add-review-button {
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  display: inline-block;
+}
+.review-breakdown {
+  /* display: inline-block; */
+  width: 30%;
+  text-align: left;
+  vertical-align: top;
+  padding: 5px;
+  margin-left: 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-breakdown-star-block {
+}
+
+.char-slider {
+  display: inline-block;
+}
+
+.char-empty-slider-segment {
+  display: inline-block;
+  padding: 4px;
+}
+
+.char-slider-segment {
+  position: relative;
+  background-color: lightslategray;
+  min-width: 40px;
+  height: 5px;
+  display: inline-block;
+  top: 10px;
+}
+
+.fas.fa-caret-down {
+  position: absolute;
+  z-index: 10;
+}
+.single-stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.single-stars-outer::before {
+  content: '\f005  ';
+  color: var(--font-color);
+}
+
+.single-stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  font-style: solid;
+  color: var(--font-color);
+}
+
+.single-stars-inner::before {
+  content: '\f005  ';
+}
+*/ .inline-div {
+  display: inline-block;
+}
+
+.click-text {
+  text-decoration: underline;
+}
+/* 
+end of review component styles
+ */

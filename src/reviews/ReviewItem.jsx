@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { markReviewAsHelpful, reportReview } from './apiHelpers';
+import StarRatingContainer from '../overview/containers/StarRatingContainer.jsx';
+var moment = require('moment');
 
 const ReviewItem = (props) => {
+  const date = moment(props.stats.date).format('MMM Do YY');
   function handleClick(stats) {
     //console.log('handle card click', stats);
   }
@@ -18,15 +21,18 @@ const ReviewItem = (props) => {
 
   return (
     <div className="review-item">
-      <div>
-        <h3>{props.stats.reviewer_name}</h3>
-        <p>{`date: ${props.stats.date}`}</p>
-        <p>{`rating: ${props.stats.rating}`}</p>
-        <p>{props.stats.summary}</p>
-        <p>{props.stats.body}</p>
-        <p>{`helpful?: ${props.stats.helpfulness}`}</p>
+      <div className="container">
+        <div className="container-full">
+          <div className="review-card-stars">
+            <StarRatingContainer />
+          </div>
+          <div className="review-card-name-date">{`${props.stats.reviewer_name}, ${date}`}</div>
+        </div>
+        <h3 className="review-card-summary">{props.stats.summary}</h3>
+
+        <p className="review-body-text ">{props.stats.body}</p>
       </div>
-      <div>
+      <div className="helpful-report">
         <h3>Was this helpful?&nbsp;</h3>
         <h3
           className="click-text"
@@ -51,3 +57,5 @@ const ReviewItem = (props) => {
 };
 
 export default ReviewItem;
+
+// <p>{`date: ${date}`}</p>

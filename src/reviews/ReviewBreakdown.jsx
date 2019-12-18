@@ -24,7 +24,7 @@ const ReviewBreakdown = (props) => {
   }
 
   function calculateBar() {
-    console.log('calculate bar');
+    //console.log('calculate bar');
 
     if (props.ratings !== undefined && percentReviews.done !== true) {
       let max = 0;
@@ -59,7 +59,7 @@ const ReviewBreakdown = (props) => {
   }
 
   function getPercentage(star) {
-    console.log(percentReviews);
+    //console.log(percentReviews);
 
     let barSize = { width: `${percentReviews[star].percentage}%` };
 
@@ -68,12 +68,11 @@ const ReviewBreakdown = (props) => {
 
   if (props.reviews) {
     if (props.ratings !== undefined) calculateBar();
-    console.log('percents from state: ', percentReviews);
+    //console.log('percents from state: ', percentReviews);
     return (
       <div className="review-breakdown">
-        <h2>{props.averageRating}</h2>
-
-        <div>
+        <div className="review-breakdown-star-block">
+          <h2>{props.averageRating}</h2>
           <StarRatingContainer />
         </div>
 
@@ -89,8 +88,8 @@ const ReviewBreakdown = (props) => {
           >
             5 stars
           </h3>
-          <div id="review-progress">
-            <div id="review-bar" style={getPercentage(5)}></div>
+          <div className="review-progress">
+            <div className="review-bar" style={getPercentage(5)}></div>
           </div>
           <h3
             onClick={(e) => {
@@ -99,8 +98,8 @@ const ReviewBreakdown = (props) => {
           >
             4 stars
           </h3>
-          <div id="review-progress">
-            <div id="review-bar" style={getPercentage(4)}></div>
+          <div className="review-progress">
+            <div className="review-bar" style={getPercentage(4)}></div>
           </div>
           <h3
             onClick={(e) => {
@@ -109,8 +108,8 @@ const ReviewBreakdown = (props) => {
           >
             3 stars
           </h3>
-          <div id="review-progress">
-            <div id="review-bar" style={getPercentage(3)}></div>
+          <div className="review-progress">
+            <div className="review-bar" style={getPercentage(3)}></div>
           </div>
           <h3
             onClick={(e) => {
@@ -119,8 +118,8 @@ const ReviewBreakdown = (props) => {
           >
             2 stars
           </h3>
-          <div id="review-progress">
-            <div id="review-bar" style={getPercentage(2)}></div>
+          <div className="review-progress">
+            <div className="review-bar" style={getPercentage(2)}></div>
           </div>
           <h3
             onClick={(e) => {
@@ -129,8 +128,8 @@ const ReviewBreakdown = (props) => {
           >
             1 stars
           </h3>
-          <div id="review-progress">
-            <div id="review-bar" style={getPercentage(1)}></div>
+          <div className="review-progress">
+            <div className="review-bar" style={getPercentage(1)}></div>
           </div>
         </div>
         <div>
