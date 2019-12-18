@@ -23,7 +23,7 @@ const MyOutfits = ({
 
   return (
     <div className="myOutfitsContainer">
-      <h2>MY OUTFITS</h2>
+      <h3>YOUR OUTFIT</h3>
       <br></br>
       {/* there is an error coming from when the outfit contains the current item. ItemsCarousel always expects a node, and 
      because it must be using this.children... Need to make a parser so that the myOutfit array doesn't contain the current prod */}
@@ -32,7 +32,7 @@ const MyOutfits = ({
           <ItemsCarousel
             requestToChangeActive={setActiveItemIndex}
             activeItemIndex={activeItemIndex}
-            numberOfCards={3}
+            numberOfCards={4}
             gutter={20}
             leftChevron={<button>{"<"}</button>}
             rightChevron={<button>{">"}</button>}
@@ -40,7 +40,7 @@ const MyOutfits = ({
           >
             <MyOutfitsFirstCard
               category={currentItem.category}
-              name={currentItem.name}
+              name={currentItem.title}
               // price={currentItem.price}
               photoUrl={photoUrl}
               // key={currentItem.id}
@@ -71,7 +71,7 @@ const MyOutfits = ({
       ) : (
         <MyOutfitsFirstCard
           category={currentItem.category}
-          name={currentItem.name}
+          name={currentItem.title}
           // price={currentItem.price}
           photoUrl={photoUrl}
           key={currentItem.id + "firstCard"}

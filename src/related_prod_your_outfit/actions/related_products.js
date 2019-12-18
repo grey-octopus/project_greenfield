@@ -37,7 +37,8 @@ export const getRelatedProducts = prodId => {
                 relatedProducts.push({
                   id: data.id,
                   category: data.category,
-                  name: data.name
+                  name: data.name,
+                  features: data.features
                 });
               });
               // iterate over productStyleRequests

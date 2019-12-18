@@ -15,7 +15,7 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
   }, [prodId]);
   return (
     <div className="relatedProductsContainer">
-      <h2>RELATED PRODUCTS</h2>
+      <h3>RELATED PRODUCTS</h3>
       <div>
         {relatedProducts.length >= 1 ? (
           <div style={{ padding: `10px ${chevronWidth}px` }}>
