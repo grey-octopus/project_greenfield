@@ -7,12 +7,12 @@ import AddAQuestion from "./AddAQuestion";
 import axios from "axios";
 
 const inputStyle ={
-  width: '100%',
+  width: '80%',
   padding: '12px 20px',
-  margin: '8px 0',
+  margin: '8px 10px',
   display: 'inline-block',
   border: '1px solid #ccc',
-  borderRadius: '4px',
+  //borderRadius: '4px',
   boxSizing: 'border-box',
   fontSize: '14px',
   fontWeight: 'bold'
@@ -22,15 +22,16 @@ const inputStyle ={
       
 }
 const buttonStyle = {
+  width: '80%',
   backgroundColor: 'white',
   color: 'black',
   border: '1px solid',
-  padding: '11px 24px',
+  padding: '12px 24px',
   textAlign: 'center',
   textDecoration: 'none',
   display: 'inline-block',
   fontSize: '14px',
-  margin: '3px 2px',
+  margin: '18px 2px',
   cursor: 'pointer',
   fontWeight: 'bold'
 }
@@ -100,7 +101,7 @@ const QuestionList = props => {
               MORE ANSWERED QUESTIONS
             </button>
           ) : null}
-          <AddAQuestion />
+          <AddAQuestion setQuestionList={setQuestionList}/>
         </div>
       </div>
     );

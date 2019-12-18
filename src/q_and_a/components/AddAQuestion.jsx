@@ -1,8 +1,20 @@
-import React from 'react'
+import React,{ useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import QAModal from './Modal';
 
 const AddAQuestion = (props) => {
+  const [click,setClick] = useState(false);
   return (
-    <button>ADD A QUESTION</button>
+    <div>
+      <button onClick={(e)=>{setClick(true)}}>ADD A QUESTION</button>
+      {
+        click ?
+          <QAModal
+            name='question' setQuestionList={props.setQuestionList}
+          />:null
+      }
+      
+    </div>
   )
 }
 
