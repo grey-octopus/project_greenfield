@@ -1,5 +1,5 @@
 :root {
-  --primary-font: "Poppins", "sans-serif";
+  --primary-font: 'Poppins', 'sans-serif';
   --font-color: #525252;
   --font-light: #707070;
 }
@@ -51,7 +51,7 @@ p {
 }
 
 .stars-outer::before {
-  content: "\f005\f005\f005\f005\f005";
+  content: '\f005\f005\f005\f005\f005';
   color: var(--font-color);
 }
 
@@ -65,7 +65,7 @@ p {
 }
 
 .stars-inner::before {
-  content: "\f005\f005\f005\f005\f005";
+  content: '\f005\f005\f005\f005\f005';
 }
 
 .relatedProductsContainer {
@@ -213,10 +213,16 @@ p {
 .review-browser {
   display: inline-block;
   width: 60%;
+  max-height: 1000px;
+  overflow-y: scroll;
 }
 
 .review-browser div {
   display: inline-block;
+}
+
+.review-list {
+  overflow-y: scroll;
 }
 
 #add-review-button {
@@ -250,7 +256,7 @@ button {
 }
 
 #review-bar {
-  width: 34%;
+  width: 0%;
   height: 10px;
   background-color: black;
 }
@@ -294,7 +300,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: "\f005  ";
+  content: '\f005  ';
   color: var(--font-color);
 }
 
@@ -309,7 +315,7 @@ button {
 }
 
 .single-stars-inner::before {
-  content: "\f005  ";
+  content: '\f005  ';
 }
 
 .inline-div {

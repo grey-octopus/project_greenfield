@@ -21,30 +21,54 @@ const ReviewBrowser = (props) => {
   }, []);
 
   function handlePaginateReviewList() {
-    console.log('paginate reviews');
+    //console.log('paginate reviews');
 
     let pageUp = pagination.page + 2;
 
     setPagination({ page: pageUp });
-    console.log('page', pagination);
+    //console.log('page', pagination);
   }
 
   function handleSelectChange(e) {
     e.persist();
-    //console.log('filter', props.reviewFilter);
     const selection = e.target[e.target.options.selectedIndex].value;
-    // console.log(e.target[e.target.options.selectedIndex].value);
-    // console.log(e.target.options.selectedIndex);
-
-    //e.options[e.selectedIndex].value;
-    // console.log('selection:', selection);
-
     props.fetchReviewList({
       prodId: prodId,
       page: 1,
       count: 2,
       sort: selection
     });
+  }
+
+  function generateReviews() {
+    let filteredReviews = props.reviews.map((item, index) => {
+      // console.log(item);
+      // console.log(props.reviewFilter);
+      // if (item.rating === props.reviewFilter) {
+
+      // console.log('item rating: ', item.rating);
+      // console.log('props review filter: ', props.reviewFilter);
+
+      if (props.reviewFilter === undefined) {
+        return (
+          <ReviewItem
+            className="review-item"
+            stats={item}
+            key={item.review_id}
+          />
+        );
+      } else if (props.reviewFilter.stars === item.rating) {
+        return (
+          <ReviewItem
+            className="review-item"
+            stats={item}
+            key={item.review_id}
+          />
+        );
+      }
+    });
+
+    return filteredReviews.slice(0, pagination.page);
   }
 
   if (props.reviews) {
@@ -64,34 +88,7 @@ const ReviewBrowser = (props) => {
             <option value="relevant">Relevant</option>
           </select>
         </div>
-        <div>
-          {props.reviews.map((item, index) => {
-            // console.log(item);
-            // console.log(props.reviewFilter);
-            // if (item.rating === props.reviewFilter) {
-
-            // console.log('item rating: ', item.rating);
-            // console.log('props review filter: ', props.reviewFilter);
-
-            if (props.reviewFilter === undefined) {
-              return (
-                <ReviewItem
-                  className="review-item"
-                  stats={item}
-                  key={item.review_id}
-                />
-              );
-            } else if (props.reviewFilter.stars === item.rating) {
-              return (
-                <ReviewItem
-                  className="review-item"
-                  stats={item}
-                  key={item.review_id}
-                />
-              );
-            }
-          })}
-        </div>
+        <div className="review-list">{generateReviews()}</div>
 
         <ReviewModalContainer />
 
