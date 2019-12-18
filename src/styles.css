@@ -73,6 +73,9 @@ p {
   white-space: nowrap;
   margin: 50px;
 }
+.actionButton-inner .actionButton::before {
+  content: "\f005";
+}
 
 .myOutfitsContainer {
   overflow-x: hidden;

@@ -30,7 +30,7 @@ const MyOutfitsCard = ({
         X
       </button>
       <div className="cardImage">
-        <img src={photoUrl || placeHolderImage}></img>
+        <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
       </div>
       <br></br>
       <div className="cardTextContainer">

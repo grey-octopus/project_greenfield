@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import StarRating from "../overview/components/StarRating";
+import ActionButton from "./comparison_button.jsx";
 const placeHolderImage = "/img/image-placeholder.png";
 const RelatedProductsCard = ({
   id,
@@ -13,8 +14,9 @@ const RelatedProductsCard = ({
   return (
     <Link to={`/product_details/${id}`}>
       <div className="relatedProducts card">
+        <ActionButton />
         <div className="cardImage">
-          <img src={photoUrl || placeHolderImage}></img>
+          <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
         </div>
         <br></br>
         <div className="cardTextContainer">
