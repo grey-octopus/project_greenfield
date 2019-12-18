@@ -16,6 +16,7 @@ Modal.setAppElement('#app');
 const App = () => {
   const { prodId } = useParams();
   const [dataToRender, setDataToRender] = useState(<div></div>);
+  console.log('testing');
 
   useEffect(() => {
     axios
@@ -24,8 +25,8 @@ const App = () => {
         setDataToRender(
           <div id="app-inner">
             <OverviewContainer />
-            {/* <RelatedProducts />
-            <MyOutfits /> */}
+            <RelatedProducts />
+            <MyOutfits />
             <hr />
             <QuestionList />
             <hr />

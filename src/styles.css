@@ -467,7 +467,11 @@ start of review component styles
 }
 
 .sort-select {
+  outline: none;
   display: inline-block;
+  /* border: none; */
+  border: 2px solid black;
+  background-color: white;
 }
 
 .helpful-report {
