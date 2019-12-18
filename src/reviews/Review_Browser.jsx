@@ -18,7 +18,7 @@ const ReviewBrowser = (props) => {
       sort: 'newest'
     });
     props.fetchReviewMetadata({ prodId: prodId });
-  }, []);
+  }, [prodId]);
 
   function handlePaginateReviewList() {
     //console.log('paginate reviews');
@@ -42,13 +42,6 @@ const ReviewBrowser = (props) => {
 
   function generateReviews() {
     let filteredReviews = props.reviews.map((item, index) => {
-      // console.log(item);
-      // console.log(props.reviewFilter);
-      // if (item.rating === props.reviewFilter) {
-
-      // console.log('item rating: ', item.rating);
-      // console.log('props review filter: ', props.reviewFilter);
-
       if (props.reviewFilter === undefined) {
         return (
           <ReviewItem

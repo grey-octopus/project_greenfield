@@ -24,7 +24,7 @@ const ReviewBreakdown = (props) => {
   }
 
   function calculateBar() {
-    console.log('calculate bar');
+    //console.log('calculate bar');
 
     if (props.ratings !== undefined && percentReviews.done !== true) {
       let max = 0;
@@ -59,7 +59,7 @@ const ReviewBreakdown = (props) => {
   }
 
   function getPercentage(star) {
-    console.log(percentReviews);
+    //console.log(percentReviews);
 
     let barSize = { width: `${percentReviews[star].percentage}%` };
 
@@ -68,7 +68,7 @@ const ReviewBreakdown = (props) => {
 
   if (props.reviews) {
     if (props.ratings !== undefined) calculateBar();
-    console.log('percents from state: ', percentReviews);
+    //console.log('percents from state: ', percentReviews);
     return (
       <div className="review-breakdown">
         <h2>{props.averageRating}</h2>
