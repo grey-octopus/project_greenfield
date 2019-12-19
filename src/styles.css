@@ -618,3 +618,13 @@ button {
 /* 
 end of review component styles
  */
+
+.dropdown-opened {
+  position: absolute;
+  height: 100%;
+}
+
+.dropdown-closed {
+  position: relative;
+  height: 0%;
+}
