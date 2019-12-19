@@ -6,8 +6,6 @@ import { useParams } from "react-router-dom";
 import AddAQuestion from "./AddAQuestion";
 import axios from "axios";
 
-
-
 const inputStyle ={
   width: '80%',
   padding: '12px 20px',
@@ -57,7 +55,7 @@ const QuestionList = props => {
                 setQuestionList(data.data.results);
             }
         )
-  }, []);
+  }, [prodId,questionList]);
 
   
   if (questionList && questionList.length !== 0) {
