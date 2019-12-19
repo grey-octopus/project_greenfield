@@ -7,6 +7,7 @@
 body {
   font-family: var(--primary-font);
   margin: 0;
+  overflow-x: hidden;
 }
 
 button:hover {
@@ -366,6 +367,7 @@ p {
   height: 90%;
   overflow: hidden;
   margin-top: 3.5vh;
+  user-select: none;
 }
 
 .gallery-img {
@@ -381,6 +383,7 @@ p {
   height: 8vh;
   background-color: var(--font-color);
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .gallery-img img {
@@ -391,18 +394,20 @@ p {
 .fa-chevron-down,
 .fa-chevron-up {
   position: absolute;
-  font-size: 3vh;
+  font-size: 2vh;
   color: white;
-  left: 4vh;
+  left: 5vh;
   cursor: pointer;
+  user-select: none;
+  color: var(--font-color);
 }
 
 .fa-chevron-down {
-  bottom: 1vh;
+  bottom: 2.5vh;
 }
 
 .fa-chevron-up {
-  top: 2vh;
+  top: 3vh;
 }
 
 #overview-top {
@@ -439,6 +444,24 @@ p {
 
 .feature {
   font-weight: 300;
+}
+
+.fa-arrow-right, .fa-arrow-left {
+  position: absolute;
+  font-size: 2vh;
+  color: white;
+  top: 50%;
+  cursor: pointer;
+  user-select: none;
+  color: var(--font-color);
+}
+
+.fa-arrow-right {
+  right: 5vh;
+}
+
+.fa-arrow-left {
+  left: 11vh;
 }
 
 /* 

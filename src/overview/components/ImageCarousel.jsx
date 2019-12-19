@@ -1,26 +1,20 @@
 import React from 'react'
 
-const getPosition = (index, position, numOfItems) => {
-  if (index - position < 0) {
-    return {order: numOfItems - Math.abs(index - position)}
-  }
-  const res = {order: index - position}
-  return res;
-}
-
 const ImageCarousel = props => {
-  const styleImages = props.styles[props.selected].photos
   return (
     <div id='image-carousel'>
-      {styleImages.map((image, index) => {
+      {/* map image elements to preserve their orignal indicides, filter out those without images, map to divs w/
+       onClicks bound to preserved indices */}
+      {props.queue.queue.map((image, index) => ({image, index})).filter(elem => elem.image !== null).map(elem => {
         return (
-          <div 
-            className='gallery-img' 
-            onClick={() => props.updateSelectedImage(index)} 
-            style={getPosition(index, props.position, styleImages.length)}
+          <div
+            className='gallery-img'
+            onClick={() => {
+              props.updateSelectedImage(elem.index)
+            }}
           >
-            <img src={image['thumbnail_url']} />
-          </div> 
+            <img src={elem.image['thumbnail_url']} />
+          </div>
         )
       })}
     </div>
