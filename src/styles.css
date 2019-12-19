@@ -1,5 +1,5 @@
 :root {
-  --primary-font: 'Poppins', 'sans-serif';
+  --primary-font: "Poppins", "sans-serif";
   --font-color: #525252;
   --font-light: #707070;
 }
@@ -52,7 +52,7 @@ p {
 }
 
 .stars-outer::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
   color: var(--font-color);
 }
 
@@ -66,7 +66,7 @@ p {
 }
 
 .stars-inner::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
 }
 
 .relatedProductsContainer {
@@ -74,8 +74,57 @@ p {
   white-space: nowrap;
   margin: 50px;
 }
+/* tr.tableHeader td:nth-of-type(2) {
+  border-top: none;
+} */
+button.exitComparisonWindow {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  font-size: 20px;
+  border-radius: 50px;
+  padding: 0.5vh;
+  width: 3.2vh;
+  border: 2px solid black;
+  background-color: transparent;
+}
+button.exitComparisonWindow:hover {
+  color: red;
+  border-color: red;
+}
+.FeatureComparisonTable {
+  text-align: center;
+  border: 2px solid black;
+  border-collapse: collapse;
+  font-size: 18px;
+}
+.FeatureComparisonTable td {
+  border: 2px solid black;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* border-collapse: collapse; */
+}
+.FeatureComparisonTable tr.tableHeader td {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+tr td.itemValue {
+  color: var(--font-color);
+}
+.Modal .comparison-header {
+  text-align: center;
+}
 .actionButton-inner .actionButton::before {
-  content: '\f005';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  content: "\f005";
+  border: 2px solid black;
+  color: black;
+  height: 16px;
+  padding: 2px;
+  border-radius: 15px;
 }
 
 .myOutfitsContainer {
@@ -91,7 +140,7 @@ p {
   border: 2px solid #9b9b9b;
   color: #525252;
   position: relative;
-  width: 275px;
+  width: 12vw;
   height: 400px;
 }
 .card .productTitle {
@@ -112,6 +161,7 @@ p {
   padding-bottom: 125px;
   bottom: 125px;
   max-height: 300px;
+  width: 275px;
 }
 .cardText {
   padding: 3px;
@@ -123,14 +173,16 @@ p {
   left: 0px;
 }
 .removeCardButton {
+  position: absolute;
   background-color: transparent;
+  padding: 2px;
   border: 2px solid black;
   border-radius: 15px;
   box-sizing: content-box;
-  height: 2vh;
-  position: absolute;
-  right: 4px;
-  top: 4px;
+  width: 16px;
+  height: 16px;
+  top: 8px;
+  right: 8px;
   font-size: 10px;
   font-weight: 900;
 }
@@ -200,7 +252,7 @@ p {
 }
 
 .feature-check::before {
-  content: '\f00c \00a0\00a0';
+  content: "\f00c \00a0\00a0";
 }
 
 #ratings-reviews {
@@ -446,7 +498,8 @@ p {
   font-weight: 300;
 }
 
-.fa-arrow-right, .fa-arrow-left {
+.fa-arrow-right,
+.fa-arrow-left {
   position: absolute;
   font-size: 2vh;
   color: white;
@@ -558,9 +611,9 @@ button {
   display: flex;
   flex-direction: column;
 }
-
+/* 
 .review-breakdown-star-block {
-}
+} */
 
 .char-slider {
   display: inline-block;
@@ -591,7 +644,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: '\f005  ';
+  content: "\f005  ";
   color: var(--font-color);
 }
 
@@ -606,7 +659,7 @@ button {
 }
 
 .single-stars-inner::before {
-  content: '\f005  ';
+  content: "\f005  ";
 }
 */ .inline-div {
   display: inline-block;
