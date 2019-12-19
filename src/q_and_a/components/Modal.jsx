@@ -43,7 +43,7 @@ const QAModal = (props) =>{
     content: '',
     nickname: '',
     email: '',
-    photos: ''
+    photos: []
   })
 
   const [modalIsOpen,toggleModal] = useState(true);
@@ -67,7 +67,8 @@ const QAModal = (props) =>{
   const handleSubmit = (e) => {
     e.preventDefault();
     closeModal(e);
-    axios.post(`http://3.134.102.30/qa/${prodId}`,{
+    if(props.name === 'question'){
+      axios.post(`http://3.134.102.30/qa/${prodId}`,{
             body: addQA.content,
             name: addQA.nickname,
             email: addQA.email
@@ -92,6 +93,36 @@ const QAModal = (props) =>{
             console.log(err)
            }
          )
+    } else{
+      console.log('questionId',props.questionId)
+      axios.post(`http://3.134.102.30/qa/${props.questionId}/answers`,{
+        body: addQA.content,
+        name: addQA.nickname,
+        email: addQA.email,
+        photos: addQA.photos
+      })
+     .then(
+       ()=>{
+        //console.log('sent')
+        //toggleModal(true)
+        return axios.get(`http://3.134.102.30/qa/${prodId}?count=200`)
+       }
+     )
+     .then(
+       (data)=> {
+         //console.log(data)
+         props.setFilter(data.data.results);
+         props.setQuestionList(data.data.results);
+      
+       }
+     )
+     .catch(
+       (err) => {
+        console.log(err)
+       }
+     )
+    }
+    
   }
   return (
     <Modal
@@ -101,7 +132,10 @@ const QAModal = (props) =>{
       style={customStyles}
       contentLabel="Add QA Modal">
         <form onSubmit={(e)=>{handleSubmit(e)}}>
-          <div>Your Question:</div>
+          {props.name === 'question'?
+            <div>Your Question:</div>:
+            <div>Your Answer:</div>
+            }
           <textarea
             name="content"
             rows="4"

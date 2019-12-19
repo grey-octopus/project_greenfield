@@ -49,7 +49,7 @@ const QuestionList = props => {
   let filtered;
 
   useEffect(() => {
-    axios.get(`http://3.134.102.30/qa/${prodId}?count=20`).then(
+    axios.get(`http://3.134.102.30/qa/${prodId}?count=200`).then(
             (data) => {
                 setFilter(data.data.results);
                 setQuestionList(data.data.results);
@@ -90,7 +90,13 @@ const QuestionList = props => {
             filteredList
             .map((q, i) => {
               return (
-                <Question key={q.question_id} question={filteredList[i]} searchTerm={searchTerm}/>
+                <Question 
+                  key={q.question_id} 
+                  question={filteredList[i]} 
+                  searchTerm={searchTerm}
+                  setQuestionList={setQuestionList}
+                  setFilter={setFilter}
+                />
               );
             })
             .slice(0, count):

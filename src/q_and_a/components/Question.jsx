@@ -47,7 +47,10 @@ const Question = (props) => {
                                 handleClick(e);
                                 setClicked(true);
                                 }}>Yes</span>({helpfulness||"#"})
-            | <AddAnAnswer /></span>
+            | <AddAnAnswer 
+                setQuestionList={props.setQuestionList}
+                setFilter={props.setFilter}
+                questionId={props.question.question_id}/></span>
             
             
             <AnswerList
