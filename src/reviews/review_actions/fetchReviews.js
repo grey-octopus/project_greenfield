@@ -6,7 +6,7 @@ const fetchReviewList = (options) => {
       .get(`http://3.134.102.30/reviews/${options.prodId}/list`, {
         params: {
           page: options.page,
-          count: 20,
+          count: 10000,
           sort: options.sort
         }
       })

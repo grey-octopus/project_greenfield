@@ -83,6 +83,7 @@ const ReviewBreakdown = (props) => {
           <h3>% of recommendations</h3>
           <div className="star-filter-selectors">
             <h3
+              className="star-filter-text"
               onClick={(e) => {
                 clickHandler(5);
               }}
@@ -95,6 +96,7 @@ const ReviewBreakdown = (props) => {
           </div>
           <div className="star-filter-selectors">
             <h3
+              className="star-filter-text"
               onClick={(e) => {
                 clickHandler(4);
               }}
@@ -107,6 +109,7 @@ const ReviewBreakdown = (props) => {
           </div>
           <div className="star-filter-selectors">
             <h3
+              className="star-filter-text"
               onClick={(e) => {
                 clickHandler(3);
               }}
@@ -120,6 +123,7 @@ const ReviewBreakdown = (props) => {
           </div>
           <div className="star-filter-selectors">
             <h3
+              className="star-filter-text"
               onClick={(e) => {
                 clickHandler(2);
               }}
@@ -133,6 +137,7 @@ const ReviewBreakdown = (props) => {
           </div>
           <div className="star-filter-selectors">
             <h3
+              className="star-filter-text"
               onClick={(e) => {
                 clickHandler(1);
               }}

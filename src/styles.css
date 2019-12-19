@@ -232,12 +232,12 @@ p {
   z-index: 1;
   size: 25vh;
 }
-
+/* 
 #review-progress {
   margin-left: 10px;
   width: 50%;
   background-color: grey;
-}
+} */
 
 /* #review-bar {
   margin-left: 10px;
@@ -245,20 +245,6 @@ p {
   height: 10px;
   background-color: black;
 } */
-
-.review-progress {
-  margin-left: 10px;
-  height: 10px;
-  width: 50%;
-  background-color: grey;
-}
-
-.review-bar {
-  /* margin-left: 10px; */
-  width: 0%;
-  height: 10px;
-  background-color: black;
-}
 
 #garf-text {
   margin: auto;
@@ -454,17 +440,28 @@ start of review component styles
  start review card styles
  */
 
-.review-browser {
-  /* display: inline-block; */
+.full-browser {
   width: 50%;
-  max-height: 1000px;
-  overflow-y: scroll;
   margin-right: 15%;
   margin-top: 6%;
+  max-height: 100vh;
+}
+
+.review-browser {
+  /* display: inline-block; */
+  margin-top: 15px;
+  max-height: 600px;
+
+  overflow-y: scroll;
+  overflow-x: none;
+  word-wrap: break-word;
 }
 
 .review-list {
   overflow-y: scroll;
+  max-height: 100vh;
+  max-width: 100%;
+  width: 100%;
 }
 
 .select-div {
@@ -524,6 +521,7 @@ start of review component styles
 
 /*
  end review card styles
+ :active
  */
 
 #add-review-button {
@@ -546,6 +544,22 @@ start of review component styles
   font-size: 1em;
 }
 
+#review-paginate-button:active {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: black;
+  margin-top: 40px;
+  margin-right: 20px;
+
+  height: 60px;
+  width: 155px;
+  font-weight: 650;
+  font-size: 1em;
+  color: white;
+}
+
 #review-submit-button {
   outline: none;
   /* display: inline-block; */
@@ -559,6 +573,21 @@ start of review component styles
   font-size: 1em;
 }
 
+#review-submit-button:active {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: black;
+  margin-top: 40px;
+  height: 60px;
+  width: 185px;
+  font-weight: 650;
+  font-size: 1em;
+  font-size: 1em;
+  color: white;
+}
+
 .browser-button-block {
   display: flex;
 }
@@ -570,6 +599,26 @@ button {
 .star-filter-selectors {
   display: flex;
   flex-direction: row;
+}
+
+.star-filter-text {
+  font-weight: 300;
+  font-size: 1em;
+}
+
+.review-progress {
+  margin-top: 11.5px;
+  margin-left: 10px;
+  height: 10px;
+  width: 50%;
+  background-color: grey;
+}
+
+.review-bar {
+  /* margin-left: 10px; */
+  width: 0%;
+  height: 10px;
+  background-color: black;
 }
 
 .review-breakdown {
