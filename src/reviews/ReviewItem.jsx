@@ -41,7 +41,7 @@ const ReviewItem = (props) => {
             markHelpful(props.stats);
           }}
         >
-          {`Yes (${props.stats.helpfulness})`}&nbsp;
+          {`Yes (${props.stats.helpfulness})`}
         </h3>
         <h3
           className="click-text"
@@ -49,7 +49,7 @@ const ReviewItem = (props) => {
             report(props.stats);
           }}
         >
-          Report &nbsp;
+          &nbsp;Report &nbsp;
         </h3>
       </div>
     </div>

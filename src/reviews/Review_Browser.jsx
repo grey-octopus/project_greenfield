@@ -85,15 +85,16 @@ const ReviewBrowser = (props) => {
         </div>
         <div className="review-list">{generateReviews()}</div>
 
-        <ReviewModalContainer />
-
-        <button
-          id="review-paginate-button"
-          type="button"
-          onClick={handlePaginateReviewList}
-        >
-          more reviews
-        </button>
+        <div className="browser-button-block">
+          <button
+            id="review-paginate-button"
+            type="button"
+            onClick={handlePaginateReviewList}
+          >
+            MORE REVIEWS
+          </button>
+          <ReviewModalContainer />
+        </div>
       </div>
     );
   } else return <div>Loading...</div>;

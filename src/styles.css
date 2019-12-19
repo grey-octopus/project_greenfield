@@ -234,22 +234,27 @@ p {
 }
 
 #review-progress {
+  margin-left: 10px;
   width: 50%;
   background-color: grey;
 }
 
-#review-bar {
+/* #review-bar {
+  margin-left: 10px;
   width: 0%;
   height: 10px;
   background-color: black;
-}
+} */
 
 .review-progress {
+  margin-left: 10px;
+  height: 10px;
   width: 50%;
   background-color: grey;
 }
 
 .review-bar {
+  /* margin-left: 10px; */
   width: 0%;
   height: 10px;
   background-color: black;
@@ -526,9 +531,47 @@ start of review component styles
   flex-direction: row;
 }
 
+#review-paginate-button {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: white;
+  margin-top: 40px;
+  margin-right: 20px;
+
+  height: 60px;
+  width: 155px;
+  font-weight: 650;
+  font-size: 1em;
+}
+
+#review-submit-button {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: white;
+  margin-top: 40px;
+  height: 60px;
+  width: 185px;
+  font-weight: 650;
+  font-size: 1em;
+}
+
+.browser-button-block {
+  display: flex;
+}
+
 button {
   display: inline-block;
 }
+
+.star-filter-selectors {
+  display: flex;
+  flex-direction: row;
+}
+
 .review-breakdown {
   /* display: inline-block; */
   width: 30%;
