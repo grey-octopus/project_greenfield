@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import AnswerList from './AnswerList'
 import AddAnAnswer from './AddAnAnswer'
 import axios from 'axios'
+import Highlighter from 'react-highlight-words'
 
 const questionStyle={
     fontWeight: 'bold',
@@ -32,7 +33,16 @@ const Question = (props) => {
         <div 
             id={props.question.question_id}
         >
-            <span style={questionStyle}>Q: {props.question.question_body}</span>
+            <span style={questionStyle}>Q:
+            <Highlighter
+              searchWords={props.searchTerm.length >=3? [props.searchTerm]:[""]}
+              autoEscape={true}
+              textToHighlight={props.question.question_body}
+              >  
+            {props.question.question_body}
+            </Highlighter>
+            </span>
+           
             <span style={helpfulnessStyle}>Helpful?<span onClick={(e)=>{
                                 handleClick(e);
                                 setClicked(true);

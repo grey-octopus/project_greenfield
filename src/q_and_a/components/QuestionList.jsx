@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import AddAQuestion from "./AddAQuestion";
 import axios from "axios";
 
+
+
 const inputStyle ={
   width: '80%',
   padding: '12px 20px',
@@ -84,12 +86,13 @@ const QuestionList = props => {
           }}
           />
         </div>
+        
         <div>
           {filteredList.length !==0 ? 
             filteredList
             .map((q, i) => {
               return (
-                <Question key={q.question_id} question={filteredList[i]} />
+                <Question key={q.question_id} question={filteredList[i]} searchTerm={searchTerm}/>
               );
             })
             .slice(0, count):
