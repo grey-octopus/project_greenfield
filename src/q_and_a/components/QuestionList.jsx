@@ -6,13 +6,15 @@ import { useParams } from "react-router-dom";
 import AddAQuestion from "./AddAQuestion";
 import axios from "axios";
 
+
+
 const inputStyle ={
-  width: '100%',
+  width: '80%',
   padding: '12px 20px',
-  margin: '8px 0',
+  margin: '12px 10px',
   display: 'inline-block',
   border: '1px solid #ccc',
-  borderRadius: '4px',
+  //borderRadius: '4px',
   boxSizing: 'border-box',
   fontSize: '14px',
   fontWeight: 'bold'
@@ -22,15 +24,16 @@ const inputStyle ={
       
 }
 const buttonStyle = {
+  width: '30%',
   backgroundColor: 'white',
   color: 'black',
   border: '1px solid',
-  padding: '11px 24px',
+  padding: '12px 24px',
   textAlign: 'center',
   textDecoration: 'none',
   display: 'inline-block',
   fontSize: '14px',
-  margin: '3px 2px',
+  margin: '18px 2px',
   cursor: 'pointer',
   fontWeight: 'bold'
 }
@@ -48,7 +51,7 @@ const QuestionList = props => {
   let filtered;
 
   useEffect(() => {
-    axios.get(`http://3.134.102.30/qa/${prodId}`).then(
+    axios.get(`http://3.134.102.30/qa/${prodId}?count=20`).then(
             (data) => {
                 setFilter(data.data.results);
                 setQuestionList(data.data.results);
@@ -83,24 +86,27 @@ const QuestionList = props => {
           }}
           />
         </div>
+        
         <div>
           {filteredList.length !==0 ? 
             filteredList
             .map((q, i) => {
               return (
-                <Question key={q.question_id} question={filteredList[i]} />
+                <Question key={q.question_id} question={filteredList[i]} searchTerm={searchTerm}/>
               );
             })
             .slice(0, count):
             <div>Sorry, we couldn't find any results matching "{searchTerm}"</div>}
-          {total > count ? (
+          <div style={{display: 'flex', justifyContent: 'flex-start'}}>{total > count ? (
             <button
               style={buttonStyle} 
               onClick={() => setCount(count + 2)}>
               MORE ANSWERED QUESTIONS
             </button>
           ) : null}
-          <AddAQuestion />
+          <AddAQuestion 
+            setQuestionList={setQuestionList}
+            setFilter={setFilter}/></div>
         </div>
       </div>
     );

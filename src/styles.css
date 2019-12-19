@@ -7,6 +7,7 @@
 body {
   font-family: var(--primary-font);
   margin: 0;
+  overflow-x: hidden;
 }
 
 button:hover {
@@ -73,8 +74,57 @@ p {
   white-space: nowrap;
   margin: 50px;
 }
+/* tr.tableHeader td:nth-of-type(2) {
+  border-top: none;
+} */
+button.exitComparisonWindow {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  font-size: 20px;
+  border-radius: 50px;
+  padding: 0.5vh;
+  width: 3.2vh;
+  border: 2px solid black;
+  background-color: transparent;
+}
+button.exitComparisonWindow:hover {
+  color: red;
+  border-color: red;
+}
+.FeatureComparisonTable {
+  text-align: center;
+  border: 2px solid black;
+  border-collapse: collapse;
+  font-size: 18px;
+}
+.FeatureComparisonTable td {
+  border: 2px solid black;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* border-collapse: collapse; */
+}
+.FeatureComparisonTable tr.tableHeader td {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+tr td.itemValue {
+  color: var(--font-color);
+}
+.Modal .comparison-header {
+  text-align: center;
+}
 .actionButton-inner .actionButton::before {
+  position: absolute;
+  top: 8px;
+  right: 8px;
   content: '\f005';
+  border: 2px solid black;
+  color: black;
+  height: 16px;
+  padding: 2px;
+  border-radius: 15px;
 }
 
 .myOutfitsContainer {
@@ -90,7 +140,7 @@ p {
   border: 2px solid #9b9b9b;
   color: #525252;
   position: relative;
-  width: 275px;
+  width: 12vw;
   height: 400px;
 }
 .card .productTitle {
@@ -111,6 +161,7 @@ p {
   padding-bottom: 125px;
   bottom: 125px;
   max-height: 300px;
+  width: 275px;
 }
 .cardText {
   padding: 3px;
@@ -122,14 +173,16 @@ p {
   left: 0px;
 }
 .removeCardButton {
+  position: absolute;
   background-color: transparent;
+  padding: 2px;
   border: 2px solid black;
   border-radius: 15px;
   box-sizing: content-box;
-  height: 2vh;
-  position: absolute;
-  right: 4px;
-  top: 4px;
+  width: 16px;
+  height: 16px;
+  top: 8px;
+  right: 8px;
   font-size: 10px;
   font-weight: 900;
 }
@@ -357,6 +410,7 @@ p {
   height: 90%;
   overflow: hidden;
   margin-top: 3.5vh;
+  user-select: none;
 }
 
 .gallery-img {
@@ -372,6 +426,7 @@ p {
   height: 8vh;
   background-color: var(--font-color);
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .gallery-img img {
@@ -382,18 +437,20 @@ p {
 .fa-chevron-down,
 .fa-chevron-up {
   position: absolute;
-  font-size: 3vh;
+  font-size: 2vh;
   color: white;
-  left: 4vh;
+  left: 5vh;
   cursor: pointer;
+  user-select: none;
+  color: var(--font-color);
 }
 
 .fa-chevron-down {
-  bottom: 1vh;
+  bottom: 2.5vh;
 }
 
 .fa-chevron-up {
-  top: 2vh;
+  top: 3vh;
 }
 
 #overview-top {
@@ -430,6 +487,25 @@ p {
 
 .feature {
   font-weight: 300;
+}
+
+.fa-arrow-right,
+.fa-arrow-left {
+  position: absolute;
+  font-size: 2vh;
+  color: white;
+  top: 50%;
+  cursor: pointer;
+  user-select: none;
+  color: var(--font-color);
+}
+
+.fa-arrow-right {
+  right: 5vh;
+}
+
+.fa-arrow-left {
+  left: 11vh;
 }
 
 /* 
@@ -631,9 +707,9 @@ button {
   display: flex;
   flex-direction: column;
 }
-
+/* 
 .review-breakdown-star-block {
-}
+} */
 
 .char-slider {
   display: inline-block;
@@ -681,7 +757,7 @@ button {
 .single-stars-inner::before {
   content: '\f005  ';
 }
-*/ .inline-div {
+.inline-div {
   display: inline-block;
 }
 
@@ -691,3 +767,54 @@ button {
 /* 
 end of review component styles
  */
+
+.dropdown-opened {
+  position: absolute;
+  height: 100%;
+}
+
+.dropdown-closed {
+  position: relative;
+  height: 0%;
+}
+
+#add-to-cart {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50vh;
+}
+
+#size-selector {
+  width: 70%;
+}
+
+#qty-selector {
+  width: 20%;
+}
+
+#add-to-bag {
+  width: 75%;
+}
+
+#heart-btn {
+  width: 15%;
+}
+
+.cart-btns {
+  background-color: white;
+  padding: 1em;
+  margin: 1vh;
+  text-align: left;
+  font-size: 2vh;
+  color: var(--font-color);
+  border: 1px solid var(--font-color);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cart-btns:active {
+  color: white;
+  background-color: var(--font-color);
+}

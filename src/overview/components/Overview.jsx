@@ -6,13 +6,15 @@ import RatingContainer from '../containers/RatingContainer.jsx'
 import StyleSelectorContainer from '../containers/StyleSelectorContainer.jsx'
 import ProdOverviewContainer from '../containers/ProdOverviewContainer.jsx'
 import ImageGalleryContainer from '../containers/ImageGalleryContainer.jsx'
+import AddToCartContainer from '../containers/AddToCartContainer.jsx'
 
 const Overview = props => {
   const { prodId } = useParams();
   useEffect(() => {
     props.fetchProductInfo(prodId);
+    props.fetchStyles(prodId)
   }, []);
-  if (props.title) {
+  if (props.title && props.styles) {
     return (
       <div id='overview'>
         <div id='overview-top'>
@@ -21,6 +23,7 @@ const Overview = props => {
             <RatingContainer />
             <ProdInfoContainer />
             <StyleSelectorContainer />
+            <AddToCartContainer />
           </div>
         </div>
         <ProdOverviewContainer />
