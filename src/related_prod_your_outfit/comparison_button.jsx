@@ -38,7 +38,7 @@ const ActionButton = ({
       >
         <h2 className="comparison-header">Comparing</h2>
         <FeaturesTable
-          comparisonProdFeatures={features}
+          relatedProdFeatures={features}
           currentProdFeatures={currentProdFeatures}
           name={name}
           currentProdName={currentProdName}
