@@ -15,14 +15,14 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
   }, [prodId]);
   return (
     <div className="relatedProductsContainer">
-      RELATED PRODUCTS
+      <h3>RELATED PRODUCTS</h3>
       <div>
         {relatedProducts.length >= 1 ? (
           <div style={{ padding: `10px ${chevronWidth}px` }}>
             <ItemsCarousel
               requestToChangeActive={setActiveItemIndex}
               activeItemIndex={activeItemIndex}
-              numberOfCards={3.5}
+              numberOfCards={4}
               gutter={20}
               leftChevron={<button>{"<"}</button>}
               rightChevron={<button>{">"}</button>}
@@ -51,7 +51,26 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
             </ItemsCarousel>
           </div>
         ) : (
-          <div>loading</div>
+          <div>
+            {relatedProducts.map(product => {
+              if (productIdsObj[product.id] === true) {
+                return;
+              } else {
+                productIdsObj[product.id] = true;
+                return (
+                  <RelatedProductsCard
+                    id={product.id}
+                    category={product.category}
+                    name={product.name}
+                    price={product.price}
+                    photoUrl={product.photoUrl}
+                    rating={product.rating}
+                    key={product.id}
+                  />
+                );
+              }
+            })}
+          </div>
         )}
       </div>
     </div>

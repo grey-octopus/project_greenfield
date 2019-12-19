@@ -37,7 +37,8 @@ export const getRelatedProducts = prodId => {
                 relatedProducts.push({
                   id: data.id,
                   category: data.category,
-                  name: data.name
+                  name: data.name,
+                  features: data.features
                 });
               });
               // iterate over productStyleRequests
@@ -92,7 +93,7 @@ export const calculateAverageRating = ratings => {
     total += Number(starRating) * ratings[starRating];
     numberOfRatings += ratings[starRating];
   }
-  return total / numberOfRatings || null;
+  return Math.round(((total / numberOfRatings) * 4) / 4).toFixed(2) || null;
 };
 
 // getRelatedProducts(5)(value => {

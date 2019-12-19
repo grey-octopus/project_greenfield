@@ -8,6 +8,7 @@ import toJson from 'enzyme-to-json'
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history'
 import jest from 'jest-mock'
+import Dequeue from '../src/overview/dequeue.js'
 
 // reducers
 import updateAverageRating from "../src/overview/actions/updateAverageRating.js";
@@ -267,5 +268,39 @@ describe('containers', () => {
     const wrapper = shallow(<RatingContainer store={store} />)
     expect(wrapper.find('Rating').prop('averageRating')).toEqual('4.00')
     expect(toJson(wrapper)).toMatchSnapshot()
+  })
+})
+
+describe('Dequeue', () => {
+  let dequeue
+  beforeEach(() => {
+    dequeue = new Dequeue(3)
+  })
+
+  it('should init Dequeue with a limit', () => {
+    expect(dequeue.limit).toEqual(3)
+  })
+  it('should push items to the queue', () => {
+    dequeue.push(0)
+    dequeue.push(1)
+    dequeue.push(2)
+    expect(dequeue.queue).toEqual({0: 0, 1: 1, 2: 2})
+  })
+  it('should adjust when pushed items exceed limit', () => {
+    dequeue.push(0)
+    dequeue.push(1)
+    dequeue.push(2)
+    dequeue.push(3)
+    expect(dequeue.queue).toEqual({1: 1, 2: 2, 3: 3})
+  })
+  it('should adjust when injected items exceed limit', () => {
+    dequeue.push(0)
+    dequeue.push(1)
+    dequeue.push(2)
+    dequeue.push(3)
+    expect(dequeue.queue).toEqual({1: 1, 2: 2, 3: 3})
+    expect(dequeue.bottom).toEqual(1)
+    dequeue.inject(0)
+    expect(dequeue.queue).toEqual({0: 0, 1: 1, 2: 2})
   })
 })

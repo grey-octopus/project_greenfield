@@ -8,7 +8,7 @@ const ProdOverview = props => {
   useEffect(() => { props.fetchProductOverview(prodId) }, []);
   if (props.description && props.slogan && props.features) {
     return (
-      <div>
+      <div id='prod-overview'>
         <DescriptionContainer />
         <FeaturesContainer />
       </div>

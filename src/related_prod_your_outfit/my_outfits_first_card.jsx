@@ -3,6 +3,7 @@ import {
   addItemToOutfit,
   removeItemFromOutfit
 } from "./actions/your_outfit_actions.js";
+import StarRating from "../overview/components/StarRating";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -19,8 +20,8 @@ const isOutfitInArray = (myOutfit, prodId) => {
 
 const MyOutfitsFirstCard = ({
   // price,
-  // photoUrl,
-  // rating,
+  photoUrl,
+  rating,
   category,
   name,
   addItem,
@@ -28,9 +29,9 @@ const MyOutfitsFirstCard = ({
   myOutfit
 }) => {
   let { prodId } = useParams();
-  const productLink = `http://3.134.102.30/products/${prodId}`;
+  // const productLink = `http://3.134.102.30/products/${prodId}`;
   prodId = Number(prodId);
-
+  // console.log("photoUrl");
   let [isInOutfit, setIsInOutfit] = useState(false);
 
   useEffect(() => {
@@ -40,42 +41,58 @@ const MyOutfitsFirstCard = ({
 
   // refactor to add above comented params into item obj
   const item = { id: prodId, category, name };
-
-  return (
-    <div className="relatedProducts card">
-      <div className="cardImage">
-        {/* refactor img src to have photoUrl */}
-        <img src={placeHolderImage} height="100px"></img>
-      </div>
-      <p className="cardText" style={{ fontSize: "10px" }}>
-        {category}
-      </p>
-      <p style={{ fontSize: "12px", wordBreak: "all" }}>
-        <strong>{name}</strong>
-      </p>
-      <p>
-        {/* {price} */}
-        ITEM ID:{prodId}
-      </p>
-      {isInOutfit ? (
+  console.log("CAT", category);
+  console.log("NAME", name);
+  if (isInOutfit && myOutfit.length >= 1) {
+    return (
+      <div className="card">
         <button
+          className="removeCardButton"
           onClick={() => {
             removeItem(prodId);
           }}
         >
-          Remove from FAV
+          X
         </button>
-      ) : (
-        <button
+        <div className="cardImage">
+          <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
+        </div>
+        <br></br>
+        <div className="cardTextContainer">
+          <div className="cardText" style={{ wordBreak: "all" }}>
+            <div className="category">{category}</div>
+
+            <strong className="productTitle">{name}</strong>
+
+            {Number.isNaN(Number(rating)) || rating == 0 ? (
+              <div>No Reviews</div>
+            ) : (
+              <div>
+                <StarRating averageRating={rating} />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    console.log(photoUrl);
+    return (
+      <div className="card placeHolder">
+        <div
+          className="addProductButton"
           onClick={() => {
             addItem(item);
           }}
         >
-          Add to FAV
-        </button>
-      )}
-    </div>
-  );
+          <h1 id="addToMyOutfitButton">+</h1>
+          <br></br>
+          <div className="cardText"></div>
+          Add to My Outfit
+        </div>
+      </div>
+    );
+  }
 };
 
 const mapDispatchToProps = dispatch => {

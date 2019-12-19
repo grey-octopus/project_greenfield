@@ -1,26 +1,26 @@
-import React from 'react';
-import { mount, shallow, render } from 'enzyme';
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import fetchMock from 'fetch-mock';
-import toJson from 'enzyme-to-json';
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+// import React from 'react';
+// import { mount, shallow, render } from 'enzyme';
+// import configureMockStore from 'redux-mock-store';
+// import thunk from 'redux-thunk';
+// import { Provider } from 'react-redux';
+// import fetchMock from 'fetch-mock';
+// import toJson from 'enzyme-to-json';
+// import { Router } from 'react-router-dom';
+// import { createMemoryHistory } from 'history';
 
-// reducers
-import fetchReviewsReducer from '.../src/reviews/review_reducers/fetchReviewsReducer.js';
-import fetchReviewMetadataReducer from '.../src/reviews/review_reducers/fetchReviewMetadataReducer.js';
+// // reducers
+// import fetchReviewsReducer from '.../src/reviews/review_reducers/fetchReviewsReducer.js';
+// import fetchReviewMetadataReducer from '.../src/reviews/review_reducers/fetchReviewMetadataReducer.js';
 
-// components
-import ReviewBrowser from '.../src/reviews/Review_Browser.jsx';
-import modal from '.../src/reviews/modal.jsx';
-import ReviewBreakdown from '.../src/reviews/ReviewBreakdown.jsx';
+// // components
+// import ReviewBrowser from '.../src/reviews/Review_Browser.jsx';
+// import modal from '.../src/reviews/modal.jsx';
+// import ReviewBreakdown from '.../src/reviews/ReviewBreakdown.jsx';
 
-// actions
-import fetchReviewMetadata from '.../src/reviews/reviews_actions/fetchReviewMetadata.js';
-import fetchReviews from '.../src/reviews/reviews_actions/fetchReviews.js';
-import paginateReviews from '.../src/reviews/reviews_actions/paginateReviews.js';
+// // actions
+// import fetchReviewMetadata from '.../src/reviews/reviews_actions/fetchReviewMetadata.js';
+// import fetchReviews from '.../src/reviews/reviews_actions/fetchReviews.js';
+// import paginateReviews from '.../src/reviews/reviews_actions/paginateReviews.js';
 
 // describe('components', () => {
 //     describe("ReviewBrowser", () => {

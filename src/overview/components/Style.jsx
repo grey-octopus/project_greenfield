@@ -1,4 +1,5 @@
 import React from 'react'
+import Dequeue from '../dequeue.js'
 
 const Style = props => {
   const thumbnail = props.styles[props.index].photos[0].thumbnail_url
@@ -12,7 +13,11 @@ const Style = props => {
       </div>
     ) : null
   return (
-    <button className="style-btn" style={innerStyle} onClick={() => props.updateSelected(props.index)}>
+    <button className="style-btn" style={innerStyle} onClick={() => {
+      props.updateQueue(new Dequeue(7, props.styles[props.index].photos.slice(0, 7)))
+      props.updateSelectedImage(0)
+      props.updateSelected(props.index)
+    }}>
       {check}
     </button>
   )

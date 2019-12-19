@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import publishReview from '../apiHelpers.js';
+import { publishReview } from '../apiHelpers.js';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import StarSelector from './StarSelector.jsx';
@@ -39,7 +39,7 @@ const ReviewModal = (props) => {
   function handleInputChange(event) {
     event.persist();
     setInputForms({ ...inputForms, [event.target.name]: event.target.value });
-    console.log(inputForms);
+    //console.log(inputForms);
   }
 
   function handlePublish(info) {
