@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ReactModal from "react-modal";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import ItemsCarousel from "react-items-carousel";
@@ -27,7 +26,7 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
             requestToChangeActive={setActiveItemIndex}
             activeItemIndex={activeItemIndex}
             numberOfCards={4}
-            gutter={20}
+            gutter={0}
             leftChevron={<button>{"<"}</button>}
             rightChevron={<button>{">"}</button>}
             outsideChevron
@@ -49,6 +48,7 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
                     photoUrl={product.photoUrl}
                     rating={product.rating}
                     key={product.id}
+                    features={product.features}
                   />
                 );
               }
@@ -57,7 +57,7 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
         </div>
       ) : (
         <div>
-          {relatedProducts.map((product, i) => {
+          {relatedProducts.map(product => {
             if (productIdsObj[product.id] === true) {
               return;
             } else {
@@ -65,13 +65,13 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
               return (
                 <RelatedProductsCard
                   id={product.id}
-                  relatedProdIndex={i}
                   category={product.category}
                   name={product.name}
                   price={product.price}
                   photoUrl={product.photoUrl}
                   rating={product.rating}
                   key={product.id}
+                  features={product.features}
                 />
               );
             }

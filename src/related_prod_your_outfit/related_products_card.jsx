@@ -10,11 +10,16 @@ const RelatedProductsCard = ({
   price,
   photoUrl,
   rating,
-  relatedProdIndex
+  features
 }) => {
   return (
     <div className="relatedProducts card">
-      <ActionButton id={id} key={id + "actionbutton"} />
+      <ActionButton
+        id={id}
+        key={id + "actionbutton"}
+        features={features}
+        name={name}
+      />
       <div className="cardImage">
         <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
       </div>
