@@ -56,8 +56,8 @@ const QAModal = (props) =>{
 
   const handleInputChange = (e) =>{
     const target = e.target
-    console.log({target})
-    console.log(e.target.name)
+    //console.log({target})
+    //console.log(e.target.name)
     setQA({
       ...addQA,
       [e.target.name]: target.value
@@ -74,14 +74,14 @@ const QAModal = (props) =>{
           })
          .then(
            ()=>{
-            console.log('sent')
+            //console.log('sent')
             //toggleModal(true)
             return axios.get(`http://3.134.102.30/qa/${prodId}?count=20`)
            }
          )
          .then(
            (data)=> {
-             console.log(data)
+             //console.log(data)
              props.setFilter(data.data.results);
              props.setQuestionList(data.data.results);
           
