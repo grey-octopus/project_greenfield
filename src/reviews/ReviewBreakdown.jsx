@@ -1,10 +1,10 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useParams, Link, Route, Switch } from 'react-router-dom';
-import StarRatingContainer from '../overview/containers/StarRatingContainer.jsx';
-import CharacteristicSliders from './review_breakdown/ReviewBreakdownChars.jsx';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams, Link, Route, Switch } from "react-router-dom";
+import StarRatingContainer from "../overview/containers/StarRatingContainer.jsx";
+import CharacteristicSliders from "./review_breakdown/ReviewBreakdownChars.jsx";
 
-const ReviewBreakdown = (props) => {
+const ReviewBreakdown = props => {
   //console.log('props', props);
   const { prodId } = useParams();
   const [percentReviews, setPercentReviews] = useState({
@@ -82,7 +82,7 @@ const ReviewBreakdown = (props) => {
         <div>
           <h3>% of recommendations</h3>
           <h3
-            onClick={(e) => {
+            onClick={e => {
               clickHandler(5);
             }}
           >
@@ -92,7 +92,7 @@ const ReviewBreakdown = (props) => {
             <div className="review-bar" style={getPercentage(5)}></div>
           </div>
           <h3
-            onClick={(e) => {
+            onClick={e => {
               clickHandler(4);
             }}
           >
@@ -102,7 +102,7 @@ const ReviewBreakdown = (props) => {
             <div className="review-bar" style={getPercentage(4)}></div>
           </div>
           <h3
-            onClick={(e) => {
+            onClick={e => {
               clickHandler(3);
             }}
           >
@@ -112,7 +112,7 @@ const ReviewBreakdown = (props) => {
             <div className="review-bar" style={getPercentage(3)}></div>
           </div>
           <h3
-            onClick={(e) => {
+            onClick={e => {
               clickHandler(2);
             }}
           >
@@ -122,7 +122,7 @@ const ReviewBreakdown = (props) => {
             <div className="review-bar" style={getPercentage(2)}></div>
           </div>
           <h3
-            onClick={(e) => {
+            onClick={e => {
               clickHandler(1);
             }}
           >
