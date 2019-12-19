@@ -8,8 +8,8 @@ const customStyles = {
     textAlign: "center",
     top: "30%",
     right: "30%",
-    left: "30%"
-    // bottom: "50%"
+    left: "30%",
+    bottom: "30%"
   }
 };
 
@@ -17,7 +17,7 @@ const ActionButton = ({
   id,
   features,
   currentProdFeatures,
-  name,
+  relatedProdName,
   currentProdName
 }) => {
   let [isModalOpen, toggleIsModalOpen] = useState(false);
@@ -36,17 +36,20 @@ const ActionButton = ({
         onRequestClose={toggleIsModalOpen}
         contentLabel={"Comparison modal"}
       >
+        <button
+          className="exitComparisonWindow"
+          onClick={() => toggleIsModalOpen(false)}
+        >
+          X
+        </button>
         <h2 className="comparison-header">Comparing</h2>
         <FeaturesTable
           relatedProdFeatures={features}
           currentProdFeatures={currentProdFeatures}
-          name={name}
+          relatedProdName={relatedProdName}
           currentProdName={currentProdName}
           className="featuresTable"
         />
-        {/* <p>FEATURES:{JSON.stringify(features)}</p>
-        <p>CURRENT PROD FEATURES: {JSON.stringify(currentProdFeatures)}</p> */}
-        <button onClick={() => toggleIsModalOpen(false)}>close me</button>
       </Modal>
     </div>
   );

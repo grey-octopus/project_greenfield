@@ -18,7 +18,7 @@ const RelatedProductsCard = ({
         id={id}
         key={id + "actionbutton"}
         features={features}
-        name={name}
+        relatedProdName={name}
       />
       <div className="cardImage">
         <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>

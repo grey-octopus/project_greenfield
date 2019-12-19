@@ -73,13 +73,40 @@ p {
   white-space: nowrap;
   margin: 50px;
 }
+/* .FeatureComparisonTableContainer {
+  position: relative;
+  te
+} */
+button.exitComparisonWindow {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  font-size: 20px;
+  border-radius: 50px;
+  padding: 0.5vh;
+  width: 3.2vh;
+  border: 2px solid black;
+  background-color: transparent;
+}
+button.exitComparisonWindow:hover {
+  color: red;
+  border-color: red;
+}
 .FeatureComparisonTable {
+  text-align: center;
   border: 2px solid black;
   border-collapse: collapse;
+  font-size: 18px;
 }
 .FeatureComparisonTable td {
   border: 2px solid black;
-  border-collapse: collapse;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* border-collapse: collapse; */
+}
+.FeatureComparisonTable tr.tableHeader td {
+  font-weight: 800;
+  font-size: 20px;
 }
 .Modal .comparison-header {
   text-align: center;
