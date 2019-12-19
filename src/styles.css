@@ -608,9 +608,9 @@ button {
   display: flex;
   flex-direction: column;
 }
-
+/* 
 .review-breakdown-star-block {
-}
+} */
 
 .char-slider {
   display: inline-block;
