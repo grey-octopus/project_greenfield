@@ -9,13 +9,13 @@ const QtySelector = props => {
   
   if (props.selectedSize === 'default') {
     return (
-      <select disabled>
+      <select disabled id='qty-selector' className='cart-btns'>
         <option value='disabled'>-</option>
       </select>
     )
   } else {
     return (
-      <select value={props.qty} onChange={props.handleChange} >
+      <select id='qty-selector' className='cart-btns' value={props.qty} onChange={props.handleChange} >
         {qtys.map(qty => {
           return <option value={qty}>{qty}</option>
         })}

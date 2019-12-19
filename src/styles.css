@@ -661,7 +661,7 @@ button {
 .single-stars-inner::before {
   content: "\f005  ";
 }
-*/ .inline-div {
+.inline-div {
   display: inline-block;
 }
 
@@ -680,4 +680,45 @@ end of review component styles
 .dropdown-closed {
   position: relative;
   height: 0%;
+}
+
+#add-to-cart {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50vh;
+}
+
+#size-selector {
+  width: 70%;
+}
+
+#qty-selector {
+  width: 20%;
+}
+
+#add-to-bag {
+  width: 75%;
+}
+
+#heart-btn {
+  width: 15%;
+}
+
+.cart-btns {
+  background-color: white;
+  padding: 1em;
+  margin: 1vh;
+  text-align: left;
+  font-size: 2vh; 
+  color: var(--font-color); 
+  border: 1px solid var(--font-color);
+  text-align: center; 
+  text-decoration: none; 
+  cursor: pointer; 
+  font-weight: bold;
+}
+
+.cart-btns:active {
+  color: white;
+  background-color: var(--font-color);
 }

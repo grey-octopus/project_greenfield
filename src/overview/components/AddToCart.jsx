@@ -37,8 +37,8 @@ const AddToCart = props => {
       <form id='add-to-cart'>
         <SizeSelector skus={props.skus} value={selectedSize} handleChange={handleSizeChange} className={sizeClass}/>
         <QtySelector size={selectedSize} qty={selectedQty} skus={props.skus} selectedSize={selectedSize} handleChange={handleQtyChange} />
-        <input type='submit' onClick={handleSubmit} value='ADD TO BAG' style={inlineStyle}></input>
-        <button onClick={(e) => {
+        <input type='submit' className='cart-btns' id='add-to-bag' onClick={handleSubmit} value='ADD TO BAG' style={inlineStyle}></input>
+        <button id='heart-btn' className='cart-btns' onClick={(e) => {
           e.preventDefault()
           heart === true ? setHeart(false) : setHeart(true)
         }}>{heart === true ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}</button>
