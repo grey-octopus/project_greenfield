@@ -9,7 +9,7 @@ const SizeSelector = props => {
     )
   }
   return (
-    <select value={props.value} onChange={props.handleChange}>
+    <select value={props.value} onChange={props.handleChange} className={props.className}>
       <option value='default'>SELECT SIZE</option>
       {Object.keys(props.skus).filter(size => props.skus[size] !== 0).map(size => {
         return <option value={size}>{size}</option>
