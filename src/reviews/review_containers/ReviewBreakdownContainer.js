@@ -13,7 +13,11 @@ const mapStateToProps = (state) => {
     reviews: state.fetchReviewReducer.reviews,
     reviewProduct: state.fetchReviewReducer.reviewProduct,
     //filter reducer
-    reviewFilter: state.filterReviewsReducer.reviewFilter
+    reviewFilter: state.filterReviewsReducer.reviewFilter,
+    //metadata
+    ratings: state.fetchReviewMetadataReducer.ratings,
+    recommended: state.fetchReviewMetadataReducer.recommended,
+    characteristics: state.fetchReviewMetadataReducer.characteristics
   };
 };
 
