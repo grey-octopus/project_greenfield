@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import QAModal from './Modal';
 
 const buttonStyle = {
-  width: '30%',
+  width: '140%',
   backgroundColor: 'white',
   color: 'black',
   border: '1px solid',

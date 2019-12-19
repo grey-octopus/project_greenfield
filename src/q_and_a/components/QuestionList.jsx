@@ -94,7 +94,7 @@ const QuestionList = props => {
             })
             .slice(0, count):
             <div>Sorry, we couldn't find any results matching "{searchTerm}"</div>}
-          {total > count ? (
+          <div style={{display: 'flex', justifyContent: 'flex-start'}}>{total > count ? (
             <button
               style={buttonStyle} 
               onClick={() => setCount(count + 2)}>
@@ -103,7 +103,7 @@ const QuestionList = props => {
           ) : null}
           <AddAQuestion 
             setQuestionList={setQuestionList}
-            setFilter={setFilter}/>
+            setFilter={setFilter}/></div>
         </div>
       </div>
     );
