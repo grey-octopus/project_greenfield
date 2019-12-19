@@ -10,6 +10,7 @@ const AddAnAnswer = (props) => {
         click ?
           <QAModal
             name='answer'
+            setClick={setClick}
             questionId={props.questionId}
             setQuestionList={props.setQuestionList}
             setFilter={props.setFilter}

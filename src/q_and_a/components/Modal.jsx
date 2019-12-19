@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
+
 const customStyles = {
   content: {
     top: '50%',
@@ -50,8 +51,10 @@ const QAModal = (props) =>{
   // const openModal = (e) => {
   //   toggleModal(true);
   // }
+
   const closeModal = (e) => {
     toggleModal(false);
+    props.setClick(false);
   }
 
   const handleInputChange = (e) =>{

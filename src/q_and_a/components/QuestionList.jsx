@@ -22,7 +22,7 @@ const inputStyle ={
       
 }
 const buttonStyle = {
-  width: '30%',
+  width: '280px',
   backgroundColor: 'white',
   color: 'black',
   border: '1px solid',
@@ -31,7 +31,7 @@ const buttonStyle = {
   textDecoration: 'none',
   display: 'inline-block',
   fontSize: '14px',
-  margin: '18px 2px',
+  margin: '18px 10px',
   cursor: 'pointer',
   fontWeight: 'bold'
 }
@@ -55,7 +55,7 @@ const QuestionList = props => {
                 setQuestionList(data.data.results);
             }
         )
-  }, [prodId,questionList]);
+  }, [prodId]);
 
   
   if (questionList && questionList.length !== 0) {
@@ -109,13 +109,16 @@ const QuestionList = props => {
             </button>
           ) : null}
           <AddAQuestion 
+            filteredList={filteredList}
             setQuestionList={setQuestionList}
             setFilter={setFilter}/></div>
         </div>
       </div>
     );
   } else {
-    return <div>AddAQuestion</div>;
+    return (<AddAQuestion 
+    setQuestionList={setQuestionList}
+    setFilter={setFilter}/>);
   }
 };
 
