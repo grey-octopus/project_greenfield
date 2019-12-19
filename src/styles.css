@@ -446,8 +446,22 @@ p {
   font-weight: 300;
 }
 
-.fa-arrow-right {
+.fa-arrow-right, .fa-arrow-left {
   position: absolute;
+  font-size: 2vh;
+  color: white;
+  top: 50%;
+  cursor: pointer;
+  user-select: none;
+  color: var(--font-color);
+}
+
+.fa-arrow-right {
+  right: 5vh;
+}
+
+.fa-arrow-left {
+  left: 11vh;
 }
 
 /* 

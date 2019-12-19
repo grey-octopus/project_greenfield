@@ -1,13 +1,12 @@
 class Dequeue {
-  constructor(limit, initialQueue = {}) {
+  constructor(limit, initialQueue = []) {
     this.limit = limit
     this.queue = initialQueue
-    this.top = limit + 1
+    this.top = initialQueue.length < 7 ? initialQueue.length + 2 : limit + 1
     this.bottom = 0
   }
 
   push(elem) {
-    console.log('ELEM: ', elem)
     this.queue[this.top - 1] = elem
     this.top += 1
     if (this.top - 1 > this.limit) {
