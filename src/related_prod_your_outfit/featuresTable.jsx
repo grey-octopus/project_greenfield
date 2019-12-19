@@ -26,9 +26,21 @@ const FeaturesTable = ({
           {sharedFeatures.map(feature => {
             return (
               <tr>
-                <td>{feature.currentVal}</td>
+                {feature.currentVal === "null" ? (
+                  <td className="itemValue">
+                    <i className="fas fa-check"></i>
+                  </td>
+                ) : (
+                  <td className="itemValue">{feature.currentVal}</td>
+                )}
                 <td>{feature.feature}</td>
-                <td>{feature.relatedVal}</td>
+                {feature.relatedVal === "null" ? (
+                  <td className="itemValue">
+                    <i className="fas fa-check"></i>
+                  </td>
+                ) : (
+                  <td className="itemValue">{feature.relatedVal}</td>
+                )}
               </tr>
             );
           })}
@@ -36,11 +48,11 @@ const FeaturesTable = ({
             return (
               <tr>
                 {feature.value === "null" ? (
-                  <td>
+                  <td className="itemValue">
                     <i className="fas fa-check"></i>
                   </td>
                 ) : (
-                  <td>{feature.value}</td>
+                  <td className="itemValue">{feature.value}</td>
                 )}
                 <td>{feature.feature}</td>
                 <td></td>
@@ -53,11 +65,11 @@ const FeaturesTable = ({
                 <td></td>
                 <td>{feature.feature}</td>
                 {feature.value === "null" ? (
-                  <td>
+                  <td className="itemValue">
                     <i className="fas fa-check"></i>
                   </td>
                 ) : (
-                  <td>{feature.value}</td>
+                  <td className="itemValue"> {feature.value}</td>
                 )}
               </tr>
             );

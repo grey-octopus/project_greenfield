@@ -1,10 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   addItemToOutfit,
   removeItemFromOutfit
 } from "./actions/your_outfit_actions.js";
 import StarRating from "../overview/components/StarRating";
-import { connect } from "react-redux";
 
 const placeHolderImage = "/img/image-placeholder.png";
 
@@ -33,20 +34,22 @@ const MyOutfitsCard = ({
         <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
       </div>
       <br></br>
-      <div className="cardTextContainer">
-        <div className="cardText" style={{ wordBreak: "all" }}>
-          <div className="category">{category}</div>
+      <Link to={`/product_details/${id}`}>
+        <div className="cardTextContainer">
+          <div className="cardText" style={{ wordBreak: "all" }}>
+            <div className="category">{category}</div>
 
-          <strong className="productTitle">{name}</strong>
-          <div className="price">${price}</div>
+            <strong className="productTitle">{name}</strong>
+            <div className="price">${price}</div>
 
-          {Number.isNaN(Number(rating)) || rating == 0 ? (
-            <div>No Reviews</div>
-          ) : (
-            <StarRating averageRating={rating} />
-          )}
+            {Number.isNaN(Number(rating)) || rating == 0 ? (
+              <div>No Reviews</div>
+            ) : (
+              <StarRating averageRating={rating} />
+            )}
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
