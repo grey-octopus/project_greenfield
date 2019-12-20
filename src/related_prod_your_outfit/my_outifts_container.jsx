@@ -26,7 +26,7 @@ const MyOutfits = ({
       <h3>YOUR OUTFIT</h3>
       <br></br>
       {/* there is an error coming from when the outfit contains the current item. ItemsCarousel always expects a node, and 
-     because it must be using this.children... Need to make a parser so that the myOutfit array doesn't contain the current prod */}
+     because it must be using this.children... Not dangerous, but annoying*/}
       {myOutfit.length > 0 ? (
         <div style={{ padding: `0px ${chevronWidth}px` }}>
           <ItemsCarousel
@@ -43,7 +43,7 @@ const MyOutfits = ({
               name={currentItem.title}
               // price={currentItem.price}
               photoUrl={photoUrl}
-              // key={currentItem.id}
+              key={currentItem.id}
               myOutfit={myOutfit}
               rating={currentItemRating}
               // dispatch={dispatch}
