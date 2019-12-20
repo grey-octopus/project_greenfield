@@ -132,7 +132,8 @@ const QuestionList = props => {
   } else {
     return (<AddAQuestion 
     setQuestionList={setQuestionList}
-    setFilter={setFilter}/>);
+    setFilter={setFilter}
+    />);
   }
 };
 

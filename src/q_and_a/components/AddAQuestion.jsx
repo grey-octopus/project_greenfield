@@ -14,6 +14,7 @@ const buttonStyle = {
   fontSize: '14px',
   marginTop: '10px',
   marginRight: '18px',
+  marginLeft: '15%',
   height: '46px',
   cursor: 'pointer',
   fontWeight: 'bold'
