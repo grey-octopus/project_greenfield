@@ -32,7 +32,9 @@ const buttonStyle = {
   textDecoration: 'none',
   display: 'inline-block',
   fontSize: '14px',
-  margin: '18px 10px',
+  marginTop: '10px',
+  marginRight: '18px',
+  height: '46px',
   cursor: 'pointer',
   fontWeight: 'bold'
 }
