@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import ImageCarousel from '../components/ImageCarousel.jsx'
 import updateSelectedImage from '../actions/updateSelectedImage.js'
 import updateQueue from '../actions/updateQueue.js'
+import fetchStyles from '../actions/fetchStyles.js'
 
 const mapStateToProps = state => {
   return {
@@ -17,7 +18,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     updateSelectedImage: index => dispatch(updateSelectedImage(index)),
-    updateQueue: queue => dispatch(updateQueue(queue))
+    updateQueue: queue => dispatch(updateQueue(queue)),
+    fetchStyles: prodId => dispatch(fetchStyles(prodId))
   }
 }
 

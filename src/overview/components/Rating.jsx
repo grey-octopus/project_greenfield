@@ -13,7 +13,7 @@ const Rating = (props) => {
       .get(`http://3.134.102.30/reviews/${prodId}/list?count=10000`)
       .then((data) => {
         setNumOfReviews(data.data.results.length);
-      }, []);
+      }, [prodId]);
   });
   if (props.averageRating && numOfReviews) {
     return (

@@ -1,6 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useParams} from 'react-router-dom'
 
 const ImageCarousel = props => {
+  const {prodId} = useParams()
+  useEffect(() => {
+    props.fetchStyles(prodId)
+    props.updateQueue(props.queue)
+  }, [prodId])
+
   if (props.isExpanded) {
     return (
       <div id='image-carousel-icons'>
