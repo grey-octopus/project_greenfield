@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from "react";
-import OverviewContainer from "./overview/containers/OverviewContainer.jsx";
-import RelatedProducts from "./related_prod_your_outfit/related_products.jsx";
-import MyOutfits from "./related_prod_your_outfit/my_outifts_container.jsx";
-import Modal from "react-modal";
-import { useParams, Link, Route, Switch } from "react-router-dom";
-import ReviewBrowser from "./reviews/review_containers/reviewBrowserContainer.js";
-import ReviewBreakdown from "./reviews/review_containers/ReviewBreakdownContainer.js";
-import axios from "axios";
-import polyfill from "babel-polyfill";
-import QuestionList from "./q_and_a/components/QuestionList";
+import React, { useEffect, useState } from 'react';
+import OverviewContainer from './overview/containers/OverviewContainer.jsx';
+import RelatedProducts from './related_prod_your_outfit/related_products.jsx';
+import MyOutfits from './related_prod_your_outfit/my_outifts_container.jsx';
+import Modal from 'react-modal';
+import { useParams, Link, Route, Switch } from 'react-router-dom';
+import ReviewBrowser from './reviews/review_containers/reviewBrowserContainer.js';
+import ReviewBreakdown from './reviews/review_containers/ReviewBreakdownContainer.js';
+import axios from 'axios';
+import polyfill from 'babel-polyfill';
+import QuestionList from './q_and_a/components/QuestionList';
 
 // React modal has to be bound to the app element:
-Modal.setAppElement("#app");
+Modal.setAppElement('#app');
 
 const App = () => {
   const { prodId } = useParams();
   const [dataToRender, setDataToRender] = useState(<div></div>);
+  console.log('testing');
 
   useEffect(() => {
     axios
       .get(`http://3.134.102.30/products/${prodId}`)
-      .then(data => {
+      .then((data) => {
         setDataToRender(
           <div id="app-inner">
             <OverviewContainer />
@@ -36,7 +37,7 @@ const App = () => {
           </div>
         );
       })
-      .catch(err => {
+      .catch((err) => {
         setDataToRender(
           <div>
             <img id="garf" src="/garf.png" width="30%" height="30%" />
