@@ -1,7 +1,13 @@
 import React, {useEffect,useState} from "react";
 import Answer from "./Answer";
 import { useParams } from "react-router-dom";
-
+const buttonStyle={
+  border: 'none',
+  textDecoration: 'underline',
+  fontWeight: 'bold',
+  marginLeft: '20px',
+  fontSize: '13px'
+}
 
 const AnswerList = (props) => {
   //const {count} = useParams();
@@ -41,7 +47,10 @@ const AnswerList = (props) => {
           }).slice(0,count)
         }
         {total > count ? (
-          <button onClick={() => setCount(count + 2)}>
+          <button 
+            onClick={() => setCount(count + 2)}
+            style={buttonStyle}
+          >
             LOAD MORE ANSWERS
           </button>
         ) : null} 
