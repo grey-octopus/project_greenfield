@@ -7,8 +7,12 @@ const thumbnailStyle = {
   marginLeft:'26px'
 }
 
+const h3Style={
+  textAlign:'center',
+  fontWeight:'bold'
+}
 const modalPhotoStyle = {
-  width: '400px'
+  height: '600px'
 }
 const customStyles = {
   content: {
@@ -54,6 +58,7 @@ const Images = (props) => {
         contentLabel="Photo Modal"
       >
         <img src={props.photos[id]} alt='any' style={modalPhotoStyle}/>
+        <h3 style={h3Style}>Pic - {id + 1}</h3>
       </Modal>
     </div>
   )
