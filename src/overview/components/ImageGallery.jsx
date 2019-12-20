@@ -99,6 +99,7 @@ const ImageGallery = props => {
 
     return (
       <div id='image-gallery' style={inlineStyle}>
+        <i class="fas fa-expand" onClick={}></i>
         {upArrow}
         {rightArrow}
         {leftArrow}

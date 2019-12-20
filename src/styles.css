@@ -830,3 +830,12 @@ end of review component styles
   justify-content: flex-start;
   width: 30%;
 }
+
+.fa-expand {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  font-size: 2vh;
+  color: white;
+  border: 1px solid var(--font-color)
+}
