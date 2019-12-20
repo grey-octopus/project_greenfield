@@ -448,7 +448,7 @@ tr td.itemValue {
   border-bottom: 5px solid white;
 }
 
-.gallery-img img {
+.gallery-img img, .gallery-img-selected img {
   width: 200%;
   height: auto;
 }
