@@ -99,6 +99,7 @@ button.exitComparisonWindow:hover {
   border-bottom: 2px solid black;
   padding-left: 10px;
   padding-right: 10px;
+  width: 175px;
   /* border-collapse: collapse; */
 }
 .FeatureComparisonTable tr.tableHeader td {

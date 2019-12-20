@@ -6,10 +6,16 @@ import Modal from "react-modal";
 const customStyles = {
   content: {
     textAlign: "center",
-    top: "30%",
-    right: "30%",
-    left: "35%",
-    bottom: "35%"
+    // top: "30%",
+    // right: "30%",
+    // left: "40%",
+    // bottom: "40%"
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
   }
 };
 
