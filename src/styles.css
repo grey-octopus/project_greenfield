@@ -410,7 +410,7 @@ tr td.itemValue {
   user-select: none;
 }
 
-.gallery-img {
+.gallery-img, .gallery-img-selected {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -424,6 +424,10 @@ tr td.itemValue {
   background-color: var(--font-color);
   border: 1px solid black;
   cursor: pointer;
+}
+
+.gallery-img-selected {
+  border-bottom: 5px solid blue;
 }
 
 .gallery-img img {
