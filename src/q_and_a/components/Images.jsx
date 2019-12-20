@@ -8,7 +8,7 @@ const thumbnailStyle = {
 }
 
 const modalPhotoStyle = {
-  width: '500px'
+  width: '400px'
 }
 const customStyles = {
   content: {
