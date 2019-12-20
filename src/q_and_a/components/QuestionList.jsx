@@ -12,7 +12,7 @@ const containerStyle={
 }
 const scrollStyle={
     overflow: 'scroll',
-    height: '500px',
+    height: '600px',
     paddingRight: '20px',
     paddingBottom: '35px'
 }
