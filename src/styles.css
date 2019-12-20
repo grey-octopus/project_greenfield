@@ -7,7 +7,7 @@
 body {
   font-family: var(--primary-font);
   margin: 0;
-  overflow-x: none;
+  overflow-x: hidden;
 
 }
 
@@ -827,4 +827,6 @@ end of review component styles
 
 #share-buttons {
   display: flex;
+  justify-content: flex-start;
+  width: 30%;
 }

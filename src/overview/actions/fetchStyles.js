@@ -7,7 +7,7 @@ const fetchStyles = prodId => {
         type: 'FETCH_STYLES', 
         styles: data.results
       })
-    })
+    }).catch(err => console.log('ERROR: ', err))
   }
 }
 
