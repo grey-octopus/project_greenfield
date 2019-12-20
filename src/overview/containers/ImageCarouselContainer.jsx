@@ -8,7 +8,8 @@ const mapStateToProps = state => {
     styles: state.styles.styles,
     selected: state.styles.selected,
     position: state.styles.position,
-    queue: state.styles.queue
+    queue: state.styles.queue,
+    selectedImage: state.styles.selectedImage
   }
 }
 
