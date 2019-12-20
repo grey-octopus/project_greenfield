@@ -1,5 +1,5 @@
 :root {
-  --primary-font: 'Poppins', 'sans-serif';
+  --primary-font: "Poppins", "sans-serif";
   --font-color: #525252;
   --font-light: #707070;
 }
@@ -52,7 +52,7 @@ p {
 }
 
 .stars-outer::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
   color: var(--font-color);
 }
 
@@ -66,7 +66,7 @@ p {
 }
 
 .stars-inner::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
 }
 
 .relatedProductsContainer {
@@ -118,21 +118,12 @@ tr td.itemValue {
   position: absolute;
   top: 8px;
   right: 8px;
-<<<<<<< HEAD
   width: 24px;
   height: 24px;
 }
 
 .actionButtonContainer .actionButton:hover {
   filter: invert(50%);
-=======
-  content: '\f005';
-  border: 2px solid black;
-  color: black;
-  height: 16px;
-  padding: 2px;
-  border-radius: 15px;
->>>>>>> a1c8218a289798bfe7af13aa2e1c2bba37329bb5
 }
 
 .myOutfitsContainer {
@@ -258,7 +249,7 @@ tr td.itemValue {
 }
 
 .feature-check::before {
-  content: '\f00c \00a0\00a0';
+  content: "\f00c \00a0\00a0";
 }
 
 #ratings-reviews {
@@ -746,7 +737,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: '\f005  ';
+  content: "\f005  ";
   color: var(--font-color);
 }
 
@@ -761,7 +752,7 @@ button {
 }
 
 .single-stars-inner::before {
-  content: '\f005  ';
+  content: "\f005  ";
 }
 .inline-div {
   display: inline-block;
