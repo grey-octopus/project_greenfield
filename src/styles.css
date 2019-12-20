@@ -527,9 +527,10 @@ start of review component styles
   /* display: inline-block; */
   margin-top: 15px;
   max-height: 600px;
+  /* 
+  overflow-y: hidden;
+  overflow-x: hidden; */
 
-  overflow-y: scroll;
-  overflow-x: none;
   word-wrap: break-word;
 }
 
@@ -574,6 +575,7 @@ start of review component styles
 }
 
 .review-card-summary {
+  max-width: 90%;
   font-weight: 600;
   font-size: 1.2em;
   color: var(--font-color);
@@ -582,6 +584,7 @@ start of review component styles
 .review-body-text {
   font-weight: 100;
   font-size: 1em;
+  max-width: 90%;
   color: var(--font-color);
 }
 
@@ -687,14 +690,14 @@ button {
   margin-left: 10px;
   height: 10px;
   width: 50%;
-  background-color: grey;
+  background-color: #ebebeb;
 }
 
 .review-bar {
   /* margin-left: 10px; */
   width: 0%;
   height: 10px;
-  background-color: black;
+  background-color: #525252;
 }
 
 .review-breakdown {
@@ -712,7 +715,8 @@ button {
 } */
 
 .char-slider {
-  display: inline-block;
+  display: flex;
+  min-width: 100%;
 }
 
 .char-empty-slider-segment {
@@ -721,17 +725,18 @@ button {
 }
 
 .char-slider-segment {
+  z-index: -1;
   position: relative;
-  background-color: lightslategray;
-  min-width: 40px;
-  height: 5px;
+  background-color: #ebebeb;
+  min-width: 70px;
+  height: 7px;
   display: inline-block;
-  top: 10px;
+  top: 25%;
 }
 
 .fas.fa-caret-down {
-  position: absolute;
-  z-index: 10;
+  position: relative;
+  /* z-index: 2; */
 }
 .single-stars-outer {
   display: inline-block;
