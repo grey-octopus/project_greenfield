@@ -6,11 +6,12 @@ import Highlighter from 'react-highlight-words'
 
 const questionStyle={
     fontWeight: 'bold',
-    fontSize: '16px'
+    fontSize: '16px',
+    color: '#525252'
 }
 const helpfulnessStyle={
     fontSize: '12px',
-    textAlign: 'right'
+    justyfyContent: 'flex-end'
 }
 
 const Question = (props) => {

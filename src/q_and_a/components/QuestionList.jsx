@@ -7,9 +7,10 @@ import AddAQuestion from "./AddAQuestion";
 import axios from "axios";
 
 const inputStyle ={
-  width: '80%',
+  width: '100%',
   padding: '12px 20px',
-  margin: '12px 10px',
+  marginTop: '10px',
+  marginBottom: '20px',
   display: 'inline-block',
   border: '1px solid #ccc',
   //borderRadius: '4px',
@@ -62,7 +63,7 @@ const QuestionList = props => {
     const total = filteredList.length;
     //console.log(total)
     return (
-      <div>
+      <div style={{ marginLeft:'15%', marginRight:'15%'}}>
         <div id="searchBar">
           <input 
           style={inputStyle}
@@ -109,7 +110,7 @@ const QuestionList = props => {
             </button>
           ) : null}
           <AddAQuestion 
-            filteredList={filteredList}
+            // filteredList={filteredList}
             setQuestionList={setQuestionList}
             setFilter={setFilter}/></div>
         </div>
