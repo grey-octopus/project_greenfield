@@ -541,7 +541,7 @@ start of review component styles
 
 .review-list {
   overflow-y: scroll;
-  max-height: 450px;
+  max-height: 600px;
   max-width: 600px;
   width: 100%;
 }
