@@ -8,7 +8,7 @@ const ImageCarousel = props => {
       {props.queue.queue.map((image, index) => ({image, index})).filter(elem => elem.image !== null).map(elem => {
         return (
           <div
-            className='gallery-img'
+            className={elem.index !== props.selectedImage ? 'gallery-img' : 'gallery-img-selected'}
             onClick={() => {
               props.updateSelectedImage(elem.index)
             }}

@@ -8,6 +8,7 @@ body {
   font-family: var(--primary-font);
   margin: 0;
   overflow-x: hidden;
+
 }
 
 button:hover {
@@ -410,7 +411,7 @@ tr td.itemValue {
   user-select: none;
 }
 
-.gallery-img {
+.gallery-img, .gallery-img-selected {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -424,6 +425,10 @@ tr td.itemValue {
   background-color: var(--font-color);
   border: 1px solid black;
   cursor: pointer;
+}
+
+.gallery-img-selected {
+  border-bottom: 5px solid blue;
 }
 
 .gallery-img img {
@@ -814,4 +819,14 @@ end of review component styles
 .cart-btns:active {
   color: white;
   background-color: var(--font-color);
+}
+
+#reviews-link {
+  margin-left: 1vh;
+}
+
+#share-buttons {
+  display: flex;
+  justify-content: flex-start;
+  width: 30%;
 }
