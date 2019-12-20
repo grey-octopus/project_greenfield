@@ -3,6 +3,7 @@ import AnswerList from './AnswerList'
 import AddAnAnswer from './AddAnAnswer'
 import axios from 'axios'
 import Highlighter from 'react-highlight-words'
+import { useParams } from "react-router-dom";
 
 const questionStyle={
     fontWeight: 'bold',
@@ -25,17 +26,27 @@ const spaceStyle={
 
 const Question = (props) => {
     //console.log('hello',props)
+    const { prodId } = useParams();
     const [helpfulness,setHelpfulness] = useState(props.question.question_helpfulness);
     const [clicked,setClicked] = useState(false);
     const handleClick = (e)=>{
         const target = e.target
         if(!clicked){
-            if(helpfulness === "#") {
-                setHelpfulness(1);
-              } else {
-                setHelpfulness(helpfulness + 1);
-              }
-              return axios.put(`http://3.134.102.30/qa/question/${props.question.question_id}/helpful`)
+            return axios.put(`http://3.134.102.30/qa/question/${props.question.question_id}/helpful`)
+                        .then(
+                          ()=>{
+                            return axios.get(`http://3.134.102.30/qa/${prodId}`)
+                          }
+                        ).then(
+                          (data) =>{
+                            var results=data.data.results;
+                            for(var item of results) {
+                              if(item.question_id === props.question.question_id){
+                                setHelpfulness(item.question_helpfulness)
+                              }
+                            }
+                          }
+                        )
         }
 
       }

@@ -5,7 +5,7 @@ import FeaturesContainer from '../containers/FeaturesContainer.jsx'
 
 const ProdOverview = props => {
   const { prodId } = useParams()
-  useEffect(() => { props.fetchProductOverview(prodId) }, []);
+  useEffect(() => { props.fetchProductOverview(prodId) }, [prodId]);
   if (props.description && props.slogan && props.features) {
     return (
       <div id='prod-overview'>

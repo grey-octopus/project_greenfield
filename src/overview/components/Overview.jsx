@@ -10,7 +10,7 @@ const Overview = props => {
   useEffect(() => {
     props.fetchProductInfo(prodId);
     props.fetchStyles(prodId)
-  }, []);
+  }, [prodId]);
   if (props.title && props.styles) {
     return (
       <div id='overview'>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ImageCarouselContainer from '../containers/ImageCarouselContainer.jsx'
 import Dequeue from '../dequeue.js'
@@ -48,10 +48,18 @@ const handleLeftClick = (e, props) => {
 
 const ImageGallery = props => {
   const { prodId } = useParams()
+  let testQueue = { queue: props.queue?.queue, prodId}
   
   useEffect(() => {
     props.fetchStyles(prodId)
   }, [prodId])
+  
+  if (props.styles[props.selected].photos[0] !== props.queue?.queue[0] && props.queue && props.queue?.queue[0] !== null) {
+    console.log('I ran')
+    console.log(props.queue.queue[0])
+    const photos = props.styles[props.selected].photos
+    props.updateQueue(new Dequeue(7, photos.slice(), 7, photos.length))
+  }
 
   if (props.styles && props.queue === undefined) {
     const photos = props.styles[props.selected].photos
