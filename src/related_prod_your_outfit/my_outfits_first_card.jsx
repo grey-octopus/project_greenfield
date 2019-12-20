@@ -29,9 +29,7 @@ const MyOutfitsFirstCard = ({
   myOutfit
 }) => {
   let { prodId } = useParams();
-  // const productLink = `http://3.134.102.30/products/${prodId}`;
   prodId = Number(prodId);
-  // console.log("photoUrl");
   let [isInOutfit, setIsInOutfit] = useState(false);
 
   useEffect(() => {
@@ -41,8 +39,6 @@ const MyOutfitsFirstCard = ({
 
   // refactor to add above comented params into item obj
   const item = { id: prodId, category, name };
-  console.log("CAT", category);
-  console.log("NAME", name);
   if (isInOutfit && myOutfit.length >= 1) {
     return (
       <div className="card">
@@ -51,12 +47,17 @@ const MyOutfitsFirstCard = ({
           onClick={() => {
             removeItem(prodId);
           }}
-        >
-          X
-        </button>
-        <div className="cardImage">
-          <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
-        </div>
+        ></button>
+        <div
+          style={{
+            backgroundImage: `url(${photoUrl || placeHolderImage})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "50% 50%",
+            minWidth: "100%",
+            height: "300px"
+          }}
+        ></div>
         <br></br>
         <div className="cardTextContainer">
           <div className="cardText" style={{ wordBreak: "all" }}>
@@ -76,7 +77,6 @@ const MyOutfitsFirstCard = ({
       </div>
     );
   } else {
-    console.log(photoUrl);
     return (
       <div className="card placeHolder">
         <div

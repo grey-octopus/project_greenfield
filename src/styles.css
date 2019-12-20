@@ -1,5 +1,5 @@
 :root {
-  --primary-font: 'Poppins', 'sans-serif';
+  --primary-font: "Poppins", "sans-serif";
   --font-color: #525252;
   --font-light: #707070;
 }
@@ -52,7 +52,7 @@ p {
 }
 
 .stars-outer::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
   color: var(--font-color);
 }
 
@@ -66,7 +66,7 @@ p {
 }
 
 .stars-inner::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
 }
 
 .relatedProductsContainer {
@@ -74,8 +74,56 @@ p {
   white-space: nowrap;
   margin: 50px;
 }
-.actionButton-inner .actionButton::before {
-  content: '\f005';
+button.exitComparisonWindow {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  font-size: 20px;
+  border-radius: 50px;
+  padding: 0.5vh;
+  width: 3.2vh;
+  border: 2px solid black;
+  background-color: transparent;
+}
+button.exitComparisonWindow:hover {
+  color: red;
+  border-color: red;
+}
+.FeatureComparisonTable {
+  text-align: center;
+  /* border: 2px solid black; */
+  border-collapse: collapse;
+  font-size: 18px;
+}
+.FeatureComparisonTable td {
+  border-bottom: 2px solid black;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* border-collapse: collapse; */
+}
+.FeatureComparisonTable tr.tableHeader td {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+tr td.itemValue {
+  color: var(--font-color);
+}
+.Modal .comparison-header {
+  text-align: center;
+}
+.actionButtonContainer .actionButton {
+  background-image: url(/img/baseline_star_border_black_24dp.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+}
+
+.actionButtonContainer .actionButton:hover {
+  filter: invert(50%);
 }
 
 .myOutfitsContainer {
@@ -91,7 +139,7 @@ p {
   border: 2px solid #9b9b9b;
   color: #525252;
   position: relative;
-  width: 275px;
+  width: 12vw;
   height: 400px;
 }
 .card .productTitle {
@@ -112,6 +160,7 @@ p {
   padding-bottom: 125px;
   bottom: 125px;
   max-height: 300px;
+  width: 275px;
 }
 .cardText {
   padding: 3px;
@@ -123,20 +172,20 @@ p {
   left: 0px;
 }
 .removeCardButton {
-  background-color: transparent;
-  border: 2px solid black;
-  border-radius: 15px;
-  box-sizing: content-box;
-  height: 2vh;
+  background-image: url(/img/close-24px.svg);
+  background-repeat: no-repeat;
   position: absolute;
-  right: 4px;
-  top: 4px;
-  font-size: 10px;
-  font-weight: 900;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
 }
 .removeCardButton:hover {
-  color: red;
-  border: 2px solid red;
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)
+    brightness(104%) contrast(97%);
+  /* filter: invert(100%); */
 }
 .addProductButton {
   text-align: center;
@@ -200,7 +249,7 @@ p {
 }
 
 .feature-check::before {
-  content: '\f00c \00a0\00a0';
+  content: "\f00c \00a0\00a0";
 }
 
 #ratings-reviews {
@@ -233,28 +282,19 @@ p {
   z-index: 1;
   size: 25vh;
 }
-
+/* 
 #review-progress {
+  margin-left: 10px;
   width: 50%;
   background-color: grey;
-}
+} */
 
-#review-bar {
+/* #review-bar {
+  margin-left: 10px;
   width: 0%;
   height: 10px;
   background-color: black;
-}
-
-.review-progress {
-  width: 50%;
-  background-color: grey;
-}
-
-.review-bar {
-  width: 0%;
-  height: 10px;
-  background-color: black;
-}
+} */
 
 #garf-text {
   margin: auto;
@@ -446,7 +486,8 @@ p {
   font-weight: 300;
 }
 
-.fa-arrow-right, .fa-arrow-left {
+.fa-arrow-right,
+.fa-arrow-left {
   position: absolute;
   font-size: 2vh;
   color: white;
@@ -472,17 +513,28 @@ start of review component styles
  start review card styles
  */
 
-.review-browser {
-  /* display: inline-block; */
+.full-browser {
   width: 50%;
-  max-height: 1000px;
-  overflow-y: scroll;
   margin-right: 15%;
   margin-top: 6%;
+  max-height: 100vh;
+}
+
+.review-browser {
+  /* display: inline-block; */
+  margin-top: 15px;
+  max-height: 600px;
+
+  overflow-y: scroll;
+  overflow-x: none;
+  word-wrap: break-word;
 }
 
 .review-list {
   overflow-y: scroll;
+  max-height: 100vh;
+  max-width: 100%;
+  width: 100%;
 }
 
 .select-div {
@@ -490,7 +542,11 @@ start of review component styles
 }
 
 .sort-select {
+  outline: none;
   display: inline-block;
+  /* border: none; */
+  border: 2px solid black;
+  background-color: white;
 }
 
 .helpful-report {
@@ -538,6 +594,7 @@ start of review component styles
 
 /*
  end review card styles
+ :active
  */
 
 #add-review-button {
@@ -545,9 +602,98 @@ start of review component styles
   flex-direction: row;
 }
 
+#review-paginate-button {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: white;
+  margin-top: 40px;
+  margin-right: 20px;
+
+  height: 60px;
+  width: 155px;
+  font-weight: 650;
+  font-size: 1em;
+}
+
+#review-paginate-button:active {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: black;
+  margin-top: 40px;
+  margin-right: 20px;
+
+  height: 60px;
+  width: 155px;
+  font-weight: 650;
+  font-size: 1em;
+  color: white;
+}
+
+#review-submit-button {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: white;
+  margin-top: 40px;
+  height: 60px;
+  width: 185px;
+  font-weight: 650;
+  font-size: 1em;
+}
+
+#review-submit-button:active {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: black;
+  margin-top: 40px;
+  height: 60px;
+  width: 185px;
+  font-weight: 650;
+  font-size: 1em;
+  font-size: 1em;
+  color: white;
+}
+
+.browser-button-block {
+  display: flex;
+}
+
 button {
   display: inline-block;
 }
+
+.star-filter-selectors {
+  display: flex;
+  flex-direction: row;
+}
+
+.star-filter-text {
+  font-weight: 300;
+  font-size: 1em;
+}
+
+.review-progress {
+  margin-top: 11.5px;
+  margin-left: 10px;
+  height: 10px;
+  width: 50%;
+  background-color: grey;
+}
+
+.review-bar {
+  /* margin-left: 10px; */
+  width: 0%;
+  height: 10px;
+  background-color: black;
+}
+
 .review-breakdown {
   /* display: inline-block; */
   width: 30%;
@@ -558,9 +704,9 @@ button {
   display: flex;
   flex-direction: column;
 }
-
+/* 
 .review-breakdown-star-block {
-}
+} */
 
 .char-slider {
   display: inline-block;
@@ -591,7 +737,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: '\f005  ';
+  content: "\f005  ";
   color: var(--font-color);
 }
 
@@ -606,9 +752,9 @@ button {
 }
 
 .single-stars-inner::before {
-  content: '\f005  ';
+  content: "\f005  ";
 }
-*/ .inline-div {
+.inline-div {
   display: inline-block;
 }
 
@@ -618,3 +764,54 @@ button {
 /* 
 end of review component styles
  */
+
+.dropdown-opened {
+  position: absolute;
+  height: 100%;
+}
+
+.dropdown-closed {
+  position: relative;
+  height: 0%;
+}
+
+#add-to-cart {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50vh;
+}
+
+#size-selector {
+  width: 70%;
+}
+
+#qty-selector {
+  width: 20%;
+}
+
+#add-to-bag {
+  width: 75%;
+}
+
+#heart-btn {
+  width: 15%;
+}
+
+.cart-btns {
+  background-color: white;
+  padding: 1em;
+  margin: 1vh;
+  text-align: left;
+  font-size: 2vh;
+  color: var(--font-color);
+  border: 1px solid var(--font-color);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cart-btns:active {
+  color: white;
+  background-color: var(--font-color);
+}

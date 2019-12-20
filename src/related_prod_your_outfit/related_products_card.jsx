@@ -9,17 +9,30 @@ const RelatedProductsCard = ({
   name,
   price,
   photoUrl,
-  rating
+  rating,
+  features
 }) => {
   return (
-    <Link to={`/product_details/${id}`}>
-      <div className="relatedProducts card">
-        <ActionButton />
-        <div className="cardImage">
-          <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
-        </div>
-        <br></br>
-        <div className="cardTextContainer">
+    <div className="relatedProducts card">
+      <ActionButton
+        id={id}
+        key={id + "actionbutton"}
+        features={features}
+        relatedProdName={name}
+      />
+      <div
+        style={{
+          backgroundImage: `url(${photoUrl || placeHolderImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "50% 50%",
+          minWidth: "100%",
+          height: "300px"
+        }}
+      ></div>
+      <br></br>
+      <div className="cardTextContainer">
+        <Link to={`/product_details/${id}`}>
           <div className="cardText" style={{ wordBreak: "all" }}>
             <div className="category">{category}</div>
 
@@ -27,14 +40,14 @@ const RelatedProductsCard = ({
             <div className="price">${price}</div>
 
             {Number.isNaN(Number(rating)) || rating == 0 ? (
-              "No Reviews"
+              <div>"No Reviews"</div>
             ) : (
               <StarRating averageRating={rating} />
             )}
           </div>
-        </div>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 };
 
