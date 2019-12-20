@@ -14,12 +14,12 @@ function CharacteristicSliders(props) {
 
     //0 - 180
     //console.log(carrotLoc);
-    let carrotStyle = { left: `${carrotLoc}px` };
+    let carrotStyle = { left: `${carrotLoc}px`, top: '-9px' };
 
     charRender.push(
       <div>
         <div>
-          <h3>{i}</h3>
+          <h3 style={{ 'font-size': '0.9em' }}>{i}</h3>
         </div>
         <div className="char-slider">
           <i className="fas fa-caret-down" style={carrotStyle}></i>

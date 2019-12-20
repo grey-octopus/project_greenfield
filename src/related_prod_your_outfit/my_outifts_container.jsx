@@ -89,10 +89,14 @@ const mapStateToProps = state => {
     myOutfit: state.myOutfit,
     currentItem: state.fetchProductInfoReducer,
     currentItemRating: state.averageRatingReducer.averageRating,
-    photoUrl: state.styles.styles
-      ? state.styles.styles[state.styles.selected].photos[
-          state.styles.selectedImage
-        ].thumbnail_url
+    photoUrl: state.styles
+      ? state.styles.styles
+        ? state.styles.styles[state.styles.selected].photos
+          ? state.styles.styles[state.styles.selected].photos[
+              state.styles.selectedImage
+            ].thumbnail_url
+          : null
+        : null
       : null
   };
 };
