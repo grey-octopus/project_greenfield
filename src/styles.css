@@ -406,13 +406,17 @@ tr td.itemValue {
   width: 100%;
 }
 
-#image-carousel {
+#image-carousel, #image-carousel-icons {
   display: flex;
   flex-direction: column;
   height: 90%;
   overflow: hidden;
   margin-top: 3.5vh;
   user-select: none;
+}
+
+#image-carousel-icons {
+  margin-top: 8vh;
 }
 
 .gallery-img, .gallery-img-selected {
@@ -856,5 +860,5 @@ end of review component styles
   width: 5vh;
   height: 5vh;
   position: relative;
-  margin-left: 2vh;
+  margin: 0 0 5vh 5vh;
 }

@@ -3,16 +3,16 @@ import React from 'react'
 const ImageCarousel = props => {
   if (props.isExpanded) {
     return (
-      <div id='image-carousel'>
+      <div id='image-carousel-icons'>
         {props.queue.queue.map((image, index) => ({image, index})).filter(elem => elem.image !== null).map(elem => {
         return (
           <div
-            className={elem.index !== props.selectedImage ? 'gallery-img-icon' : 'gallery-img-icon-selected' /* CHAGE CLASSES HERE */}
+            className={'gallery-img-icon'}
             onClick={() => {
               props.updateSelectedImage(elem.index)
             }}
           >
-            <i class="far fa-circle"></i>
+            {elem.index !== props.selectedImage ? <i class="far fa-circle"></i> : <i class="fas fa-circle"></i>}
           </div>
         )
       })}
