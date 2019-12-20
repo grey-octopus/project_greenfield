@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import QAModal from './Modal';
 
 const buttonStyle = {
-  width: '140%',
+  width: '250px',
   backgroundColor: 'white',
   color: 'black',
   border: '1px solid',
@@ -12,7 +12,9 @@ const buttonStyle = {
   textDecoration: 'none',
   display: 'inline-block',
   fontSize: '14px',
-  margin: '18px 2px',
+  marginTop: '10px',
+  marginRight: '18px',
+  height: '46px',
   cursor: 'pointer',
   fontWeight: 'bold'
 }
@@ -29,7 +31,9 @@ const AddAQuestion = (props) => {
       {
         click ?
           <QAModal
-            name='question' 
+            name='question'
+            setClick={setClick} 
+            // filteredList={props.filteredList}
             setQuestionList={props.setQuestionList}
             setFilter={props.setFilter}
           />:null
