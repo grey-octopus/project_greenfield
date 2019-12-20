@@ -195,6 +195,7 @@ const ReviewModal = (props) => {
           />
 
           <button
+            className="modal-submit"
             onClick={(e) => {
               handlePublish(inputForms);
             }}

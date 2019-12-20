@@ -397,7 +397,7 @@ tr td.itemValue {
   padding: 3vh;
 }
 
-#image-gallery, #image-gallery-expanded {
+#image-gallery {
   width: 100vh;
   height: 80vh;
   background-repeat: no-repeat;
@@ -407,15 +407,7 @@ tr td.itemValue {
   position: relative;
 }
 
-#image-gallery-expanded, #zoomed {
-  width: 100%;
-}
-
-#zoomed {
-  background-size: 250%;
-}
-
-#image-carousel, #image-carousel-icons {
+#image-carousel {
   display: flex;
   flex-direction: column;
   height: 90%;
@@ -423,12 +415,6 @@ tr td.itemValue {
   margin-top: 3.5vh;
   user-select: none;
 }
-
-#image-carousel-icons {
-  margin-top: 8vh;
-}
-
-.gallery-img, .gallery-img-selected {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -445,10 +431,10 @@ tr td.itemValue {
 }
 
 .gallery-img-selected {
-  border-bottom: 5px solid white;
+  border-bottom: 5px solid blue;
 }
 
-.gallery-img img, .gallery-img-selected img {
+.gallery-img img {
   width: 200%;
   height: auto;
 }
@@ -461,7 +447,7 @@ tr td.itemValue {
   left: 5vh;
   cursor: pointer;
   user-select: none;
-  color: white;
+  color: var(--font-color);
 }
 
 .fa-chevron-down {
@@ -483,10 +469,6 @@ tr td.itemValue {
   justify-content: flex-start;
   margin-left: 3vh;
   margin-top: 3vh;
-}
-
-#prod-info-wrapper-hidden {
-  display: none;
 }
 
 #prod-overview {
@@ -520,7 +502,7 @@ tr td.itemValue {
   top: 50%;
   cursor: pointer;
   user-select: none;
-  color: white;
+  color: var(--font-color);
 }
 
 .fa-arrow-right {
@@ -663,6 +645,19 @@ start of review component styles
   color: white;
 }
 
+.modal-submit {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: white;
+  margin-top: 40px;
+  height: 60px;
+  width: 185px;
+  font-weight: 650;
+  font-size: 1em;
+}
+
 #review-submit-button {
   outline: none;
   /* display: inline-block; */
@@ -791,7 +786,7 @@ button {
   font-size: 0.8em;
   color: var(--font-color);
   font-weight: 100;
-  margin-left: 40%;
+  /* margin-left: 40%; */
 }
 
 .fas.fa-caret-down {
@@ -877,7 +872,6 @@ end of review component styles
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
-  outline: none;
 }
 
 .cart-btns:active {
@@ -893,25 +887,4 @@ end of review component styles
   display: flex;
   justify-content: flex-start;
   width: 30%;
-}
-
-.fa-expand {
-  position: absolute;
-  top: 1vh;
-  right: 1vh;
-  font-size: 2vh;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-  text-decoration: none;
-  outline: none;
-}
-
-.gallery-img-icon, .gallery-img-icon-selected {
-  width: 5vh;
-  height: 5vh;
-  position: relative;
-  margin: 0 0 5vh 5vh;
-  color: white;
-  cursor: pointer;
 }
