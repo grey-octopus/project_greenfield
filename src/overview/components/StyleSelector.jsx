@@ -5,7 +5,7 @@ import PriceContainer from '../containers/PriceContainer.jsx'
 
 const StyleSelector = props => {
   const { prodId } = useParams()
-  useEffect(() => { props.fetchStyles(prodId) }, [])
+  useEffect(() => { props.fetchStyles(prodId) }, [prodId])
   if (props.styles) {
     return (
       <div id="style-selector">

@@ -64,7 +64,7 @@ function CharacteristicSliders(props) {
     charRender.push(
       <div className="full-slider">
         <div>
-          <h3 style={{ 'font-size': '0.9em' }}>{i}</h3>
+          <h3 style={{ 'fontSize': 0.9 + 'em' }}>{i}</h3>
         </div>
         <div className="char-slider">
           <i className="fas fa-caret-down" style={carrotStyle}></i>
