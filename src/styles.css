@@ -414,7 +414,7 @@ tr td.itemValue {
   overflow: hidden;
   margin-top: 3.5vh;
   user-select: none;
-}
+
   display: flex;
   align-items: flex-start;
   justify-content: center;
