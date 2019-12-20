@@ -1,8 +1,9 @@
-const imageGalleryReducer = (state = { isExpanded: false }, action) => {
-  const newState = state.isExpanded === false ? true : false
+const imageGalleryReducer = (state = { isExpanded: false, isZoomed: false }, action) => {
   switch(action.type) {
     case 'UPDATE_EXPANDED':
-      return {...state, isExpanded: newState}
+      return {...state, isExpanded: !state.isExpanded}
+    case 'ZOOM':
+      return {...state, isZoomed: !state.isZoomed}
     default:
       return {...state}
   }

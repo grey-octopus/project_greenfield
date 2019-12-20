@@ -97,11 +97,12 @@ const ImageGallery = props => {
       :
       null
 
-    const id = props.isExpanded === false ? 'image-gallery' : 'image-gallery-expanded'
+    let id = props.isExpanded === false ? 'image-gallery' : 'image-gallery-expanded'
+    id = props.isZoomed && props.isExpanded ? 'zoomed' : id
 
     return (
-      <div id={id} style={inlineStyle}>
-        <i class="fas fa-expand" onClick={() => props.updateExpanded()}></i>
+      <div id={id} style={inlineStyle} onClickCapture={() => props.setZoomed()}>
+        <i className="fas fa-expand" onClick={() => props.updateExpanded()}></i>
         {upArrow}
         {rightArrow}
         {leftArrow}

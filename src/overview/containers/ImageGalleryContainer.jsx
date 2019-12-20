@@ -5,6 +5,7 @@ import updatePosition from '../actions/updatePosition.js'
 import updateQueue from '../actions/updateQueue.js'
 import updateSelectedImage from '../actions/updateSelectedImage.js'
 import updateExpanded from '../actions/updateExpanded.js'
+import setZoomed from '../actions/setZoomed.js'
 
 const mapStateToProps = state => {
   return {
@@ -13,7 +14,8 @@ const mapStateToProps = state => {
     selectedImage: state.styles.selectedImage,
     position: state.styles.position,
     queue: state.styles.queue,
-    isExpanded: state.imageGallery.isExpanded
+    isExpanded: state.imageGallery.isExpanded,
+    isZoomed: state.imageGallery.isZoomed
   }
 }
 
@@ -23,7 +25,8 @@ const mapDispatchToProps = dispatch => {
     updatePosition: (position, numOfItems, doIncrement) => dispatch(updatePosition(position, numOfItems, doIncrement)),
     updateQueue: queue => dispatch(updateQueue(queue)),
     updateSelectedImage: index => dispatch(updateSelectedImage(index)),
-    updateExpanded: () => dispatch(updateExpanded())
+    updateExpanded: () => dispatch(updateExpanded()),
+    setZoomed: () => dispatch(setZoomed())
   }
 }
 

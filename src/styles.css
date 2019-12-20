@@ -402,8 +402,12 @@ tr td.itemValue {
   position: relative;
 }
 
-#image-gallery-expanded {
+#image-gallery-expanded, #zoomed {
   width: 100%;
+}
+
+#zoomed {
+  background-size: 250%;
 }
 
 #image-carousel, #image-carousel-icons {
@@ -861,4 +865,5 @@ end of review component styles
   height: 5vh;
   position: relative;
   margin: 0 0 5vh 5vh;
+  color: white;
 }
