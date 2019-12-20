@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import axios from 'axios';
+import Images from './Images'
 var moment = require('moment');
 
 const answerStyle={
@@ -44,9 +45,13 @@ const Answer = (props) => {
 
   }
   return (
-    <div style={{marginBottom: '20px'}}>
+    <div style={{marginBottom: '15px'}}>
       <span style={answerAStyle}>A:</span> 
       <span style={answerStyle}>{props.answer.body}</span><br/>
+      {props.answer.photos.length > 0 ?
+        <Images photos={props.answer.photos}/>:
+        null
+      }
       <span style={subStyle}><i>by</i> {props.answer.answerer_name}, {date} 
       <span style={spaceStyle}>|</span>
       Helpful?
