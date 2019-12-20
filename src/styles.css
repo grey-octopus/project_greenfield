@@ -8,7 +8,6 @@ body {
   font-family: var(--primary-font);
   margin: 0;
   overflow-x: hidden;
-
 }
 
 button:hover {
@@ -73,7 +72,7 @@ p {
 .relatedProductsContainer {
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 50px;
+  margin: 100px;
 }
 button.exitComparisonWindow {
   position: absolute;
@@ -100,6 +99,7 @@ button.exitComparisonWindow:hover {
   border-bottom: 2px solid black;
   padding-left: 10px;
   padding-right: 10px;
+  width: 175px;
   /* border-collapse: collapse; */
 }
 .FeatureComparisonTable tr.tableHeader td {
@@ -130,7 +130,7 @@ tr td.itemValue {
 .myOutfitsContainer {
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 50px;
+  margin: 100px;
 }
 .card {
   display: inline-block;
@@ -167,10 +167,15 @@ tr td.itemValue {
   padding: 3px;
   margin: 0px;
   text-align: left;
+  /* border-bottom: transparent; */
   white-space: normal;
   position: absolute;
   bottom: 0px;
   left: 0px;
+}
+.cardText:hover,
+.cardText:focus {
+  text-decoration: underline;
 }
 .removeCardButton {
   background-image: url(/img/close-24px.svg);
@@ -411,7 +416,8 @@ tr td.itemValue {
   user-select: none;
 }
 
-.gallery-img, .gallery-img-selected {
+.gallery-img,
+.gallery-img-selected {
   display: flex;
   align-items: flex-start;
   justify-content: center;
