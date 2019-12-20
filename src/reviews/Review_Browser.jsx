@@ -66,7 +66,7 @@ const ReviewBrowser = (props) => {
 
   if (props.reviews) {
     return (
-      <div className="review-browser">
+      <div className="full-browser">
         <div>
           <div className="select-div">
             <h3 className="inline-div">sort number of reviews by: &nbsp; </h3>
@@ -83,17 +83,20 @@ const ReviewBrowser = (props) => {
             </select>
           </div>
         </div>
-        <div className="review-list">{generateReviews()}</div>
+        <div className="review-browser">
+          <div className="review-list">{generateReviews()}</div>
 
-        <ReviewModalContainer />
-
-        <button
-          id="review-paginate-button"
-          type="button"
-          onClick={handlePaginateReviewList}
-        >
-          more reviews
-        </button>
+          <div className="browser-button-block">
+            <button
+              id="review-paginate-button"
+              type="button"
+              onClick={handlePaginateReviewList}
+            >
+              MORE REVIEWS
+            </button>
+            <ReviewModalContainer />
+          </div>
+        </div>
       </div>
     );
   } else return <div>Loading...</div>;

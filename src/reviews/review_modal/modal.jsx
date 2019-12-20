@@ -61,7 +61,9 @@ const ReviewModal = props => {
 
   return (
     <div>
-      <button onClick={openModal}>Post Review</button>
+      <button id="review-submit-button" onClick={openModal}>
+        ADD A REVIEW &nbsp; &nbsp; +
+      </button>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}

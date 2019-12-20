@@ -1,10 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams, Link, Route, Switch } from "react-router-dom";
-import StarRatingContainer from "../overview/containers/StarRatingContainer.jsx";
-import CharacteristicSliders from "./review_breakdown/ReviewBreakdownChars.jsx";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link, Route, Switch } from 'react-router-dom';
+import StarRatingContainer from '../overview/containers/StarRatingContainer.jsx';
+import CharacteristicSliders from './review_breakdown/ReviewBreakdownChars.jsx';
 
-const ReviewBreakdown = props => {
+const ReviewBreakdown = (props) => {
   //console.log('props', props);
   const { prodId } = useParams();
   const [percentReviews, setPercentReviews] = useState({
@@ -81,55 +81,72 @@ const ReviewBreakdown = props => {
         </div>
         <div>
           <h3>% of recommendations</h3>
-          <h3
-            onClick={e => {
-              clickHandler(5);
-            }}
-          >
-            5 stars
-          </h3>
-          <div className="review-progress">
-            <div className="review-bar" style={getPercentage(5)}></div>
+          <div className="star-filter-selectors">
+            <h3
+              className="star-filter-text"
+              onClick={(e) => {
+                clickHandler(5);
+              }}
+            >
+              5 stars
+            </h3>
+            <div className="review-progress">
+              <div className="review-bar" style={getPercentage(5)}></div>
+            </div>
           </div>
-          <h3
-            onClick={e => {
-              clickHandler(4);
-            }}
-          >
-            4 stars
-          </h3>
-          <div className="review-progress">
-            <div className="review-bar" style={getPercentage(4)}></div>
+          <div className="star-filter-selectors">
+            <h3
+              className="star-filter-text"
+              onClick={(e) => {
+                clickHandler(4);
+              }}
+            >
+              4 stars
+            </h3>
+            <div className="review-progress">
+              <div className="review-bar" style={getPercentage(4)}></div>
+            </div>
           </div>
-          <h3
-            onClick={e => {
-              clickHandler(3);
-            }}
-          >
-            3 stars
-          </h3>
-          <div className="review-progress">
-            <div className="review-bar" style={getPercentage(3)}></div>
+          <div className="star-filter-selectors">
+            <h3
+              className="star-filter-text"
+              onClick={(e) => {
+                clickHandler(3);
+              }}
+            >
+              3 stars
+            </h3>
+
+            <div className="review-progress">
+              <div className="review-bar" style={getPercentage(3)}></div>
+            </div>
           </div>
-          <h3
-            onClick={e => {
-              clickHandler(2);
-            }}
-          >
-            2 stars
-          </h3>
-          <div className="review-progress">
-            <div className="review-bar" style={getPercentage(2)}></div>
+          <div className="star-filter-selectors">
+            <h3
+              className="star-filter-text"
+              onClick={(e) => {
+                clickHandler(2);
+              }}
+            >
+              2 stars
+            </h3>
+
+            <div className="review-progress">
+              <div className="review-bar" style={getPercentage(2)}></div>
+            </div>
           </div>
-          <h3
-            onClick={e => {
-              clickHandler(1);
-            }}
-          >
-            1 stars
-          </h3>
-          <div className="review-progress">
-            <div className="review-bar" style={getPercentage(1)}></div>
+          <div className="star-filter-selectors">
+            <h3
+              className="star-filter-text"
+              onClick={(e) => {
+                clickHandler(1);
+              }}
+            >
+              1 &nbsp;stars
+            </h3>
+            <div className="review-progress">
+              <div className="review-bar" style={getPercentage(1)}></div>
+            </div>
           </div>
         </div>
         <div>
