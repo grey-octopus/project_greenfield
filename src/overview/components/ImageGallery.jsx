@@ -97,9 +97,11 @@ const ImageGallery = props => {
       :
       null
 
+    const id = props.isExpanded === false ? 'image-gallery' : 'image-gallery-expanded'
+
     return (
-      <div id='image-gallery' style={inlineStyle}>
-        <i class="fas fa-expand" onClick={}></i>
+      <div id={id} style={inlineStyle}>
+        <i class="fas fa-expand" onClick={() => props.updateExpanded()}></i>
         {upArrow}
         {rightArrow}
         {leftArrow}

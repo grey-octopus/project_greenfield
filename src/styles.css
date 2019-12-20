@@ -392,7 +392,7 @@ tr td.itemValue {
   padding: 3vh;
 }
 
-#image-gallery {
+#image-gallery, #image-gallery-expanded {
   width: 100vh;
   height: 80vh;
   background-repeat: no-repeat;
@@ -400,6 +400,10 @@ tr td.itemValue {
   background-color: gray;
   background-size: auto 100%;
   position: relative;
+}
+
+#image-gallery-expanded {
+  width: 100%;
 }
 
 #image-carousel {
@@ -444,7 +448,7 @@ tr td.itemValue {
   left: 5vh;
   cursor: pointer;
   user-select: none;
-  color: var(--font-color);
+  color: white;
 }
 
 .fa-chevron-down {
@@ -466,6 +470,10 @@ tr td.itemValue {
   justify-content: flex-start;
   margin-left: 3vh;
   margin-top: 3vh;
+}
+
+#prod-info-wrapper-hidden {
+  display: none;
 }
 
 #prod-overview {
@@ -499,7 +507,7 @@ tr td.itemValue {
   top: 50%;
   cursor: pointer;
   user-select: none;
-  color: var(--font-color);
+  color: white;
 }
 
 .fa-arrow-right {
@@ -814,6 +822,7 @@ end of review component styles
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
+  outline: none;
 }
 
 .cart-btns:active {
@@ -837,5 +846,15 @@ end of review component styles
   right: 1vh;
   font-size: 2vh;
   color: white;
-  border: 1px solid var(--font-color)
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  outline: none;
+}
+
+.gallery-img-icon, .gallery-img-icon-selected {
+  width: 5vh;
+  height: 5vh;
+  position: relative;
+  margin-left: 2vh;
 }

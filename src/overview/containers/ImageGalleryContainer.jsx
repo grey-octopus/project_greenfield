@@ -4,7 +4,7 @@ import fetchStyles from '../actions/fetchStyles.js'
 import updatePosition from '../actions/updatePosition.js'
 import updateQueue from '../actions/updateQueue.js'
 import updateSelectedImage from '../actions/updateSelectedImage.js'
-import updateExpanded from '../actions.updateExpanded.js'
+import updateExpanded from '../actions/updateExpanded.js'
 
 const mapStateToProps = state => {
   return {
@@ -13,6 +13,7 @@ const mapStateToProps = state => {
     selectedImage: state.styles.selectedImage,
     position: state.styles.position,
     queue: state.styles.queue,
+    isExpanded: state.imageGallery.isExpanded
   }
 }
 
