@@ -27,9 +27,7 @@ const App = () => {
             <OverviewContainer />
             <RelatedProducts />
             <MyOutfits />
-            <hr />
             <QuestionList />
-            <hr />
             <div id="ratings-reviews">
               <ReviewBreakdown className="review-breakdown" />
               <ReviewBrowser className="review-browser" />
