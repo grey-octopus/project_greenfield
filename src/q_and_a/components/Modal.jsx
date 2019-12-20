@@ -106,14 +106,11 @@ const QAModal = (props) =>{
       })
      .then(
        ()=>{
-        //console.log('sent')
-        //toggleModal(true)
         return axios.get(`http://3.134.102.30/qa/${prodId}?count=200`)
        }
      )
      .then(
        (data)=> {
-         //console.log(data)
          props.setFilter(data.data.results);
          props.setQuestionList(data.data.results);
       
@@ -174,6 +171,12 @@ const QAModal = (props) =>{
               handleInputChange(e);
             }}
           />
+          {props.name === 'answer'?
+            <div>
+              <div>Upload Your Photos:</div>
+              <input type="file" name="photos"></input>
+            </div>:
+            null}
           <br/>
           <input
             name="submit"

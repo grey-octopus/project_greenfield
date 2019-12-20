@@ -35,12 +35,26 @@ const Answer = (props) => {
   const date = moment(props.answer.date).format("MMM Do YY");
   const handleClick = (e)=>{
     if(!clicked){
-      if(helpfulness === "#") {
-        setHelpfulness(1);
-      } else {
-        setHelpfulness(helpfulness + 1);
-      }
-      return axios.put(`http://3.134.102.30/qa/answer/${props.answer.id}/helpful`,{"helpfulness":helpfulness})
+      // if(helpfulness === "#") {
+      //   setHelpfulness(1);
+      // } else {
+      //   setHelpfulness(helpfulness + 1);
+      // }
+      return axios.put(`http://3.134.102.30/qa/answer/${props.answer.id}/helpful`)
+                  .then(
+                    ()=>{
+                      return axios.get(`http://3.134.102.30/qa/${props.questionId}/answers`)
+                    }
+                  ).then(
+                    (data) => {
+                      var results=data.data.results;
+                      for(var item of results) {
+                        if(item.answer_id === props.answer.id){
+                          setHelpfulness(item.helpfulness)
+                        }
+                      }
+                    }
+                  )
     }
 
   }
