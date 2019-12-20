@@ -445,7 +445,7 @@ tr td.itemValue {
 }
 
 .gallery-img-selected {
-  border-bottom: 5px solid blue;
+  border-bottom: 5px solid white;
 }
 
 .gallery-img img {
@@ -876,4 +876,5 @@ end of review component styles
   position: relative;
   margin: 0 0 5vh 5vh;
   color: white;
+  cursor: pointer;
 }
