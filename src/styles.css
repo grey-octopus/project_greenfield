@@ -524,15 +524,16 @@ start of review component styles
 .full-browser {
   width: 50%;
   margin-right: 15%;
-  margin-top: 6%;
+  margin-top: 10%;
   max-height: 100vh;
   margin-bottom: 40px;
 }
 
 .review-browser {
   /* display: inline-block; */
-  margin-top: 15px;
+  /* margin-top: 15px; */
   max-height: 600px;
+
   /* 
   overflow-y: hidden;
   overflow-x: hidden; */
@@ -721,6 +722,7 @@ button {
 
 .review-breakdown {
   /* display: inline-block; */
+  margin-top: 9%;
   width: 30%;
   text-align: left;
   vertical-align: top;
