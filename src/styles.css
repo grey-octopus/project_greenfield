@@ -74,9 +74,6 @@ p {
   white-space: nowrap;
   margin: 50px;
 }
-/* tr.tableHeader td:nth-of-type(2) {
-  border-top: none;
-} */
 button.exitComparisonWindow {
   position: absolute;
   right: 40px;
@@ -94,12 +91,12 @@ button.exitComparisonWindow:hover {
 }
 .FeatureComparisonTable {
   text-align: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-collapse: collapse;
   font-size: 18px;
 }
 .FeatureComparisonTable td {
-  border: 2px solid black;
+  border-bottom: 2px solid black;
   padding-left: 10px;
   padding-right: 10px;
   /* border-collapse: collapse; */
@@ -115,16 +112,18 @@ tr td.itemValue {
 .Modal .comparison-header {
   text-align: center;
 }
-.actionButton-inner .actionButton::before {
+.actionButtonContainer .actionButton {
+  background-image: url(/img/baseline_star_border_black_24dp.png);
+  background-repeat: no-repeat;
   position: absolute;
   top: 8px;
   right: 8px;
-  content: "\f005";
-  border: 2px solid black;
-  color: black;
-  height: 16px;
-  padding: 2px;
-  border-radius: 15px;
+  width: 24px;
+  height: 24px;
+}
+
+.actionButtonContainer .actionButton:hover {
+  filter: invert(50%);
 }
 
 .myOutfitsContainer {
@@ -173,22 +172,20 @@ tr td.itemValue {
   left: 0px;
 }
 .removeCardButton {
+  background-image: url(/img/close-24px.svg);
+  background-repeat: no-repeat;
   position: absolute;
-  background-color: transparent;
-  padding: 2px;
-  border: 2px solid black;
-  border-radius: 15px;
-  box-sizing: content-box;
-  width: 16px;
-  height: 16px;
   top: 8px;
   right: 8px;
-  font-size: 10px;
-  font-weight: 900;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
 }
 .removeCardButton:hover {
-  color: red;
-  border: 2px solid red;
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)
+    brightness(104%) contrast(97%);
+  /* filter: invert(100%); */
 }
 .addProductButton {
   text-align: center;

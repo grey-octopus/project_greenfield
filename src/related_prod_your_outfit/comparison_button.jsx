@@ -8,8 +8,8 @@ const customStyles = {
     textAlign: "center",
     top: "30%",
     right: "30%",
-    left: "30%",
-    bottom: "30%"
+    left: "35%",
+    bottom: "35%"
   }
 };
 
@@ -22,10 +22,9 @@ const ActionButton = ({
 }) => {
   let [isModalOpen, toggleIsModalOpen] = useState(false);
   return (
-    <div className="actionButton-inner far">
+    <div className="actionButtonContainer">
       <div
         className="actionButton"
-        style={{ width: 1 }}
         onClick={() => {
           toggleIsModalOpen(true);
         }}

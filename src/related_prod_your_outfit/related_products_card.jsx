@@ -20,9 +20,16 @@ const RelatedProductsCard = ({
         features={features}
         relatedProdName={name}
       />
-      <div className="cardImage">
-        <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
-      </div>
+      <div
+        style={{
+          backgroundImage: `url(${photoUrl || placeHolderImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "50% 50%",
+          minWidth: "100%",
+          height: "300px"
+        }}
+      ></div>
       <br></br>
       <div className="cardTextContainer">
         <Link to={`/product_details/${id}`}>
@@ -33,7 +40,7 @@ const RelatedProductsCard = ({
             <div className="price">${price}</div>
 
             {Number.isNaN(Number(rating)) || rating == 0 ? (
-              "No Reviews"
+              <div>"No Reviews"</div>
             ) : (
               <StarRating averageRating={rating} />
             )}

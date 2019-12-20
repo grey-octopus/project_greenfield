@@ -26,7 +26,7 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
             requestToChangeActive={setActiveItemIndex}
             activeItemIndex={activeItemIndex}
             numberOfCards={4}
-            gutter={0}
+            gutter={5}
             leftChevron={<button>{"<"}</button>}
             rightChevron={<button>{">"}</button>}
             outsideChevron
