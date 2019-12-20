@@ -45,7 +45,7 @@ const ReviewModal = (props) => {
   }
 
   function afterOpenModal() {
-    subtitle.style.color = '#f00';
+    subtitle.style.color = '#525252';
   }
 
   function closeModal() {
@@ -173,6 +173,7 @@ const ReviewModal = (props) => {
               handleInputChange(e);
             }}
           ></textarea>
+          <div>character numbers</div>
 
           {/* <button>Submit image</button> */}
 
@@ -194,16 +195,20 @@ const ReviewModal = (props) => {
             }}
           />
 
-          <button
-            className="modal-submit"
-            onClick={(e) => {
-              handlePublish(inputForms);
-            }}
-          >
-            Submit!
-          </button>
+          <div className="modal-button-block">
+            <button
+              className="modal-submit"
+              onClick={(e) => {
+                handlePublish(inputForms);
+              }}
+            >
+              Submit!
+            </button>
 
-          <button onClick={closeModal}>close</button>
+            <button className="modal-submit" onClick={closeModal}>
+              close
+            </button>
+          </div>
         </form>
       </Modal>
     </div>
