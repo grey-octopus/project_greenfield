@@ -815,3 +815,11 @@ end of review component styles
   color: white;
   background-color: var(--font-color);
 }
+
+#reviews-link {
+  margin-left: 1vh;
+}
+
+#share-buttons {
+  display: flex;
+}
