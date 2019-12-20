@@ -16,9 +16,25 @@ const customStyles = {
   }
 };
 
+const submittedStyles = {
+  content: {
+    top: '44%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
+
 const ReviewModal = (props) => {
   const [numOfStarsFilled, setNumOfStarsFilled] = useState(0);
-  const [inputForms, setInputForms] = useState({ body: '' });
+  const [inputForms, setInputForms] = useState({
+    body: '',
+    summary: '',
+    nickname: '',
+    email: ''
+  });
   const [userCharRatings, setCharRatings] = useState({});
   const { prodId } = useParams();
 
@@ -44,12 +60,41 @@ const ReviewModal = (props) => {
 
   function handlePublish(info) {
     event.preventDefault();
-    publishReview({
-      prodId: prodId,
-      forms: info,
-      stars: numOfStarsFilled,
-      chars: userCharRatings
-    });
+
+    console.log(info);
+    console.log(info.body.length);
+
+    let verify = true;
+
+    if (info.body.length < 50) {
+      verify = false;
+      console.log(info.body.length);
+      console.log('body absent');
+    }
+    if (info.summary.length === 0) {
+      verify = false;
+      console.log('summary absent');
+    }
+    if (info.nickname.length === 0) {
+      verify = false;
+      console.log('name absent');
+    }
+    if (info.email.length === 0) {
+      verify = false;
+      console.log('email absent');
+    }
+
+    if (verify === true) {
+      publishReview({
+        prodId: prodId,
+        forms: info,
+        stars: numOfStarsFilled,
+        chars: userCharRatings
+      });
+      closeModal();
+    } else {
+      console.log('missing mandatory fields');
+    }
   }
 
   //0 star = 0

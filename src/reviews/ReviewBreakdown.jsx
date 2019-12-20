@@ -79,11 +79,12 @@ const ReviewBreakdown = (props) => {
     //console.log('percents from state: ', percentReviews);
     return (
       <div className="review-breakdown">
-        <div className="review-breakdown-star-block">
-          <h2>{props.averageRating}</h2>
-          <StarRatingContainer />
+        <div>
+          <div className="review-breakdown-star-block">
+            <h2 id="review-breakdown-average">{props.averageRating}</h2>
+          </div>
+          <StarRatingContainer id="review-breakdown-average-stars" />
         </div>
-
         <div>
           <p>average review and stars</p>
         </div>
