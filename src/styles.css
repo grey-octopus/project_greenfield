@@ -2,6 +2,8 @@
   --primary-font: "Poppins", "sans-serif";
   --font-color: #525252;
   --font-light: #707070;
+  /* background-image: url(/img/snowflake-img.jpg);
+  background-repeat: repeat; */
 }
 
 body {
@@ -79,7 +81,7 @@ button.exitComparisonWindow {
   right: 40px;
   top: 40px;
   font-size: 20px;
-  border-radius: 50px;
+  border-radius: 100%;
   padding: 0.5vh;
   width: 3.2vh;
   border: 2px solid black;
