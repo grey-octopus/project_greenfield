@@ -11,6 +11,8 @@ import { myOutfitReducer } from './related_prod_your_outfit/reducers/my_outfit.j
 import fetchReviewMetadataReducer from './reviews/review_reducers/fetchReviewMetadataReducer.js';
 import stylesReducer from './overview/reducers/stylesReducer.js';
 import filterReviewsReducer from './reviews/review_reducers/filterReviewsReducer.js';
+import ImageGalleryReducer from './overview/reducers/imageGalleryReducer.js'
+import imageGalleryReducer from './overview/reducers/imageGalleryReducer.js';
 
 const rootReducer = combineReducers({
   averageRatingReducer,
@@ -24,6 +26,7 @@ const rootReducer = combineReducers({
   fetchReviewMetadataReducer,
   handleCountChangeReducer,
   styles: stylesReducer,
+  imageGallery: imageGalleryReducer,
   filterReviewsReducer
 });
 
