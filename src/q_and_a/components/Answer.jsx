@@ -28,18 +28,19 @@ const spaceStyle={
 const underlineStyle={
   textDecoration: 'underline',
 }
+const reportedStyle={
+  borderLeft:'6px solid',
+  borderColor: '#2196F3',
+  backgroundColor:'#ddffff'
+}
 
 const Answer = (props) => {
   const [helpfulness,setHelpfulness] = useState(props.answer.helpfulness);
   const [clicked,setClicked] = useState(false);
+  const [reported,setReported] = useState(false);
   const date = moment(props.answer.date).format("MMM Do YY");
   const handleClick = (e)=>{
     if(!clicked){
-      // if(helpfulness === "#") {
-      //   setHelpfulness(1);
-      // } else {
-      //   setHelpfulness(helpfulness + 1);
-      // }
       return axios.put(`http://3.134.102.30/qa/answer/${props.answer.id}/helpful`)
                   .then(
                     ()=>{
@@ -58,8 +59,24 @@ const Answer = (props) => {
     }
 
   }
+
+  const handleReport = ()=> {
+    if(!reported){
+      return axios.put(`http://3.134.102.30/qa/answer/${props.answer.id}/report`)
+                  .then(
+                    ()=>{
+                      return axios.get(`http://3.134.102.30/qa/${props.questionId}/answers`)
+                    }
+                  ).then(
+                    () => {
+                      setReported(true)
+                    }
+                  )
+    }
+  }
   return (
     <div style={{marginBottom: '15px'}}>
+      {reported? <div style={reportedStyle}>It's been reported!</div>:null}
       <span style={answerAStyle}>A:</span> 
       <span style={answerStyle}>{props.answer.body}</span><br/>
       {props.answer.photos.length > 0 ?
@@ -81,7 +98,11 @@ const Answer = (props) => {
       </span>
       ({helpfulness||"#"})
       <span style={spaceStyle}>|</span>
-      <span style={underlineStyle}>Report</span>
+      <span 
+        onClick={(e)=>{
+          handleReport(e)
+        }}
+        style={underlineStyle}>Report</span>
       </span>
       
     </div>
