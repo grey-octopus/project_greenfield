@@ -6,10 +6,21 @@ import { useParams } from "react-router-dom";
 import AddAQuestion from "./AddAQuestion";
 import axios from "axios";
 
+const containerStyle={
+    marginLeft:'15%',
+    marginRight:'15%'
+}
+const scrollStyle={
+    overflow: 'scroll',
+    height: '500px',
+    paddingRight: '20px',
+    paddingBottom: '35px'
+}
+
 const inputStyle ={
   width: '100%',
   padding: '12px 20px',
-  marginTop: '10px',
+  marginTop: '20px',
   marginBottom: '20px',
   display: 'inline-block',
   border: '1px solid #ccc',
@@ -65,7 +76,7 @@ const QuestionList = props => {
     const total = filteredList.length;
     //console.log(total)
     return (
-      <div style={{ marginLeft:'15%', marginRight:'15%'}}>
+      <div style={containerStyle}>
         <div id="searchBar">
           <input 
           style={inputStyle}
@@ -88,7 +99,7 @@ const QuestionList = props => {
           />
         </div>
         
-        <div>
+        <div style={scrollStyle}>
           {filteredList.length !==0 ? 
             filteredList
             .map((q, i) => {

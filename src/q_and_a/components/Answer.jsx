@@ -3,13 +3,29 @@ import axios from 'axios';
 var moment = require('moment');
 
 const answerStyle={
-  fontSize: '16px',
+  fontSize: '15px',
+  paddingTop: '40px',
+  marginBottom: '20px',
   color: '#525252'
 }
 const answerAStyle={
   fontWeight: 'bold',
   fontSize: '16px',
-  color: '#525252'
+  color: '#525252',
+  marginRight:'10px'
+}
+const subStyle={
+  fontSize: '14px',
+  color: '#525252',
+  marginLeft:'26px'
+}
+
+const spaceStyle={
+  marginRight:'10px',
+  marginLeft:'10px'
+}
+const underlineStyle={
+  textDecoration: 'underline',
 }
 
 const Answer = (props) => {
@@ -28,15 +44,27 @@ const Answer = (props) => {
 
   }
   return (
-    <div>
+    <div style={{marginBottom: '20px'}}>
       <span style={answerAStyle}>A:</span> 
       <span style={answerStyle}>{props.answer.body}</span><br/>
-      by {props.answer.answerer_name}, {date} 
-      | Helpful?<span id={props.answer.id} onClick={(e)=>{
-                                             handleClick(e)
-                                             setClicked(true);
-                                             }}>Yes</span>({helpfulness||"#"})
-      | <span>Report</span>
+      <span style={subStyle}><i>by</i> {props.answer.answerer_name}, {date} 
+      <span style={spaceStyle}>|</span>
+      Helpful?
+      <span 
+          id={props.answer.id} 
+          onClick={(e)=>{
+             handleClick(e)
+             setClicked(true);
+          }}
+          style={underlineStyle}
+      >
+        Yes
+      </span>
+      ({helpfulness||"#"})
+      <span style={spaceStyle}>|</span>
+      <span style={underlineStyle}>Report</span>
+      </span>
+      
     </div>
   )
 }

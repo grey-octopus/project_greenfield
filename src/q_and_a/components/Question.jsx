@@ -11,8 +11,17 @@ const questionStyle={
 }
 const helpfulnessStyle={
     fontSize: '12px',
-    justyfyContent: 'flex-end'
+    float: 'right'
 }
+
+const underlineStyle={
+    textDecoration: 'underline',
+}
+const spaceStyle={
+    marginRight:'10px',
+    marginLeft:'10px'
+  }
+
 
 const Question = (props) => {
     //console.log('hello',props)
@@ -33,8 +42,10 @@ const Question = (props) => {
     return (
         <div 
             id={props.question.question_id}
+            style={{marginBottom:'2%'}}
         >
-            <span style={questionStyle}>Q:
+            <span style={questionStyle}>
+            <span style={{marginRight:'10px'}}>Q:</span>
             <Highlighter
               searchWords={props.searchTerm.length >=3? [props.searchTerm]:[""]}
               autoEscape={true}
@@ -44,11 +55,21 @@ const Question = (props) => {
             </Highlighter>
             </span>
            
-            <span style={helpfulnessStyle}>Helpful?<span onClick={(e)=>{
-                                handleClick(e);
-                                setClicked(true);
-                                }}>Yes</span>({helpfulness||"#"})
-            | <AddAnAnswer 
+            <span style={helpfulnessStyle}>Helpful?
+                <span 
+                  onClick={
+                    (e)=>{
+                      handleClick(e);
+                      setClicked(true);
+                  }}
+                  style={underlineStyle}>
+                    Yes
+                  </span>
+                  <span>
+                    ({helpfulness||"#"})
+                  </span>
+                  <span style={spaceStyle}>|</span>
+            <AddAnAnswer 
                 setQuestionList={props.setQuestionList}
                 setFilter={props.setFilter}
                 questionId={props.question.question_id}/></span>
