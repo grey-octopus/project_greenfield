@@ -6,12 +6,22 @@ import { useParams } from "react-router-dom";
 import AddAQuestion from "./AddAQuestion";
 import axios from "axios";
 
-
+const containerStyle={
+    marginLeft:'15%',
+    marginRight:'15%'
+}
+const scrollStyle={
+    overflow: 'scroll',
+    height: '500px',
+    paddingRight: '20px',
+    paddingBottom: '35px'
+}
 
 const inputStyle ={
-  width: '80%',
+  width: '100%',
   padding: '12px 20px',
-  margin: '12px 10px',
+  marginTop: '20px',
+  marginBottom: '20px',
   display: 'inline-block',
   border: '1px solid #ccc',
   //borderRadius: '4px',
@@ -24,7 +34,7 @@ const inputStyle ={
       
 }
 const buttonStyle = {
-  width: '30%',
+  width: '280px',
   backgroundColor: 'white',
   color: 'black',
   border: '1px solid',
@@ -33,7 +43,9 @@ const buttonStyle = {
   textDecoration: 'none',
   display: 'inline-block',
   fontSize: '14px',
-  margin: '18px 2px',
+  marginTop: '10px',
+  marginRight: '18px',
+  height: '46px',
   cursor: 'pointer',
   fontWeight: 'bold'
 }
@@ -51,20 +63,20 @@ const QuestionList = props => {
   let filtered;
 
   useEffect(() => {
-    axios.get(`http://3.134.102.30/qa/${prodId}?count=20`).then(
+    axios.get(`http://3.134.102.30/qa/${prodId}?count=200`).then(
             (data) => {
                 setFilter(data.data.results);
                 setQuestionList(data.data.results);
             }
         )
-  }, []);
+  }, [prodId]);
 
   
   if (questionList && questionList.length !== 0) {
     const total = filteredList.length;
     //console.log(total)
     return (
-      <div>
+      <div style={containerStyle}>
         <div id="searchBar">
           <input 
           style={inputStyle}
@@ -87,12 +99,18 @@ const QuestionList = props => {
           />
         </div>
         
-        <div>
+        <div style={scrollStyle}>
           {filteredList.length !==0 ? 
             filteredList
             .map((q, i) => {
               return (
-                <Question key={q.question_id} question={filteredList[i]} searchTerm={searchTerm}/>
+                <Question 
+                  key={q.question_id} 
+                  question={filteredList[i]} 
+                  searchTerm={searchTerm}
+                  setQuestionList={setQuestionList}
+                  setFilter={setFilter}
+                />
               );
             })
             .slice(0, count):
@@ -105,13 +123,16 @@ const QuestionList = props => {
             </button>
           ) : null}
           <AddAQuestion 
+            // filteredList={filteredList}
             setQuestionList={setQuestionList}
             setFilter={setFilter}/></div>
         </div>
       </div>
     );
   } else {
-    return <div>AddAQuestion</div>;
+    return (<AddAQuestion 
+    setQuestionList={setQuestionList}
+    setFilter={setFilter}/>);
   }
 };
 

@@ -33,7 +33,7 @@ const MyOutfits = ({
             requestToChangeActive={setActiveItemIndex}
             activeItemIndex={activeItemIndex}
             numberOfCards={4}
-            gutter={20}
+            gutter={5}
             leftChevron={<button>{"<"}</button>}
             rightChevron={<button>{">"}</button>}
             chevronWidth={chevronWidth}
@@ -89,10 +89,14 @@ const mapStateToProps = state => {
     myOutfit: state.myOutfit,
     currentItem: state.fetchProductInfoReducer,
     currentItemRating: state.averageRatingReducer.averageRating,
-    photoUrl: state.styles.styles
-      ? state.styles.styles[state.styles.selected].photos[
-          state.styles.selectedImage
-        ].thumbnail_url
+    photoUrl: state.styles
+      ? state.styles.styles
+        ? state.styles.styles[state.styles.selected].photos
+          ? state.styles.styles[state.styles.selected].photos[
+              state.styles.selectedImage
+            ].thumbnail_url
+          : null
+        : null
       : null
   };
 };

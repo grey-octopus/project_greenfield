@@ -1,5 +1,5 @@
 :root {
-  --primary-font: 'Poppins', 'sans-serif';
+  --primary-font: "Poppins", "sans-serif";
   --font-color: #525252;
   --font-light: #707070;
 }
@@ -52,7 +52,7 @@ p {
 }
 
 .stars-outer::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
   color: var(--font-color);
 }
 
@@ -66,17 +66,14 @@ p {
 }
 
 .stars-inner::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
 }
 
 .relatedProductsContainer {
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 50px;
+  margin: 100px;
 }
-/* tr.tableHeader td:nth-of-type(2) {
-  border-top: none;
-} */
 button.exitComparisonWindow {
   position: absolute;
   right: 40px;
@@ -94,14 +91,15 @@ button.exitComparisonWindow:hover {
 }
 .FeatureComparisonTable {
   text-align: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-collapse: collapse;
   font-size: 18px;
 }
 .FeatureComparisonTable td {
-  border: 2px solid black;
+  border-bottom: 2px solid black;
   padding-left: 10px;
   padding-right: 10px;
+  width: 175px;
   /* border-collapse: collapse; */
 }
 .FeatureComparisonTable tr.tableHeader td {
@@ -115,22 +113,24 @@ tr td.itemValue {
 .Modal .comparison-header {
   text-align: center;
 }
-.actionButton-inner .actionButton::before {
+.actionButtonContainer .actionButton {
+  background-image: url(/img/baseline_star_border_black_24dp.png);
+  background-repeat: no-repeat;
   position: absolute;
   top: 8px;
   right: 8px;
-  content: '\f005';
-  border: 2px solid black;
-  color: black;
-  height: 16px;
-  padding: 2px;
-  border-radius: 15px;
+  width: 24px;
+  height: 24px;
+}
+
+.actionButtonContainer .actionButton:hover {
+  filter: invert(50%);
 }
 
 .myOutfitsContainer {
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 50px;
+  margin: 100px;
 }
 .card {
   display: inline-block;
@@ -167,28 +167,31 @@ tr td.itemValue {
   padding: 3px;
   margin: 0px;
   text-align: left;
+  /* border-bottom: transparent; */
   white-space: normal;
   position: absolute;
   bottom: 0px;
   left: 0px;
 }
+.cardText:hover,
+.cardText:focus {
+  text-decoration: underline;
+}
 .removeCardButton {
+  background-image: url(/img/close-24px.svg);
+  background-repeat: no-repeat;
   position: absolute;
-  background-color: transparent;
-  padding: 2px;
-  border: 2px solid black;
-  border-radius: 15px;
-  box-sizing: content-box;
-  width: 16px;
-  height: 16px;
   top: 8px;
   right: 8px;
-  font-size: 10px;
-  font-weight: 900;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
 }
 .removeCardButton:hover {
-  color: red;
-  border: 2px solid red;
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)
+    brightness(104%) contrast(97%);
+  /* filter: invert(100%); */
 }
 .addProductButton {
   text-align: center;
@@ -252,7 +255,7 @@ tr td.itemValue {
 }
 
 .feature-check::before {
-  content: '\f00c \00a0\00a0';
+  content: "\f00c \00a0\00a0";
 }
 
 #ratings-reviews {
@@ -413,7 +416,8 @@ tr td.itemValue {
   user-select: none;
 }
 
-.gallery-img {
+.gallery-img,
+.gallery-img-selected {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -427,6 +431,10 @@ tr td.itemValue {
   background-color: var(--font-color);
   border: 1px solid black;
   cursor: pointer;
+}
+
+.gallery-img-selected {
+  border-bottom: 5px solid blue;
 }
 
 .gallery-img img {
@@ -745,7 +753,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: '\f005  ';
+  content: "\f005  ";
   color: var(--font-color);
 }
 
@@ -760,7 +768,7 @@ button {
 }
 
 .single-stars-inner::before {
-  content: '\f005  ';
+  content: "\f005  ";
 }
 .inline-div {
   display: inline-block;
@@ -822,4 +830,14 @@ end of review component styles
 .cart-btns:active {
   color: white;
   background-color: var(--font-color);
+}
+
+#reviews-link {
+  margin-left: 1vh;
+}
+
+#share-buttons {
+  display: flex;
+  justify-content: flex-start;
+  width: 30%;
 }

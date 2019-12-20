@@ -6,10 +6,16 @@ import Modal from "react-modal";
 const customStyles = {
   content: {
     textAlign: "center",
-    top: "30%",
-    right: "30%",
-    left: "30%",
-    bottom: "30%"
+    // top: "30%",
+    // right: "30%",
+    // left: "40%",
+    // bottom: "40%"
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
   }
 };
 
@@ -22,10 +28,9 @@ const ActionButton = ({
 }) => {
   let [isModalOpen, toggleIsModalOpen] = useState(false);
   return (
-    <div className="actionButton-inner far">
+    <div className="actionButtonContainer">
       <div
         className="actionButton"
-        style={{ width: 1 }}
         onClick={() => {
           toggleIsModalOpen(true);
         }}

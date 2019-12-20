@@ -24,7 +24,6 @@ const handleUpClick = (e, props) => {
 const handleRightClick = (e, props) => {
   const photos = props.styles[props.selected].photos
   props.updateSelectedImage(props.selectedImage + 1)
-  console.log('SELECTED: ', props.selectedImage, 'QUEUE: ', props.queue.top)
   // if selected image is past carousel end, adjust carousel
   if (props.selectedImage + 1 > props.queue.top - 2) {
     props.queue.push(photos[props.selectedImage + 1])
@@ -32,14 +31,12 @@ const handleRightClick = (e, props) => {
     newQueue.push = props.queue.push
     newQueue.inject = props.queue.inject
     props.updateQueue(newQueue)
-    console.log(props.queue)
   }
 }
 
 const handleLeftClick = (e, props) => {
   const photos = props.styles[props.selected].photos
   props.updateSelectedImage(props.selectedImage - 1)
-  console.log(props.selectedImage - 1, props.queue.bottom)
   if (props.selectedImage - 1 < props.queue.bottom) {
     props.queue.inject(photos[props.selectedImage - 1])
     const newQueue = JSON.parse(JSON.stringify(props.queue))
@@ -73,6 +70,7 @@ const ImageGallery = props => {
     </i>
     :
     null
+    
     const upArrow = !props.queue.queue[0] ?
       <i 
         id='up-arrow'
@@ -81,7 +79,7 @@ const ImageGallery = props => {
       </i>
       :
       null
-      console.log(props.selectedImage, photos.length - 1)
+
       const rightArrow = 
       props.selectedImage === photos.length - 1 ? // end of photos 
       null

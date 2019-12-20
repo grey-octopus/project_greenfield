@@ -27,12 +27,17 @@ const MyOutfitsCard = ({
         onClick={() => {
           removeItem(id);
         }}
-      >
-        X
-      </button>
-      <div className="cardImage">
-        <img src={photoUrl || placeHolderImage} alt="my outfits image"></img>
-      </div>
+      ></button>
+      <div
+        style={{
+          backgroundImage: `url(${photoUrl || placeHolderImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "50% 50%",
+          minWidth: "100%",
+          height: "300px"
+        }}
+      ></div>
       <br></br>
       <Link to={`/product_details/${id}`}>
         <div className="cardTextContainer">
