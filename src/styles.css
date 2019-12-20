@@ -2,6 +2,8 @@
   --primary-font: 'Poppins', 'sans-serif';
   --font-color: #525252;
   --font-light: #707070;
+  /* background-image: url(/img/snowflake-img.jpg);
+  background-repeat: repeat; */
 }
 
 body {
@@ -72,14 +74,14 @@ p {
 .relatedProductsContainer {
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 100px;
+  margin: 150px;
 }
 button.exitComparisonWindow {
   position: absolute;
   right: 40px;
   top: 40px;
   font-size: 20px;
-  border-radius: 50px;
+  border-radius: 100%;
   padding: 0.5vh;
   width: 3.2vh;
   border: 2px solid black;
@@ -91,7 +93,6 @@ button.exitComparisonWindow:hover {
 }
 .FeatureComparisonTable {
   text-align: center;
-  /* border: 2px solid black; */
   border-collapse: collapse;
   font-size: 18px;
 }
@@ -100,7 +101,6 @@ button.exitComparisonWindow:hover {
   padding-left: 10px;
   padding-right: 10px;
   width: 175px;
-  /* border-collapse: collapse; */
 }
 .FeatureComparisonTable tr.tableHeader td {
   font-weight: 800;
@@ -130,15 +130,15 @@ tr td.itemValue {
 .myOutfitsContainer {
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 100px;
+  margin: 150px;
 }
 .card {
   display: inline-block;
   margin: 10px;
   overflow: hidden;
   text-align: center;
-  border: 2px solid #9b9b9b;
-  color: #525252;
+  border: 2px solid var(--font-light);
+  color: var(--font-color);
   position: relative;
   width: 12vw;
   height: 400px;
@@ -167,7 +167,6 @@ tr td.itemValue {
   padding: 3px;
   margin: 0px;
   text-align: left;
-  /* border-bottom: transparent; */
   white-space: normal;
   position: absolute;
   bottom: 0px;
@@ -191,7 +190,6 @@ tr td.itemValue {
 .removeCardButton:hover {
   filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)
     brightness(104%) contrast(97%);
-  /* filter: invert(100%); */
 }
 .addProductButton {
   text-align: center;
