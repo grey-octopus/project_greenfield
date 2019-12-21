@@ -12,7 +12,6 @@ function Characteristics(props) {
     Fit: 'none selected'
   });
   if (props.characteristics) {
-    console.log(props.characteristics);
     let temp = Object.keys(props.characteristics);
     let chars = [];
     for (let i = 0; i < temp.length; i++) {
@@ -73,14 +72,7 @@ function Characteristics(props) {
 
       const selection = options[event.target.name][event.target.value];
 
-      // console.log(options);
-      // console.log('name', event.target.name);
-      // console.log('value', event.target.value);
-      console.log(options[event.target.name]);
-
       setRatingMeaning({ ...ratingMeaning, [event.target.name]: selection });
-
-      console.log(event.target.name);
 
       props.setCharRatings({
         ...props.userCharRatings,
