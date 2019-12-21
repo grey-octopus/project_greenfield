@@ -9,11 +9,6 @@ const ReviewItem = (props) => {
     leadUp: 'Was this helpful?'
   });
   const date = moment(props.stats.date).format('MMM Do YY');
-  console.log('stats', props.stats);
-
-  function handleClick(stats) {
-    //console.log('handle card click', stats);
-  }
 
   const StarRating = (stars) => {
     //1 star = 20
@@ -39,7 +34,6 @@ const ReviewItem = (props) => {
   };
 
   function markHelpful(stats) {
-    //console.log(stats.review_id);
     if (markedHelpful.text === 'yes') {
       markReviewAsHelpful(stats.review_id);
       setMarkedHelpful({ text: 'Helpful: ' });
@@ -48,10 +42,7 @@ const ReviewItem = (props) => {
   }
 
   function report(stats) {
-    //console.log(stats.review_id);
     reportReview(stats.review_id);
-
-    //next show banner indicating that it has been reported
   }
 
   return (
@@ -72,7 +63,6 @@ const ReviewItem = (props) => {
         <h3
           className="click-text"
           onClick={(event) => {
-            //console.log(props.stats);
             markHelpful(props.stats);
           }}
         >
@@ -93,5 +83,3 @@ const ReviewItem = (props) => {
 };
 
 export default ReviewItem;
-
-// <p>{`date: ${date}`}</p>

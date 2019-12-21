@@ -48,23 +48,25 @@ function CharacteristicSliders(props) {
     }
   };
 
+  console.log('chars', props.characteristics);
   let charRender = [];
   for (let i in props.characteristics) {
     //console.log('props.:', props.characteristics[i].value);
     //console.log(i);
     let value = props.characteristics[i].value;
-    let carrotLoc = Math.floor(value * 60);
+    if (value === null) value = 2.5;
+    let carrotLoc = (value * 100) / 5;
     // console.log(value);
     // console.log(carrotLoc);
 
     //0 - 180
     //console.log(carrotLoc);
-    let carrotStyle = { left: `${carrotLoc}px`, top: '-9px' };
+    let carrotStyle = { left: `${carrotLoc}%`, top: '-9px' };
 
     charRender.push(
       <div className="full-slider">
         <div>
-          <h3 style={{ 'fontSize': 0.9 + 'em' }}>{i}</h3>
+          <h3 style={{ fontSize: 0.9 + 'em' }}>{i}</h3>
         </div>
         <div className="char-slider">
           <i className="fas fa-caret-down" style={carrotStyle}></i>
@@ -77,8 +79,9 @@ function CharacteristicSliders(props) {
         </div>
         <div className="slider-labels">
           <div className="slider-label">{options[i][1]}</div>
+
+          <div className="slider-label-end">{options[i][5]} </div>
         </div>
-        <div className="slider-label-end">{options[i][5]} </div>
       </div>
     );
   }
