@@ -1,39 +1,38 @@
-import React, { useEffect, useState } from "react";
-import Question from "./Question"
+import React, { useEffect, useState } from 'react';
+import Question from './Question';
 
-const Search = (props) => {
-  const [searchTerm, setSearchTerm] = useState("");
+const Search = props => {
+  const [searchTerm, setSearchTerm] = useState('');
   const [questionList, setQuestionList] = useState(props.questionList);
-  useEffect(()=>{
-    
-  })
+  useEffect(() => {});
   let filtered;
   return (
     <div>
-      <input 
-        type="text"
-        placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
-        onChange={(e)=>{
+      <input
+        className='question-search'
+        type='text'
+        placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
+        onChange={e => {
           let term = e.target.value.toLowerCase();
           setSearchTerm(term);
-          if(term.length >= 3){
-            filtered = props.questionList.filter(
-              (q) => {
-                console.log("term",term)
-                return q.question_body.toLowerCase().includes(term)
-              })
-            console.log("filtered",filtered)
+          if (term.length >= 3) {
+            filtered = props.questionList.filter(q => {
+              return q.question_body.toLowerCase().includes(term);
+            });
             setQuestionList(filtered);
-            questionList.map((q,i) =>{
+            questionList.map((q, i) => {
               return (
-                <Question key={q.question_id} question={props.questionList[i]} />
+                <Question
+                  key={q.question_id}
+                  question={props.questionList[i]}
+                />
               );
-            })
+            });
           }
         }}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

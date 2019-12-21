@@ -1,24 +1,19 @@
-import { connect } from "react-redux";
-import fetchQuestionList from "../actions/fetchQuestionList.js";
-import QuestionList from "../components/QuestionList.jsx";
-import handleCountChange from "../actions/handleCountChange.js";
+import { connect } from 'react-redux';
+import fetchQuestionList from '../actions/fetchQuestionList.js';
+import QuestionList from '../components/QuestionList.jsx';
 
-const mapStateToProps = (state) => {
-    return {
-        questionList: state.fetchQuestionListReducer.questionList,
-        //count: state.fetchQuestionListReducer.count
+const mapStateToProps = state => {
+  return {
+    questionList: state.fetchQuestionListReducer.questionList
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchQuestionList: prodId => {
+      dispatch(fetchQuestionList(prodId));
     }
-}
+  };
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchQuestionList: (prodId) => {
-            dispatch(fetchQuestionList(prodId))
-        }
-        // handleCountChange: (count) => {
-        //     dispatch(handleCountChange(count))
-        // }
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(QuestionList);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionList);
