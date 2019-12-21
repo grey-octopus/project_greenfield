@@ -7,8 +7,10 @@ import { useParams, Link, Route, Switch } from 'react-router-dom';
 import publishReview from './apiHelpers.js';
 
 const ReviewBrowser = (props) => {
+  let checkStyle = { visibility: 'visible' };
   const { prodId } = useParams();
   const [pagination, setPagination] = useState({ page: 2 });
+  //const [pagination, setPagination] = useState({ page: 2 });
 
   useEffect(() => {
     props.fetchReviewList({
@@ -22,11 +24,18 @@ const ReviewBrowser = (props) => {
 
   function handlePaginateReviewList() {
     //console.log('paginate reviews');
-
+    console.log('checkstyle', checkStyle);
     let pageUp = pagination.page + 2;
 
-    setPagination({ page: pageUp });
-    //console.log('page', pagination);
+    if (pagination.page >= props.reviews.length) {
+      checkStyle = { visibility: 'hidden' };
+    } else {
+      setPagination({ page: pageUp });
+      //need to figure out how many reviews we have
+      //console.log('reviews number', props.reviews.length);
+      //if (pageUp >= )
+      //console.log('page', pagination);
+    }
   }
 
   function handleSelectChange(e) {
@@ -89,6 +98,7 @@ const ReviewBrowser = (props) => {
           <div className="browser-button-block">
             <button
               id="review-paginate-button"
+              style={checkStyle}
               type="button"
               onClick={handlePaginateReviewList}
             >
