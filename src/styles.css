@@ -389,6 +389,10 @@ tr td.itemValue {
   right: 0;
 }
 
+.fa-circle {
+  color: var(--font-color);
+}
+
 .disabled {
   display: none;
 }
