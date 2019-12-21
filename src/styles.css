@@ -1,5 +1,5 @@
 :root {
-  --primary-font: 'Poppins', 'sans-serif';
+  --primary-font: "Poppins", "sans-serif";
   --font-color: #525252;
   --font-light: #707070;
   /* background-image: url(/img/snowflake-img.jpg);
@@ -54,7 +54,7 @@ p {
 }
 
 .stars-outer::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
   color: var(--font-color);
 }
 
@@ -68,7 +68,7 @@ p {
 }
 
 .stars-inner::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
 }
 
 .relatedProductsContainer {
@@ -82,8 +82,8 @@ button.exitComparisonWindow {
   top: 40px;
   font-size: 20px;
   border-radius: 100%;
-  padding: 0.5vh;
-  width: 3.2vh;
+  width: 40px;
+  height: 40px;
   border: 2px solid black;
   background-color: transparent;
 }
@@ -253,7 +253,7 @@ tr td.itemValue {
 }
 
 .feature-check::before {
-  content: '\f00c \00a0\00a0';
+  content: "\f00c \00a0\00a0";
 }
 
 #ratings-reviews {
@@ -798,7 +798,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: '\f005  ';
+  content: "\f005  ";
   color: var(--font-color);
 }
 
@@ -813,7 +813,7 @@ button {
 }
 
 .single-stars-inner::before {
-  content: '\f005  ';
+  content: "\f005  ";
 }
 .inline-div {
   display: inline-block;
