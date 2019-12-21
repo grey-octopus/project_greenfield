@@ -859,6 +859,10 @@ button {
 .click-text {
   text-decoration: underline;
 }
+
+#report-text {
+  margin-left: 40px;
+}
 /*
  end of review component styles
  */
