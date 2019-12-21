@@ -18,7 +18,7 @@ npm run build-prod
 
 ## Running
 
-open http://localhost:3000//product_details/25 in a browser of your choice.
+open http://localhost:3000/product_details/25 in a browser of your choice.
 changing the number at the end of the url will change the product you are viewing.
 
 **make sure that redux devtools are removed from store.js, or the page will only load in a browser with the devtools installed.**
