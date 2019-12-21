@@ -4,7 +4,10 @@ import { markReviewAsHelpful, reportReview } from './apiHelpers';
 var moment = require('moment');
 
 const ReviewItem = (props) => {
-  const [markedHelpful, setMarkedHelpful] = useState({ text: 'yes' });
+  const [markedHelpful, setMarkedHelpful] = useState({
+    text: 'yes',
+    leadUp: 'Was this helpful?'
+  });
   const date = moment(props.stats.date).format('MMM Do YY');
   console.log('stats', props.stats);
 
@@ -40,6 +43,7 @@ const ReviewItem = (props) => {
     if (markedHelpful.text === 'yes') {
       markReviewAsHelpful(stats.review_id);
       setMarkedHelpful({ text: 'Helpful: ' });
+      props.stats.helpfulness++;
     }
   }
 
@@ -64,7 +68,7 @@ const ReviewItem = (props) => {
         <p className="review-body-text ">{props.stats.body}</p>
       </div>
       <div className="helpful-report">
-        <h3>Was this helpful?&nbsp;</h3>
+        <h3>{markedHelpful.leadUp}&nbsp;</h3>
         <h3
           className="click-text"
           onClick={(event) => {
