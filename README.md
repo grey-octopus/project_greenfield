@@ -1,10 +1,8 @@
 # Shop.ly
 
-Shop.ly is a dynamic online shopping platform product page.
+Shop.ly is a dynamic page for an online shopping platform.
 
 ## Building and running on localhost
-
-First install dependencies:
 
 ```bash
 npm install
