@@ -14,17 +14,13 @@ const publishReview = (content) => {
       characteristics: content.chars
     }
   })
-    .then((res) => {
-      console.log('response from api:');
-      console.log(res);
-    })
+    .then((res) => {})
     .catch((err) => {
       console.log('api error');
     });
 };
 
 const markReviewAsHelpful = (id) => {
-  console.log('make review helpful: ' + id);
   return axios({
     method: 'PUT',
     url: `http://3.134.102.30/reviews/helpful/${id}`,
@@ -32,17 +28,13 @@ const markReviewAsHelpful = (id) => {
       review_id: id
     }
   })
-    .then((res) => {
-      console.log('response from api:');
-      console.log(res);
-    })
+    .then((res) => {})
     .catch((err) => {
       console.log('api error');
     });
 };
 
 const reportReview = (id) => {
-  console.log('report review: ' + id);
   return axios({
     method: 'PUT',
     url: `http://3.134.102.30/reviews/report/${id}`,
@@ -50,10 +42,7 @@ const reportReview = (id) => {
       review_id: id
     }
   })
-    .then((res) => {
-      console.log('response from api:');
-      console.log(res);
-    })
+    .then((res) => {})
     .catch((err) => {
       console.log('api error');
     });

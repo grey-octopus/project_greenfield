@@ -710,7 +710,7 @@ start of review component styles
 }
 
 .modal-button-block {
-  margin-top: -20px;
+  /* margin-top: -20px; */
 }
 
 .modal-submit {
