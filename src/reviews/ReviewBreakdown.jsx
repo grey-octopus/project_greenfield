@@ -6,6 +6,8 @@ import CharacteristicSliders from './review_breakdown/ReviewBreakdownChars.jsx';
 
 const ReviewBreakdown = (props) => {
   //console.log('props', props);
+  let adjustedAverageReviewRating = props.averageRating;
+  console.log('type of adjusted', adjustedAverageReviewRating);
   const { prodId } = useParams();
   const [percentReviews, setPercentReviews] = useState({
     1: { percentage: 0 },
@@ -24,17 +26,10 @@ const ReviewBreakdown = (props) => {
   }
 
   function calculateBar() {
-    //console.log('calculate bar');
-
     if (props.ratings[1] !== undefined && percentReviews.done !== true) {
       let max = 0;
       let maxStar = 0;
       let mem = { 1: {}, 2: {}, 3: {}, 4: {}, 5: {}, done: true };
-
-      console.log('ratings', props.ratings);
-      //props.ratings[1] === undefined ? mem = { 1: {}, 2: {}, 3: {}, 4: {}, 5: {}, done: true };
-
-      //if (props.ratings[1] === undefined) {
 
       for (let i in props.ratings) {
         if (props.ratings[i] > max) {
@@ -43,9 +38,6 @@ const ReviewBreakdown = (props) => {
         }
       }
 
-      console.log('maxstar ', maxStar);
-      console.log('mem', mem);
-      //maxStar === undefined ? maxStar
       mem[maxStar].percentage = 100;
       mem[maxStar].num = max;
 
@@ -53,7 +45,6 @@ const ReviewBreakdown = (props) => {
         if (i === maxStar) {
         } else {
           let temp = props.ratings[i];
-          console.log(temp);
 
           mem[i].percentage = Math.round((props.ratings[i] * 100) / max);
           mem[i].num = props.ratings[i];
@@ -67,8 +58,6 @@ const ReviewBreakdown = (props) => {
   }
 
   function getPercentage(star) {
-    //console.log(percentReviews);
-
     let barSize = { width: `${percentReviews[star].percentage}%` };
 
     return barSize;
@@ -76,18 +65,23 @@ const ReviewBreakdown = (props) => {
 
   if (props.reviews) {
     if (props.ratings !== undefined) calculateBar();
-    //console.log('percents from state: ', percentReviews);
+
     return (
       <div className="review-breakdown">
         <div>
-          <div className="review-breakdown-star-block">
-            <h2 id="review-breakdown-average">{props.averageRating}</h2>
-          </div>
-          <StarRatingContainer id="review-breakdown-average-stars" />
+          <h3>RATINGS AND REVIEWS</h3>
         </div>
-        <div>
-          <p>average review and stars</p>
+        <div className="review-breakdown-star-block">
+          <h2 id="review-breakdown-average">
+            {typeof adjustedAverageReviewRating === 'string'
+              ? adjustedAverageReviewRating.substring(0, 3)
+              : ''}
+          </h2>
+          <span id="review-breakdown-average-stars2">
+            <StarRatingContainer id="review-breakdown-average-stars" />
+          </span>
         </div>
+
         <div>
           <h3>% of recommendations</h3>
           <div className="star-filter-selectors">
@@ -174,5 +168,3 @@ const ReviewBreakdown = (props) => {
 };
 
 export default ReviewBreakdown;
-
-//StarRatingContainer className="breakdown-star-render"

@@ -315,19 +315,6 @@ tr td.itemValue {
   z-index: 1;
   size: 25vh;
 }
-/* 
-#review-progress {
-  margin-left: 10px;
-  width: 50%;
-  background-color: grey;
-} */
-
-/* #review-bar {
-  margin-left: 10px;
-  width: 0%;
-  height: 10px;
-  background-color: black;
-} */
 
 #garf-text {
   margin: auto;
@@ -706,11 +693,10 @@ start of review component styles
 
 .modal-submit {
   outline: none;
-  /* display: inline-block; */
-  /* border: none; */
+
   border: 1px solid black;
   background-color: white;
-  /* margin-top: 40px; */
+
   height: 50px;
   width: 100px;
   font-weight: 650;
@@ -718,23 +704,21 @@ start of review component styles
   margin-left: 10px;
 }
 
-#review-submit-button {
+/* #review-submit-button {
   outline: none;
-  /* display: inline-block; */
-  /* border: none; */
+  
   border: 1px solid black;
   background-color: white;
-  /* margin-top: 40px; */
+  
   height: 60px;
   width: 185px;
   font-weight: 650;
   font-size: 1em;
-}
-
+} */
+/* 
 #review-submit-button:active {
   outline: none;
-  /* display: inline-block; */
-  /* border: none; */
+  
   border: 1px solid black;
   background-color: black;
   margin-top: 40px;
@@ -744,68 +728,49 @@ start of review component styles
   font-size: 1em;
   font-size: 1em;
   color: white;
-}
+} */
 
-.browser-button-block {
+/* .browser-button-block {
   display: flex;
-}
+} */
 
-button {
+/* button {
   display: inline-block;
 }
 
 .star-filter-selectors {
   display: flex;
   flex-direction: row;
-}
-
+} */
+/* 
 .star-filter-text {
   font-weight: 300;
   font-size: 1em;
-}
+} */
 
-.review-progress {
-  margin-top: 11.5px;
-  margin-left: 10px;
-  height: 10px;
-  width: 50%;
-  background-color: #ebebeb;
-}
-
-.review-bar {
-  /* margin-left: 10px; */
-  width: 0%;
-  height: 10px;
-  background-color: #525252;
-}
-
-.review-breakdown {
-  /* display: inline-block; */
-  margin-top: 9%;
-  width: 30%;
-  text-align: left;
-  vertical-align: top;
-  padding: 5px;
-  margin-left: 15%;
-  display: flex;
-  flex-direction: column;
-}
-
-.review-breakdown-star-block {
+/* .review-breakdown-star-block {
   display: flex;
   justify-content: row;
   align-content: flex-end;
-}
+  display: inline-block;
+  
+} */
 
-#review-breakdown-average-stars {
-  top: 20px;
-  position: absolute;
-  bottom: 0;
-}
-
-/* #review-breakdown-average {
-  font-size: 3em;
- } */
+/* #review-breakdown-average-stars {
+ 
+  max-height: 10px;
+  font-size: 0.5em;
+} */
+/* 
+#review-breakdown-average-stars2 {
+  max-height: 10px;
+  height: 10px;
+  display: inline-block;
+} */
+/* 
+#review-breakdown-average {
+  font-size: 2em;
+} */
 
 .char-slider {
   display: flex;
@@ -1100,11 +1065,10 @@ button {
 }
 
 .review-breakdown {
-  /* display: inline-block; */
   margin-top: 9%;
   width: 30%;
   text-align: left;
-  vertical-align: top;
+
   padding: 5px;
   margin-left: 15%;
   display: flex;
@@ -1113,19 +1077,25 @@ button {
 
 .review-breakdown-star-block {
   display: flex;
-  justify-content: row;
+  height: 70px;
   align-content: flex-end;
+  padding: 5px;
 }
 
 #review-breakdown-average-stars {
   top: 20px;
-  position: absolute;
-  bottom: 0;
 }
 
-/* #review-breakdown-average {
-  font-size: 3em;
- } */
+#review-breakdown-average {
+  font-size: 3.7em;
+  margin-top: -8px;
+}
+
+#review-breakdown-average-stars2 {
+  margin-left: 5px;
+  margin-top: 11px;
+  font-size: 1em;
+}
 
 .char-slider {
   display: flex;
@@ -1351,7 +1321,7 @@ end of review component styles
   margin-left: 26px;
 }
 
-.answer-space= {
+.answer-space {
   margin-right: 10px;
   margin-left: 10px;
 }

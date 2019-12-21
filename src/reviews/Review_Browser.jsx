@@ -10,6 +10,7 @@ const ReviewBrowser = (props) => {
   let checkStyle = { visibility: 'visible' };
   const { prodId } = useParams();
   const [pagination, setPagination] = useState({ page: 2 });
+  const [pageButtonStyle, setStyle] = useState({ visibility: 'visible' });
   //const [pagination, setPagination] = useState({ page: 2 });
 
   useEffect(() => {
@@ -23,18 +24,13 @@ const ReviewBrowser = (props) => {
   }, [prodId]);
 
   function handlePaginateReviewList() {
-    //console.log('paginate reviews');
-    console.log('checkstyle', checkStyle);
     let pageUp = pagination.page + 2;
 
     if (pagination.page >= props.reviews.length) {
       checkStyle = { visibility: 'hidden' };
+      setStyle({ visibility: 'hidden' });
     } else {
       setPagination({ page: pageUp });
-      //need to figure out how many reviews we have
-      //console.log('reviews number', props.reviews.length);
-      //if (pageUp >= )
-      //console.log('page', pagination);
     }
   }
 
@@ -98,7 +94,7 @@ const ReviewBrowser = (props) => {
           <div className="browser-button-block">
             <button
               id="review-paginate-button"
-              style={checkStyle}
+              style={pageButtonStyle}
               type="button"
               onClick={handlePaginateReviewList}
             >
