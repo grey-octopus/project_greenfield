@@ -3,7 +3,7 @@ import OverviewContainer from './overview/containers/OverviewContainer.jsx';
 import RelatedProducts from './related_prod_your_outfit/related_products.jsx';
 import MyOutfits from './related_prod_your_outfit/my_outifts_container.jsx';
 import Modal from 'react-modal';
-import { useParams, Link, Route, Switch } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ReviewBrowser from './reviews/review_containers/reviewBrowserContainer.js';
 import ReviewBreakdown from './reviews/review_containers/ReviewBreakdownContainer.js';
 import axios from 'axios';
@@ -16,34 +16,33 @@ Modal.setAppElement('#app');
 const App = () => {
   const { prodId } = useParams();
   const [dataToRender, setDataToRender] = useState(<div></div>);
-  console.log('testing');
 
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('theme', 'dark')
+      document.documentElement.setAttribute('theme', 'dark');
       // set react hook here
     }
     axios
       .get(`http://3.134.102.30/products/${prodId}`)
-      .then((data) => {
+      .then(data => {
         setDataToRender(
-          <div id="app-inner">
+          <div id='app-inner'>
             <OverviewContainer />
             <RelatedProducts />
             <MyOutfits />
             <QuestionList />
-            <div id="ratings-reviews">
-              <ReviewBreakdown className="review-breakdown" />
-              <ReviewBrowser className="review-browser" />
+            <div id='ratings-reviews'>
+              <ReviewBreakdown className='review-breakdown' />
+              <ReviewBrowser className='review-browser' />
             </div>
           </div>
         );
       })
-      .catch((err) => {
+      .catch(err => {
         setDataToRender(
           <div>
-            <img id="garf" src="/garf.png" width="30%" height="30%" />
-            <h1 id="garf-text">404 NOT FOUND</h1>
+            <img id='garf' src='/garf.png' width='30%' height='30%' />
+            <h1 id='garf-text'>404 NOT FOUND</h1>
           </div>
         );
       });

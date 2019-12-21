@@ -15,6 +15,14 @@
   --navbar-color: #333333;
 }
 
+#logo-text {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3em;
+  color: white;
+  margin-left: 0.5em;
+  margin-bottom: 0.2em;
+}
+
 body {
   font-family: var(--primary-font);
   margin: 0;
@@ -295,16 +303,10 @@ tr td.itemValue {
 #navbar {
   height: 4.5em;
   background-color: #333333;
-  margin-bottom: 1em;
   box-shadow: 0px 1px var(--secondary-light);
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-}
-
-#navbar img {
-  bottom: 0;
-  margin: 1em;
 }
 
 #garf {
@@ -596,7 +598,7 @@ start of review component styles
 }
 
 .review-list {
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 600px;
   max-width: 600px;
   width: 100%;
@@ -920,7 +922,7 @@ start of review component styles
 }
 
 .review-list {
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 600px;
   max-width: 600px;
   width: 100%;
@@ -1361,7 +1363,8 @@ end of review component styles
 }
 
 .reported {
-  border-left: 6px solid var(#2196f3);
+  border-left: 6px solid;
+  border-color: #2196f3;
   background-color: #ddffff;
 }
 
@@ -1438,7 +1441,7 @@ end of review component styles
 }
 
 .question-scroll {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 600px;
   padding-right: 20px;
   padding-right: 20px;
@@ -1451,7 +1454,7 @@ end of review component styles
   margin-top: 20px;
   margin-bottom: 20px;
   display: inline-block;
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--font-color);
   box-sizing: border-box;
   font-size: 14px;
   font-weight: bold;
