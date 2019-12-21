@@ -1,6 +1,6 @@
 # Shop.ly
 
-Shop.ly is a dynamic page for an online shopping platform.
+Shop.ly is a dynamic product page for an online shopping platform.
 
 ## Building and running on localhost
 
