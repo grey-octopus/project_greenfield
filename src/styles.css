@@ -1,13 +1,13 @@
 /* GENERAL STYLES */
 :root {
-  --primary-font: 'Poppins', 'sans-serif';
+  --primary-font: "Poppins", "sans-serif";
   --font-color: #525252;
   --font-light: #707070;
   --secondary-color: white;
   --navbar-color: #525252;
 }
 
-[theme='dark'] {
+[theme="dark"] {
   --font-color: white;
   --secondary-color: #333333;
   --secondary-light: #383838;
@@ -82,7 +82,7 @@ p {
 }
 
 .stars-outer::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
   color: var(--font-color);
 }
 
@@ -96,7 +96,7 @@ p {
 }
 
 .stars-inner::before {
-  content: '\f005\f005\f005\f005\f005';
+  content: "\f005\f005\f005\f005\f005";
 }
 
 /* MODAL */
@@ -108,12 +108,12 @@ p {
 }
 button.exitComparisonWindow {
   position: absolute;
-  right: 40px;
-  top: 40px;
+  right: 15px;
+  top: 15px;
   font-size: 20px;
-  border-radius: 50px;
-  padding: 0.5vh;
-  width: 3.2vh;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
   border: 2px solid var(--font-color);
   background-color: transparent;
 }
@@ -126,6 +126,7 @@ button.exitComparisonWindow:hover {
   /* border: 2px solid black; */
   border-collapse: collapse;
   font-size: 18px;
+  color: var(--font-color);
 }
 .FeatureComparisonTable td {
   border-bottom: 2px solid var(--font-color);
@@ -137,11 +138,28 @@ button.exitComparisonWindow:hover {
 .FeatureComparisonTable tr.tableHeader td {
   font-weight: 800;
   font-size: 20px;
-}
-
-tr td.itemValue {
   color: var(--font-color);
 }
+.comparisonModal {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  right: 35%;
+  width: fit-content;
+  text-align: center;
+  background-color: var(--secondary-color);
+}
+
+.ModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* do not change */
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 .Modal .comparison-header {
   text-align: center;
 }
@@ -290,7 +308,7 @@ tr td.itemValue {
 }
 
 .feature-check::before {
-  content: '\f00c \00a0\00a0';
+  content: "\f00c \00a0\00a0";
 }
 
 #ratings-reviews {
@@ -864,7 +882,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: '\f005  ';
+  content: "\f005  ";
   color: var(--font-color);
 }
 
@@ -879,7 +897,7 @@ button {
 }
 
 .single-stars-inner::before {
-  content: '\f005  ';
+  content: "\f005  ";
 }
 .inline-div {
   display: inline-block;
@@ -895,14 +913,12 @@ button {
 /*
  end of review component styles
  */
-start of review component styles
- */
-  
- /*
+
+/*
  start review card styles
  */
-  
- .full-browser {
+
+.full-browser {
   width: 50%;
   margin-right: 15%;
   margin-top: 10%;
@@ -1188,7 +1204,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: '\f005  ';
+  content: "\f005  ";
   color: var(--font-color);
 }
 
@@ -1203,7 +1219,7 @@ button {
 }
 
 .single-stars-inner::before {
-  content: '\f005  ';
+  content: "\f005  ";
 }
 .inline-div {
   display: inline-block;
@@ -1354,7 +1370,7 @@ end of review component styles
   margin-left: 26px;
 }
 
-.answer-space= {
+.answer-space {
   margin-right: 10px;
   margin-left: 10px;
 }

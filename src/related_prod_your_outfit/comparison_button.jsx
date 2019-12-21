@@ -3,21 +3,21 @@ import { connect } from "react-redux";
 import FeaturesTable from "./featuresTable.jsx";
 import Modal from "react-modal";
 
-const customStyles = {
-  content: {
-    textAlign: "center",
-    // top: "30%",
-    // right: "30%",
-    // left: "40%",
-    // bottom: "40%"
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
-};
+// const customStyles = {
+//   content: {
+//     textAlign: "center",
+//     // top: "30%",
+//     // right: "30%",
+//     // left: "40%",
+//     // bottom: "40%"
+//     top: "50%",
+//     left: "50%",
+//     right: "auto",
+//     bottom: "auto",
+//     marginRight: "-50%",
+//     transform: "translate(-50%, -50%)"
+//   }
+// };
 
 const ActionButton = ({
   id,
@@ -37,7 +37,9 @@ const ActionButton = ({
       ></div>
       <Modal
         isOpen={isModalOpen}
-        style={customStyles}
+        // style={customStyles}
+        className="comparisonModal"
+        overlayClassName="ModalOverlay"
         onRequestClose={toggleIsModalOpen}
         contentLabel={"Comparison modal"}
       >
