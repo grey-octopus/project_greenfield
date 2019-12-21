@@ -1,13 +1,13 @@
 /* GENERAL STYLES */
 :root {
-  --primary-font: "Poppins", "sans-serif";
+  --primary-font: 'Poppins', 'sans-serif';
   --font-color: #525252;
   --font-light: #707070;
   --secondary-color: white;
   --navbar-color: #525252;
 }
 
-[theme="dark"] {
+[theme='dark'] {
   --font-color: white;
   --secondary-color: #333333;
   --secondary-light: #383838;
@@ -82,7 +82,7 @@ p {
 }
 
 .stars-outer::before {
-  content: "\f005\f005\f005\f005\f005";
+  content: '\f005\f005\f005\f005\f005';
   color: var(--font-color);
 }
 
@@ -96,7 +96,7 @@ p {
 }
 
 .stars-inner::before {
-  content: "\f005\f005\f005\f005\f005";
+  content: '\f005\f005\f005\f005\f005';
 }
 
 /* MODAL */
@@ -308,7 +308,7 @@ button.exitComparisonWindow:hover {
 }
 
 .feature-check::before {
-  content: "\f00c \00a0\00a0";
+  content: '\f00c \00a0\00a0';
 }
 
 #ratings-reviews {
@@ -882,7 +882,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: "\f005  ";
+  content: '\f005  ';
   color: var(--font-color);
 }
 
@@ -897,7 +897,7 @@ button {
 }
 
 .single-stars-inner::before {
-  content: "\f005  ";
+  content: '\f005  ';
 }
 .inline-div {
   display: inline-block;
@@ -1204,7 +1204,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: "\f005  ";
+  content: '\f005  ';
   color: var(--font-color);
 }
 
@@ -1219,7 +1219,7 @@ button {
 }
 
 .single-stars-inner::before {
-  content: "\f005  ";
+  content: '\f005  ';
 }
 .inline-div {
   display: inline-block;
@@ -1512,7 +1512,7 @@ end of review component styles
   cursor: pointer;
 }
 
-.material-icons {
+.toggle {
   font-size: 3.5vh;
   padding: 1vh;
 }
