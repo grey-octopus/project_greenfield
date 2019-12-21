@@ -1,15 +1,15 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
-const PORT = 80;
+const PORT = 7000;
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "./dist")));
+app.use(express.static(path.join(__dirname, './dist')));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "dist", "index.html"));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
