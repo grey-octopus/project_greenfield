@@ -27,48 +27,48 @@ const MyOutfits = ({
       <br></br>
       {/* there is an error coming from when the outfit contains the current item. ItemsCarousel always expects a node, and 
      because it must be using this.children... Not dangerous, but annoying*/}
-      {myOutfit.length > 0 ? (
-        <div style={{ padding: `0px ${chevronWidth}px` }}>
-          <ItemsCarousel
-            requestToChangeActive={setActiveItemIndex}
-            activeItemIndex={activeItemIndex}
-            numberOfCards={4}
-            gutter={5}
-            leftChevron={<button>{"<"}</button>}
-            rightChevron={<button>{">"}</button>}
-            chevronWidth={chevronWidth}
-          >
-            <MyOutfitsFirstCard
-              category={currentItem.category}
-              name={currentItem.title}
-              // price={currentItem.price}
-              photoUrl={photoUrl}
-              key={currentItem.id}
-              myOutfit={myOutfit}
-              rating={currentItemRating}
-              // dispatch={dispatch}
-            />
-            {myOutfit.map(product => {
-              if (product.id === Number(prodId)) {
-                return;
-              } else {
-                return (
-                  <MyOutfitsCard
-                    id={product.id}
-                    category={product.category}
-                    name={product.name}
-                    price={product.price}
-                    photoUrl={product.photoUrl}
-                    key={product.id}
-                    rating={product.rating}
-                    dispatch={dispatch}
-                  />
-                );
-              }
-            })}
-          </ItemsCarousel>
-        </div>
-      ) : (
+      {/* {myOutfit.length > 0 ? ( */}
+      <div style={{ padding: `0px ${chevronWidth}px` }}>
+        <ItemsCarousel
+          requestToChangeActive={setActiveItemIndex}
+          activeItemIndex={activeItemIndex}
+          numberOfCards={4}
+          gutter={5}
+          leftChevron={<button>{"<"}</button>}
+          rightChevron={<button>{">"}</button>}
+          chevronWidth={chevronWidth}
+        >
+          <MyOutfitsFirstCard
+            category={currentItem.category}
+            name={currentItem.title}
+            // price={currentItem.price}
+            photoUrl={photoUrl}
+            key={currentItem.id}
+            myOutfit={myOutfit}
+            rating={currentItemRating}
+            // dispatch={dispatch}
+          />
+          {myOutfit.map(product => {
+            if (product.id === Number(prodId)) {
+              return;
+            } else {
+              return (
+                <MyOutfitsCard
+                  id={product.id}
+                  category={product.category}
+                  name={product.name}
+                  price={product.price}
+                  photoUrl={product.photoUrl}
+                  key={product.id}
+                  rating={product.rating}
+                  dispatch={dispatch}
+                />
+              );
+            }
+          })}
+        </ItemsCarousel>
+      </div>
+      {/* ) : (
         <MyOutfitsFirstCard
           category={currentItem.category}
           name={currentItem.title}
@@ -79,7 +79,7 @@ const MyOutfits = ({
           rating={currentItemRating}
           // dispatch={dispatch}
         />
-      )}
+      )} */}
     </div>
   );
 };
