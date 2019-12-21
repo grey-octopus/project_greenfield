@@ -11,15 +11,6 @@ const ReviewBrowser = (props) => {
   const { prodId } = useParams();
   const [pagination, setPagination] = useState({ page: 2 });
   const [pageButtonStyle, setStyle] = useState({ visibility: 'visible' });
-  //const [pagination, setPagination] = useState({ page: 2 });
-
-  // console.log('number', props.reviews);
-
-  // if (props.reviews && props.reviews.length <= 2) {
-  //   console.log('check for only 2 reviews');
-  //   checkStyle = { visibility: 'hidden' };
-  //   setStyle({ visibility: 'hidden' });
-  // }
 
   useEffect(() => {
     props.fetchReviewList({

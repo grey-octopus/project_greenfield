@@ -5,9 +5,8 @@ import StarRatingContainer from '../overview/containers/StarRatingContainer.jsx'
 import CharacteristicSliders from './review_breakdown/ReviewBreakdownChars.jsx';
 
 const ReviewBreakdown = (props) => {
-  //console.log('props', props);
   let adjustedAverageReviewRating = props.averageRating;
-  console.log('type of adjusted', adjustedAverageReviewRating);
+
   const { prodId } = useParams();
   const [percentReviews, setPercentReviews] = useState({
     1: { percentage: 0 },
@@ -26,7 +25,10 @@ const ReviewBreakdown = (props) => {
   }
 
   function calculateBar() {
-    if (props.ratings[1] !== undefined && percentReviews.done !== true) {
+    if (
+      Object.keys(props.ratings).length !== 0 &&
+      percentReviews.done !== true
+    ) {
       let max = 0;
       let maxStar = 0;
       let mem = { 1: {}, 2: {}, 3: {}, 4: {}, 5: {}, done: true };

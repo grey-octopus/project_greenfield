@@ -39,7 +39,6 @@ const ReviewModal = (props) => {
     email: ''
   });
 
-  console.log('forms', inputForms.body.length);
   const [userCharRatings, setCharRatings] = useState({});
   const { prodId } = useParams();
 
@@ -103,7 +102,6 @@ const ReviewModal = (props) => {
       });
       closeModal();
     } else {
-      // console.log('missing mandatory fields');
     }
   }
 
@@ -184,8 +182,6 @@ const ReviewModal = (props) => {
             }}
           ></textarea>
           <div className="validation-note">{minCharLimit.text}</div>
-
-          {/* <button>Submit image</button> */}
 
           <div>Nickname:</div>
           <input
