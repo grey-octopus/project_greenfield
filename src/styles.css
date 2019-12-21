@@ -100,14 +100,13 @@ p {
 }
 button.exitComparisonWindow {
   position: absolute;
-  right: 40px;
-  top: 40px;
+  right: 15px;
+  top: 15px;
   font-size: 20px;
   border-radius: 100%;
   width: 40px;
   height: 40px;
   border: 2px solid var(--font-color);
-
   background-color: transparent;
 }
 button.exitComparisonWindow:hover {
@@ -119,6 +118,7 @@ button.exitComparisonWindow:hover {
   /* border: 2px solid black; */
   border-collapse: collapse;
   font-size: 18px;
+  color: var(--font-color);
 }
 .FeatureComparisonTable td {
   border-bottom: 2px solid var(--font-color);
@@ -130,11 +130,28 @@ button.exitComparisonWindow:hover {
 .FeatureComparisonTable tr.tableHeader td {
   font-weight: 800;
   font-size: 20px;
-}
-
-tr td.itemValue {
   color: var(--font-color);
 }
+.comparisonModal {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  right: 35%;
+  bottom: 35%;
+  text-align: center;
+  background-color: var(--secondary-color);
+}
+
+.ModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* do not change */
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 .Modal .comparison-header {
   text-align: center;
 }
