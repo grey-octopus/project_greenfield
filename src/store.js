@@ -1,5 +1,5 @@
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
-import thunk from "redux-thunk";
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import thunk from 'redux-thunk';
 // import reducers to combine
 import averageRatingReducer from './overview/reducers/averageRatingReducer.js';
 import fetchProductInfoReducer from './overview/reducers/fetchProductInfoReducer.js';
@@ -35,9 +35,9 @@ const store = createStore(
   rootReducer,
   initialState,
   compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
+    applyMiddleware(thunk)
+    // window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    //   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
   )
 );
 
