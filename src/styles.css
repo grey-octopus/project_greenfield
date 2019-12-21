@@ -96,14 +96,14 @@ p {
 .relatedProductsContainer {
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 150px;
+  margin: 100px;
 }
 button.exitComparisonWindow {
   position: absolute;
   right: 40px;
   top: 40px;
   font-size: 20px;
-  border-radius: 100%;
+  border-radius: 50px;
   padding: 0.5vh;
   width: 3.2vh;
   border: 2px solid var(--font-color);
@@ -115,6 +115,7 @@ button.exitComparisonWindow:hover {
 }
 .FeatureComparisonTable {
   text-align: center;
+  /* border: 2px solid black; */
   border-collapse: collapse;
   font-size: 18px;
 }
@@ -123,6 +124,7 @@ button.exitComparisonWindow:hover {
   padding-left: 10px;
   padding-right: 10px;
   width: 175px;
+  /* border-collapse: collapse; */
 }
 .FeatureComparisonTable tr.tableHeader td {
   font-weight: 800;
@@ -154,7 +156,7 @@ tr td.itemValue {
 .myOutfitsContainer {
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 150px;
+  margin: 100px;
 }
 .card {
   display: inline-block;
@@ -191,6 +193,7 @@ tr td.itemValue {
   padding: 3px;
   margin: 0px;
   text-align: left;
+  /* border-bottom: transparent; */
   white-space: normal;
   position: absolute;
   bottom: 0px;
@@ -214,6 +217,7 @@ tr td.itemValue {
 .removeCardButton:hover {
   filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)
     brightness(104%) contrast(97%);
+  /* filter: invert(100%); */
 }
 .addProductButton {
   text-align: center;
@@ -450,6 +454,10 @@ tr td.itemValue {
   user-select: none;
 }
 
+#image-carousel-icons {
+  margin-top: 8vh;
+}
+
 .gallery-img,
 .gallery-img-selected {
   display: flex;
@@ -508,6 +516,10 @@ tr td.itemValue {
   margin-top: 3vh;
 }
 
+#prod-info-wrapper-hidden {
+  display: none;
+}
+
 #prod-overview {
   display: flex;
   justify-content: center;
@@ -558,19 +570,25 @@ start of review component styles
  start review card styles
  */
 
+/*
+ start review card styles
+ */
+
 .full-browser {
   width: 50%;
   margin-right: 15%;
-  margin-top: 6%;
+  margin-top: 200px;
   max-height: 100vh;
   margin-bottom: 40px;
 }
 
 .review-browser {
   /* display: inline-block; */
-  margin-top: 15px;
+  /* margin-top: 15px; */
   max-height: 600px;
-  /* 
+  /* margin-top: 100px; */
+
+  /*
   overflow-y: hidden;
   overflow-x: hidden; */
 
@@ -579,7 +597,331 @@ start of review component styles
 
 .review-list {
   overflow-y: scroll;
-  max-height: 450px;
+  max-height: 600px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.select-div {
+  display: flex;
+}
+
+.sort-select {
+  outline: none;
+  display: inline-block;
+  /* border: none; */
+  border: 2px solid black;
+  background-color: white;
+}
+
+.helpful-report {
+  font-size: 0.6em;
+  display: flex;
+  margin-bottom: 2%;
+}
+
+.container-full {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.review-card-stars {
+  margin-right: auto;
+}
+
+.review-card-name-date {
+  /* display: flex; */
+  font-size: 0.8em;
+  justify-content: end;
+}
+
+.review-card-summary {
+  max-width: 90%;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: var(--font-color);
+}
+
+.review-body-text {
+  font-weight: 100;
+  font-size: 1em;
+  max-width: 90%;
+  color: var(--font-color);
+}
+
+.review-item {
+  margin-top: 30px;
+  border-bottom: 1px solid black;
+  /* border: 2px solid black; */
+  /* border-radius: 2px; */
+  width: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+ end review card styles
+ :active
+ */
+
+#add-review-button {
+  display: flex;
+  flex-direction: row;
+}
+
+#review-paginate-button {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: white;
+  margin-top: 40px;
+  margin-right: 20px;
+
+  height: 60px;
+  width: 155px;
+  font-weight: 650;
+  font-size: 1em;
+}
+
+#review-paginate-button:active {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: black;
+  margin-top: 40px;
+  margin-right: 20px;
+
+  height: 60px;
+  width: 155px;
+  font-weight: 650;
+  font-size: 1em;
+  color: white;
+}
+
+.modal-button-block {
+  margin-top: -20px;
+}
+
+.modal-submit {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: white;
+  /* margin-top: 40px; */
+  height: 50px;
+  width: 100px;
+  font-weight: 650;
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+#review-submit-button {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: white;
+  /* margin-top: 40px; */
+  height: 60px;
+  width: 185px;
+  font-weight: 650;
+  font-size: 1em;
+}
+
+#review-submit-button:active {
+  outline: none;
+  /* display: inline-block; */
+  /* border: none; */
+  border: 1px solid black;
+  background-color: black;
+  margin-top: 40px;
+  height: 60px;
+  width: 185px;
+  font-weight: 650;
+  font-size: 1em;
+  font-size: 1em;
+  color: white;
+}
+
+.browser-button-block {
+  display: flex;
+}
+
+button {
+  display: inline-block;
+}
+
+.star-filter-selectors {
+  display: flex;
+  flex-direction: row;
+}
+
+.star-filter-text {
+  font-weight: 300;
+  font-size: 1em;
+}
+
+.review-progress {
+  margin-top: 11.5px;
+  margin-left: 10px;
+  height: 10px;
+  width: 50%;
+  background-color: #ebebeb;
+}
+
+.review-bar {
+  /* margin-left: 10px; */
+  width: 0%;
+  height: 10px;
+  background-color: #525252;
+}
+
+.review-breakdown {
+  /* display: inline-block; */
+  margin-top: 9%;
+  width: 30%;
+  text-align: left;
+  vertical-align: top;
+  padding: 5px;
+  margin-left: 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-breakdown-star-block {
+  display: flex;
+  justify-content: row;
+  align-content: flex-end;
+}
+
+#review-breakdown-average-stars {
+  top: 20px;
+  position: absolute;
+  bottom: 0;
+}
+
+/* #review-breakdown-average {
+  font-size: 3em;
+ } */
+
+.char-slider {
+  display: flex;
+  min-width: 100%;
+}
+
+.char-empty-slider-segment {
+  display: inline-block;
+  padding: 4px;
+}
+
+.char-slider-segment {
+  z-index: -1;
+  position: relative;
+  background-color: #ebebeb;
+  min-width: 70px;
+  height: 7px;
+  display: inline-block;
+  top: 7px;
+}
+
+.full-slider {
+  margin-top: 11px;
+}
+
+.slider-labels {
+  display: inline-block;
+  /* justify-content: space-between; */
+  align-content: flex-end;
+  flex-direction: row;
+  font-size: 0.8em;
+  color: var(--font-color);
+  font-weight: 100;
+}
+
+.slider-label-end {
+  display: inline-block;
+  margin-right: 0px;
+  font-size: 0.8em;
+  color: var(--font-color);
+  font-weight: 100;
+  /* margin-left: 40%; */
+}
+
+.fas.fa-caret-down {
+  position: relative;
+  /* z-index: 2; */
+}
+.single-stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.single-stars-outer::before {
+  content: '\f005  ';
+  color: var(--font-color);
+}
+
+.single-stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  font-style: solid;
+  color: var(--font-color);
+}
+
+.single-stars-inner::before {
+  content: '\f005  ';
+}
+.inline-div {
+  display: inline-block;
+}
+
+.click-text {
+  text-decoration: underline;
+}
+
+#report-text {
+  margin-left: 40px;
+}
+/*
+ end of review component styles
+ */
+start of review component styles
+ */
+  
+ /*
+ start review card styles
+ */
+  
+ .full-browser {
+  width: 50%;
+  margin-right: 15%;
+  margin-top: 10%;
+  max-height: 100vh;
+  margin-bottom: 40px;
+}
+
+.review-browser {
+  /* display: inline-block; */
+  /* margin-top: 15px; */
+  max-height: 600px;
+
+  /*
+  overflow-y: hidden;
+  overflow-x: hidden; */
+
+  word-wrap: break-word;
+}
+
+.review-list {
+  overflow-y: scroll;
+  max-height: 600px;
   max-width: 600px;
   width: 100%;
 }
@@ -759,6 +1101,7 @@ button {
 
 .review-breakdown {
   /* display: inline-block; */
+  margin-top: 9%;
   width: 30%;
   text-align: left;
   vertical-align: top;
@@ -782,7 +1125,7 @@ button {
 
 /* #review-breakdown-average {
   font-size: 3em;
-} */
+ } */
 
 .char-slider {
   display: flex;
@@ -866,6 +1209,10 @@ button {
 .click-text {
   text-decoration: underline;
 }
+/*
+ end of review component styles
+ */
+
 /* 
 end of review component styles
  */
@@ -918,6 +1265,7 @@ end of review component styles
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
+  outline: none;
 }
 
 .cart-btns:active {
@@ -1129,4 +1477,5 @@ end of review component styles
 #searchBar {
   color: var(--font-color);
   background-color: var(--secondary-color);
+  cursor: pointer;
 }
