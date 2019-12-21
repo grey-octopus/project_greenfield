@@ -1,6 +1,6 @@
-# empty-project
+# Shop.ly
 
-Empty project.
+Shop.ly is a dynamic online shopping platform product page.
 
 ## Building and running on localhost
 
@@ -8,6 +8,8 @@ First install dependencies:
 
 ```sh
 npm install
+npm run build-dev
+npm run server
 ```
 
 To create a production build:
@@ -16,16 +18,13 @@ To create a production build:
 npm run build-prod
 ```
 
-To create a development build:
-
-```sh
-npm run build-dev
-```
-
 ## Running
 
-Open the file `dist/index.html` in your browser
+open http://localhost:3000//product_details/25 in a browser of your choice
 
 ## Credits
 
-Made with [createapp.dev](https://createapp.dev/)
+Made by team grey-octopus
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
