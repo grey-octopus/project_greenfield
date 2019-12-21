@@ -74,27 +74,24 @@ const ReviewModal = (props) => {
   function handlePublish(info) {
     event.preventDefault();
 
-    console.log(info);
-    console.log(info.body.length);
-
     let verify = true;
 
     if (info.body.length < 50) {
       verify = false;
-      console.log(info.body.length);
-      console.log('body absent');
+      // console.log(info.body.length);
+      // console.log('body absent');
     }
     if (info.summary.length === 0) {
-      verify = false;
-      console.log('summary absent');
+      // verify = false;
+      // console.log('summary absent');
     }
     if (info.nickname.length === 0) {
-      verify = false;
-      console.log('name absent');
+      // verify = false;
+      // console.log('name absent');
     }
     if (info.email.length === 0) {
-      verify = false;
-      console.log('email absent');
+      // verify = false;
+      // console.log('email absent');
     }
 
     if (verify === true) {
@@ -106,7 +103,7 @@ const ReviewModal = (props) => {
       });
       closeModal();
     } else {
-      console.log('missing mandatory fields');
+      // console.log('missing mandatory fields');
     }
   }
 
@@ -186,7 +183,7 @@ const ReviewModal = (props) => {
               handleInputChange(e);
             }}
           ></textarea>
-          <div>{minCharLimit.text}</div>
+          <div className="validation-note">{minCharLimit.text}</div>
 
           {/* <button>Submit image</button> */}
 

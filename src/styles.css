@@ -3,6 +3,7 @@
   --primary-font: 'Poppins', 'sans-serif';
   --font-color: #525252;
   --font-light: #707070;
+  --font-extra-light: #ebebeb;
   --secondary-color: white;
   --navbar-color: #525252;
 }
@@ -795,7 +796,7 @@ start of review component styles
   min-width: 100%;
 }
 
-.char-empty-slider-segment {
+/* .char-empty-slider-segment {
   display: inline-block;
   padding: 4px;
 }
@@ -812,26 +813,17 @@ start of review component styles
 
 .full-slider {
   margin-top: 11px;
-}
+} */
 
-.slider-labels {
-  display: inline-block;
-  /* justify-content: space-between; */
-  align-content: flex-end;
-  flex-direction: row;
-  font-size: 0.8em;
-  color: var(--font-color);
-  font-weight: 100;
-}
-
+/* 
 .slider-label-end {
   display: inline-block;
   margin-right: 0px;
   font-size: 0.8em;
   color: var(--font-color);
   font-weight: 100;
-  /* margin-left: 40%; */
-}
+  
+} */
 
 .fas.fa-caret-down {
   position: relative;
@@ -1047,6 +1039,11 @@ start of review component styles
   color: var(--secondary-color);
 }
 
+.validation-note {
+  font-size: 0.8em;
+  font-size: 0.8em;
+}
+
 .browser-button-block {
   display: flex;
 }
@@ -1070,14 +1067,14 @@ button {
   margin-left: 10px;
   height: 10px;
   width: 50%;
-  background-color: var(--font-light);
+  background-color: var(--font-extra-light);
 }
 
 .review-bar {
   /* margin-left: 10px; */
   width: 0%;
   height: 10px;
-  background-color: var(--font-color);
+  background-color: var(--font-light);
 }
 
 .review-breakdown {
@@ -1131,7 +1128,7 @@ button {
 .char-slider-segment {
   z-index: -1;
   position: relative;
-  background-color: var(--font-light);
+  background-color: var(--font-extra-light);
   min-width: 70px;
   height: 7px;
   display: inline-block;
@@ -1143,18 +1140,32 @@ button {
 }
 
 .slider-labels {
+  width: 60%;
+  justify-content: space-between;
   display: inline-block;
   /* justify-content: space-between; */
   align-content: flex-end;
   flex-direction: row;
+  display: flex;
   font-size: 0.8em;
   color: var(--font-color);
   font-weight: 100;
 }
 
+.slider-label {
+  display: inline-block;
+  /* margin-right: 0px; */
+  margin-left: 0px;
+  font-size: 0.8em;
+  color: var(--font-color);
+  font-weight: 100;
+  /* margin-left: 40%; */
+}
+
 .slider-label-end {
   display: inline-block;
-  margin-right: 0px;
+  /* margin-right: 0px; */
+  margin-left: 0px;
   font-size: 0.8em;
   color: var(--font-color);
   font-weight: 100;

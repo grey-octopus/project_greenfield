@@ -152,11 +152,8 @@ const ReviewBreakdown = (props) => {
             </div>
           </div>
         </div>
+        <div></div>
         <div>
-          <p>star breakdown</p>
-        </div>
-        <div>
-          <p>characteristics</p>
           <div>
             <CharacteristicSliders characteristics={props.characteristics} />
           </div>
