@@ -47,7 +47,7 @@ const App = () => {
                 }}
               >
                 <span className='toggle-icon'>
-                  <i class='material-icons'>nights_stay</i>
+                  <i class='material-icons toggle'>nights_stay</i>
                 </span>
                 <span className='toggle-icon'>
                   <i
@@ -55,7 +55,7 @@ const App = () => {
                   ></i>
                 </span>
                 <span className='toggle-icon'>
-                  <i class='material-icons'>wb_sunny</i>
+                  <i class='material-icons toggle'>wb_sunny</i>
                 </span>
               </div>
             </div>
