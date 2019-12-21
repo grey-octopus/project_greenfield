@@ -5,15 +5,15 @@ Shop.ly is a dynamic product page for an online shopping platform.
 ## Building and running on localhost
 
 ```bash
-npm install
-npm run build-dev
-npm run server
+$ npm install
+$ npm run build-dev
+$ npm run server
 ```
 
 To create a production build:
 
 ```bash
-npm run build-prod
+$ npm run build-prod
 ```
 
 ## Running
