@@ -23,7 +23,7 @@ changing the number at the end of the url will change the product you are viewin
 
 **make sure that redux devtools are removed from store.js, or the page will only load in a browser with the devtools installed.**
 
-To remove:
+To remove, navigate to ./store.js, and make these lines of code look as such:
 ```javascript
 const store = createStore(
   rootReducer,
@@ -38,7 +38,8 @@ const store = createStore(
 
 ## About
 
-This project is built primarily using React, React Router, React-Redux, Node.js and Jest for testing
+This project is built with using React, React Router, React-Redux, Node.js and Jest for testing.
+React-Items-Carousel and React-Modal were used. 
 
 ## Credits
 
