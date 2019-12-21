@@ -22,6 +22,8 @@ npm run build-prod
 
 open http://localhost:3000//product_details/25 in a browser of your choice
 
+** make sure that redux devtools are removed from store.js, unless you have redux devtools installed and are using chrome
+
 ## Credits
 
 Made by team grey-octopus
