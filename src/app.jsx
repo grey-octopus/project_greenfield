@@ -19,6 +19,10 @@ const App = () => {
   console.log('testing');
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('theme', 'dark')
+      // set react hook here
+    }
     axios
       .get(`http://3.134.102.30/products/${prodId}`)
       .then((data) => {
