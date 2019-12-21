@@ -390,7 +390,7 @@ tr td.itemValue {
 }
 
 .fa-circle {
-  color: var(--font-color);
+  color: white;
 }
 
 .disabled {
