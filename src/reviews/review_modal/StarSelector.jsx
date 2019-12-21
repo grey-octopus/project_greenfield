@@ -1,5 +1,3 @@
-import Modal from 'react-modal';
-import publishReview from '../apiHelpers.js';
 import React, { useEffect, useState } from 'react';
 
 const StarSelector = (props) => {
@@ -50,76 +48,61 @@ const StarSelector = (props) => {
         <div
           className="single-stars-outer far fa-star"
           onClick={() => {
-            console.log('star1');
             starClickHandler(1);
           }}
         >
           <div
             className="single-stars-inner fas fa-star"
             style={determineFill(1)}
-            onClick={() => {
-              console.log('star1');
-            }}
+            onClick={() => {}}
           ></div>
         </div>
         <div
           className="single-stars-outer far fa-star"
           onClick={() => {
-            console.log('star2');
             starClickHandler(2);
           }}
         >
           <div
             className="single-stars-inner fas fa-star"
             style={determineFill(2)}
-            onClick={() => {
-              console.log('star2');
-            }}
+            onClick={() => {}}
           ></div>
         </div>
         <div
           className="single-stars-outer far fa-star"
           onClick={() => {
-            console.log('star3');
             starClickHandler(3);
           }}
         >
           <div
             className="single-stars-inner fas fa-star"
             style={determineFill(3)}
-            onClick={() => {
-              console.log('star3');
-            }}
+            onClick={() => {}}
           ></div>
         </div>
         <div
           className="single-stars-outer far fa-star"
           onClick={() => {
-            console.log('star4');
             starClickHandler(4);
           }}
         >
           <div
             className="single-stars-inner fas fa-star"
             style={determineFill(4)}
-            onClick={() => {
-              console.log('star4');
-            }}
+            onClick={() => {}}
           ></div>
         </div>
         <div
           className="single-stars-outer far fa-star"
           onClick={() => {
-            console.log('star5');
             starClickHandler(5);
           }}
         >
           <div
             className="single-stars-inner fas fa-star"
             style={determineFill(5)}
-            onClick={() => {
-              console.log('star5');
-            }}
+            onClick={() => {}}
           ></div>
         </div>
         <div className="inline-div">

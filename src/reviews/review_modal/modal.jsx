@@ -28,6 +28,9 @@ const submittedStyles = {
 };
 
 const ReviewModal = (props) => {
+  const [minCharLimit, setMinCharLimit] = useState({
+    text: 'Minimum required characters left: [50]'
+  });
   const [numOfStarsFilled, setNumOfStarsFilled] = useState(0);
   const [inputForms, setInputForms] = useState({
     body: '',
@@ -35,6 +38,8 @@ const ReviewModal = (props) => {
     nickname: '',
     email: ''
   });
+
+  console.log('forms', inputForms.body.length);
   const [userCharRatings, setCharRatings] = useState({});
   const { prodId } = useParams();
 
@@ -55,33 +60,38 @@ const ReviewModal = (props) => {
   function handleInputChange(event) {
     event.persist();
     setInputForms({ ...inputForms, [event.target.name]: event.target.value });
-    //console.log(inputForms);
+
+    if (inputForms.body.length >= 50) {
+      let charNumText = 'Minimum reached';
+      setMinCharLimit({ text: charNumText });
+    } else {
+      let charNumText = `Minimum required characters left: ${50 -
+        inputForms.body.length}`;
+      setMinCharLimit({ text: charNumText });
+    }
   }
 
   function handlePublish(info) {
     event.preventDefault();
 
-    console.log(info);
-    console.log(info.body.length);
-
     let verify = true;
 
     if (info.body.length < 50) {
       verify = false;
-      console.log(info.body.length);
-      console.log('body absent');
+      // console.log(info.body.length);
+      // console.log('body absent');
     }
     if (info.summary.length === 0) {
-      verify = false;
-      console.log('summary absent');
+      // verify = false;
+      // console.log('summary absent');
     }
     if (info.nickname.length === 0) {
-      verify = false;
-      console.log('name absent');
+      // verify = false;
+      // console.log('name absent');
     }
     if (info.email.length === 0) {
-      verify = false;
-      console.log('email absent');
+      // verify = false;
+      // console.log('email absent');
     }
 
     if (verify === true) {
@@ -93,7 +103,7 @@ const ReviewModal = (props) => {
       });
       closeModal();
     } else {
-      console.log('missing mandatory fields');
+      // console.log('missing mandatory fields');
     }
   }
 
@@ -173,7 +183,7 @@ const ReviewModal = (props) => {
               handleInputChange(e);
             }}
           ></textarea>
-          <div>character numbers</div>
+          <div className="validation-note">{minCharLimit.text}</div>
 
           {/* <button>Submit image</button> */}
 
