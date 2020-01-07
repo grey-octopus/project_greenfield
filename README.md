@@ -45,8 +45,11 @@ React-Items-Carousel and React-Modal were used.
 The Product Overview module comprised of the image gallery, product options, and product information components. This module also required the implementation of a dark mode.
 
 #### Demos/Screenshots
+##### Image Gallery
 ![Image Gallery Demo](gallery.gif)
+##### Product Options
 ![Product Options Demo](options.gif)
+##### Darkmode
 ![Dark Mode Demo](darkmode.gif)
 
 ## Credits
