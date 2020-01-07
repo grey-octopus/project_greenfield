@@ -38,14 +38,19 @@ const store = createStore(
 This project is built with using React,Redux, React Router, Node.js and Jest/Enzyme for testing.
 
 ### Product Overview
-The Product Overview module comprised of the image gallery, product options, and product information components. This module also required the implementation of a dark mode.
+The Product Overview module comprised of the image gallery, product options, and product information components. This module also required the implementation of a dark mode toggle.
 
 #### Demos/Screenshots
 ##### Image Gallery
+The image gallery component allows the user to browse product images available for the product's currently selected style. The user can navigate available images by directly selecting images in the carousel (left-hand side) or by clicking the arrows on either side of the gallery. The gallery can also be expanded to provide for a more focused view.
 ![Image Gallery Demo](gallery.gif)
+
 ##### Product Options
+The product options component provides a view of the current product's category, name, price, and available styles. The user may select a style to view available sizes and product images. Once a size is selected, the user may then select a quantity, 'like' the product if desired, and add it to their cart.
 ![Product Options Demo](options.gif)
-##### Darkmode
+
+##### Dark mode
+A dark mode toggle is provided in the navigation bar. By default, the page will render the theme preferred by the user's browser (i.e., dark mode will be toggled automatically if the browser's theme is set to dark).
 ![Dark Mode Demo](darkmode.gif)
 
 ## Credits
