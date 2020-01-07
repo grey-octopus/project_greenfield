@@ -3,7 +3,6 @@
 Shop.ly is a dynamic product page for an online shopping platform.
 
 ## Building and running on localhost
-
 ```bash
 $ npm install
 $ npm run build-dev
@@ -17,9 +16,8 @@ $ npm run build-prod
 ```
 
 ## Running
-
-open http://localhost:3000/product_details/25 in a browser of your choice.
-changing the number at the end of the url will change the product you are viewing.
+Open http://localhost:7000/product_details/25 in a browser of your choice.
+Changing the number at the end of the url will update the page with the product you're viewing.
 
 **make sure that redux devtools are removed from store.js, or the page will only load in a browser with the devtools installed.**
 
@@ -37,9 +35,7 @@ const store = createStore(
 ```
 
 ## About
-
-This project is built with using React, React Router, React-Redux, Node.js and Jest for testing.
-React-Items-Carousel and React-Modal were used.
+This project is built with using React,Redux, React Router, Node.js and Jest/Enzyme for testing.
 
 ### Product Overview
 The Product Overview module comprised of the image gallery, product options, and product information components. This module also required the implementation of a dark mode.
