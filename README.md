@@ -39,7 +39,15 @@ const store = createStore(
 ## About
 
 This project is built with using React, React Router, React-Redux, Node.js and Jest for testing.
-React-Items-Carousel and React-Modal were used. 
+React-Items-Carousel and React-Modal were used.
+
+### Product Overview
+The Product Overview module comprised of the image gallery, product options, and product information components. This module also required the implementation of a dark mode.
+
+#### Demos/Screenshots
+![Image Gallery Demo](gallery.gif)
+![Product Options Demo](options.gif)
+![Dark Mode Demo](darkmode.gif)
 
 ## Credits
 
