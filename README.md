@@ -9,8 +9,6 @@ Shop.ly is an ecommerce front-end for viewing over a million products. Users can
 
 [Usage](#Usage) 
 
-[Roadmap](#Roadmap)
-
 [License](#License)
 
 ## Description
@@ -46,7 +44,25 @@ The Related Products module consist of a carousel of related product cards which
 
 
 ## Installation
+While in the project's root directory, run the following to install all dependencies:
+```
+npm install
+```
+Next, run either
+```
+npm run build-dev
+```
+or 
+```
+npm run build-prod
+```
+depending on whether you want webpack to build the application in development (former) or production (latter) mode.
 
+Lastly, run
+``` npm run server```
+to start the application, then navigate to `localhost:7000/product_details/1` to view the webpage in your browser. You can change the query parameter number (`1` in the aforementioned example case) to anything between `1 - 1000011` to render a page for a different product. 
+
+You can also change the port Shop.ly runs on from `7000` by editing the `npm run server` script in the `package.json`.
 
 ## Usage
 
