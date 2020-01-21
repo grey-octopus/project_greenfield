@@ -25,7 +25,8 @@ Within the product overview module is:
 4. A selection of available "styles" for each product
 5. A mock checkout interface
 
-[Options](/options.gif)
+![Options](/options.gif)
+![Gallery](/gallery.gif)
 
 ### Related Products
 The Related Products module consist of a carousel of related product cards which update depending on the currently selected product. A user can click on any of the cards to re-render the page with data pertaining to that related product.
