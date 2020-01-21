@@ -17,6 +17,8 @@ Shop.ly is an ecommerce front-end for viewing over a million products. It displa
 Shop.ly was built with React.js & Redux, Node, and Express. 
 
 ### Product Overview
+Credit: Alec Champaign
+
 The Product Overview module was responsible for displaying in-depth information regarding the currently selected product.
 Within the product overview module is:
 1. An image gallery displaying product shots
@@ -37,13 +39,15 @@ Within the product overview module is:
 ![Darkmode](/darkmode.gif)
 
 ### Related Products
+Credit: Ian Robinson
+
 The Related Products module consist of a carousel of related product cards which update depending on the currently selected product. A user can click on any of the cards to re-render the page with data pertaining to that related product. Users may also add the product they're currently viewing to an outfit, which persist in local storage. 
 
 ### Reviews
-
+Credit: Justin Haddock
 
 ### Questions and Answers (Q&A)
-
+Credit: Joey Liu
 
 ## Installation
 While in the project's root directory, run the following to install all dependencies:
