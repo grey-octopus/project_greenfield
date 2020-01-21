@@ -25,7 +25,10 @@ Within the product overview module is:
 4. A selection of available "styles" for each product
 5. A mock checkout interface
 
+A look at the options selector
 ![Options](/options.gif)
+
+A look at the gallery interface
 ![Gallery](/gallery.gif)
 
 ### Related Products
