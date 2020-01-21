@@ -14,16 +14,30 @@ Shop.ly is an ecommerce front-end for viewing over a million products. Users can
 [License](#License)
 
 ## Description
+Shop.ly is an ecommerce front-end for viewing over a million products. It display information in regards to the Product Overview, Related Products, Reviews, and Questions and Answers (Q&A) modules.
+
+### Product Overview
+The Product Overview module was responsible for displaying in-depth information regarding the currently selected product.
+Within the product overview module is:
+1. An image gallery displaying product shots
+2. A slogan and description for the product
+3. An average "star" rating (one through five)
+4. A selection of available "styles" for each product
+5. A mock checkout interface
+
+### Related Products
+The Related Products module consist of a carousel of related product cards which update depending on the currently selected product. A user can click on any of the cards to re-render the page with data pertaining to that related product.
+
+### Reviews
+
+
+### Questions and Answers (Q&A)
 
 
 ## Installation
 
 
 ## Usage
-
-
-## Roadmap
-- [ ] 
 
 ## License
 Copyright (c) Alec Champain, Joey Liu, Justin Haddock, and Ian Robinson.
