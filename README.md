@@ -37,6 +37,8 @@ Within the product overview module is:
 ### Related Products
 The Related Products module consist of a carousel of related product cards which update depending on the currently selected product. A user can click on any of the cards to re-render the page with data pertaining to that related product.
 
+Shop.ly was built with React.js & Redux, Node, and Express. 
+
 ### Reviews
 
 
