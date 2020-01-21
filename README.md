@@ -33,6 +33,9 @@ Within the product overview module is:
 
 ![Gallery](/gallery.gif)
 
+#### P.S. Shop.ly also sports a dark mode ;)
+![Darkmode](/darkmode.gif)
+
 ### Related Products
 The Related Products module consist of a carousel of related product cards which update depending on the currently selected product. A user can click on any of the cards to re-render the page with data pertaining to that related product.
 
