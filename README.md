@@ -69,7 +69,7 @@ You can also change the port Shop.ly runs on from `7000` by editing the `npm run
 ## Usage
 
 ## License
-Copyright (c) Alec Champain, Joey Liu, Justin Haddock, and Ian Robinson.
+Copyright (c) Alec Champaign, Joey Liu, Justin Haddock, and Ian Robinson.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
