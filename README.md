@@ -1,49 +1,94 @@
-# Shop.ly
+# Shop.ly - a dynamic product page for an online shopping platform.
+## Overview
+Shop.ly is an e-commerce front-end for viewing over a million products. Users can see product information, see related products, post reviews, and ask/answer questions. Available for every product is a selection of various styles, product shots (images), and feature lists.
 
-Shop.ly is a dynamic product page for an online shopping platform.
+### Table of Contents
+[Description](#Description)
 
-## Building and running on localhost
+[Installation](#Installation)
 
-```bash
-$ npm install
-$ npm run build-dev
-$ npm run server
+[Usage](#Usage) 
+
+[License](#License)
+
+## Description
+Shop.ly is an ecommerce front-end for viewing over a million products. It display information in regards to the Product Overview, Related Products, Reviews, and Questions and Answers (Q&A) modules.
+
+Shop.ly was built with React.js & Redux, Node, and Express. 
+
+### Product Overview
+Credit: Alec Champaign
+
+The Product Overview module was responsible for displaying in-depth information regarding the currently selected product.
+Within the product overview module is:
+1. An image gallery displaying product shots
+2. A slogan and description for the product
+3. An average "star" rating (one through five)
+4. A selection of available "styles" for each product
+5. A mock checkout interface
+
+#### A look at the options selector
+
+![Options](/options.gif)
+
+#### A look at the gallery interface
+
+![Gallery](/gallery.gif)
+
+#### P.S. Shop.ly also sports a dark mode ;)
+![Darkmode](/darkmode.gif)
+
+### Related Products
+Credit: Ian Robinson
+
+The Related Products module consist of a carousel of related product cards which update depending on the currently selected product. A user can click on any of the cards to re-render the page with data pertaining to that related product. Users may also add the product they're currently viewing to an outfit, which persist in local storage. 
+
+### Reviews
+Credit: Justin Haddock
+
+### Questions and Answers (Q&A)
+Credit: Joey Liu
+
+## Installation
+While in the project's root directory, run the following to install all dependencies:
 ```
-
-To create a production build:
-
-```bash
-$ npm run build-prod
+npm install
 ```
-
-## Running
-
-open http://localhost:3000/product_details/25 in a browser of your choice.
-changing the number at the end of the url will change the product you are viewing.
-
-**make sure that redux devtools are removed from store.js, or the page will only load in a browser with the devtools installed.**
-
-To remove, navigate to ./store.js, and make these lines of code look as such:
-```javascript
-const store = createStore(
-  rootReducer,
-  initialState,
-  compose(
-    applyMiddleware(thunk)
-    // window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    //   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
-  )
-);
+Next, run either
 ```
+npm run build-dev
+```
+or 
+```
+npm run build-prod
+```
+depending on whether you want webpack to build the application in development (former) or production (latter) mode.
 
-## About
+Lastly, run
+``` npm run server```
+to start the application, then navigate to `localhost:7000/product_details/1` to view the webpage in your browser. You can change the query parameter number (`1` in the aforementioned example case) to anything between `1 - 1000011` to render a page for a different product. 
 
-This project is built with using React, React Router, React-Redux, Node.js and Jest for testing.
-React-Items-Carousel and React-Modal were used. 
+You can also change the port Shop.ly runs on from `7000` by editing the `npm run server` script in the `package.json`.
 
-## Credits
-
-Made by team grey-octopus
+## Usage
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+Copyright (c) Alec Champaign, Joey Liu, Justin Haddock, and Ian Robinson.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
