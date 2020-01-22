@@ -1,6 +1,6 @@
 # Shop.ly - a dynamic product page for an online shopping platform.
 ## Overview
-Shop.ly is an ecommerce front-end for viewing over a million products. Users can see product information, see related products, post reviews, and ask/answer questions. Available for every product is a selection of various styles, product shots (images), and feature lists.
+Shop.ly is an e-commerce front-end for viewing over a million products. Users can see product information, see related products, post reviews, and ask/answer questions. Available for every product is a selection of various styles, product shots (images), and feature lists.
 
 ### Table of Contents
 [Description](#Description)
