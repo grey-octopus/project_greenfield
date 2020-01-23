@@ -41,7 +41,7 @@ Within the product overview module is:
 ### Related Products
 Credit: Ian Robinson
 
-The Related Products module consist of a carousel of related product cards which update depending on the currently selected product. A user can click on any of the cards to re-render the page with data pertaining to that related product. Users may also add the product they're currently viewing to an outfit, which persist in local storage. 
+The Related Products module consists of a carousel of related product cards which update depending on the currently selected product. A user can click on any of the cards to re-render the page with data pertaining to that related product. Users may also add the product they're currently viewing to an outfit, which persist in local storage. 
 
 ### A preview of the card carousels
 ![MyOutfitsCard](gifs/cards.gif)
