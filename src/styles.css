@@ -258,6 +258,15 @@ button.exitComparisonWindow:hover {
   font-weight: 700;
 }
 
+/* Forward button on my outfit carousel  */
+div .aoTUt {
+  right: -40px;
+}
+/* Back button on my outfit carousel */
+.dHQcjo {
+  left: -40px;
+}
+
 /* forward button on My Outfit carousel */
 .sc-ifAKCX.geRExE.sc-EHOje.aoTUt button {
   background-color: transparent;
@@ -265,6 +274,7 @@ button.exitComparisonWindow:hover {
   border: transparent;
   font-size: 34px;
   font-weight: 700;
+  /* right: -40px; */
 }
 /* back button on my outfit carousel */
 .sc-ifAKCX.geRExE.sc-bZQynM.dHQcjo button {
