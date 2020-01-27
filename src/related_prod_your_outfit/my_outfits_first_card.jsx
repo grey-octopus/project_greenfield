@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   addItemToOutfit,
   removeItemFromOutfit
-} from "./actions/your_outfit_actions.js";
-import StarRating from "../overview/components/StarRating";
-import { useParams } from "react-router-dom";
-import { connect } from "react-redux";
+} from './actions/your_outfit_actions.js';
+import StarRating from '../overview/components/StarRating';
+import { useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const placeHolderImage = "/img/image-placeholder.png";
+const placeHolderImage = '/img/image-placeholder.png';
 
 const isOutfitInArray = (myOutfit, prodId) => {
   for (let product in myOutfit) {
@@ -41,7 +41,7 @@ const MyOutfitsFirstCard = ({
   const item = { id: prodId, category, name };
   if (isInOutfit && myOutfit.length >= 1) {
     return (
-      <div className="card">
+      <div className="relatedProducts card">
         <button
           className="removeCardButton"
           onClick={() => {
@@ -51,16 +51,16 @@ const MyOutfitsFirstCard = ({
         <div
           style={{
             backgroundImage: `url(${photoUrl || placeHolderImage})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "50% 50%",
-            minWidth: "100%",
-            height: "300px"
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: '50% 50%',
+            minWidth: '100%',
+            height: '300px'
           }}
         ></div>
         <br></br>
         <div className="cardTextContainer">
-          <div className="cardText" style={{ wordBreak: "all" }}>
+          <div className="cardText" style={{ wordBreak: 'all' }}>
             <div className="category">{category}</div>
 
             <strong className="productTitle">{name}</strong>

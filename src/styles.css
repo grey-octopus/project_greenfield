@@ -1,6 +1,6 @@
 /* GENERAL STYLES */
 :root {
-  --primary-font: "Poppins", "sans-serif";
+  --primary-font: 'Poppins', 'sans-serif';
   --font-color: #525252;
   --font-light: #707070;
   --font-extra-light: #ebebeb;
@@ -8,7 +8,7 @@
   --navbar-color: #525252;
 }
 
-[theme="dark"] {
+[theme='dark'] {
   --font-color: white;
   --secondary-color: #333333;
   --secondary-light: #383838;
@@ -17,7 +17,7 @@
 }
 
 #logo-text {
-  font-family: "Abril Fatface", cursive;
+  font-family: 'Abril Fatface', cursive;
   font-size: 3em;
   color: white;
   margin-left: 0.5em;
@@ -83,7 +83,7 @@ p {
 }
 
 .stars-outer::before {
-  content: "\f005\f005\f005\f005\f005";
+  content: '\f005\f005\f005\f005\f005';
   color: var(--font-color);
 }
 
@@ -97,14 +97,12 @@ p {
 }
 
 .stars-inner::before {
-  content: "\f005\f005\f005\f005\f005";
+  content: '\f005\f005\f005\f005\f005';
 }
 
 /* MODAL */
 
 .relatedProductsContainer {
-  overflow-x: hidden;
-  white-space: nowrap;
   margin: 100px;
 }
 button.exitComparisonWindow {
@@ -181,8 +179,6 @@ button.exitComparisonWindow:hover {
 /* OUTFITS */
 
 .myOutfitsContainer {
-  overflow-x: hidden;
-  white-space: nowrap;
   margin: 100px;
 }
 .card {
@@ -265,7 +261,7 @@ button.exitComparisonWindow:hover {
 /* forward button on My Outfit carousel */
 .sc-ifAKCX.geRExE.sc-EHOje.aoTUt button {
   background-color: transparent;
-  color: black;
+  color: var(--font-color);
   border: transparent;
   font-size: 34px;
   font-weight: 700;
@@ -309,7 +305,7 @@ button.exitComparisonWindow:hover {
 }
 
 .feature-check::before {
-  content: "\f00c \00a0\00a0";
+  content: '\f00c \00a0\00a0';
 }
 
 #ratings-reviews {
@@ -840,7 +836,7 @@ start of review component styles
 }
 
 .single-stars-outer::before {
-  content: "\f005  ";
+  content: '\f005  ';
   color: var(--font-color);
 }
 
@@ -855,7 +851,7 @@ start of review component styles
 }
 
 .single-stars-inner::before {
-  content: "\f005  ";
+  content: '\f005  ';
 }
 .inline-div {
   display: inline-block;
@@ -1186,7 +1182,7 @@ button {
 }
 
 .single-stars-outer::before {
-  content: "\f005  ";
+  content: '\f005  ';
   color: var(--font-color);
 }
 
@@ -1201,7 +1197,7 @@ button {
 }
 
 .single-stars-inner::before {
-  content: "\f005  ";
+  content: '\f005  ';
 }
 .inline-div {
   display: inline-block;

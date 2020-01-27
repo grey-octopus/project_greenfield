@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { connect } from "react-redux";
-import ItemsCarousel from "react-items-carousel";
-import { getRelatedProducts } from "./actions/related_products.js";
-import RelatedProductsCard from "./related_products_card.jsx";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
+import ItemsCarousel from 'react-items-carousel';
+import { getRelatedProducts } from './actions/related_products.js';
+import RelatedProductsCard from './related_products_card.jsx';
 
 const RelatedProducts = ({ relatedProducts, dispatch }) => {
   let { prodId } = useParams();
@@ -25,10 +25,10 @@ const RelatedProducts = ({ relatedProducts, dispatch }) => {
           <ItemsCarousel
             requestToChangeActive={setActiveItemIndex}
             activeItemIndex={activeItemIndex}
-            numberOfCards={4}
+            numberOfCards={5}
             gutter={5}
-            leftChevron={<button>{"<"}</button>}
-            rightChevron={<button>{">"}</button>}
+            leftChevron={<button>{'<'}</button>}
+            rightChevron={<button>{'>'}</button>}
             outsideChevron
             chevronWidth={chevronWidth}
             showSlither={true}

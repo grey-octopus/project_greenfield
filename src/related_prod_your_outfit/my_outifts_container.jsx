@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getMyOutfit } from "./actions/your_outfit_actions.js";
-import ItemsCarousel from "react-items-carousel";
-import MyOutfitsCard from "./my_outfits_card.jsx";
-import MyOutfitsFirstCard from "./my_outfits_first_card.jsx";
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getMyOutfit } from './actions/your_outfit_actions.js';
+import ItemsCarousel from 'react-items-carousel';
+import MyOutfitsCard from './my_outfits_card.jsx';
+import MyOutfitsFirstCard from './my_outfits_first_card.jsx';
 
 const MyOutfits = ({
   myOutfit,
@@ -28,15 +28,16 @@ const MyOutfits = ({
       {/* there is an error coming from when the outfit contains the current item. ItemsCarousel always expects a node, and 
      because it must be using this.children... Not dangerous, but annoying*/}
       {/* {myOutfit.length > 0 ? ( */}
-      <div style={{ padding: `0px ${chevronWidth}px` }}>
+      <div style={{ padding: `10px ${chevronWidth}px` }}>
         <ItemsCarousel
           requestToChangeActive={setActiveItemIndex}
           activeItemIndex={activeItemIndex}
-          numberOfCards={4}
+          numberOfCards={5}
           gutter={5}
-          leftChevron={<button>{"<"}</button>}
-          rightChevron={<button>{">"}</button>}
+          leftChevron={<button>{'<'}</button>}
+          rightChevron={<button>{'>'}</button>}
           chevronWidth={chevronWidth}
+          showSlither={true}
         >
           <MyOutfitsFirstCard
             category={currentItem.category}
