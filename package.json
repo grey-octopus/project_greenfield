@@ -12,7 +12,7 @@
     "build-dev": "webpack -d --watch",
     "build-prod": "webpack -p --mode production",
     "server": "nodemon server.js",
-    "start": "webpack -p --mode product && node server.js",
+    "start": "webpack -p && node server.js",
     "heroku-prebuild": "npm install --dev"
   },
   "dependencies": {
