@@ -1,9 +1,10 @@
 import axios from 'axios';
+import API_URL from '../../config';
 
 const publishReview = (content) => {
   return axios({
     method: 'post',
-    url: `http://3.134.102.30/reviews/${content.prodId}`,
+    url: `${API_URL}reviews/${content.prodId}`,
     data: {
       body: content.forms.body,
       rating: content.stars,
@@ -11,8 +12,8 @@ const publishReview = (content) => {
       summary: content.forms.summary,
       recommend: content.forms.recommend === 'true' ? true : false,
       email: content.forms.email,
-      characteristics: content.chars
-    }
+      characteristics: content.chars,
+    },
   })
     .then((res) => {})
     .catch((err) => {
@@ -23,10 +24,10 @@ const publishReview = (content) => {
 const markReviewAsHelpful = (id) => {
   return axios({
     method: 'PUT',
-    url: `http://3.134.102.30/reviews/helpful/${id}`,
+    url: `${API_URL}reviews/helpful/${id}`,
     data: {
-      review_id: id
-    }
+      review_id: id,
+    },
   })
     .then((res) => {})
     .catch((err) => {
@@ -37,10 +38,10 @@ const markReviewAsHelpful = (id) => {
 const reportReview = (id) => {
   return axios({
     method: 'PUT',
-    url: `http://3.134.102.30/reviews/report/${id}`,
+    url: `${API_URL}reviews/report/${id}`,
     data: {
-      review_id: id
-    }
+      review_id: id,
+    },
   })
     .then((res) => {})
     .catch((err) => {

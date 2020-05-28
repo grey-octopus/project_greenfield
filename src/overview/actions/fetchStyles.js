@@ -1,14 +1,18 @@
-import axios from 'axios'
+import axios from 'axios';
+import API_URL from '../../../config';
 
-const fetchStyles = prodId => {
-  return dispatch => {
-    return axios.get(`http://3.134.102.30/products/${prodId}/styles`).then(({ data }) => {
-      return dispatch({ 
-        type: 'FETCH_STYLES', 
-        styles: data.results
+const fetchStyles = (prodId) => {
+  return (dispatch) => {
+    return axios
+      .get(`${API_URL}products/${prodId}/styles`)
+      .then(({ data }) => {
+        return dispatch({
+          type: 'FETCH_STYLES',
+          styles: data.results,
+        });
       })
-    }).catch(err => console.log('ERROR: ', err))
-  }
-}
+      .catch((err) => console.log('ERROR: ', err));
+  };
+};
 
-export default fetchStyles
+export default fetchStyles;

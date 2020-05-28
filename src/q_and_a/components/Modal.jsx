@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import API_URL from '../../../config';
 
 const customStyles = {
   content: {
@@ -10,69 +11,69 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
-  }
+    transform: 'translate(-50%, -50%)',
+  },
 };
 
-const QAModal = props => {
+const QAModal = (props) => {
   const { prodId } = useParams();
   const [addQA, setQA] = useState({
     content: '',
     nickname: '',
     email: '',
-    photos: []
+    photos: [],
   });
 
   const [modalIsOpen, toggleModal] = useState(true);
 
-  const closeModal = e => {
+  const closeModal = (e) => {
     toggleModal(false);
     props.setClick(false);
   };
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     const target = e.target;
     setQA({
       ...addQA,
-      [e.target.name]: target.value
+      [e.target.name]: target.value,
     });
   };
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     closeModal(e);
     if (props.name === 'question') {
       axios
-        .post(`http://3.134.102.30/qa/${prodId}`, {
+        .post(`${API_URL}qa/${prodId}`, {
           body: addQA.content,
           name: addQA.nickname,
-          email: addQA.email
+          email: addQA.email,
         })
         .then(() => {
-          return axios.get(`http://3.134.102.30/qa/${prodId}?count=20`);
+          return axios.get(`${API_URL}qa/${prodId}?count=20`);
         })
-        .then(data => {
+        .then((data) => {
           props.setFilter(data.data.results);
           props.setQuestionList(data.data.results);
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
     } else {
       axios
-        .post(`http://3.134.102.30/qa/${props.questionId}/answers`, {
+        .post(`${API_URL}qa/${props.questionId}/answers`, {
           body: addQA.content,
           name: addQA.nickname,
           email: addQA.email,
-          photos: addQA.photos
+          photos: addQA.photos,
         })
         .then(() => {
-          return axios.get(`http://3.134.102.30/qa/${prodId}?count=200`);
+          return axios.get(`${API_URL}qa/${prodId}?count=200`);
         })
-        .then(data => {
+        .then((data) => {
           props.setFilter(data.data.results);
           props.setQuestionList(data.data.results);
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
     }
@@ -85,7 +86,7 @@ const QAModal = props => {
       contentLabel='Add QA Modal'
     >
       <form
-        onSubmit={e => {
+        onSubmit={(e) => {
           handleSubmit(e);
         }}
       >
@@ -101,7 +102,7 @@ const QAModal = props => {
           size='1000'
           placeholder='About the [product name]'
           required
-          onChange={e => {
+          onChange={(e) => {
             handleInputChange(e);
           }}
         />
@@ -113,7 +114,7 @@ const QAModal = props => {
           placeholder='Example: jackson11!'
           className='modal-input'
           required
-          onChange={e => {
+          onChange={(e) => {
             handleInputChange(e);
           }}
         />
@@ -125,7 +126,7 @@ const QAModal = props => {
           placeholder='Example: jackson11@gmail.com'
           className='modal-input'
           required
-          onChange={e => {
+          onChange={(e) => {
             handleInputChange(e);
           }}
         />

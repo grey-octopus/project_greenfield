@@ -1,22 +1,23 @@
 import axios from 'axios';
+import API_URL from '../../../config';
 
 const fetchReviewMetadata = (options) => {
   return (dispatch) => {
     return axios
-      .get(`http://3.134.102.30/reviews/${options.prodId}/meta`, {
+      .get(`${API_URL}reviews/${options.prodId}/meta`, {
         params: {
-          product_id: options.prodId
-        }
+          product_id: options.prodId,
+        },
       })
-      .then(function(response) {
+      .then(function (response) {
         return dispatch({
           type: 'FETCH_REVIEW_METADATA',
           ratings: response.data.ratings,
           recommended: response.data.recommended,
-          characteristics: response.data.characteristics
+          characteristics: response.data.characteristics,
         });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log('api error');
       });
   };

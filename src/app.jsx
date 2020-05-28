@@ -9,6 +9,7 @@ import ReviewBreakdown from './reviews/review_containers/ReviewBreakdownContaine
 import axios from 'axios';
 import polyfill from 'babel-polyfill';
 import QuestionList from './q_and_a/components/QuestionList';
+import API_URL from '../config';
 
 // React modal has to be bound to the app element:
 Modal.setAppElement('#app');
@@ -33,8 +34,8 @@ const App = () => {
       document.documentElement.setAttribute('theme', 'light');
 
     axios
-      .get(`http://3.134.102.30/products/${prodId}`)
-      .then(data => {
+      .get(`${API_URL}products/${prodId}`)
+      .then((data) => {
         setDataToRender(
           <div>
             <div id='navbar'>
@@ -72,7 +73,7 @@ const App = () => {
           </div>
         );
       })
-      .catch(err => {
+      .catch((err) => {
         setDataToRender(
           <div>
             <div id='navbar'>

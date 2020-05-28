@@ -4,24 +4,23 @@ import AddAnAnswer from './AddAnAnswer';
 import axios from 'axios';
 import Highlighter from 'react-highlight-words';
 import { useParams } from 'react-router-dom';
+import API_URL from '../../../config';
 
-const Question = props => {
+const Question = (props) => {
   //console.log('hello',props)
   const { prodId } = useParams();
   const [helpfulness, setHelpfulness] = useState(
     props.question.question_helpfulness
   );
   const [clicked, setClicked] = useState(false);
-  const handleClick = e => {
+  const handleClick = (e) => {
     if (!clicked) {
       return axios
-        .put(
-          `http://3.134.102.30/qa/question/${props.question.question_id}/helpful`
-        )
+        .put(`${API_URL}qa/question/${props.question.question_id}/helpful`)
         .then(() => {
-          return axios.get(`http://3.134.102.30/qa/${prodId}`);
+          return axios.get(`${API_URL}qa/${prodId}`);
         })
-        .then(data => {
+        .then((data) => {
           var results = data.data.results;
           for (var item of results) {
             if (item.question_id === props.question.question_id) {
@@ -47,7 +46,7 @@ const Question = props => {
       <span className='helpfulness'>
         Helpful?
         <span
-          onClick={e => {
+          onClick={(e) => {
             handleClick(e);
             setClicked(true);
           }}

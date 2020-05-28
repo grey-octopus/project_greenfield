@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Images from './Images';
+import API_URL from '../../../config';
+
 var moment = require('moment');
 
-const Answer = props => {
+const Answer = (props) => {
   const [helpfulness, setHelpfulness] = useState(props.answer.helpfulness);
   const [clicked, setClicked] = useState(false);
   const [reported, setReported] = useState(false);
   const date = moment(props.answer.date).format('MMM Do YY');
-  const handleClick = e => {
+  const handleClick = (e) => {
     if (!clicked) {
       return axios
-        .put(`http://3.134.102.30/qa/answer/${props.answer.id}/helpful`)
+        .put(`${API_URL}qa/answer/${props.answer.id}/helpful`)
         .then(() => {
-          return axios.get(
-            `http://3.134.102.30/qa/${props.questionId}/answers`
-          );
+          return axios.get(`${API_URL}/qa/${props.questionId}/answers`);
         })
-        .then(data => {
+        .then((data) => {
           var results = data.data.results;
           for (var item of results) {
             if (item.answer_id === props.answer.id) {
@@ -31,11 +31,9 @@ const Answer = props => {
   const handleReport = () => {
     if (!reported) {
       return axios
-        .put(`http://3.134.102.30/qa/answer/${props.answer.id}/report`)
+        .put(`${API_URL}qa/answer/${props.answer.id}/report`)
         .then(() => {
-          return axios.get(
-            `http://3.134.102.30/qa/${props.questionId}/answers`
-          );
+          return axios.get(`${API_URL}qa/${props.questionId}/answers`);
         })
         .then(() => {
           setReported(true);
@@ -57,7 +55,7 @@ const Answer = props => {
         Helpful?
         <span
           id={props.answer.id}
-          onClick={e => {
+          onClick={(e) => {
             handleClick(e);
             setClicked(true);
           }}
@@ -67,7 +65,7 @@ const Answer = props => {
         </span>
         ({helpfulness || '#'})<span className='answer-space'>|</span>
         <span
-          onClick={e => {
+          onClick={(e) => {
             handleReport(e);
           }}
           className='underline'

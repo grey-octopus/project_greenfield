@@ -1,65 +1,66 @@
-import axios from "axios";
-import { getProductPrice, calculateAverageRating } from "./related_products.js";
+import axios from 'axios';
+import { getProductPrice, calculateAverageRating } from './related_products.js';
+import API_URL from '../../../config';
 
-export const ADD_ITEM_TO_OUTFIT = "ADD_ITEM_TO_OUTFIT";
-export const REMOVE_ITEM_FROM_OUTFIT = "REMOVE_ITEM_FROM_OUTFIT";
-export const GET_OUTFIT = "GET_OUTFIT";
+export const ADD_ITEM_TO_OUTFIT = 'ADD_ITEM_TO_OUTFIT';
+export const REMOVE_ITEM_FROM_OUTFIT = 'REMOVE_ITEM_FROM_OUTFIT';
+export const GET_OUTFIT = 'GET_OUTFIT';
 
-export const addItemToOutfit = item => {
-  let currentOutfitIds = JSON.parse(window.localStorage.getItem("myOutfit"));
+export const addItemToOutfit = (item) => {
+  let currentOutfitIds = JSON.parse(window.localStorage.getItem('myOutfit'));
   if (!Array.isArray(currentOutfitIds)) {
     currentOutfitIds = [];
   }
   currentOutfitIds.push(item.id);
-  window.localStorage.setItem("myOutfit", JSON.stringify(currentOutfitIds));
+  window.localStorage.setItem('myOutfit', JSON.stringify(currentOutfitIds));
   // reducer will generate new store using entire item object
   return { type: ADD_ITEM_TO_OUTFIT, item: item };
 };
 
-export const removeItemFromOutfit = id => {
-  let oldOutfitIds = JSON.parse(window.localStorage.getItem("myOutfit"));
+export const removeItemFromOutfit = (id) => {
+  let oldOutfitIds = JSON.parse(window.localStorage.getItem('myOutfit'));
   let location = oldOutfitIds.indexOf(id);
   oldOutfitIds.splice(location, 1);
-  window.localStorage.setItem("myOutfit", JSON.stringify(oldOutfitIds));
+  window.localStorage.setItem('myOutfit', JSON.stringify(oldOutfitIds));
   // reducer will generate find matching item from store and delete it
   return { type: REMOVE_ITEM_FROM_OUTFIT, id: id };
 };
 
 export const getMyOutfit = () => {
-  return dispatch => {
+  return (dispatch) => {
     return (
       new Promise((resolve, reject) => {
         // get outfit id's from localStorage
-        let myOutfit = JSON.parse(window.localStorage.getItem("myOutfit"));
+        let myOutfit = JSON.parse(window.localStorage.getItem('myOutfit'));
 
         // get assorted info for each outfit
-        let myOutfitInfoRequests = myOutfit.map(id => {
-          return axios.get(`http://3.134.102.30/products/${id}`);
+        let myOutfitInfoRequests = myOutfit.map((id) => {
+          return axios.get(`${API_URL}products/${id}`);
         });
-        let myOutfitStyleRequests = myOutfit.map(id => {
-          return axios.get(`http://3.134.102.30/products/${id}/styles`);
+        let myOutfitStyleRequests = myOutfit.map((id) => {
+          return axios.get(`${API_URL}products/${id}/styles`);
         });
-        let myOutfitReviewRequests = myOutfit.map(id => {
-          return axios.get(`http://3.134.102.30/reviews/${id}/meta`);
+        let myOutfitReviewRequests = myOutfit.map((id) => {
+          return axios.get(`${API_URL}reviews/${id}/meta`);
         });
 
         // resolve requests
         Promise.all([
           Promise.all(myOutfitInfoRequests),
           Promise.all(myOutfitStyleRequests),
-          Promise.all(myOutfitReviewRequests)
+          Promise.all(myOutfitReviewRequests),
         ])
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
           })
-          .then(requests => {
+          .then((requests) => {
             // iterate over myOutiftInfoRequests
             let myOutfitItems = [];
             requests[0].forEach(({ data }) => {
               myOutfitItems.push({
                 id: data.id,
                 category: data.category,
-                name: data.name
+                name: data.name,
               });
             });
 
@@ -80,14 +81,14 @@ export const getMyOutfit = () => {
             resolve(myOutfitItems);
           });
       })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         })
         // dispatch action
-        .then(outfit => {
+        .then((outfit) => {
           dispatch({
             type: GET_OUTFIT,
-            outfit: outfit
+            outfit: outfit,
           });
         })
     );

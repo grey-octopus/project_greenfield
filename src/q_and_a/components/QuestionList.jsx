@@ -3,8 +3,9 @@ import Question from './Question';
 import { useParams } from 'react-router-dom';
 import AddAQuestion from './AddAQuestion';
 import axios from 'axios';
+import API_URL from '../../../config';
 
-const QuestionList = props => {
+const QuestionList = (props) => {
   const { prodId } = useParams();
   const [count, setCount] = useState(4);
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,7 +14,7 @@ const QuestionList = props => {
   let filtered;
 
   useEffect(() => {
-    axios.get(`http://3.134.102.30/qa/${prodId}?count=200`).then(data => {
+    axios.get(`${API_URL}qa/${prodId}?count=200`).then((data) => {
       setFilter(data.data.results);
       setQuestionList(data.data.results);
     });
@@ -28,11 +29,11 @@ const QuestionList = props => {
             className='question-input'
             type='text'
             placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
-            onChange={e => {
+            onChange={(e) => {
               let term = e.target.value.toLowerCase();
               setSearchTerm(term);
               if (term.length >= 3) {
-                filtered = questionList.filter(q => {
+                filtered = questionList.filter((q) => {
                   return q.question_body.toLowerCase().includes(term);
                 });
                 setFilter(filtered);
