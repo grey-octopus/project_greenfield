@@ -11,7 +11,8 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -d --watch",
     "build-prod": "webpack -p --mode production",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "start": "webpack -p --mode product && node server.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
